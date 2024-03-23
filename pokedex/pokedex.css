@@ -371,6 +371,7 @@ body {
 
 .stat-sort{
     width: 50px;
+    visibility: hidden;
 }
 
 .sorting {
