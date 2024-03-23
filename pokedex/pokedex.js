@@ -78,4 +78,36 @@ function searchUpdate(){
             button.style.display = 'flex';
         });
     }
+
+    sortStatType = document.querySelector('.stat-sort').value
+
+    if (sortStatType == "BST") {
+        const n = buttons.length;
+        let swapped;
+        do {
+            swapped = false;
+            for (let i = 0; i < n - 1; i++) {
+                if (buttons[i].style.display != 'none'){
+                    const statTextContent1 = +buttons[i].querySelector('button .pokemon-stat').textContent;
+                    const statTextContent2 = +buttons[i + 1].querySelector('button .pokemon-stat').textContent;
+    
+                    if (statTextContent1 < statTextContent2) {
+                        const nextButton = buttons[i + 1];
+                        buttons[i].parentNode.insertBefore(nextButton, buttons[i]);
+                        swapped = true;
+                    }
+                }
+            }
+        } while (swapped);
+    }
+}
+
+function openLeftMenu(){
+    console.log('q')
+    if(document.querySelector('.left-menu').style.transform == 'translateX(-410px)'){
+        document.querySelector('.left-menu').style.transform = 'translateX(0px)';
+    }
+    else{
+        document.querySelector('.left-menu').style.transform = 'translateX(-410px)';
+    }
 }

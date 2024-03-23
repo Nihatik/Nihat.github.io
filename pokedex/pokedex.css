@@ -31,20 +31,21 @@ body {
 }
 
 .left-menu {
-    top: -52px;
+    top: 0;
     display: block;
     box-shadow: 0 0 7px 1px #111;
-    background-color: #424242;
+    background-color: #3b3b3b; /* Цвет фона для трека прокрутки */
     z-index: 10;
     position: relative;
-    transform: translateX(-360px);
+    transform: translateX(0px);
     border-radius: 6px;
     border-left: none;
     border-top: none;
     border-bottom: none;
+    border-top-right-radius: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    width: 374px;
+    width: 424px;
     box-sizing: border-box;
     height: 100vh;
     transition: transform 1s ease-in-out;
@@ -53,7 +54,7 @@ body {
 .pokemons-list {
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 93%;
+    height: 94%;
 }
 
 
@@ -62,12 +63,11 @@ body {
 
 .left-menu:hover {
     position: relative;
-    transform: translateX(0px);
     transition: transform 0.5s ease-in-out;
 }
 
 
-.left-menu button {
+.left-menu .pokemons-list button {
     border: none;
     color: white;
     background-color: #2e2e2e;
@@ -76,7 +76,7 @@ body {
     border-left: none;
     border-top: none;
     border-right: none;
-    width: 360px;
+    width: 410px;
     height: 36px;
     transition: 0.3s;
     display: flex;
@@ -94,17 +94,40 @@ body {
 }
 
 .left-menu-top {
-    
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    height: 5%;
+    height: 42px;
+    width: 474px;
 }
 
 .xzpoka {
     width: 14px;
+}
+
+.open-button {
+    width: 50px;
+    border: none;
+    color: white;
+    background-color: #3b3b3b; /* Цвет фона для трека прокрутки */
+    border-radius: 8px;
+    border-left: none;
+    margin: 0;
+    border-top: none;
+    border-right: none;
+    transition: 0.3s;
+    display: flex;
     height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.open-button:hover {
+    background-color: rgb(55, 55, 55); /* Цвет фона для трека прокрутки */
 }
 
 .search {
@@ -112,7 +135,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    width: 360px;
+    width: 410px;
     height: 100%;
 }
 
@@ -147,6 +170,10 @@ body {
     text-align: center;
     width: 50px;
 }
+.pokemon-stat {
+    text-align: center;
+    width: 50px;
+}
 
 
 .pokemon-types {
@@ -157,8 +184,8 @@ body {
 }
 
 
-.left-menu button:hover {
-    background-color: #3f3f3f;
+.left-menu .pokemons-list button:hover {
+    background-color: #3b3b3b; /* Цвет фона для трека прокрутки */
 }
 
 #type-img {
@@ -166,9 +193,11 @@ body {
 }
 
 .pokemon-info {
+    position: relative;
     width: 55%;
     height: 50%;
-    left: -300px;
+    left: 0px;
+    top: 40px;
     bottom: -100px;
     padding: 20px;
 }
@@ -332,7 +361,6 @@ body {
     text-align: right;
 }
 
-
 .type-sort {
     width: 80px;
 }
@@ -341,7 +369,19 @@ body {
     width: 50px;
 }
 
+.stat-sort{
+    width: 50px;
+}
+
 .sorting {
     display: flex;
     flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+}
+
+table{
+    border-collapse: collapse;
 }
