@@ -135,7 +135,7 @@ def generate_pokemon_page(pokemon):
                         </div>
                         <div class="xzpoka">
                         </div>
-                        <button class="open-button" click="openLeftMenu()">
+                        <button class="open-button" onclick="openLeftMenu()">
                             <img src="../img/pokeball.gif">
                         </button>
                     </div>
