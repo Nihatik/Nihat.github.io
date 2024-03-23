@@ -212,7 +212,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 385px;
+    width: 390px;
 }
 
 .pokemon-stats {
@@ -220,7 +220,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 385px;
+    width: 390px;
 }
 
 .pokemon-info-top {
