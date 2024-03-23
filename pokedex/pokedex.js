@@ -18,3 +18,6 @@ function searchUpdate(){
         });
     }
 }
+
+
+document.querySelector('.left-menu').style.transform = 'translateX(0px)';
