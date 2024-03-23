@@ -31,21 +31,33 @@ body {
 }
 
 .left-menu {
+    top: -52px;
+    display: block;
     box-shadow: 0 0 7px 1px #111;
     background-color: #424242;
     z-index: 10;
     position: relative;
-    transform: translateX(-280px);
-    border-radius: 8px;
+    transform: translateX(-360px);
+    border-radius: 6px;
     border-left: none;
     border-top: none;
     border-bottom: none;
-    width: 380px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 374px;
     box-sizing: border-box;
     height: 100vh;
-    overflow-y: scroll;
-    transition: transform 0.8s ease-in-out;
+    transition: transform 1s ease-in-out;
 }
+
+.pokemons-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 93%;
+}
+
+
+
 
 
 .left-menu:hover {
@@ -64,7 +76,7 @@ body {
     border-left: none;
     border-top: none;
     border-right: none;
-    width: 366px;
+    width: 360px;
     height: 36px;
     transition: 0.3s;
     display: flex;
@@ -81,21 +93,39 @@ body {
     box-sizing: border-box;
 }
 
+.left-menu-top {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 5%;
+}
+
+.xzpoka {
+    width: 14px;
+    height: 100%;
+}
 
 .search {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 32px;
+    flex-direction: row;
+    width: 360px;
+    height: 100%;
 }
 
 .search input {
-    padding: 12px;
+    padding: 4px;
+}
+
+.search input, select {
     border: 1px solid gray;
     color: white;
     background-color: #2e2e2e;
-    width: 320px;
-    height: 16px;
+    width: 231px;
+    height: 24px;
     transition: 0.3s;
     display: flex;
     flex-direction: row;
@@ -105,7 +135,7 @@ body {
 }
 
 .pokemon-icon {
-    width: 60px;
+    width: 50px;
 }
 
 .pokemon-name {
@@ -115,7 +145,7 @@ body {
 
 .pokemon-points {
     text-align: center;
-    width: 60px;
+    width: 50px;
 }
 
 
@@ -138,8 +168,8 @@ body {
 .pokemon-info {
     width: 55%;
     height: 50%;
-    position: relative;
-    left: -260px;
+    left: -300px;
+    bottom: -100px;
     padding: 20px;
 }
 
@@ -300,4 +330,18 @@ body {
     padding: 0px 16px 4px 4px;
     width: 80px;
     text-align: right;
+}
+
+
+.type-sort {
+    width: 80px;
+}
+
+.points-sort {
+    width: 50px;
+}
+
+.sorting {
+    display: flex;
+    flex-direction: row;
 }

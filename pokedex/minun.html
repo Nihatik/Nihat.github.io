@@ -34,11 +34,48 @@
             </header>
             <div class="main">
                 <div class="left-menu">
-                    <ul>
-                    <div class="search">
-                        <input type="search" oninput="searchUpdate()">
+                    <div class="left-menu-top">
+                        <div class="search">
+                            <input type="search" oninput="searchUpdate()">
+                            <div class="sorting">
+                                <select class="type-sort" onchange="searchUpdate()">
+                                    <option value="None">None</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Fire">Fire</option>
+                                    <option value="Water">Water</option>
+                                    <option value="Grass">Grass</option>
+                                    <option value="Electric">Electric</option>
+                                    <option value="Ice">Ice</option>
+                                    <option value="Fighting">Fighting</option>
+                                    <option value="Poison">Poison</option>
+                                    <option value="Ground">Ground</option>
+                                    <option value="Flying">Flying</option>
+                                    <option value="Psychic">Psychic</option>
+                                    <option value="Bug">Bug</option>
+                                    <option value="Rock">Rock</option>
+                                    <option value="Ghost">Ghost</option>
+                                    <option value="Dragon">Dragon</option>
+                                    <option value="Dark">Dark</option>
+                                    <option value="Steel">Steel</option>
+                                    <option value="Fairy">Fairy</option>
+                                </select>
+                                <select class="points-sort" onchange="searchUpdate()">
+                                    <option value="No">No</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="xzpoka"></div>
                     </div>
-                        
+                    <div class="pokemons-list">
+                        <ul>
+                            
                 <li class="buttons">
                     <a href="bulbasaur.html">
                     <button>
@@ -100,6 +137,22 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
                         </div>
                         <p class="pokemon-points">3</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="venusaur-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -0px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Venusaur-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -184,6 +237,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="charizard-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -240px -0px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Charizard-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="squirtle.html">
                     <button>
                         <div class="pokemon-icon">
@@ -248,6 +317,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="blastoise-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -0px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Blastoise-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="caterpie.html">
                     <button>
                         <div class="pokemon-icon">
@@ -292,6 +377,22 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
                         </div>
                         <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="butterfree-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -0px -30px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Butterfree-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -600,6 +701,86 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="pikachu-rock-star.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -60px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Pikachu-Rock-Star</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="pikachu-belle.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -60px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Pikachu-Belle</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="pikachu-pop-star.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -60px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Pikachu-Pop-Star</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="pikachu-phd.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -60px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Pikachu-PhD</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="pikachu-libre.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -60px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Pikachu-Libre</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="pikachu-original.html">
                     <button>
                         <div class="pokemon-icon">
@@ -719,6 +900,22 @@
                             </span>
                         </div>
                         <p class="pokemon-name">Pikachu-Starter</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="pikachu-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -60px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Pikachu-Gmax</p>
                         <div class="pokemon-types">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
                             
@@ -1320,6 +1517,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="meowth-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -160px -120px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Meowth-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Normal.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="persian.html">
                     <button>
                         <div class="pokemon-icon">
@@ -1636,6 +1849,22 @@
                             
                         </div>
                         <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="machamp-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -320px -150px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Machamp-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fighting.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -2248,6 +2477,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="gengar-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -400px -210px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Gengar-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="onix.html">
                     <button>
                         <div class="pokemon-icon">
@@ -2324,6 +2569,22 @@
                             
                         </div>
                         <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="kingler-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -240px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Kingler-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -2643,7 +2904,7 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Normal.png">
                             
                         </div>
-                        <p class="pokemon-points">3</p>
+                        <p class="pokemon-points">2</p>
                     </button></a>
                 </li>
             
@@ -3048,6 +3309,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="lapras-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -300px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Lapras-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ice.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="ditto.html">
                     <button>
                         <div class="pokemon-icon">
@@ -3087,6 +3364,22 @@
                             </span>
                         </div>
                         <p class="pokemon-name">Eevee-Starter</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Normal.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="eevee-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -330px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Eevee-Gmax</p>
                         <div class="pokemon-types">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Normal.png">
                             
@@ -3268,6 +3561,22 @@
                             
                         </div>
                         <p class="pokemon-points">2</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="snorlax-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -330px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Snorlax-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Normal.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -7880,6 +8189,54 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="deoxys-attack.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -80px -960px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Deoxys-Attack</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            
+                        </div>
+                        <p class="pokemon-points">3</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="deoxys-defense.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -80px -960px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Deoxys-Defense</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            
+                        </div>
+                        <p class="pokemon-points">2</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="deoxys-speed.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -80px -960px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Deoxys-Speed</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            
+                        </div>
+                        <p class="pokemon-points">3</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="turtwig.html">
                     <button>
                         <div class="pokemon-icon">
@@ -9496,6 +9853,86 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="rotom-heat.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -1170px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Rotom-Heat</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                        </div>
+                        <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="rotom-wash.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -1170px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Rotom-Wash</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                        </div>
+                        <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="rotom-frost.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -1170px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Rotom-Frost</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ice.png">
+                        </div>
+                        <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="rotom-fan.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -1170px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Rotom-Fan</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="rotom-mow.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -1170px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Rotom-Mow</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                        </div>
+                        <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="uxie.html">
                     <button>
                         <div class="pokemon-icon">
@@ -9560,6 +9997,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="dialga-origin.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -1200px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Dialga-Origin</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                        </div>
+                        <p class="pokemon-points">3</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="palkia.html">
                     <button>
                         <div class="pokemon-icon">
@@ -9567,6 +10020,22 @@
                             </span>
                         </div>
                         <p class="pokemon-name">Palkia</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                        </div>
+                        <p class="pokemon-points">3</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="palkia-origin.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -160px -1200px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Palkia-Origin</p>
                         <div class="pokemon-types">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
@@ -9615,6 +10084,22 @@
                             </span>
                         </div>
                         <p class="pokemon-name">Giratina</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                        </div>
+                        <p class="pokemon-points">3</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="giratina-origin.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -280px -1200px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Giratina-Origin</p>
                         <div class="pokemon-types">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
@@ -9704,6 +10189,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="shaymin-sky.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -0px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Shaymin-Sky</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">3</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="arceus.html">
                     <button>
                         <div class="pokemon-icon">
@@ -9713,6 +10214,278 @@
                         <p class="pokemon-name">Arceus</p>
                         <div class="pokemon-types">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Normal.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-bug.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Bug</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-dark.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Dark</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dark.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-dragon.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Dragon</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-electric.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Electric</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-fairy.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Fairy</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-fighting.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Fighting</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fighting.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-fire.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Fire</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-flying.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Flying</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-ghost.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Ghost</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-grass.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Grass</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-ground.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Ground</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ground.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-ice.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Ice</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ice.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-poison.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Poison</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-psychic.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Psychic</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-rock.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Rock</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Rock.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-steel.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Steel</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                            
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="arceus-water.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1230px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Arceus-Water</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
                             
                         </div>
                         <p class="pokemon-points">4</p>
@@ -11096,6 +11869,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="garbodor-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1410px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Garbodor-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="zorua.html">
                     <button>
                         <div class="pokemon-icon">
@@ -12312,6 +13101,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="tornadus-therian.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1590px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Tornadus-Therian</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                            
+                        </div>
+                        <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="thundurus.html">
                     <button>
                         <div class="pokemon-icon">
@@ -12319,6 +13124,22 @@
                             </span>
                         </div>
                         <p class="pokemon-name">Thundurus</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="thundurus-therian.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -240px -1590px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Thundurus-Therian</p>
                         <div class="pokemon-types">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
@@ -12376,6 +13197,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="landorus-therian.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -1590px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Landorus-Therian</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ground.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">2</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="kyurem.html">
                     <button>
                         <div class="pokemon-icon">
@@ -12392,6 +13229,38 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="kyurem-black.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -400px -1590px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Kyurem-Black</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ice.png">
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="kyurem-white.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -400px -1590px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Kyurem-White</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ice.png">
+                        </div>
+                        <p class="pokemon-points">3</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="keldeo.html">
                     <button>
                         <div class="pokemon-icon">
@@ -12404,6 +13273,22 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fighting.png">
                         </div>
                         <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="keldeo-resolute.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -1590px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Keldeo-Resolute</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fighting.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -12452,6 +13337,70 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
                         </div>
                         <p class="pokemon-points">2</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="genesect-douse.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1620px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Genesect-Douse</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="genesect-shock.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1620px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Genesect-Shock</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="genesect-burn.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1620px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Genesect-Burn</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="genesect-chill.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -1620px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Genesect-Chill</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -13827,7 +14776,23 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ground.png">
                         </div>
-                        <p class="pokemon-points">2</p>
+                        <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="zygarde-10%.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -400px -1770px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Zygarde-10%</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ground.png">
+                        </div>
+                        <p class="pokemon-points">1</p>
                     </button></a>
                 </li>
             
@@ -13892,6 +14857,22 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
                         </div>
                         <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="hoopa-unbound.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -0px -1800px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Hoopa-Unbound</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dark.png">
+                        </div>
+                        <p class="pokemon-points">2</p>
                     </button></a>
                 </li>
             
@@ -14273,6 +15254,54 @@
                         <p class="pokemon-name">Oricorio</p>
                         <div class="pokemon-types">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="oricorio-pom-pom.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -1830px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Oricorio-Pom-Pom</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="oricorio-pa'u.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -1830px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Oricorio-Pa'u</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="oricorio-sensu.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -1830px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Oricorio-Sensu</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
                         </div>
                         <p class="pokemon-points">0</p>
@@ -14904,6 +15933,278 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="silvally-bug.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Bug</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-dark.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Dark</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dark.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-dragon.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Dragon</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-electric.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Electric</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-fairy.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Fairy</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-fighting.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Fighting</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fighting.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-fire.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Fire</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-flying.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Flying</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-ghost.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Ghost</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-grass.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Grass</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-ground.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Ground</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ground.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-ice.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Ice</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ice.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-poison.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Poison</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-psychic.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Psychic</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-rock.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Rock</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Rock.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-steel.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Steel</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="silvally-water.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -1920px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Silvally-Water</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="minior.html">
                     <button>
                         <div class="pokemon-icon">
@@ -15432,6 +16733,38 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="necrozma-dusk-mane.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -320px -1980px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Necrozma-Dusk-Mane</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="necrozma-dawn-wings.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -320px -1980px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Necrozma-Dawn-Wings</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="necrozma-ultra.html">
                     <button>
                         <div class="pokemon-icon">
@@ -15608,6 +16941,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="melmetal-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -2010px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Melmetal-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="grookey.html">
                     <button>
                         <div class="pokemon-icon">
@@ -15652,6 +17001,22 @@
                             
                         </div>
                         <p class="pokemon-points">2</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="rillaboom-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -320px -2010px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Rillaboom-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -15704,6 +17069,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="cinderace-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -2010px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Cinderace-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="sobble.html">
                     <button>
                         <div class="pokemon-icon">
@@ -15748,6 +17129,22 @@
                             
                         </div>
                         <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="inteleon-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -80px -2040px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Inteleon-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -15832,6 +17229,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="corviknight-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -280px -2040px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Corviknight-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="blipbug.html">
                     <button>
                         <div class="pokemon-icon">
@@ -15876,6 +17289,22 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
                         </div>
                         <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="orbeetle-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -400px -2040px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Orbeetle-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -16008,6 +17437,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="drednaw-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -240px -2070px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Drednaw-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Rock.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="yamper.html">
                     <button>
                         <div class="pokemon-icon">
@@ -16088,6 +17533,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="coalossal-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -2070px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Coalossal-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Rock.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="applin.html">
                     <button>
                         <div class="pokemon-icon">
@@ -16120,6 +17581,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="flapple-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -40px -2100px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Flapple-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="appletun.html">
                     <button>
                         <div class="pokemon-icon">
@@ -16132,6 +17609,22 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
                         </div>
                         <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="appletun-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -80px -2100px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Appletun-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -16164,6 +17657,22 @@
                             
                         </div>
                         <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="sandaconda-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -160px -2100px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Sandaconda-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ground.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -16296,6 +17805,38 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="toxtricity-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -2100px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Toxtricity-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="toxtricity-low-key-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -2100px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Toxtricity-Low-Key-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Electric.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="sizzlipede.html">
                     <button>
                         <div class="pokemon-icon">
@@ -16324,6 +17865,22 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
                         </div>
                         <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="centiskorch-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -440px -2100px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Centiskorch-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Bug.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -16472,6 +18029,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="hatterene-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -240px -2130px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Hatterene-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="impidimp.html">
                     <button>
                         <div class="pokemon-icon">
@@ -16516,6 +18089,22 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
                         </div>
                         <p class="pokemon-points">1</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="grimmsnarl-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -2130px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Grimmsnarl-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dark.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -16644,6 +18233,22 @@
                             
                         </div>
                         <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="alcremie-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -2160px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Alcremie-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
                     </button></a>
                 </li>
             
@@ -16856,6 +18461,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="copperajah-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -2190px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Copperajah-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                            
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="dracozolt.html">
                     <button>
                         <div class="pokemon-icon">
@@ -16936,6 +18557,22 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="duraludon-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -320px -2190px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Duraludon-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Steel.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="dreepy.html">
                     <button>
                         <div class="pokemon-icon">
@@ -16995,7 +18632,7 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
                             
                         </div>
-                        <p class="pokemon-points">5</p>
+                        <p class="pokemon-points">4</p>
                     </button></a>
                 </li>
             
@@ -17128,6 +18765,38 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="urshifu-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -160px -2220px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Urshifu-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fighting.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dark.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="urshifu-rapid-strike-gmax.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -160px -2220px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Urshifu-Rapid-Strike-Gmax</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fighting.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="zarude.html">
                     <button>
                         <div class="pokemon-icon">
@@ -17236,6 +18905,38 @@
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
                         </div>
                         <p class="pokemon-points">0</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="calyrex-ice.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -400px -2220px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Calyrex-Ice</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ice.png">
+                        </div>
+                        <p class="pokemon-points">4</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="calyrex-shadow.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -400px -2220px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Calyrex-Shadow</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Psychic.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ghost.png">
+                        </div>
+                        <p class="pokemon-points">6</p>
                     </button></a>
                 </li>
             
@@ -17375,6 +19076,22 @@
                             </span>
                         </div>
                         <p class="pokemon-name">Enamorus</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
+                        </div>
+                        <p class="pokemon-points">2</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="enamorus-therian.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -200px -2250px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Enamorus-Therian</p>
                         <div class="pokemon-types">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fairy.png">
                             <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Flying.png">
@@ -19336,6 +21053,54 @@
                 </li>
             
                 <li class="buttons">
+                    <a href="ogerpon-wellspring.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -2520px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Ogerpon-Wellspring</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Water.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="ogerpon-hearthflame.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -2520px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Ogerpon-Hearthflame</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Fire.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
+                    <a href="ogerpon-cornerstone.html">
+                    <button>
+                        <div class="pokemon-icon">
+                            <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -2520px;">
+                            </span>
+                        </div>
+                        <p class="pokemon-name">Ogerpon-Cornerstone</p>
+                        <div class="pokemon-types">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                            <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Rock.png">
+                        </div>
+                        <p class="pokemon-points">None</p>
+                    </button></a>
+                </li>
+            
+                <li class="buttons">
                     <a href="ogerpon-teal-tera.html">
                     <button>
                         <div class="pokemon-icon">
@@ -19559,7 +21324,8 @@
                     </button></a>
                 </li>
             
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
                 <div class="pokemon-info">
                     <h1 class="block-inline">Minun</h1>

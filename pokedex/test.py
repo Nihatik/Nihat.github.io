@@ -43,7 +43,7 @@ def iconLocation(number):
 
 li_elements = ""
 for idx, poke in enumerate(data):
-        if not poke['changesFrom'] and poke['num'] < 1026 and poke['num'] > 0:
+        if poke['num'] < 1026 and poke['num'] > 0:
             poketypes = json.loads(poke['types'])
             li_elements += f'''
                 <li class="buttons">
@@ -107,12 +107,50 @@ def generate_pokemon_page(pokemon):
             </header>
             <div class="main">
                 <div class="left-menu">
-                    <ul>
-                    <div class="search">
-                        <input type="search" oninput="searchUpdate()">
+                    <div class="left-menu-top">
+                        <div class="search">
+                            <input type="search" oninput="searchUpdate()">
+                            <div class="sorting">
+                                <select class="type-sort" onchange="searchUpdate()">
+                                    <option value="None">None</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Fire">Fire</option>
+                                    <option value="Water">Water</option>
+                                    <option value="Grass">Grass</option>
+                                    <option value="Electric">Electric</option>
+                                    <option value="Ice">Ice</option>
+                                    <option value="Fighting">Fighting</option>
+                                    <option value="Poison">Poison</option>
+                                    <option value="Ground">Ground</option>
+                                    <option value="Flying">Flying</option>
+                                    <option value="Psychic">Psychic</option>
+                                    <option value="Bug">Bug</option>
+                                    <option value="Rock">Rock</option>
+                                    <option value="Ghost">Ghost</option>
+                                    <option value="Dragon">Dragon</option>
+                                    <option value="Dark">Dark</option>
+                                    <option value="Steel">Steel</option>
+                                    <option value="Fairy">Fairy</option>
+                                </select>
+                                <select class="points-sort" onchange="searchUpdate()">
+                                    <option value="No">No</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="xzpoka"></div>
                     </div>
-                        {li_elements}
-                    </ul>
+                    <div class="pokemons-list">
+                        <ul>
+                            {li_elements}
+                        </ul>
+                    </div>
                 </div>
                 <div class="pokemon-info">
                     <h1 class="block-inline">{pokemon['name']}</h1>
@@ -206,7 +244,7 @@ def generate_pokemon_page(pokemon):
     return html
 
 for pokemon in data:
-    if not pokemon['changesFrom'] and pokemon['num'] < 1026 and pokemon['num'] > 0:
+    if pokemon['num'] < 1026 and pokemon['num'] > 0:
         page_content = generate_pokemon_page(pokemon)
-        with open(pokemon['name'].lower() + '.html', 'w', encoding='utf-8') as file:
+        with open(pokemon['name'].replace("%","").lower() + '.html', 'w', encoding='utf-8') as file:
             file.write(page_content)

@@ -22,6 +22,36 @@ header {
 }
 
 
+::-webkit-scrollbar {
+    width: 14px; /* Ширина полосы прокрутки */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(92, 92, 92); /* Цвет полосы прокрутки */
+    border-radius: 5px; /* Скругление углов полосы прокрутки */
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px; /* Скругление углов полосы прокрутки */
+    background-color: #3b3b3b; /* Цвет фона для трека прокрутки */
+}
+
+/* Для браузеров Microsoft (например, Microsoft Edge) */
+::-ms-scrollbar {
+    border-radius: 5px; /* Скругление углов полосы прокрутки */
+    width: 14px; /* Ширина полосы прокрутки */
+}
+
+::-ms-scrollbar-thumb {
+    background-color: #424242; /* Цвет полосы прокрутки */
+    border-radius: 5px; /* Скругление углов полосы прокрутки */
+}
+
+::-ms-scrollbar-track {
+    background-color: #000000; /* Цвет фона для трека прокрутки */
+}
+
+
 .Logo,
 #navbar {
     margin-right: 90px;
