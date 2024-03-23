@@ -11,6 +11,8 @@ def fetch_data_from_db(db_path):
         cursor.execute("SELECT * FROM pokemons")  # Замените "your_table_name" на имя вашей таблицы
         # Получаем все строки из результата запроса
         rows = cursor.fetchall()
+        
+        # Формируем список словарей, представляющих строки данных
         data = []
         for row in rows:
             row_dict = {}
@@ -43,7 +45,6 @@ li_elements = ""
 for idx, poke in enumerate(data):
         if poke['num'] < 1026 and poke['num'] > 0:
             poketypes = json.loads(poke['types'])
-            pokestats = json.loads(poke['baseStats'])
             li_elements += f'''
                 <li class="buttons">
                     <a href="{poke['name'].lower()}.html">
@@ -58,7 +59,6 @@ for idx, poke in enumerate(data):
                             {'<img id="type-img" src="' + typesBase + poketypes[1] + '.png">' if len(poketypes) > 1 else ''}
                         </div>
                         <p class="pokemon-points">{poke['points']}</p>
-                        <p class="pokemon-stat">{pokestats['hp'] + pokestats['atk'] + pokestats['def'] + pokestats['spa'] + pokestats['spd'] + pokestats['spe']}</p>
                     </button></a>
                 </li>
             '''
@@ -84,6 +84,27 @@ def generate_pokemon_page(pokemon):
             <script src="pokedex.js"></script>
         </head>
         <body>
+            <header>
+                <div class="All_header_menu">
+                    <div class="Logo">
+                        <img src="../img/pokeball.png">
+                    </div>
+                    <ul id="navbar">
+                        <li><a href="../index.html">Главная</a></li>
+                        <li>
+                            <a>Покедекс</a>
+                            <ul>
+                                <li><a href="bulbasaur.html">Покемоны</a></li>
+                                <li><a href="moves.html">Атаки</a></li>
+                                <li><a href="abilities.html">Способности</a></li>
+                                <li><a href="types.html">Типы</a></li>
+                            </ul> 
+                        </li>
+                        <li><a href="../help.html">Поддержка</a></li>
+                        <li><a href="../register.html">Войти/Регистрация</a></li>
+                    </ul>
+                </div>
+            </header>
             <div class="main">
                 <div class="left-menu">
                     <div class="left-menu-top">
@@ -121,23 +142,9 @@ def generate_pokemon_page(pokemon):
                                     <option value="5">5</option>
                                     <option value="6">6</option>
                                 </select>
-                                <select class="stat-sort" onchange="searchUpdate()">
-                                    <option value="No">No</option>
-                                    <option value="BST">BST</option>
-                                    <option value="1">HP</option>
-                                    <option value="2">Atk</option>
-                                    <option value="3">Def</option>
-                                    <option value="4">SpA</option>
-                                    <option value="5">SpD</option>
-                                    <option value="6">Spe</option>
-                                </select>
                             </div>
                         </div>
-                        <div class="xzpoka">
-                        </div>
-                        <button class="open-button" onclick="openLeftMenu()">
-                            <img src="../img/pokeball.gif">
-                        </button>
+                        <div class="xzpoka"></div>
                     </div>
                     <div class="pokemons-list">
                         <ul>
