@@ -45,6 +45,14 @@ body {
     height: 100vh;
     overflow-y: scroll;
     transition: transform 0.8s ease-in-out;
+    animation: left-menu-close 0.5s;
+
+}
+
+
+@keyframes left-menu-close {
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(-280px); }
 }
 
 .left-menu:hover {
