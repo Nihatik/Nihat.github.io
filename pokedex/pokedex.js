@@ -28,7 +28,7 @@ function searchUpdate(){
             }
 
             if (inputValue && typeSortValue != 'None' && pointsSortValue != null) {
-                if (nameTextContent.startsWith(inputValue) && pointsTextContent == pointsSortValue && (typesTextSrc.some(element => element.includes(typeSortValue)))) {
+                if ((nameTextContent.startsWith(inputValue) || nameTextContent.includes(inputValue)) && pointsTextContent == pointsSortValue && (typesTextSrc.some(element => element.includes(typeSortValue)))) {
                     button.style.display = 'flex';
                 } 
                 else {
@@ -36,7 +36,7 @@ function searchUpdate(){
                 }
             }
             else if (inputValue && pointsSortValue != null){
-                if (nameTextContent.startsWith(inputValue) && pointsTextContent == pointsSortValue) {
+                if ((nameTextContent.startsWith(inputValue) || nameTextContent.includes(inputValue)) && pointsTextContent == pointsSortValue) {
                     button.style.display = 'flex';
                 } 
                 else {
@@ -44,7 +44,7 @@ function searchUpdate(){
                 }
             }
             else if (inputValue && typeSortValue != 'None'){
-                if (nameTextContent.startsWith(inputValue) && (typesTextSrc.some(element => element.includes(typeSortValue)))) {
+                if ((nameTextContent.startsWith(inputValue) || nameTextContent.includes(inputValue)) && (typesTextSrc.some(element => element.includes(typeSortValue)))) {
                     button.style.display = 'flex';
                 } 
                 else {
@@ -59,7 +59,7 @@ function searchUpdate(){
                     button.style.display = 'none';
                 }
             }
-            else if (inputValue && nameTextContent.startsWith(inputValue)){
+            else if (inputValue && (nameTextContent.startsWith(inputValue) || nameTextContent.includes(inputValue))){
                 button.style.display = 'flex';
             }
             else if (pointsTextContent == pointsSortValue){
@@ -75,7 +75,7 @@ function searchUpdate(){
     }
     else {
         buttons.forEach(button => {
-            button.style.display = 'flex';
+            button.style.display = 'none';
         });
     }
 
