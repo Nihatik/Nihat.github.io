@@ -45,8 +45,8 @@ body {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    width: 424px;
     box-sizing: border-box;
+    width: 414px;
     height: 100vh;
     transition: transform 1s ease-in-out;
 }
@@ -54,6 +54,8 @@ body {
 .pokemons-list {
     overflow-y: scroll;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
     height: 94%;
 }
 
@@ -66,8 +68,7 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-
-.left-menu .pokemons-list button {
+.pokemons-list button {
     border: none;
     color: white;
     background-color: #2e2e2e;
@@ -76,13 +77,16 @@ body {
     border-left: none;
     border-top: none;
     border-right: none;
-    width: 410px;
-    height: 36px;
     transition: 0.3s;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.pokemons-list ul li button {
+    width: 410px;
+    height: 36px;
 }
 
 .main {
@@ -98,12 +102,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    height: 42px;
-    width: 474px;
+    height: 40px;
+    width: 464px;
 }
 
 .xzpoka {
     width: 14px;
+    height: 100%;
 }
 
 .open-button {
@@ -132,10 +137,9 @@ body {
 
 .search {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
-    width: 410px;
+    align-items: center;
+    width: 400px;
     height: 100%;
 }
 
@@ -147,7 +151,7 @@ body {
     border: 1px solid gray;
     color: white;
     background-color: #2e2e2e;
-    width: 231px;
+    width: 200px;
     height: 24px;
     transition: 0.3s;
     display: flex;
@@ -158,12 +162,26 @@ body {
 }
 
 .pokemon-icon {
-    width: 50px;
+    width: 40px;
+    transition: 0.3s;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.pokemon-icon img {
+    width: 20px;
+}
+
+.search button:hover{
+    transform: scale(1.1);
 }
 
 .pokemon-name {
     text-align: left;
-    width: 180px;
+    width: 200px;
 }
 
 .pokemon-points {
@@ -177,10 +195,7 @@ body {
 
 
 .pokemon-types {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    width: 80px;
+    width: 75px;
 }
 
 
@@ -361,8 +376,14 @@ body {
     text-align: right;
 }
 
-.type-sort {
+select.type-sort {
     width: 80px;
+}
+
+select.type-sort option {
+    background-repeat: no-repeat; /* Отключаем повторение фонового изображения */
+    background-size: 8px; /* Размер фонового изображения */
+    height: 40px;
 }
 
 .points-sort {
@@ -371,10 +392,18 @@ body {
 
 .stat-sort{
     width: 50px;
-    visibility: hidden;
 }
 
-.sorting {
+.ability-filter {
+    width: 231px;
+}
+
+.move-filter{
+    display: none;
+}
+
+
+.filters {
     display: flex;
     flex-direction: row;
 }
@@ -383,6 +412,41 @@ a{
     text-decoration: none;
 }
 
-table{
+#pokemonTable {
+    border-spacing: 0;
+    width: 100%;
     border-collapse: collapse;
+    height: 36px;
+    font-size: 13px;
 }
+
+#pokemonTable tr,
+#pokemonTable td {
+    height: 36px;
+    max-height: 36px;
+}
+
+
+
+#pokemonTable tr.button-like {
+    cursor: default;
+    background-color: #2e2e2e;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+  
+#pokemonTable tr.button-like:hover {
+    background-color: #3b3b3b;
+}
+
+#pokemonTable tr {
+    border: none;
+    color: white;
+    background-color: #2e2e2e;
+    border: 2px solid #353535;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    transition: 0.3s;
+}
+
