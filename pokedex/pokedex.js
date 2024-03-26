@@ -1382,8 +1382,9 @@ function searchUpdate(){
         filters.push(pokemon => pokemon.types.includes(typeSortValue));
     }
 
-    
+
     if (filters.length > 0){
+        console.log(filters.length)
         pokemonData = filterPokemon(pokemonData, filters);
     }
 
