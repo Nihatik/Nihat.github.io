@@ -1386,7 +1386,6 @@ function searchUpdate(){
     }
     typeSortValue = document.querySelector('.type-sort').value
 
-    console.log(typeSortValue, pointsSortValue, inputValue)
     
     abilitySortValue = document.querySelector('.ability-filter').value
 
@@ -1415,7 +1414,6 @@ function searchUpdate(){
 
 
     if (filters.length > 0){
-        console.log(filters.length)
         pokemonData = filterPokemon(pokemonData, filters);
     }
 
@@ -1546,5 +1544,3 @@ function sortTable(columnIndex) {
 }
 
 window.onload = abilitySortLoad;
-
-console.log(pokemonData)
