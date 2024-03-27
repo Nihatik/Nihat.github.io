@@ -1544,3 +1544,4 @@ function sortTable(columnIndex) {
 }
 
 window.onload = abilitySortLoad;
+
