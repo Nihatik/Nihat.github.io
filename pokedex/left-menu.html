@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{pokemon['name']}</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pokedex.css">
+    <script src="pokedex.js"></script>
+</head>
+
+<body>
+    <div class="left-menu">
+        <div class="left-menu-top">
+            <div>
+                <div>
+                    <select class="ability-sort" onchange="searchUpdate()">
+                        <option value="None">None</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Fire">Fire</option>
+                        <option value="Water">Water</option>
+                        <option value="Grass">Grass</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Ice">Ice</option>
+                        <option value="Fighting">Fighting</option>
+                        <option value="Poison">Poison</option>
+                        <option value="Ground">Ground</option>
+                        <option value="Flying">Flying</option>
+                        <option value="Psychic">Psychic</option>
+                        <option value="Bug">Bug</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Ghost">Ghost</option>
+                        <option value="Dragon">Dragon</option>
+                        <option value="Dark">Dark</option>
+                        <option value="Steel">Steel</option>
+                        <option value="Fairy">Fairy</option>
+                    </select>
+                </div>
+                <div class="search">
+                    <button onclick="sortTable(0)" class="pokemon-icon">
+                        <img src="../img/sort.png">
+                    </button>
+                    <input type="search" oninput="searchUpdate()">
+                    <select class="type-sort" onchange="searchUpdate()">
+                        <option value="None">None</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Fire">Fire</option>
+                        <option value="Water">Water</option>
+                        <option value="Grass">Grass</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Ice">Ice</option>
+                        <option value="Fighting">Fighting</option>
+                        <option value="Poison">Poison</option>
+                        <option value="Ground">Ground</option>
+                        <option value="Flying">Flying</option>
+                        <option value="Psychic">Psychic</option>
+                        <option value="Bug">Bug</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Ghost">Ghost</option>
+                        <option value="Dragon">Dragon</option>
+                        <option value="Dark">Dark</option>
+                        <option value="Steel">Steel</option>
+                        <option value="Fairy">Fairy</option>
+                    </select>
+                    <select class="points-sort" onchange="searchUpdate()">
+                        <option value="No">No</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                    <select class="stat-sort" onchange="searchUpdate()">
+                        <option value="No">No</option>
+                        <option value="hp">HP</option>
+                        <option value="atk">Atk</option>
+                        <option value="def">Def</option>
+                        <option value="spa">SpA</option>
+                        <option value="spd">SpD</option>
+                        <option value="spe">Spe</option>
+                        <option value="bst">BST</option>
+                    </select>
+                </div>
+            </div>
+            <div class="xzpoka">
+            </div>
+            <button class="open-button" onclick="openLeftMenu()">
+                <img src="../img/pokeball.gif">
+            </button>
+        </div>
+        <div class="pokemons-list">
+            <table id="pokemonTable">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

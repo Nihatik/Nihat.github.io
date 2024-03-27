@@ -46,7 +46,7 @@ else:
 
 dataForTable = '['  # Создаем пустой список
 
-keysForTable = ['num', 'name', 'types', 'points', 'pointsHa', 'baseStats']
+keysForTable = ['num', 'name', 'types', 'points', 'pointsHa', 'baseStats', 'abilities']
 # Проходим по вашему исходному массиву и добавляем данные в список
 for pokemon in data:
     if pokemon['num'] < 1026 and pokemon['num'] > 0:
@@ -64,7 +64,13 @@ for pokemon in data:
                 keyValues = []
                 for stats in pokemonBaseStats:
                     keyValues.append(stats + ': ' + str(pokemonBaseStats[stats]))
-                pokemonDataText += ', '.join(keyValues) + ', bst: ' + str(sum(pokemonBaseStats.values()))
+                pokemonDataText += ', '.join(keyValues) + ', bst: ' + str(sum(pokemonBaseStats.values())) + ', '
+            if key == 'abilities':
+                pokemonAbilities = json.loads(pokemon[key])
+                keyValues = []
+                for ability in pokemonAbilities:
+                    keyValues.append(ability + ': ' + '"' + str(pokemonAbilities[ability]) + '"')
+                pokemonDataText += "abilities: { "+ ', '.join(keyValues) + "}"
             else:
                 pokemonDataText += key + ': ' + keyValue + ', '
         
@@ -138,52 +144,59 @@ def generate_pokemon_page(pokemon):
     <div class="main">
         <div class="left-menu">
             <div class="left-menu-top">
-                <div class="search">
-                    <button onclick="sortTable(0)" class="pokemon-icon">
-                    <img src="../img/sort.png">
-                    </button>
-                    <input type="search" oninput="searchUpdate()">
-                    <select class="type-sort" onchange="searchUpdate()">
-                        <option value="None">None</option>
-                        <option value="Normal">Normal</option>
-                        <option value="Fire">Fire</option>
-                        <option value="Water">Water</option>
-                        <option value="Grass">Grass</option>
-                        <option value="Electric">Electric</option>
-                        <option value="Ice">Ice</option>
-                        <option value="Fighting">Fighting</option>
-                        <option value="Poison">Poison</option>
-                        <option value="Ground">Ground</option>
-                        <option value="Flying">Flying</option>
-                        <option value="Psychic">Psychic</option>
-                        <option value="Bug">Bug</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Ghost">Ghost</option>
-                        <option value="Dragon">Dragon</option>
-                        <option value="Dark">Dark</option>
-                        <option value="Steel">Steel</option>
-                        <option value="Fairy">Fairy</option>
-                    </select>
-                    <select class="points-sort" onchange="searchUpdate()">
-                        <option value="No">No</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                    <select class="stat-sort" onchange="searchUpdate()">
-                        <option value="No">No</option>
-                        <option value="hp">HP</option>
-                        <option value="atk">Atk</option>
-                        <option value="def">Def</option>
-                        <option value="spa">SpA</option>
-                        <option value="spd">SpD</option>
-                        <option value="spe">Spe</option>
-                        <option value="bst">BST</option>
-                    </select>
+                <div>
+                    <div class="filters">
+                        <select class="ability-filter" placeholder="Enter name" onchange="searchUpdate()">
+                        <option value="None">No (Ability)</option>
+                        </select>
+                    </div>
+                    <div class="search">
+                        <button onclick="sortTable(0)" class="pokemon-icon">
+                        <img src="../img/sort.png">
+                        </button>
+                        <input placeholder="Enter name" type="search" oninput="searchUpdate()">
+                        <select class="type-sort" onchange="searchUpdate()">
+                            <option value="None">None</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Fire">Fire</option>
+                            <option value="Water">Water</option>
+                            <option value="Grass">Grass</option>
+                            <option value="Electric">Electric</option>
+                            <option value="Ice">Ice</option>
+                            <option value="Fighting">Fighting</option>
+                            <option value="Poison">Poison</option>
+                            <option value="Ground">Ground</option>
+                            <option value="Flying">Flying</option>
+                            <option value="Psychic">Psychic</option>
+                            <option value="Bug">Bug</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Ghost">Ghost</option>
+                            <option value="Dragon">Dragon</option>
+                            <option value="Dark">Dark</option>
+                            <option value="Steel">Steel</option>
+                            <option value="Fairy">Fairy</option>
+                        </select>
+                        <select class="points-sort" onchange="searchUpdate()">
+                            <option value="No">No</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <select class="stat-sort" onchange="searchUpdate()">
+                            <option value="No">No</option>
+                            <option value="hp">HP</option>
+                            <option value="atk">Atk</option>
+                            <option value="def">Def</option>
+                            <option value="spa">SpA</option>
+                            <option value="spd">SpD</option>
+                            <option value="spe">Spe</option>
+                            <option value="bst">BST</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="xzpoka">
                 </div>
