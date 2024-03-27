@@ -277,6 +277,7 @@ body {
     margin-right: 80px;
 }
 
+
 .pokemon-stats>div {
     margin-bottom: 4px;
     height: 19px;
@@ -347,9 +348,38 @@ body {
 }
 
 .pokemon-evolutions h4,
-.pokemon-evolutions p {
+.pokemon-evolutions p, .pokemon-evolutions a {
     width: 200px;
     text-align: left;
+    font-size: 15px;
+}
+
+.pokemon-evolutions p{
+    font-weight: bold;
+}
+
+.pokemon-evolutions a {
+    color: white;
+}
+
+.pokemon-evolutions a:hover{
+    text-decoration: underline;
+}
+
+
+.pokemon-first-evo , .pokemon-second-evo , .pokemon-third-evo {
+    display: flex;
+    flex-direction: column;
+}
+
+.pokemon-first-evo{
+    margin-left: -60px;
+}
+.pokemon-second-evo{
+    margin-left: 0px;
+}
+.pokemon-third-evo{
+    margin-left: 60px;
 }
 
 .moveset {

@@ -125,9 +125,34 @@ def generate_pokemon_page(pokemon):
     types = json.loads(pokemon['types'])
     base_stats = json.loads(pokemon['baseStats'])
     abilities = json.loads(pokemon['abilities'])
+    pokemonOtherForme = None
+    pokemonBaseSpecies = None
+    if pokemon['otherFormes']:
+        pokemonOtherForme = json.loads(pokemon['otherFormes'])
+        pokemonOtherForme = list(filter(lambda pokemon: pokemon['name'] == pokemonOtherForme[0] , data))
+    if pokemon['baseSpecies']:
+        pokemonBaseSpecies = list(filter(lambda p: p['name'] == pokemon['baseSpecies'], data))
+    pokemonEvos = []
+    pokemonEvos2 = []
+    pokemonPrevo = None
+    pokemonPrevo2 = None
+    marginValue = 1
+    if pokemon['evos']:
+        pokemonEvoss = json.loads(pokemon['evos'])
+        pokemonEvos = list(filter(lambda pokemon: pokemon['name'] in pokemonEvoss , data))
+        marginValue+= 1
+        if pokemonEvos[0]['evos']:
+            pokemonEvoss = json.loads(pokemonEvos[0]['evos'])
+            pokemonEvos2 = list(filter(lambda pokemon: pokemon['name'] in pokemonEvoss , data))
+        marginValue+= 1
+    if pokemon['prevo']:
+        pokemonPrevo = list(filter(lambda p: p['name'] == pokemon['prevo'], data))
+        marginValue+= 1
+        if pokemonPrevo[0]['prevo']:
+            pokemonPrevo2 = list(filter(lambda p: p['name'] == pokemonPrevo[0]['prevo'], data))
+            marginValue+= 1
     
-    
-    
+
     html = f'''
 <!DOCTYPE html>
 <html lang="en">
@@ -147,7 +172,7 @@ def generate_pokemon_page(pokemon):
                 <div>
                     <div class="filters">
                         <select class="ability-filter" placeholder="Enter name" onchange="searchUpdate()">
-                        <option value="None">No (Ability)</option>
+                        <option value="None">None (Ability)</option>
                         </select>
                     </div>
                     <div class="search">
@@ -219,12 +244,72 @@ def generate_pokemon_page(pokemon):
                     </div>
                 </div>
                 <div class="pokemon-evolutions">
-                    <div>
-                        <div class="pokemon-icon">
-                            <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemon["num"])};"></span>
+                    {
+                    f'''
+                    <div class="pokemon-first-evo">
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonPrevo2[0]["num"])};"></span>
+                            </div>
+                            <a href="{pokemonPrevo2[0]["name"].lower() + '.html'}">{pokemonPrevo2[0]["name"]}</a>
                         </div>
-                        <h4>{pokemon['name']}</h4>
+                    </div>''' if pokemonPrevo2 else ''
+                    }
+                    { 
+                    f'''
+                    <div class="pokemon-{'first-evo' if not pokemonPrevo2 else 'second-evo'}">
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonPrevo[0]["num"])};"></span>
+                            </div>
+                            <a href="{pokemonPrevo[0]["name"].lower() + '.html'}">{pokemonPrevo[0]["name"]}</a>
+                        </div>
+                    </div>''' if pokemonPrevo else ''
+                    }
+                    <div class="pokemon-{'first-evo' if not pokemonPrevo else 'second-evo' if pokemonPrevo and not pokemonPrevo2 else 'third-evo' if pokemonPrevo and pokemonPrevo2 else ''}">
+                        {f'''
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonBaseSpecies[0]["num"])};"></span>
+                            </div>
+                            <a href="{pokemonBaseSpecies[0]['name'].lower() + '.html'}">{pokemonBaseSpecies[0]['name']}</a>
+                        </div>''' if pokemonBaseSpecies else ''
+                        }
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemon["num"])};"></span>
+                            </div>
+                            <p>{pokemon['name']}</p>
+                        </div>
+                        {f'''
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonOtherForme[0]["num"])};"></span>
+                            </div>
+                            <a href="{pokemonOtherForme[0]['name'].lower() + '.html'}">{pokemonOtherForme[0]['name']}</a>
+                        </div>''' if pokemonOtherForme else ''
+                        }
                     </div>
+                    {f'''
+                        <div class="pokemon-{'second-evo' if pokemonEvos2 else '' 'third-evo' if pokemonPrevo and not pokemonEvos2 else ''}">
+                            <div>
+                                <div class="pokemon-icon">
+                                    <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonEvos[0]["num"])};"></span>
+                                </div>
+                                <a href="{pokemonEvos[0]["name"].lower() + '.html'}">{pokemonEvos[0]["name"]}</a>
+                            </div>
+                        </div>''' if pokemonEvos else ''
+                    }
+                    {f'''
+                        <div class="pokemon-third-evo">
+                            <div>
+                                <div class="pokemon-icon">
+                                    <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonEvos2[0]["num"])};"></span>
+                                </div>
+                                <a href="{pokemonEvos2[0]["name"].lower() + '.html'}">{pokemonEvos2[0]["name"]}</a>
+                            </div>
+                        </div>''' if pokemonEvos2 else ''
+                    }
                 </div>
                 <div class="pokemon-stats">
                     <div>
