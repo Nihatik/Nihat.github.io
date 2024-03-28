@@ -227,6 +227,7 @@ body {
     margin-top: 48px;
     align-items: center;
 }
+
 .pokemon-forms-pages > div {
     display: flex;
     flex-direction: row;

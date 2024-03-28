@@ -1350,22 +1350,7 @@ function abilitySortLoad(){
         option.textContent = abilityName;
         abilitiesSelect.appendChild(option);
     })
-
-    function getCookie(name) {
-        var cookieArr = document.cookie.split(';');
-        for (var i = 0; i < cookieArr.length; i++) {
-            var cookiePair = cookieArr[i].split('=');
-            if (name === cookiePair[0].trim()) {
-                return decodeURIComponent(cookiePair[1]);
-            }
-        }
-        return null;
-    }
     
-    var searchValue = getCookie('searchValue');
-    
-    console.log(getCookie('searchValue'))
-    document.querySelector('.search input').value = searchValue;
     populateTable();
 }
 
@@ -1390,11 +1375,6 @@ function filterPokemon(pokemonArray, filters) {
 }
 
 function searchUpdate(){
-    
-    var searchValue = document.querySelector('.search input').value;
-    console.log(searchValue)
-    document.cookie = 'searchValue=' + encodeURIComponent(searchValue);
-    document.cookie = "user=John";
 
     inputValue = document.querySelector('.search input').value.toLowerCase()
     if (inputValue == ''){
