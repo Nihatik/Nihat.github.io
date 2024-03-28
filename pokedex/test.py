@@ -103,7 +103,7 @@ for idx, poke in enumerate(data):
             pokestats = json.loads(poke['baseStats'])
             li_elements += f'''
                     <li class="buttons">
-                        <a href="{poke['name'].lower()}.html">
+                        <a href="{poke['name'].replace('%', '').lower()}.html">
                         <button>
                             <div class="pokemon-icon">
                                 <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(poke["num"])};">
@@ -129,7 +129,7 @@ def generate_pokemon_page(pokemon):
     pokemonBaseSpecies = None
     if pokemon['otherFormes']:
         pokemonOtherForme = json.loads(pokemon['otherFormes'])
-        pokemonOtherForme = list(filter(lambda pokemon: pokemon['name'] == pokemonOtherForme[0] , data))
+        pokemonOtherForme = list(filter(lambda pokemon: pokemon['name'] in pokemonOtherForme , data))
     if pokemon['baseSpecies']:
         pokemonBaseSpecies = list(filter(lambda p: p['name'] == pokemon['baseSpecies'], data))
     pokemonEvos = []
@@ -162,7 +162,7 @@ def generate_pokemon_page(pokemon):
     <title>{pokemon['name']}</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="pokedex.css">
-    <link rel="icon" href="https://www.smogon.com/dex/media/sprites/xy/{pokemon["name"].lower()}.gif" type="image/gif">
+    <link rel="icon" href="https://www.smogon.com/dex/media/sprites/xy/{pokemon["name"].replace('%', '').lower()}.gif" type="image/gif">
     <script src="pokedex.js"></script>
 </head>
 <body>
@@ -240,7 +240,7 @@ def generate_pokemon_page(pokemon):
             <h1 class="block-inline">{pokemon['name']}</h1>
             <div class="pokemon-info-top">
                 <div class="pokemon-image-container">
-                    <div id="pokemon-image" style="background-image: url(https://www.smogon.com/dex/media/sprites/xy/{pokemon["name"].lower()}.gif)" alt="{pokemon['name']}">
+                    <div id="pokemon-image" style="background-image: url(https://www.smogon.com/dex/media/sprites/xy/{pokemon["name"].replace('%', '').lower()}.gif)" alt="{pokemon['name']}">
                     </div>
                 </div>
                 <div class="pokemon-evolutions">
@@ -251,7 +251,7 @@ def generate_pokemon_page(pokemon):
                             <div class="pokemon-icon">
                                 <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonPrevo2[0]["num"])};"></span>
                             </div>
-                            <a href="{pokemonPrevo2[0]["name"].lower() + '.html'}">{pokemonPrevo2[0]["name"]}</a>
+                            <a href="{pokemonPrevo2[0]["name"].replace('%', '').lower() + '.html'}">{pokemonPrevo2[0]["name"]}</a>
                         </div>
                     </div>''' if pokemonPrevo2 else ''
                     }
@@ -262,33 +262,17 @@ def generate_pokemon_page(pokemon):
                             <div class="pokemon-icon">
                                 <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonPrevo[0]["num"])};"></span>
                             </div>
-                            <a href="{pokemonPrevo[0]["name"].lower() + '.html'}">{pokemonPrevo[0]["name"]}</a>
+                            <a href="{pokemonPrevo[0]["name"].replace('%', '').lower() + '.html'}">{pokemonPrevo[0]["name"]}</a>
                         </div>
                     </div>''' if pokemonPrevo else ''
                     }
                     <div class="pokemon-{'first-evo' if not pokemonPrevo else 'second-evo' if pokemonPrevo and not pokemonPrevo2 else 'third-evo' if pokemonPrevo and pokemonPrevo2 else ''}">
-                        {f'''
-                        <div>
-                            <div class="pokemon-icon">
-                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonBaseSpecies[0]["num"])};"></span>
-                            </div>
-                            <a href="{pokemonBaseSpecies[0]['name'].lower() + '.html'}">{pokemonBaseSpecies[0]['name']}</a>
-                        </div>''' if pokemonBaseSpecies else ''
-                        }
                         <div>
                             <div class="pokemon-icon">
                                 <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemon["num"])};"></span>
                             </div>
                             <p>{pokemon['name']}</p>
                         </div>
-                        {f'''
-                        <div>
-                            <div class="pokemon-icon">
-                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonOtherForme[0]["num"])};"></span>
-                            </div>
-                            <a href="{pokemonOtherForme[0]['name'].lower() + '.html'}">{pokemonOtherForme[0]['name']}</a>
-                        </div>''' if pokemonOtherForme else ''
-                        }
                     </div>
                     {f'''
                         <div class="pokemon-{'second-evo' if pokemonEvos2 else '' 'third-evo' if pokemonPrevo and not pokemonEvos2 else ''}">
@@ -296,7 +280,7 @@ def generate_pokemon_page(pokemon):
                                 <div class="pokemon-icon">
                                     <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonEvos[0]["num"])};"></span>
                                 </div>
-                                <a href="{pokemonEvos[0]["name"].lower() + '.html'}">{pokemonEvos[0]["name"]}</a>
+                                <a href="{pokemonEvos[0]["name"].replace('%', '').lower() + '.html'}">{pokemonEvos[0]["name"]}</a>
                             </div>
                         </div>''' if pokemonEvos else ''
                     }
@@ -356,6 +340,43 @@ def generate_pokemon_page(pokemon):
                     </div>
                 </div>
             </div>
+             {f"""
+                    <div class="pokemon-forms-pages">
+                    {f'''
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonBaseSpecies[0]["num"])};"></span>
+                            </div>
+                            <a href="{pokemonBaseSpecies[0]['name'].replace('%', '').lower() + '.html'}">Base</a>
+                        </div>
+                        <span style="margin: 0px 8px;"> / </span>''' if pokemonBaseSpecies else ''
+                    }
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemon["num"])};"></span>
+                            </div>
+                            <p>{f'{pokemon['forme']}' if pokemonBaseSpecies else 'Base'}</p>
+                        </div>
+                    {f'''
+                        <span style="margin: 0px 8px;"> / </span>
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonOtherForme[0]["num"])};"></span>
+                            </div>
+                            <a href="{pokemonOtherForme[0]['name'].replace('%', '').lower() + '.html'}">{pokemonOtherForme[0]['forme']}</a>
+                        </div>''' if pokemonOtherForme and pokemonOtherForme[0] else ''
+                    }
+                    {f'''
+                        <span style="margin: 0px 8px;"> / </span>
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url({iconUrl}) no-repeat scroll {iconLocation(pokemonOtherForme[1]["num"])};"></span>
+                            </div>
+                            <a href="{pokemonOtherForme[1]['name'].replace('%', '').lower() + '.html'}">{pokemonOtherForme[1]['forme']}</a>
+                        </div>''' if pokemonOtherForme and len(pokemonOtherForme) == 2 else ''
+                    }
+                    </div>""" if pokemonOtherForme or pokemonBaseSpecies else ''
+                    }
             <div class="block">
                 <div class="pokemon-types">
                     <p>Type:   </p>
