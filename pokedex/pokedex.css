@@ -241,7 +241,7 @@ body {
 
 .stat-bar {
     height: 15px;
-    animation: progress-bar 1s forwards;
+    animation: progress-bar 1.5s forwards;
 }
 
 .progress {
