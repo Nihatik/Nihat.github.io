@@ -11,15 +11,47 @@ body {
 }
 
 header {
-    width: 100%;
-    background-color: rgb(29, 29, 29);
-    height: 50px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    border: 1px solid #424242;
-    box-shadow: 0 0 7px 1px #111;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 0;
+    font-size: 14px;
+    width: 30%;
+    position: absolute;
+    right: 0;
 }
+
+.container {
+    width: 96%; /* Ширина контейнера, чтобы центрировать содержимое */
+    margin: 0 auto; /* Центрирование контейнера */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right:80px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
 
 
 ::-webkit-scrollbar {
@@ -32,7 +64,6 @@ header {
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 5px; /* Скругление углов полосы прокрутки */
     background-color: #3b3b3b; /* Цвет фона для трека прокрутки */
 }
 

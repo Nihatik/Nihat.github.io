@@ -139,6 +139,7 @@ for idx, poke in enumerate(data):
             '''
 
 def generate_pokemon_page(pokemon):
+    print(pokemon['name'])
     types = json.loads(pokemon['types'])
     base_stats = json.loads(pokemon['baseStats'])
     abilities = json.loads(pokemon['abilities'])
@@ -183,6 +184,8 @@ def generate_pokemon_page(pokemon):
     <script src="pokedex.js"></script>
 </head>
 <body>
+    <header>
+    </header>
     <div class="main">
         <div class="left-menu">
             <div class="left-menu-top">
@@ -242,15 +245,14 @@ def generate_pokemon_page(pokemon):
                 </div>
                 <div class="xzpoka">
                 </div>
-                <button class="open-button" onclick="openLeftMenu()">
-                    <img src="../img/pokeball.gif">
-                </button>
             </div>
-            <div class="pokemons-list">
-                <table id="pokemonTable">
-                    <tbody>
-                    </tbody>
-                </table>
+            <div class="left-menu-main">
+                <div class="pokemons-list">
+                    <table id="pokemonTable">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="pokemon-info">
@@ -320,42 +322,42 @@ def generate_pokemon_page(pokemon):
                         <p class="stat-name">HP:</p>
                         <p class="stat-value">{base_stats["hp"]}</p>
                         <div class="stat-bar">
-                            <div class="progress" style="width: {(base_stats["hp"] / 250) * 100}%" data-color="{ 'red' if base_stats["hp"] <= 50 else 'green' if base_stats["hp"] >= 250 else 'orange' }"></div>
+                            <div class="progress" style="--data-value: {base_stats["hp"]};"></div>
                         </div>
                     </div>
                     <div>
                         <p class="stat-name">Attack:</p>
                         <p class="stat-value">{base_stats["atk"]}</p>
                         <div class="stat-bar">
-                            <div class="progress" style="width: {(base_stats["atk"] / 250) * 100}%" data-color="{ 'red' if base_stats["atk"] <= 50 else 'green' if base_stats["atk"] >= 250 else 'orange' }"></div>
+                            <div class="progress" style="--data-value: {base_stats["atk"]};"></div>
                         </div>
                     </div>
                     <div>
                         <p class="stat-name">Defense:</p>
                         <p class="stat-value">{base_stats["def"]}</p>
                         <div class="stat-bar">
-                            <div class="progress" style="width: {(base_stats["def"] / 250) * 100}%" data-color="{ 'red' if base_stats["def"] <= 50 else 'green' if base_stats["def"] >= 250 else 'orange' }"></div>
+                            <div class="progress" style="--data-value: {base_stats["def"]};"></div>
                         </div>
                     </div>
                     <div>
                         <p class="stat-name">Sp. Atk:</p>
                         <p class="stat-value">{base_stats["spa"]}</p>
                         <div class="stat-bar">
-                            <div class="progress" style="width: {(base_stats["spa"] / 250) * 100}%" data-color="{ 'red' if base_stats["spa"] <= 50 else 'green' if base_stats["spa"] >= 250 else 'orange' }"></div>
+                            <div class="progress" style="--data-value: {base_stats["spa"]};"></div>
                         </div>
                     </div>
                     <div>
                         <p class="stat-name">Sp. Def:</p>
                         <p class="stat-value">{base_stats["spd"]}</p>
                         <div class="stat-bar">
-                            <div class="progress" style="width: {(base_stats["spd"] / 250) * 100}%" data-color="{ 'red' if base_stats["spd"] <= 50 else 'green' if base_stats["spd"] >= 250 else 'orange' }"></div>
+                            <div class="progress" style="--data-value: {base_stats["spd"]};"></div>
                         </div>
                     </div>
                     <div>
                         <p class="stat-name">Speed:</p>
                         <p class="stat-value">{base_stats["spe"]}</p>
                         <div class="stat-bar">
-                            <div class="progress" style="width: {(base_stats["spe"] / 250) * 100}%" data-color="{ 'red' if base_stats["spe"] <= 50 else 'green' if base_stats["spe"] >= 250 else 'orange' }"></div>
+                            <div class="progress" style="--data-value: {base_stats["spe"]};"></div>
                         </div>
                     </div>
                 </div>

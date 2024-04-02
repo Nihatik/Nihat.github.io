@@ -856,7 +856,7 @@ var pokemonData = [{num: 1, name: "Bulbasaur", types: ["Grass","Poison"], points
 {num: 668, name: "Pyroar", types: ["Fire","Normal"], points: 0, pointsHa: null, hp: 86, atk: 68, def: 72, spa: 109, spd: 66, spe: 106, bst: 507, abilities: { 0: "Rivalry", 1: "Unnerve", H: "Moxie"}, forme: null, iconLoc: null, show: 0},
 {num: 669, name: "Flabébé", types: ["Fairy"], points: null, pointsHa: null, hp: 44, atk: 38, def: 39, spa: 61, spd: 79, spe: 42, bst: 303, abilities: { 0: "Flower Veil", H: "Symbiosis"}, forme: null, iconLoc: null, show: 0},
 {num: 670, name: "Floette", types: ["Fairy"], points: 0, pointsHa: null, hp: 54, atk: 45, def: 47, spa: 75, spd: 98, spe: 52, bst: 371, abilities: { 0: "Flower Veil", H: "Symbiosis"}, forme: null, iconLoc: null, show: 0},
-{num: 670, name: "Floette-Eternal", types: ["Fairy"], points: 0, pointsHa: null, hp: 74, atk: 65, def: 67, spa: 125, spd: 128, spe: 92, bst: 551, abilities: { 0: "Flower Veil"}, forme: "Eternal", iconLoc: "-80px -2850px", show: 0},
+{num: 670, name: "Floette-Eternal", types: ["Fairy"], points: 0, pointsHa: null, hp: 74, atk: 65, def: 67, spa: 125, spd: 128, spe: 92, bst: 551, abilities: { 0: "Flower Veil"}, forme: "Eternal", iconLoc: "-80px -2820px", show: 0},
 {num: 671, name: "Florges", types: ["Fairy"], points: 1, pointsHa: null, hp: 78, atk: 65, def: 68, spa: 112, spd: 154, spe: 75, bst: 552, abilities: { 0: "Flower Veil", H: "Symbiosis"}, forme: null, iconLoc: null, show: 0},
 {num: 672, name: "Skiddo", types: ["Grass"], points: 0, pointsHa: null, hp: 66, atk: 65, def: 48, spa: 62, spd: 57, spe: 52, bst: 350, abilities: { 0: "Sap Sipper", H: "Grass Pelt"}, forme: null, iconLoc: null, show: 0},
 {num: 673, name: "Gogoat", types: ["Grass"], points: 0, pointsHa: null, hp: 123, atk: 100, def: 62, spa: 97, spd: 81, spe: 68, bst: 531, abilities: { 0: "Sap Sipper", H: "Grass Pelt"}, forme: null, iconLoc: null, show: 0},
@@ -869,7 +869,7 @@ var pokemonData = [{num: 1, name: "Bulbasaur", types: ["Grass","Poison"], points
 {num: 679, name: "Honedge", types: ["Steel","Ghost"], points: 0, pointsHa: null, hp: 45, atk: 80, def: 100, spa: 35, spd: 37, spe: 28, bst: 325, abilities: { 0: "No Guard"}, forme: null, iconLoc: null, show: 0},
 {num: 680, name: "Doublade", types: ["Steel","Ghost"], points: 1, pointsHa: null, hp: 59, atk: 110, def: 150, spa: 45, spd: 49, spe: 35, bst: 448, abilities: { 0: "No Guard"}, forme: null, iconLoc: null, show: 0},
 {num: 681, name: "Aegislash", types: ["Steel","Ghost"], points: 2, pointsHa: null, hp: 60, atk: 50, def: 140, spa: 50, spd: 140, spe: 60, bst: 500, abilities: { 0: "Stance Change"}, forme: null, iconLoc: null, show: 0},
-{num: 681, name: "Aegislash-Blade", types: ["Steel","Ghost"], points: null, pointsHa: null, hp: 60, atk: 140, def: 50, spa: 140, spd: 50, spe: 60, bst: 500, abilities: { 0: "Stance Change"}, forme: "Blade", iconLoc: "-40px -3180px", show: 0},
+{num: 681, name: "Aegislash-Blade", types: ["Steel","Ghost"], points: null, pointsHa: null, hp: 60, atk: 140, def: 50, spa: 140, spd: 50, spe: 60, bst: 500, abilities: { 0: "Stance Change"}, forme: "Blade", iconLoc: "-320px -2850px", show: 0},
 {num: 682, name: "Spritzee", types: ["Fairy"], points: 0, pointsHa: null, hp: 78, atk: 52, def: 60, spa: 63, spd: 65, spe: 23, bst: 341, abilities: { 0: "Healer", H: "Aroma Veil"}, forme: null, iconLoc: null, show: 0},
 {num: 683, name: "Aromatisse", types: ["Fairy"], points: 0, pointsHa: null, hp: 101, atk: 72, def: 72, spa: 99, spd: 89, spe: 29, bst: 462, abilities: { 0: "Healer", H: "Aroma Veil"}, forme: null, iconLoc: null, show: 0},
 {num: 684, name: "Swirlix", types: ["Fairy"], points: 0, pointsHa: null, hp: 62, atk: 48, def: 66, spa: 59, spd: 57, spe: 49, bst: 341, abilities: { 0: "Sweet Veil", H: "Unburden"}, forme: null, iconLoc: null, show: 0},
@@ -1350,10 +1350,62 @@ function abilitySortLoad(){
         option.textContent = abilityName;
         abilitiesSelect.appendChild(option);
     })
-    
+    statValues = document.querySelectorAll('.stat-value')
+    for (let i = 0; i < 6; i++){
+        document.querySelectorAll('.progress')[i].style.backgroundColor = setColor(+statValues[i].textContent);
+        document.querySelectorAll('.progress')[i].style.borderBottomColor = setColor(+statValues[i].textContent, 'yes');
+        document.querySelectorAll('.progress')[i].style.borderTopColor = setColor(+statValues[i].textContent, 'no');
+    }
     populateTable();
 }
 
+function setColor(value, border = null) {
+    var red, green, blue;
+    if (value <= 50) {
+        red = 255;
+        green = Math.round(5.1 * value);
+        blue = 0;
+    } else if (value <= 100) {
+        red = Math.round(510 - 5.1 * value);
+        green = 255;
+        blue = 0;
+    } else if (value <= 150) {
+        red = 0;
+        green = 255;
+        blue = Math.round(5.1 * value - 510);
+    } else if (value <= 200) {
+        red = 0;
+        green = Math.round(510 - 5.1 * value);
+        blue = 255;
+    } else {
+        red = Math.round(5.1 * value - 1020);
+        green = 0;
+        blue = 255;
+    }
+    if (border){
+        if(border=='yes'){
+            red -= 60
+            green -= 60
+            blue -= 60
+        }
+        else{
+            red += 80
+            green += 80
+            blue += 80
+        }
+        if(red > 255){
+            red = 255
+        }if(blue > 255){
+            blue = 255
+        }if(green > 255){
+            green = 255
+        }
+    }
+    var color = "rgb(" + red + "," + green + "," + blue + ")";
+    
+    console.log(color, value)
+    return color;
+}
 
 typesBase = "https://play.pokemonshowdown.com/sprites/types/"
 
@@ -1378,6 +1430,7 @@ function filterPokemon(pokemonArray, filters) {
 }
 
 function searchUpdate(){
+    
 
     inputValue = document.querySelector('.search input').value.toLowerCase()
     if (inputValue == ''){
@@ -1421,7 +1474,11 @@ function searchUpdate(){
 
 
     if (filters.length > 0){
+        document.querySelector('.left-menu-main').style.transform = 'translateX(0px)'
         pokemonData = filterPokemon(pokemonData, filters);
+    }
+    else{
+        document.querySelector('.left-menu-main').style.transform = 'translateX(-100.1%)'
     }
 
     populateTable();
@@ -1429,11 +1486,11 @@ function searchUpdate(){
 }
 
 function openLeftMenu(){
-    if(document.querySelector('.left-menu').style.transform == 'translateX(-400px)'){
-        document.querySelector('.left-menu').style.transform = 'translateX(0px)';
+    if(document.querySelector('.left-menu-main').style.transform == 'translateX(-100.1%)'){
+        document.querySelector('.left-menu-main').style.transform = 'translateX(0px)';
     }
     else{
-        document.querySelector('.left-menu').style.transform = 'translateX(-400px)';
+        document.querySelector('.left-menu-main').style.transform = 'translateX(-100.1%)';
     }
 }
 
