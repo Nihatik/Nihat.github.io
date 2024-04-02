@@ -10,132 +10,111 @@
     <script src="pokedex.js"></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="search">
-                <input placeholder="Enter name" type="search" oninput="searchUpdate()">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Pokedex</a></li>
-                    <li><a href="#">Teambuild</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
     <div class="main">
-        <div class="left-menu">
-            <div class="pokemons-list">
-                <table id="pokemonTable">
-                    <tbody>
-                    </tbody>
-                </table>
+        <div class="present-menu">
+            <div class="teambuilder-menu">
+                <div class="team">
+                    <button
+                            class="hover-button">
+                            <div class="pokemon-icon"
+                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -440px -2010px; background-color: transparent;">
+                            </div>
+                            <div>Cinderace</div>
+                        </button>
+                    <button
+                            class="hover-button">
+                            <div class="pokemon-icon"
+                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -80px -2010px; background-color: transparent;">
+                            </div>
+                            <div>Blacephalon</div>
+                        </button>
+                    <button
+                            class="hover-button">
+                            <div class="pokemon-icon"
+                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -40px -1800px; background-color: transparent;">
+                            </div>
+                            <div>Volcanion</div>
+                        </button>
+                    <button
+                            class="hover-button">
+                            <div class="pokemon-icon"
+                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -80px -2700px; background-color: transparent;">
+                            </div>
+                            <div>Rotom</div>
+                        </button>
+                    <button
+                            class="hover-button">
+                            <div class="pokemon-icon"
+                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px -810px; background-color: transparent;">
+                            </div>
+                            <div>Torkoal</div>
+                        </button>
+                    <button
+                            class="hover-button">
+                            <div class="pokemon-icon"
+                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -240px 0px; background-color: transparent;">
+                            </div>
+                            <div>Charizard</div>
+                        </button>
+                </div>
+                <div class="current-pokemon">
+                    <input type="text" class="name">
+                    <p>EVS</p>
+                    <div class="evs">
+                        <div>
+                            <div>HP</div>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <div>Atk</div>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <div>Def</div>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <div>SpA</div>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <div>SpD</div>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <div>Spe</div>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <select class="nature"></select>
+                    <div class="moves">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                    </div>
+                    <select class="ability">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="pokemon-info">
-            <h1 class="block-inline">Zygarde-Complete</h1>
-            <div class="pokemon-info-top">
-                <div class="pokemon-image-container" >
-                    <div id="pokemon-image" style="background-image: url(https://www.smogon.com/dex/media/sprites/xy/zygarde-complete.gif)" alt="Zygarde-Complete">
-                    </div>
-                    
+            <div class="buts">
+                <div class="text-input-panel playerteam-input">
+                    <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
+                        oninput="presentInfoUpdate()"></textarea>
                 </div>
-                <div class="pokemon-evolutions">
-                    
-                    
-                    <div class="pokemon-first-evo">
-                        <div>
-                            <div class="pokemon-icon">
-                                <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -280px -2910px;"></span>
-                            </div>
-                            <p>Zygarde-Complete</p>
-                        </div>
-                    </div>
-                    
-                    
+                <div class="player-team-but">
+                    <button class="butsbut" onclick="">Your Team</button>
                 </div>
-                <div class="pokemon-stats">
-                    <div>
-                        <p class="stat-name">HP:</p>
-                        <p class="stat-value">216</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 216;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Attack:</p>
-                        <p class="stat-value">100</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 100;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Defense:</p>
-                        <p class="stat-value">121</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 121;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Sp. Atk:</p>
-                        <p class="stat-value">91</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 91;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Sp. Def:</p>
-                        <p class="stat-value">95</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 95;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Speed:</p>
-                        <p class="stat-value">85</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 85;"></div>
-                        </div>
-                    </div>
+                <button class="play butsbut" onclick="createPokemonTeam()">Play</button>
+                <div class="opponent-team-but">
+                    <button class="butsbut" onclick="">Opponent Team</button>
                 </div>
-            </div>
-             
-                    <div class="pokemon-forms-pages">
-                    
-                        <div>
-                            <div class="pokemon-icon">
-                                <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -400px -1770px;"></span>
-                            </div>
-                            <a href="zygarde.html">Base</a>
-                        </div>
-                        <span style="margin: 0px 8px;"> / </span>
-                        <div>
-                            <div class="pokemon-icon">
-                                <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -280px -2910px;"></span>
-                            </div>
-                            <p>Complete</p>
-                        </div>
-                    
-                    
-                    </div>
-            <div class="block">
-                <div class="pokemon-types">
-                    <p>Type:   </p>
-                    <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Dragon.png">
-                    <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Ground.png">
-                </div>
-                <div>
-                    <p>Points: 4</p>
-                </div>
-                
-                <div>
-                    <p>Tier: Illegal</p>
-                </div>
-                <div class="pokemon-abilities">
-                    <p>Abilities: Power Construct</p>
-                </div>
-                <div>
-                    <p></p>
+                <div class="text-input-panel opponentteam-input">
+                    <textarea id="opponentteam-input-text" rows="4" placeholder="Введите текст..."
+                        oninput="presentInfoUpdate('da')"></textarea>
                 </div>
             </div>
         </div>

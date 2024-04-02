@@ -39,6 +39,7 @@ data = fetch_data_from_db(db_path)
 with open('pokedex.js', 'r') as file:
     script_content = file.read()
 
+
 match = re.search(r'var pokemonData = (\[.*?\]);', script_content, re.DOTALL)
 if match:
     data_str = match.group(1)
@@ -95,12 +96,75 @@ dataForTable+= ']'
 # Преобразуем список Python в строку JavaScript массива
 new_data_str = 'var pokemonData = ' + str(dataForTable) + ';'
 
-# Заменяем старое содержимое массива на новое в файле JavaScript
 new_script_content = re.sub(r'var pokemonData = \[.*?\];', new_data_str, script_content, flags=re.DOTALL)
-
 # Записываем измененный JavaScript код обратно в файл
 with open('pokedex.js', 'w', encoding='utf-8') as file:
     file.write(new_script_content)
+
+with open('../pvp59.js', 'r') as file:
+    script_content2 = file.read()
+    
+match2 = re.search(r'var pokemonPointsData = (\[.*?\]);', script_content2, re.DOTALL)
+if match2:
+    data_str2 = match.group(1)
+else:
+    print("Массив данных не найден в JavaScript файле.")
+    exit()
+
+dataForTable = '['  # Создаем пустой список
+
+keysForTable = ['num','name','points']
+# Проходим по вашему исходному массиву и добавляем данные в список
+for pokemon in data:
+    if pokemon['num'] < 1026 and pokemon['num'] > 0:
+        pokemonDataText = '{'
+        
+        # Проходим по всем ключам в объекте pokemon
+        for key in keysForTable:
+            keyValue = str(pokemon[key]) 
+            if keyValue == 'None':
+                keyValue = 'null'
+            if key == 'name':
+                keyValue = '"' + pokemon[key] + '"'
+                pokemonDataText += key + ': ' + keyValue + ', '
+            elif key == 'baseStats':
+                pokemonBaseStats = json.loads(pokemon[key])
+                keyValues = []
+                for stats in pokemonBaseStats:
+                    keyValues.append(stats + ': ' + str(pokemonBaseStats[stats]))
+                pokemonDataText += ', '.join(keyValues) + ', bst: ' + str(sum(pokemonBaseStats.values())) + ', '
+            elif key == 'abilities':
+                pokemonAbilities = json.loads(pokemon[key])
+                keyValues = []
+                for ability in pokemonAbilities:
+                    keyValues.append(ability + ': ' + '"' + str(pokemonAbilities[ability]) + '"')
+                pokemonDataText += "abilities: { "+ ', '.join(keyValues) + "}, "
+            elif key == 'forme':
+                if pokemon[key]:
+                    pokemonDataText += 'forme: "' + str(pokemon[key]) + '", '
+                else:
+                    pokemonDataText += 'forme: null, '
+            elif key == 'iconLoc':
+                if pokemon[key]:
+                    pokemonDataText += 'iconLoc: "' + str(pokemon[key]) + '", '
+                else:
+                    pokemonDataText += 'iconLoc: null, '
+            else:
+                pokemonDataText += key + ': ' + keyValue + ', '
+        
+        pokemonDataText += '}'
+        # Добавляем словарь текущего покемона в общий список
+        dataForTable += str(pokemonDataText) + ',\n'
+
+dataForTable+= ']'
+# Преобразуем список Python в строку JavaScript массива
+new_data_str2 = 'var pokemonPointsData = ' + str(dataForTable) + ';'
+
+# Заменяем старое содержимое массива на новое в файле JavaScript
+new_script_content2 = re.sub(r'var pokemonPointsData = \[.*?\];', new_data_str2, script_content2, flags=re.DOTALL)
+
+with open('../pvp59.js', 'w', encoding='utf-8') as file:
+    file.write(new_script_content2)
 
 
 typesBase = "https://play.pokemonshowdown.com/sprites/types/"

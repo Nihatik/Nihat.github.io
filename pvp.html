@@ -1,0 +1,984 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pvp.css">
+    <link rel="stylesheet" href="types.css">
+    <link rel="stylesheet" href="statuses.css">
+    <title>АЧУМЕТЬ</title>
+    <link rel="icon" href="assets/snorlaxfavicon.png" type="image/gif">
+    <script src="pvp59.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="All_header_menu">
+            <div class="Logo">
+                <h1>POKEMONIZA(e)BALLI.KZ</h1>
+            </div>
+            <div class="Top_menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pokemons.html">Pokemons</a></li>
+                    <li><a href="pvp.html">PVP</a></li>
+                    <li><a href="#">Pozor</a></li>
+                    <li><a href="#">Stid</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="present-menu">
+        <div class="player-cards">
+            <div class="card pokemon-info" style="display: flex;" onclick="firstChoice(0)">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info" onclick="firstChoice(1)">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info" onclick="firstChoice(2)">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info" onclick="firstChoice(3)">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info" onclick="firstChoice(4)">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info" onclick="firstChoice(5)">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="teambuilder-menu">
+            <div class="team">
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -440px -2010px; background-color: transparent;">
+                    </div>
+                    <div>Cinderace</div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -80px -2010px; background-color: transparent;">
+                    </div>
+                    <div>Blacephalon</div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -40px -1800px; background-color: transparent;">
+                    </div>
+                    <div>Volcanion</div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -80px -2700px; background-color: transparent;">
+                    </div>
+                    <div>Rotom</div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px -810px; background-color: transparent;">
+                    </div>
+                    <div>Torkoal</div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -240px 0px; background-color: transparent;">
+                    </div>
+                    <div>Charizard</div>
+                </button>
+                <h4 id="team-points-value"></h4>
+            </div>
+            <div class="current-pokemon">
+                <div>
+                    <input type="text" class="name">
+                    <div class="pokemon-info-sprite">
+                        <div id="pokesprite"
+                            style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/chansey.gif&quot;);">
+                        </div>
+                    </div>
+                    <div>
+                        <select class="ability">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="moves">
+                    <span>
+                        <input type="text">
+                        <img src="img/normal_type.png">
+                    </span>
+                    <span>
+                        <input type="text">
+                        <img src="img/normal_type.png">
+                    </span>
+                    <span>
+                        <input type="text">
+                        <img src="img/normal_type.png">
+                    </span>
+                    <span>
+                        <input type="text">
+                        <img src="img/normal_type.png">
+                    </span>
+                </div>
+                <div class="current-pokemon-stats">
+                    <div>
+                        <p>HP</p>
+                        <p>Attack</p>
+                        <p>Defense</p>
+                        <p>Sp. Atk</p>
+                        <p>Sp. Def</p>
+                        <p>Speed</p>
+                    </div>
+                    <div class="current-pokemon-stat-values">
+                        <h3>0</h3>
+                        <h3>0</h3>
+                        <h3>0</h3>
+                        <h3>0</h3>
+                        <h3>0</h3>
+                        <h3>0</h3>
+                    </div>
+                    <div class="evs">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                    </div>
+                    <div class="ivs">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                    </div>
+                    <div class="input-ranges">
+                        <div>
+                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                        </div>
+                        <div>
+                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                        </div>
+                        <div>
+                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                        </div>
+                        <div>
+                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                        </div>
+                        <div>
+                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                        </div>
+                        <div>
+                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                        </div>
+                    </div>
+                    <select class="nature"></select>
+                </div>
+            </div>
+        </div>
+        <div class="buts">
+            <div class="text-input-panel playerteam-input">
+                <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
+                    oninput="presentInfoUpdate()"></textarea>
+            </div>
+            <div class="player-team-but">
+                <button class="butsbut" onclick="">Your Team</button>
+            </div>
+            <button class="play butsbut" onclick="createPokemonTeam()">Play</button>
+            <div class="opponent-team-but">
+                <button class="butsbut" onclick="">Opponent Team</button>
+            </div>
+            <div class="text-input-panel opponentteam-input">
+                <textarea id="opponentteam-input-text" rows="4" placeholder="Введите текст..."
+                    oninput="presentInfoUpdate('da')"></textarea>
+            </div>
+        </div>
+        <div class="opponent-cards">
+            <div class="card pokemon-info" style="display: flex;">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card pokemon-info">
+                <p class="pokemon-info-name"></p>
+                <div class="pokemon-info-types">
+                    <img id="pokefirsttype"></p>
+                    <img id="pokesecondtype"></p>
+                </div>
+                <span class="pokemon-info-item">
+                </span>
+                <div class="pokemon-info-sprite">
+                    <div id="pokesprite">
+                    </div>
+                </div>
+                <div class="pokemon-info-ability">
+                    <p></p>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar">
+                    </div>
+                    <p></p>
+                </div>
+                <div class="pokemon-info-text">
+                    <div class="pokemon-info-stats">
+                        <div class="pokemon-info-stat atk">
+                            <p>Atk</p>
+                            <p id="atk-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat def">
+                            <p>Def</p>
+                            <p id="def-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spa">
+                            <p>SpA</p>
+                            <p id="spa-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spd">
+                            <p>SpD</p>
+                            <p id="spd-value" class="stat-value"></p>
+                        </div>
+                        <div class="pokemon-info-stat spe">
+                            <p>Spe</p>
+                            <p id="spe-value" class="stat-value"></p>
+                        </div>
+                    </div>
+                    <div class="pokemon-info-moves">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="left-menu">
+            <div class="player-info">
+                <div class="player">
+                </div>
+                <div>Squedy
+                </div>
+            </div>
+            <div class="pokemon-info-card">
+                <div class="player-team">
+                </div>
+                <div class="triangle">
+                </div>
+                <div class="pokemon-info">
+                    <p class="pokemon-info-name"></p>
+                    <div class="pokemon-info-types">
+                        <img id="pokefirsttype"></p>
+                        <img id="pokesecondtype"></p>
+                    </div>
+                    <span class="pokemon-info-item">
+                    </span>
+                    <div class="pokemon-info-sprite">
+                        <div id="pokesprite">
+                        </div>
+                    </div>
+                    <div class="pokemon-info-ability">
+                        <p></p>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar">
+                        </div>
+                        <p></p>
+                    </div>
+                    <div class="pokemon-info-text">
+                        <div class="pokemon-info-stats">
+                            <div class="pokemon-info-stat atk">
+                                <p>Atk</p>
+                                <p id="atk-value" class="stat-value"></p>
+                            </div>
+                            <div class="pokemon-info-stat def">
+                                <p>Def</p>
+                                <p id="def-value" class="stat-value"></p>
+                            </div>
+                            <div class="pokemon-info-stat spa">
+                                <p>SpA</p>
+                                <p id="spa-value" class="stat-value"></p>
+                            </div>
+                            <div class="pokemon-info-stat spd">
+                                <p>SpD</p>
+                                <p id="spd-value" class="stat-value"></p>
+                            </div>
+                            <div class="pokemon-info-stat spe">
+                                <p>Spe</p>
+                                <p id="spe-value" class="stat-value"></p>
+                            </div>
+                        </div>
+                        <div class="pokemon-info-moves">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="battle-menu">
+            <div class="turns">
+                <p>Turn</p>
+                <p class="turn-number">1</p>
+            </div>
+            <div class="opponent-team">
+            </div>
+            <div class="player-pokemon">
+                <div class="player-stat-bar">
+                    <div class="stat-bar-top">
+                        <p class="player-pokemon-name">
+                            Bulbasaur
+                        </p>
+                    </div>
+
+                    <div class="hp-info">
+                        <div class="stat-bar">
+                            <div class="hp-bar" id="player-hp-bar" style="width: 0;"></div>
+                        </div>
+                        <p>100%</p>
+                    </div>
+                    <div class="stat-bar-bottom">
+
+                    </div>
+                </div>
+                <div class="player-pokemon-image">
+                    <img id="player-pokemon-image"
+                        src="https://play.pokemonshowdown.com/sprites/ani-back/bulbasaur.gif">
+                </div>
+            </div>
+            <div class="opponent-pokemon">
+                <div class="opponent-stat-bar">
+                    <div class="stat-bar-top">
+                        <p id="opponent-pokemon-name">
+                            Squedy
+                        </p>
+                    </div>
+                    <div class="hp-info">
+                        <div class="stat-bar">
+                            <div class="hp-bar" id="opponent-hp-bar" style="width: 0;"></div>
+                        </div>
+                        <p>100%</p>
+                    </div>
+                    <div class="stat-bar-bottom">
+                    </div>
+                </div>
+                <div class="opponent-pokemon-image">
+                    <img id="opponent-pokemon-image" src="https://play.pokemonshowdown.com/sprites/ani/bulbasaur.gif">
+                </div>
+            </div>
+            <div class="additional-buttons">
+                <button class="add-buttons swap-button" onclick="openSelection()"></button>
+                <button class="add-buttons forfeit-button"></button>
+            </div>
+
+            <div class="selection-menu" style="display: flex;"></div>
+            <div class="move-info">
+                <div class="move-info-top">
+                    <div>
+                        <p class="move-info-name">
+
+                        </p>
+                    </div>
+                    <div>
+                        <img class="move-info-type">
+                        <img class="move-info-category">
+                    </div>
+                </div>
+
+                <div>
+                    <p class="move-info-power">
+
+                    </p>
+                    <p class="move-info-accuracy">
+
+                    </p>
+                </div>
+                <div class="move-info-desc">
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="moves-menu">
+                <div class="moves-f-block">
+                    <button class="buttons first-move" onclick="move(0)">
+                        <p class='first-move move-name'>1 Atk</p>
+                        <p class='first-move move-pp' class="pp">32/32</p>
+                    </button>
+                    <button class="buttons second-move" onclick="move(1)">
+                        <p class='second-move move-name'>2 Atk</p>
+                        <p class='second-move move-pp' class="pp">16/16</p>
+                    </button>
+                </div>
+                <div class="moves-s-block">
+                    <button class="buttons third-move" onclick="move(2)">
+                        <p class='third-move move-name'>3 Atk</p>
+                        <p class='third-move move-pp' class="pp">32/32</p>
+                    </button>
+                    <button class="buttons fourth-move" onclick="move(3)">
+                        <p class='fourth-move move-name'>4 Atk</p>
+                        <p class='fourth-move move-pp' class="pp">64/64</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-menu">
+            <div class="opponent-info">
+
+            </div>
+            <div class="battle-log">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
