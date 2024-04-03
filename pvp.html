@@ -13,22 +13,6 @@
 </head>
 
 <body>
-    <header>
-        <div class="All_header_menu">
-            <div class="Logo">
-                <h1>POKEMONIZA(e)BALLI.KZ</h1>
-            </div>
-            <div class="Top_menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pokemons.html">Pokemons</a></li>
-                    <li><a href="pvp.html">PVP</a></li>
-                    <li><a href="#">Pozor</a></li>
-                    <li><a href="#">Stid</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
     <div class="present-menu">
         <div class="player-cards">
             <div class="card pokemon-info" style="display: flex;" onclick="firstChoice(0)">
@@ -379,21 +363,39 @@
                 <h4 id="team-points-value"></h4>
             </div>
             <div class="current-pokemon">
-                <div>
-                    <input type="text" class="name">
+                <div class="current-pokemon-top">
+                    <span>
+                        <input type="text" class="name">
+                        <img src="img/normal_type.png">
+                        <img src="img/normal_type.png">
+                    </span>
                     <div class="pokemon-info-sprite">
                         <div id="pokesprite"
                             style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/chansey.gif&quot;);">
                         </div>
                     </div>
+                </div>
+                <div class="vertical-line" style="margin-right: 8px;"></div>
+                <div class="current-pokemon-add-info">
                     <div>
-                        <select class="ability">
+                        <label for="ability">Ability: </label>
+                        <select class="ability" id="ability" name="ability">
                             <option value=""></option>
                             <option value=""></option>
                             <option value=""></option>
                         </select>
                     </div>
+                    <div>
+                        <label for="item">Item: </label>
+                        <input type="text" class="item" id="item">
+                    </div>
+                    <div>
+
+                        <label for="nature">Nature: </label>
+                        <select class="nature" name="nature" id="nature"></select>
+                    </div>
                 </div>
+                <div class="vertical-line"></div>
                 <div class="moves">
                     <span>
                         <input type="text">
@@ -412,6 +414,7 @@
                         <img src="img/normal_type.png">
                     </span>
                 </div>
+                <div class="vertical-line" style="margin-left: -4px; margin-right: 12px;"></div>
                 <div class="current-pokemon-stats">
                     <div>
                         <p>HP</p>
@@ -430,14 +433,6 @@
                         <h3>0</h3>
                     </div>
                     <div class="evs">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                    </div>
-                    <div class="ivs">
                         <input type="text">
                         <input type="text">
                         <input type="text">
@@ -465,8 +460,64 @@
                             <input type="range" min="0" max="252" value="0" id="mySlider">
                         </div>
                     </div>
-                    <select class="nature"></select>
+                    <div class="ivs">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                    </div>
                 </div>
+            </div>
+            <div class="teambuilder-results">
+                <ul>
+                    <li class="result">
+                        <div class="result-sort">
+                            <button class="result-pokemon-name-sort">Name</button>
+                            <button class="result-pokemon-types-sort">Types
+                            </button>
+                            <button class="result-pokemon-abilities-sort">Abilities
+                            </button>
+                            <button class="result-pokemon-stat-sort">HP</button>
+                            <button class="result-pokemon-stat-sort">Atk</button>
+                            <button class="result-pokemon-stat-sort">Def</button>
+                            <button class="result-pokemon-stat-sort">SpA</button>
+                            <button class="result-pokemon-stat-sort">SpD</button>
+                            <button class="result-pokemon-stat-sort">Spe</button>
+                            <button class="result-pokemon-bst-sort">BST</button>
+                        </div>
+                    </li>
+                    <li class="result">
+                        <a class="current-result">
+                            <div class="result-pokemon-icon">
+                                <div class="pokemon-icon"
+                                    style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -240px 0px; background-color: transparent;">
+                                </div>
+                            </div>
+                            <div class="result-pokemon-name">Dracovish</div>
+                            <div class="result-pokemon-types">
+                                <img src="img/normal_type.png">
+                                <img src="img/normal_type.png">
+                            </div>
+                            <div class="result-pokemon-abilities">
+                                <p></p>
+                                <p></p>
+                            </div>
+                            <div class="result-pokemon-ha">
+                                <p></p>
+                                <p></p>
+                            </div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-bst">0</div>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="buts">

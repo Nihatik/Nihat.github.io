@@ -3254,11 +3254,96 @@ function updateVisualTeam(pokemon, object) {
         pokemonName.textContent = pokemon.baseSpecies;
     }
     object.onclick = function () {
-        teamCurPokemonChange(pokemon);
+        teamCurPokemonChange(pokemon, object);
     }
 }
 
-function teamCurPokemonChange(pokemon) {
+function filterPokemon(pokemonArray, filters) {
+    return pokemonArray.filter(pokemon => {
+        for (const filter of filters) {
+            if (!filter(pokemon)) {
+                return false;
+            }
+        }
+        return true;
+    });
+}
+function teamCurPokemonChange(pokemon, object = null) {
+    curResult = document.querySelector('.current-result')
+    sprite = curResult.querySelector('.pokemon-icon')
+
+    sprite.style.width = '40px'; 
+    sprite.style.height = '30px'; 
+    sprite.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
+    sprite.style.backgroundRepeat = 'no-repeat';
+
+    let dex_number = +allPokemons[pokemon.name.replace(/\s/g, '').replace(/-/g, '').toLowerCase()].num;
+
+    if (formSprites[pokemon.name.replace(/\s/g, '').replace(/-/g, '').toLowerCase()]) {
+        dex_number = +formSprites[pokemon.name.replace(/\s/g, '').replace(/-/g, '').toLowerCase()]
+    }
+
+    let first = dex_number % 12 * 40;
+
+    let second = Math.floor(dex_number / 12) * 30;
+
+    sprite.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
+    sprite.style.backgroundColor = 'transparent';
+
+    curResult.querySelector('.result-pokemon-name').textContent = pokemon.name
+    let typesRes = curResult.querySelectorAll('.result-pokemon-types img');
+    typesRes[0].src = 'img/' + pokemon.types[0] + '_type.png';
+    if (pokemon.types.length == 2) {
+        if (!typesRes[1]) {
+            var imgRes = document.createElement('img');
+            curResult.querySelector('.result-pokemon-types').appendChild(imgRes);
+            typesRes = curResult.querySelectorAll('.result-pokemon-types img');
+        }
+        typesRes[1].src = 'img/' + pokemon.types[1] + '_type.png';
+    }
+    else {
+        if (typesRes[1]) {
+            typesRes[1].remove();
+        }
+    }
+
+    statsResult = curResult.querySelectorAll('.result-pokemon-stat')
+
+    for(let i = 0; i < 6; i ++){
+        statsResult[i].textContent = pokemon.baseStats[Object.keys(pokemon.baseStats)[i]]
+    }
+    curResult.querySelector('.result-pokemon-bst').textContent = Object.values(pokemon.baseStats).reduce((total, stat) => total + stat, 0);
+
+    
+    abilitiesResult = curResult.querySelector('.result-pokemon-abilities')
+    abilitiesResult.querySelectorAll('p')[0].textContent = pokemon.abilities[0]
+    abilitiesResult.querySelectorAll('p')[1].textContent = pokemon.abilities[1]
+
+    
+    haResult = curResult.querySelector('.result-pokemon-ha')
+    haResult.querySelectorAll('p')[0].textContent = pokemon.abilities.H
+    if (pokemon.abilities.S){
+        haResult.querySelectorAll('p')[1].textContent = "(" + pokemon.abilities.S + ")"
+    }
+    else{
+        haResult.querySelectorAll('p')[1].textContent = '';
+    }
+
+    var results = document.querySelectorAll('.result')
+
+    var buttons = document.querySelectorAll('.team button');
+    buttons.forEach(function (button){
+        if(button.classList.contains('current-pokemon-choice')){
+            button.classList.remove('current-pokemon-choice');
+        }
+    });
+
+    if (!object){
+        object = buttons[0];
+    }
+
+    object.classList.add('current-pokemon-choice');
+
     let infoPokemon = document.querySelector('.current-pokemon')
     infoPokemon.querySelector('.name').value = pokemon.name;
 
@@ -3297,6 +3382,8 @@ function teamCurPokemonChange(pokemon) {
     for (let i = 0; i < 6; i++) {
         stats[i].textContent = pokemon.stats[evsKeys[i]];
     }
+
+    infoPokemon.querySelector('.current-pokemon .item').value = pokemon.item.name;
     
     let moves = infoPokemon.querySelectorAll('.moves span');
     for (let i = 0; i < 4; i++) {
@@ -3305,6 +3392,22 @@ function teamCurPokemonChange(pokemon) {
             moves[i].querySelector('img').src = "img/" + pokemon.moves[i].type.toLowerCase() + "_type.png";
         } else {
             moves[i].value = '';
+        }
+    }
+
+    let types = infoPokemon.querySelectorAll('.current-pokemon-top span img');
+    types[0].src = 'img/' + pokemon.types[0] + '_type.png';
+    if (pokemon.types.length == 2) {
+        if (!types[1]) {
+            var img = document.createElement('img');
+            infoPokemon.querySelector('.current-pokemon-top span').appendChild(img);
+            types = infoPokemon.querySelectorAll('.current-pokemon-top span img');
+        }
+        types[1].src = 'img/' + pokemon.types[1] + '_type.png';
+    }
+    else {
+        if (types[1]) {
+            types[1].remove();
         }
     }
 
@@ -3359,6 +3462,120 @@ function teamCurPokemonChange(pokemon) {
             option.removeAttribute('selected');
         }
     });
+    const myInput = document.querySelector('.current-pokemon .name');
+
+    function createFilteredPokemonList() {
+        document.querySelector('.teambuilder-results ul').innerHTML = ''; // Очищаем список перед добавлением новых элементов
+        document.querySelector('.teambuilder-results ul').appendChild(results[0])
+        document.querySelector('.teambuilder-results ul').appendChild(results[1])
+        for (let i = 6; i > -1; i--) {
+            console.log(i)
+            var li = document.createElement('li');
+            li.classList.add('result');
+            h3 = document.createElement('h3')
+            h3.textContent = i;
+            li.appendChild(h3)
+            document.querySelector('.teambuilder-results ul').appendChild(li);
+            const filters = [];
+            filters.push(pokemon => pokemon.points == i);
+            pokemons = filterPokemon(pokemonPointsData, filters)
+            
+            for (let pokemon of pokemons) {
+                const pokemonInfo = allPokemons[pokemon.name.replace(/\s/g, '').replace(/-/g, '').toLowerCase()];
+            
+                // Создаем элементы для списка
+                const li = document.createElement('li');
+                li.classList.add('result');
+            
+                const a = document.createElement('a');
+            
+                const divIcon = document.createElement('div');
+                divIcon.classList.add('result-pokemon-icon');
+            
+                const divPokemonIcon = document.createElement('div');
+                divPokemonIcon.classList.add('pokemon-icon');
+                divPokemonIcon.style.width = '40px';
+                divPokemonIcon.style.height = '30px';
+                divPokemonIcon.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
+                divPokemonIcon.style.backgroundRepeat = 'no-repeat';
+                
+                console.log(pokemonInfo)
+                let dex_number = +pokemonInfo.num;
+                if (formSprites[pokemonInfo.name.replace(/\s/g, '').replace(/-/g, '').toLowerCase()]) {
+                    dex_number = +formSprites[pokemonInfo.name.replace(/\s/g, '').replace(/-/g, '').toLowerCase()]
+                }
+            
+                let first = dex_number % 12 * 40;
+                let second = Math.floor(dex_number / 12) * 30;
+            
+                divPokemonIcon.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
+                divPokemonIcon.style.backgroundColor = 'transparent';
+            
+                divIcon.appendChild(divPokemonIcon);
+            
+                const divName = document.createElement('div');
+                divName.classList.add('result-pokemon-name');
+                divName.textContent = pokemonInfo.name;
+            
+                const divTypes = document.createElement('div');
+                divTypes.classList.add('result-pokemon-types');
+            
+                pokemonInfo.types.forEach(function(type) {
+                    const imgType = document.createElement('img');
+                    imgType.src = 'img/' + type.toLowerCase() + '_type.png';
+                    divTypes.appendChild(imgType);
+                });
+            
+                const divAbilities = document.createElement('div');
+                divAbilities.classList.add('result-pokemon-abilities');
+                for (let i = 0; i < 2; i++) {
+                    const pAbility = document.createElement('p');
+                    pAbility.textContent = pokemonInfo.abilities[i]
+                    divAbilities.appendChild(pAbility);
+                }
+            
+                const divHA = document.createElement('div');
+                divHA.classList.add('result-pokemon-ha');
+                for (let i = 0; i < 2; i++) {
+                    const pHA = document.createElement('p');
+                    if (i == 0){
+                        pHA.textContent = pokemonInfo.abilities.H
+                    }
+                    else {
+                        pHA.textContent = pokemonInfo.abilities.S
+                    }
+                    divHA.appendChild(pHA);
+                }
+            
+                const divBST = document.createElement('div');
+                divBST.classList.add('result-pokemon-bst');
+                divBST.textContent = Object.values(pokemonInfo.baseStats).reduce((total, stat) => total + stat, 0);
+            
+                a.appendChild(divIcon);
+                a.appendChild(divName);
+                a.appendChild(divTypes);
+                a.appendChild(divAbilities);
+                a.appendChild(divHA);
+            
+                for (let i = 0; i < 6; i++) {
+                    const divStat = document.createElement('div');
+                    divStat.classList.add('result-pokemon-stat');
+                    divStat.textContent = pokemonInfo.baseStats[Object.keys(pokemonInfo.baseStats)[i]];
+                    a.appendChild(divStat);
+                }
+                a.appendChild(divBST);
+                li.appendChild(a);
+            
+                document.querySelector('.teambuilder-results ul').appendChild(li);
+            }
+        }
+    }
     
+    myInput.addEventListener('click', createFilteredPokemonList);
+    
+    myInput.addEventListener('input', function() {
+        console.log('Значение поля ввода изменилось');
+    });
 }
 
+window.onload = onLoad();
