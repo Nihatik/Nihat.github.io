@@ -1322,10 +1322,13 @@ input[type="range"] {
     justify-content: center;
     cursor: pointer;
     border-radius: 12px;
+    transition: 0.1s;
+    border-color: black;
 }
 
 .result a:hover{
     background-color: #535353;
+    border: 1px solid black;
 }
 
 .teambuilder-results li {
@@ -1338,7 +1341,6 @@ input[type="range"] {
     padding: 0;
     clear: both;
     word-wrap: normal;
-    margin-bottom: 4px;
 }
 
 .result-pokemon-icon{
