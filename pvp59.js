@@ -3414,14 +3414,14 @@ function teamCurPokemonChange(pokemon, num, object = null) {
     }
 
     let types = infoPokemon.querySelectorAll('.current-pokemon-top span img');
-    types[0].src = 'img/' + pokemon.types[0] + '_type.png';
+    types[0].src = 'img/' + pokemon.types[0].toLowerCase() + '_type.png';
     if (pokemon.types.length == 2) {
         if (!types[1]) {
             var img = document.createElement('img');
             infoPokemon.querySelector('.current-pokemon-top span').appendChild(img);
             types = infoPokemon.querySelectorAll('.current-pokemon-top span img');
         }
-        types[1].src = 'img/' + pokemon.types[1] + '_type.png';
+        types[1].src = 'img/' + pokemon.types[1].toLowerCase() + '_type.png';
     }
     else {
         if (types[1]) {
