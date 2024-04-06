@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="types.css">
     <link rel="stylesheet" href="statuses.css">
     <title>АЧУМЕТЬ</title>
-    <link rel="icon" href="assets/snorlaxfavicon.png" type="image/gif">
+    <link rel="icon" href="img/snorlaxfavicon.png" type="image/gif">
     <script src="pvp59.js" defer></script>
 </head>
 
@@ -385,9 +385,13 @@
                             <option value=""></option>
                         </select>
                     </div>
-                    <div>
+                    <div class="item-info">
                         <label for="item">Item: </label>
-                        <input type="text" class="item" id="item">
+                        <span>
+                            <input type="text" class="item" id="item">
+                            <span class="pokemon-info-item" title="XZ" style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -0px -0px no-repeat scroll transparent;">
+                            </span>
+                        </span>
                     </div>
                     <div>
 
@@ -416,7 +420,7 @@
                 </div>
                 <div class="vertical-line" style="margin-left: -4px; margin-right: 12px;"></div>
                 <div class="current-pokemon-stats">
-                    <div>
+                    <div class="current-pokemon-stat-names">
                         <p>HP</p>
                         <p>Attack</p>
                         <p>Defense</p>
@@ -433,40 +437,40 @@
                         <h3>0</h3>
                     </div>
                     <div class="evs">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <input type="number" min="0" max="252" step="4">
+                        <input type="number" min="0" max="252" step="4">
+                        <input type="number" min="0" max="252" step="4">
+                        <input type="number" min="0" max="252" step="4">
+                        <input type="number" min="0" max="252" step="4">
+                        <input type="number" min="0" max="252" step="4">
                     </div>
-                    <div class="input-ranges">
+                    <div class="evs-ranges">
                         <div>
-                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                            <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
                         </div>
                         <div>
-                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                            <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
                         </div>
                         <div>
-                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                            <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
                         </div>
                         <div>
-                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                            <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
                         </div>
                         <div>
-                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                            <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
                         </div>
                         <div>
-                            <input type="range" min="0" max="252" value="0" id="mySlider">
+                            <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
                         </div>
                     </div>
                     <div class="ivs">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <input type="number" min="0" max="31">
+                        <input type="number" min="0" max="31">
+                        <input type="number" min="0" max="31">
+                        <input type="number" min="0" max="31">
+                        <input type="number" min="0" max="31">
+                        <input type="number" min="0" max="31">
                     </div>
                 </div>
             </div>
