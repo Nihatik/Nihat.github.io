@@ -366,12 +366,17 @@ input[type="range"] {
 
 
 .teambuilder-results {
-    overflow-y: auto;
-    position: relative;
-    left: 12px;
+    position: absolute;
+    top: 276px;
+    left: 0;
+    bottom: 0;
+    right: 0;
     width: 974px;
-    height: 720px;
+    overflow-y: scroll;
     background-color: gray;
+    background-color: gray;
+    padding: 0px 0px 10px 0px;
+    left: 16px;
 }
 
 .result {
