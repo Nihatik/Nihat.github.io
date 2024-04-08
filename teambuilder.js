@@ -1795,14 +1795,14 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
 
     curResult.querySelector('.result-pokemon-name').textContent = pokemon.name
     let typesRes = curResult.querySelectorAll('.result-pokemon-types img');
-    typesRes[0].src = 'img/' + pokemon.types[0] + '_type.png';
+    typesRes[0].src = 'img/' + pokemon.types[0].toLowerCase() + '_type.png';
     if (pokemon.types.length == 2) {
         if (!typesRes[1]) {
             var imgRes = document.createElement('img');
             curResult.querySelector('.result-pokemon-types').appendChild(imgRes);
             typesRes = curResult.querySelectorAll('.result-pokemon-types img');
         }
-        typesRes[1].src = 'img/' + pokemon.types[1] + '_type.png';
+        typesRes[1].src = 'img/' + pokemon.types[1].toLowerCase() + '_type.png';
     }
     else {
         if (typesRes[1]) {
