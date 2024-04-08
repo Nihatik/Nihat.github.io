@@ -1997,6 +1997,7 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         item.style = "background:transparent url(https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1) no-repeat scroll " + 0 + 'px ' + 0 + 'px';
         infoPokemon.querySelector('.current-pokemon .item').value = '';
     }
+    infoPokemon.querySelector('.current-pokemon .item').onclick = createItemsResults(null, num, object)
     
     let moves = infoPokemon.querySelectorAll('.moves span');
     function movesValuesUpdate(pokemon){
@@ -2013,7 +2014,6 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     for (let i = 0; i < 4; i++) {
         moves[i].querySelector('input').oninput = function(){
             if (allMoves[moves[i].querySelector('input').value.replace(' ', '').toLowerCase()]){
-                console.log(moves[i].querySelector('input').value.replace(' ', '').toLowerCase())
                 pokemon.moves[i] = allMoves[moves[i].querySelector('input').value.replace(' ', '').toLowerCase()]
                 movesValuesUpdate(pokemon)
                 returnPokePaste(playerPokemons)
@@ -2313,5 +2313,62 @@ function createResults(filter = null, num = null, object = null){
         
             document.querySelector('.teambuilder-results ul').appendChild(li);
         }
+    }
+}
+
+function createItemsResults(filter = null, num = null, object = null){
+    var results = document.querySelectorAll('.teambuilder-results ul .result');
+    results.forEach(function(result) {
+        if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
+            result.remove();
+        }
+    });
+    
+    for (let item of Object.keys(allItems)) {
+        item = allItems[item]
+        const li = document.createElement('li');
+        li.classList.add('result');
+    
+        const a = document.createElement('a');
+    
+        const divIcon = document.createElement('div');
+        divIcon.classList.add('result-pokemon-icon');
+    
+        const divPokemonIcon = document.createElement('div');
+        divPokemonIcon.classList.add('pokemon-icon');
+
+        firstCord = -(item.spritenum % 16 * 24)
+        secondCord = -(Math.floor(item.spritenum / 16) * 24)
+        
+        divPokemonIcon.style.width = '24px';
+        divPokemonIcon.style.height = '24px';
+        divPokemonIcon.style.backgroundImage = 'url(img/itemicons-sheet.png)';
+        divPokemonIcon.style.backgroundRepeat = 'no-repeat';
+        
+        divPokemonIcon.style.backgroundPosition = firstCord + 'px ' + secondCord + 'px';
+
+        divPokemonIcon.style.backgroundColor = 'transparent';
+    
+        divIcon.appendChild(divPokemonIcon);
+    
+        const divName = document.createElement('div');
+        divName.classList.add('result-pokemon-name');
+        divName.textContent = item.name;
+
+        const divDesc = document.createElement('div');
+        divDesc.classList.add('result-item-desc')
+        divDesc.textContent = item.desc
+
+        a.appendChild(divIcon);
+        a.appendChild(divName);
+        a.appendChild(divDesc)
+    
+        a.setAttribute('data-name', item.name)
+        a.onclick =  function() {
+        };
+
+        li.appendChild(a);
+    
+        document.querySelector('.teambuilder-results ul').appendChild(li);
     }
 }

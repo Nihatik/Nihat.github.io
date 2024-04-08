@@ -392,6 +392,7 @@ input[type="range"] {
 }
 
 .result a {
+    height: 30px;
     display: flex;
     width: 950px;
     flex-direction: row;
@@ -440,6 +441,12 @@ input[type="range"] {
 .result-pokemon-name {
     width: 200px;
     text-align: left;
+}
+
+.result-item-desc{
+    width: 720px;
+    text-align: left;
+    font-size: 12px;
 }
 
 
