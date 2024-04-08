@@ -1796,6 +1796,7 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     curResult.querySelector('.result-pokemon-name').textContent = pokemon.name
     let typesRes = curResult.querySelectorAll('.result-pokemon-types img');
     typesRes[0].src = 'img/' + pokemon.types[0].toLowerCase() + '_type.png';
+    
     if (pokemon.types.length == 2) {
         if (!typesRes[1]) {
             var imgRes = document.createElement('img');
