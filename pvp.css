@@ -1262,7 +1262,6 @@ select{
 }
 
 input[type="range"] {
-    -webkit-appearance: none;
     width: 100%;
     height: 12px;
     background: #d3d3d3;

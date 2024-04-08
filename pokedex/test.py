@@ -2,14 +2,14 @@ import sqlite3
 import json
 import re
 
-def fetch_data_from_db(db_path):
+def fetch_data_from_db(db_path, table):
     try:
         # Подключаемся к базе данных
         connection = sqlite3.connect(db_path)
         cursor = connection.cursor()
 
         # Выполняем запрос к базе данных
-        cursor.execute("SELECT * FROM pokemons")  # Замените "your_table_name" на имя вашей таблицы
+        cursor.execute("SELECT * FROM " + table)  # Замените "your_table_name" на имя вашей таблицы
         # Получаем все строки из результата запроса
         rows = cursor.fetchall()
         data = []
@@ -33,8 +33,9 @@ def fetch_data_from_db(db_path):
 
 # Пример использования функции
 db_path = "pokemon.db"  # Укажите путь к вашей базе данных SQLite3
-data = fetch_data_from_db(db_path)
-
+data = fetch_data_from_db(db_path, "pokemons")
+db_path = "pokemon.db"  # Укажите путь к вашей базе данных SQLite3
+data2 = fetch_data_from_db(db_path, "learnsets")
 
 with open('pokedex.js', 'r') as file:
     script_content = file.read()
@@ -87,9 +88,8 @@ for pokemon in data:
                     pokemonDataText += 'iconLoc: null, '
             else:
                 pokemonDataText += key + ': ' + keyValue + ', '
-        
+
         pokemonDataText += 'show: 0}'
-        # Добавляем словарь текущего покемона в общий список
         dataForTable += str(pokemonDataText) + ',\n'
 
 dataForTable+= ']'
@@ -101,9 +101,10 @@ new_script_content = re.sub(r'var pokemonData = \[.*?\];', new_data_str, script_
 with open('pokedex.js', 'w', encoding='utf-8') as file:
     file.write(new_script_content)
 
-with open('../pvp59.js', 'r') as file:
+with open('../teambuilder.js', 'r') as file:
     script_content2 = file.read()
     
+
 match2 = re.search(r'var pokemonPointsData = (\[.*?\]);', script_content2, re.DOTALL)
 if match2:
     data_str2 = match.group(1)
@@ -113,9 +114,11 @@ else:
 
 dataForTable = '['  # Создаем пустой список
 
-keysForTable = ['num','name','points']
-# Проходим по вашему исходному массиву и добавляем данные в список
+keysForTable = ['num','name','points', 'iconLoc']
 for pokemon in data:
+    for pokemon2 in data2:
+        if pokemon['name'].lower().replace(' ', '').replace('-', '') == pokemon2['name']:
+            break
     if pokemon['num'] < 1026 and pokemon['num'] > 0:
         pokemonDataText = '{'
         
@@ -151,25 +154,24 @@ for pokemon in data:
                     pokemonDataText += 'iconLoc: null, '
             else:
                 pokemonDataText += key + ': ' + keyValue + ', '
-        
+        pokemonDataText += 'learnset: ' + pokemon2['moves'] + ', '
         pokemonDataText += '}'
         # Добавляем словарь текущего покемона в общий список
         dataForTable += str(pokemonDataText) + ',\n'
 
 dataForTable+= ']'
-# Преобразуем список Python в строку JavaScript массива
+
 new_data_str2 = 'var pokemonPointsData = ' + str(dataForTable) + ';'
 
-# Заменяем старое содержимое массива на новое в файле JavaScript
 new_script_content2 = re.sub(r'var pokemonPointsData = \[.*?\];', new_data_str2, script_content2, flags=re.DOTALL)
 
-with open('../pvp59.js', 'w', encoding='utf-8') as file:
+with open('../teambuilder.js', 'w', encoding='utf-8') as file:
     file.write(new_script_content2)
-
-
 typesBase = "https://play.pokemonshowdown.com/sprites/types/"
 
 iconUrl = "https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16"
+
+
 
 
 

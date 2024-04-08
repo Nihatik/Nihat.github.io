@@ -7,114 +7,222 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="teambuilder.css">
     <link rel="icon" href="https://www.smogon.com/dex/media/sprites/xy/zygarde-complete.gif" type="image/gif">
-    <script src="pokedex.js"></script>
+    <script src="teambuilder.js"></script>
 </head>
 <body>
     <div class="main">
         <div class="present-menu">
             <div class="teambuilder-menu">
                 <div class="team">
-                    <button
-                            class="hover-button">
-                            <div class="pokemon-icon"
-                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -440px -2010px; background-color: transparent;">
-                            </div>
-                            <div>Cinderace</div>
-                        </button>
-                    <button
-                            class="hover-button">
-                            <div class="pokemon-icon"
-                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -80px -2010px; background-color: transparent;">
-                            </div>
-                            <div>Blacephalon</div>
-                        </button>
-                    <button
-                            class="hover-button">
-                            <div class="pokemon-icon"
-                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -40px -1800px; background-color: transparent;">
-                            </div>
-                            <div>Volcanion</div>
-                        </button>
-                    <button
-                            class="hover-button">
-                            <div class="pokemon-icon"
-                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -80px -2700px; background-color: transparent;">
-                            </div>
-                            <div>Rotom</div>
-                        </button>
-                    <button
-                            class="hover-button">
-                            <div class="pokemon-icon"
-                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px -810px; background-color: transparent;">
-                            </div>
-                            <div>Torkoal</div>
-                        </button>
-                    <button
-                            class="hover-button">
-                            <div class="pokemon-icon"
-                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -240px 0px; background-color: transparent;">
-                            </div>
-                            <div>Charizard</div>
-                        </button>
+                    <button class="hover-button">
+                        <div class="pokemon-icon"
+                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                        </div>
+                        <div></div>
+                    </button>
+                    <button class="hover-button">
+                        <div class="pokemon-icon"
+                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                        </div>
+                        <div></div>
+                    </button>
+                    <button class="hover-button">
+                        <div class="pokemon-icon"
+                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                        </div>
+                        <div></div>
+                    </button>
+                    <button class="hover-button">
+                        <div class="pokemon-icon"
+                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                        </div>
+                        <div></div>
+                    </button>
+                    <button class="hover-button">
+                        <div class="pokemon-icon"
+                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                        </div>
+                        <div></div>
+                    </button>
+                    <button class="hover-button">
+                        <div class="pokemon-icon"
+                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                        </div>
+                        <div></div>
+                    </button>
+                    <h4 id="team-points-value"></h4>
                 </div>
                 <div class="current-pokemon">
-                    <input type="text" class="name">
-                    <p>EVS</p>
-                    <div class="evs">
-                        <div>
-                            <div>HP</div>
-                            <input type="text">
-                        </div>
-                        <div>
-                            <div>Atk</div>
-                            <input type="text">
-                        </div>
-                        <div>
-                            <div>Def</div>
-                            <input type="text">
-                        </div>
-                        <div>
-                            <div>SpA</div>
-                            <input type="text">
-                        </div>
-                        <div>
-                            <div>SpD</div>
-                            <input type="text">
-                        </div>
-                        <div>
-                            <div>Spe</div>
-                            <input type="text">
+                    <div class="current-pokemon-top">
+                        <span>
+                            <input type="text" class="name">
+                        </span>
+                        <div class="pokemon-info-sprite">
+                            <div id="pokesprite">
+                            </div>
                         </div>
                     </div>
-                    <select class="nature"></select>
+                    <div class="vertical-line"></div>
+                    <div class="current-pokemon-add-info">
+                        <div>
+                            <label for="types">Types: </label>
+                            <span class="types" id="types">
+                                <img src="img/normal_type.png">
+                                <img src="img/normal_type.png">
+                            </span>
+                        </div>
+                        <div>
+                            <label for="ability">Ability: </label>
+                            <select class="ability" id="ability" name="ability">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="item-info">
+                            <label for="item">Item: </label>
+                            <span>
+                                <input type="text" class="item" id="item">
+                                <span class="pokemon-info-item" title="XZ" style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -0px -0px no-repeat scroll transparent;">
+                                </span>
+                            </span>
+                        </div>
+                        <div>
+    
+                            <label for="nature">Nature: </label>
+                            <select class="nature" name="nature" id="nature"></select>
+                        </div>
+                    </div>
+                    <div class="vertical-line"></div>
                     <div class="moves">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <span>
+                            <input type="text">
+                            <img src="img/normal_type.png">
+                        </span>
+                        <span>
+                            <input type="text">
+                            <img src="img/normal_type.png">
+                        </span>
+                        <span>
+                            <input type="text">
+                            <img src="img/normal_type.png">
+                        </span>
+                        <span>
+                            <input type="text">
+                            <img src="img/normal_type.png">
+                        </span>
                     </div>
-                    <select class="ability">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
+                    <div class="vertical-line"></div>
+                    <div class="current-pokemon-stats">
+                        <div class="current-pokemon-stat-names">
+                            <p>HP</p>
+                            <p>Attack</p>
+                            <p>Defense</p>
+                            <p>Sp. Atk</p>
+                            <p>Sp. Def</p>
+                            <p>Speed</p>
+                        </div>
+                        <div class="current-pokemon-stat-values">
+                            <h3>0</h3>
+                            <h3>0</h3>
+                            <h3>0</h3>
+                            <h3>0</h3>
+                            <h3>0</h3>
+                            <h3>0</h3>
+                        </div>
+                        <div class="evs">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                        </div>
+                        <div class="evs-ranges">
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                        </div>
+                        <div class="ivs">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                        </div>
+                    </div>
+                </div>
+                <div class="teambuilder-results">
+                    <ul>
+                        <li class="result">
+                            <div class="result-sort">
+                                <button class="result-pokemon-name-sort">Name</button>
+                                <button class="result-pokemon-types-sort">Types
+                                </button>
+                                <button class="result-pokemon-abilities-sort">Abilities
+                                </button>
+                                <button class="result-pokemon-stat-sort">HP</button>
+                                <button class="result-pokemon-stat-sort">Atk</button>
+                                <button class="result-pokemon-stat-sort">Def</button>
+                                <button class="result-pokemon-stat-sort">SpA</button>
+                                <button class="result-pokemon-stat-sort">SpD</button>
+                                <button class="result-pokemon-stat-sort">Spe</button>
+                                <button class="result-pokemon-bst-sort">BST</button>
+                            </div>
+                        </li>
+                        <li class="result">
+                            <a class="current-result">
+                                <div class="result-pokemon-icon">
+                                    <div class="pokemon-icon"
+                                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: -240px 0px; background-color: transparent;">
+                                    </div>
+                                </div>
+                                <div class="result-pokemon-name">Dracovish</div>
+                                <div class="result-pokemon-types">
+                                    <img src="img/normal_type.png">
+                                    <img src="img/normal_type.png">
+                                </div>
+                                <div class="result-pokemon-abilities">
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                                <div class="result-pokemon-ha">
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                                <div class="result-pokemon-stat">0</div>
+                                <div class="result-pokemon-stat">0</div>
+                                <div class="result-pokemon-stat">0</div>
+                                <div class="result-pokemon-stat">0</div>
+                                <div class="result-pokemon-stat">0</div>
+                                <div class="result-pokemon-stat">0</div>
+                                <div class="result-pokemon-bst">0</div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="buts">
+            
+            <div class="right-menu">
                 <div class="text-input-panel playerteam-input">
                     <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
                         oninput="presentInfoUpdate()"></textarea>
-                </div>
-                <div class="player-team-but">
-                    <button class="butsbut" onclick="">Your Team</button>
-                </div>
-                <button class="play butsbut" onclick="createPokemonTeam()">Play</button>
-                <div class="opponent-team-but">
-                    <button class="butsbut" onclick="">Opponent Team</button>
-                </div>
-                <div class="text-input-panel opponentteam-input">
-                    <textarea id="opponentteam-input-text" rows="4" placeholder="Введите текст..."
-                        oninput="presentInfoUpdate('da')"></textarea>
                 </div>
             </div>
         </div>
