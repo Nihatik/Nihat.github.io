@@ -2264,4 +2264,3 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         }
     };
 }
-
