@@ -2488,7 +2488,7 @@ function createItemsResults(filter = null, num = null, object = null){
         a.setAttribute('data-name', item.name)
         a.onclick =  function() {
             itemName = this.getAttribute('data-name');
-            playerPokemons[num].item = allItems[itemName.replace(' ','').toLowerCase()];
+            playerPokemons[num].item = allItems[itemName.replace(' ','').replace('-','').toLowerCase()];
 
             updateVisualTeam(playerPokemons[num], num, object)
             teamCurPokemonChange(playerPokemons[num], num, object)
@@ -2527,6 +2527,9 @@ function createMovesResults(filter = null, num = null, object = null, moveNum){
     document.querySelector('.teambuilder-results ul').appendChild(li);
 
     var foundPokemon = pokemonPointsData.find(function(pokemon) {
+        if(playerPokemons[num].changesFrom){
+            return pokemon.name === playerPokemons[num].changesFrom;
+        }
         return pokemon.name === playerPokemons[num].name;
     });
     for (let move of Object.keys(filteredMoves)) {
@@ -2584,21 +2587,12 @@ function createMovesResults(filter = null, num = null, object = null, moveNum){
             a.setAttribute('data-name', move.name)
             a.onclick =  function() {
                 moveName = this.getAttribute('data-name');
-                playerPokemons[num].moves[moveNum] = allMoves[moveName.replace(' ','').toLowerCase()];
+                playerPokemons[num].moves[moveNum] = allMoves[moveName.replace(' ','').replace('-','').toLowerCase()];
                 updateVisualTeam(playerPokemons[num], num, object)
                 teamCurPokemonChange(playerPokemons[num], num, object)
                 let moves = document.querySelectorAll('.moves span');
                 if(moves[moveNum+1]){
                     moves[moveNum+1].querySelector('input').focus();
-                }
-                else{
-                    buttons = document.querySelectorAll('.team button');
-                    for (let j = 0; j < buttons.length; j++) {
-                        if (buttons[j].classList.contains('current-pokemon-choice')) {
-                            buttons[j+1].click();
-                            return;
-                        }
-                    }
                 }
             };
 

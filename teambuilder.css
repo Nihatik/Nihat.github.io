@@ -383,7 +383,6 @@ input[type="range"] {
     width: 974px;
     overflow-y: scroll;
     background-color: gray;
-    background-color: gray;
     padding: 0px 0px 10px 0px;
     left: 16px;
 }
@@ -407,7 +406,7 @@ input[type="range"] {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: 0.1s;
     border-color: black;
 }
