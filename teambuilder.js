@@ -1377,7 +1377,6 @@ var natures = {
 };
 
 function presentInfoUpdate(opponent = null) {
-    console.log(playerPokemons)
     var buttons = document.querySelectorAll('.team button')
     if (document.getElementById("playerteam-input-text").value) {
         submitPokePaste(playerPokemons, document.getElementById("playerteam-input-text").value);
@@ -1610,7 +1609,6 @@ function pokemonToBaseValues(pokemon){
 }
 
 function submitPokePaste(team, inputText) {
-    console.log(team)
     var pastes = inputText.split(/\n\s*\n/);
     var j = 0;
     var a = 0;
@@ -1769,7 +1767,6 @@ function updateVisualTeam(pokemon, num= null, object = null) {
     }
     
     object.onclick = function () {
-        console.log(playerPokemons[num])
         teamCurPokemonChange(playerPokemons[num], num, this);
         document.querySelectorAll('.moves span')[0].querySelector('input').focus();
     }
@@ -1791,7 +1788,6 @@ function onLoad(){
 
 function teamCurPokemonChange(pokemon, num = null, object = null) {
     
-    console.log(object)
 
     returnPokePaste(playerPokemons)
     activePokemon = playerPokemons[num]
@@ -1804,8 +1800,6 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
             button.classList.remove('current-pokemon-choice');
         }
     });
-    console.log(num, "Nomerok")
-    console.log(playerPokemons[num])
     if (!object){
         if (num){
             object = buttons[num];
@@ -2404,7 +2398,6 @@ function createResults(filter = null, num = null, object = null){
                 nameInput.value = pokemonName;
                 basePokemon = allPokemons[pokemonName.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()]
                 playerPokemons[num] = basePokemon
-                console.log(playerPokemons)
                 pokemonToBaseValues(playerPokemons[num])
                 playerPokemons[num].name = basePokemon.name
                 playerPokemons[num].ability.name = basePokemon.abilities[0]
@@ -2597,7 +2590,6 @@ function createMovesResults(filter = null, num = null, object = null, moveNum){
                 else{
                     buttons = document.querySelectorAll('.team button');
                     for (let j = 0; j < buttons.length; j++) {
-                        console.log(buttons[j].classList);
                         if (buttons[j].classList.contains('current-pokemon-choice')) {
                             buttons[j+1].click();
                             return;
