@@ -1814,9 +1814,13 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     let infoPokemon = document.querySelector('.current-pokemon')
     infoPokemon.querySelector('.name').value = pokemon ? pokemon.name : '';
 
+    console.log(pokemon)
     var div = infoPokemon.querySelector('.pokemon-info-sprite div');
     if (pokemon && (pokemon.name.includes('-Mega-X') || pokemon.name.includes('-Mega-Y'))) {
         var pokemonUrl = megaXYUrl(pokemon.name, 0);
+    }
+    else if(pokemon.changesFrom){
+        var pokemonUrl = 'https://play.pokemonshowdown.com/sprites/ani/' + pokemon.changesFrom.replace(/\s/g, '').toLowerCase() + '-' + pokemon.forme.replace(/\s/g, '').replace('-','').toLowerCase() + '.gif';
     }
     else {
         if (!pokemon){
