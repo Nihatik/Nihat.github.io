@@ -51,6 +51,10 @@
                         <div></div>
                     </button>
                     <h4 id="team-points-value"></h4>
+                    <div class="text-input-panel playerteam-input">
+                        <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
+                            oninput="presentInfoUpdate()"></textarea>
+                    </div>
                 </div>
                 <div class="current-pokemon">
                     <div class="current-pokemon-top">
@@ -169,22 +173,6 @@
                 <div class="teambuilder-results">
                     <ul>
                         <li class="result">
-                            <div class="result-sort">
-                                <button class="result-pokemon-name-sort">Name</button>
-                                <button class="result-pokemon-types-sort">Types
-                                </button>
-                                <button class="result-pokemon-abilities-sort">Abilities
-                                </button>
-                                <button class="result-pokemon-stat-sort">HP</button>
-                                <button class="result-pokemon-stat-sort">Atk</button>
-                                <button class="result-pokemon-stat-sort">Def</button>
-                                <button class="result-pokemon-stat-sort">SpA</button>
-                                <button class="result-pokemon-stat-sort">SpD</button>
-                                <button class="result-pokemon-stat-sort">Spe</button>
-                                <button class="result-pokemon-bst-sort">BST</button>
-                            </div>
-                        </li>
-                        <li class="result">
                             <a class="current-result">
                                 <div class="result-pokemon-icon">
                                     <div class="pokemon-icon"
@@ -214,13 +202,6 @@
                             </a>
                         </li>
                     </ul>
-                </div>
-            </div>
-            
-            <div class="right-menu">
-                <div class="text-input-panel playerteam-input">
-                    <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
-                        oninput="presentInfoUpdate()"></textarea>
                 </div>
             </div>
         </div>
