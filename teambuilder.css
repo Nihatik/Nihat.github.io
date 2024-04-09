@@ -20,7 +20,6 @@ body {
 .decreased {
     color: #ff5647;
 }
-
 #playerteam-input-text , #opponentteam-input-text {
     padding-left: 4px;
     padding-top: 2px;
@@ -94,7 +93,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 120px;
+    width: 80px;
     height: 60px;
     color: white;
     position: relative;
@@ -559,4 +558,115 @@ input[type="range"] {
 
 .item-info > span > span {
     position: relative;
+}
+
+@media (min-width: 992px){
+    .team button:not(.current-pokemon-choice) {
+        width: 120px;
+        font-size: 8px;
+    }
+    .current-pokemon-choice {
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 120px;
+        height: 60px;
+        color: white;
+        position: relative;
+        border-radius: 16px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color: #4d4d4d;
+        margin-right: 8px;
+        transition: 0.3s;
+        transform: translateY(8px);
+    }
+}
+
+@media (min-width: 320px){
+    .team button:not(.current-pokemon-choice) {
+        width: 45px;
+        font-size: 8px;
+        height: 40px;
+        border-radius: 8px;
+    }
+    .current-pokemon-choice {
+        font-size: 8px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 5%;
+        height: 40px;
+        color: white;
+        position: relative;
+        border-radius: 8px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color: #4d4d4d;
+        margin-right: 8px;
+        transition: 0.3s;
+        transform: translateY(8px);
+    }
+    .current-pokemon {
+        width: 100%;
+        height: 100%;
+        font-size: 9px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-image: url(https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png);
+        border-radius: 12px;
+    }
+    .current-pokemon-top{
+        width: 100%;
+    }
+    .current-pokemon-top .name{
+        width: 60%;
+        height: 18px;
+    }
+    .pokemon-info-sprite {
+        display: flex;
+        width: 100px;
+        box-sizing: border-box;
+        padding: 4px;
+        image-rendering: pixelated;
+        min-width: 100px;
+        min-height: 100px;
+    }
+    #team-points-value{
+        font-size: 9px;
+    }
+    input, select {
+        font-size: 9px;
+    }
+    .current-pokemon-add-info select {
+        width: 60%;
+        height: 20px;
+    }
+    .current-pokemon .moves input{
+        width: 80px;
+        height: 20px;
+    }
+    .item-info input {
+        width: 56px;
+        height: 18px;
+    }
+    .item-info > span{
+        width: 102px;
+    }
+    .current-pokemon-add-info .types {
+        width: 102px;
+    }
+    .vertical-line {
+        width: 0;
+        margin-left: 0px;
+        margin-right: 0px;
+    };
+
+    .pokemon-info-item{}
 }
