@@ -7,7 +7,8 @@
 body {
     background: rgb(34, 34, 34);
     color: white;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -386,7 +387,6 @@ input[type="range"] {
 }
 
 .current-result {
-    margin-top: 8px;
     background-color: #535353;
     border: 1px solid white;
 }
@@ -415,7 +415,7 @@ input[type="range"] {
     align-items: center;
     justify-content: center;
     list-style-type: none;
-    margin: 0;
+    margin-top: 4px;
     padding: 0;
     clear: both;
     word-wrap: normal;
@@ -447,6 +447,43 @@ input[type="range"] {
     width: 720px;
     text-align: left;
     font-size: 12px;
+}
+
+.result-move-desc{
+    width: 450px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.result-move-power{
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.result-move-pp{
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.result-move-acc{
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.result-move-cat{
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.result-move-type{
+    width: 40px;
+    height: 24px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 
