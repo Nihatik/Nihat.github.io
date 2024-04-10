@@ -1773,7 +1773,22 @@ function updateVisualTeam(pokemon, num= null, object = null) {
 }
 
 function onLoad(){
-    
+    document.getElementById('pastebutton').onclick = function() {
+        var playerteamInput = document.getElementById('playerteam-input-text');
+        var teambuilderResultsUl = document.querySelector('.teambuilder-results ul')
+        var teambuilderResults = document.querySelector('.teambuilder-results')
+        if (playerteamInput.style.display === "flex") {
+            playerteamInput.style.display = "none";
+            teambuilderResultsUl.style.display = 'flex'
+            teambuilderResults.style.overflowY = 'scroll';
+            playerteamInput.scrollTop = 0;
+        } else {
+            playerteamInput.style.display = "flex";
+            teambuilderResultsUl.style.display = 'none'
+            teambuilderResults.style.overflowY = 'hidden';
+            teambuilderResults.scrollTop = 0;
+        }
+    }
     var buttons = document.querySelectorAll('.team button')
     createResults(null, 0, buttons[0])
     for (var i = 0; i < 6; i++) {
@@ -2620,3 +2635,4 @@ function megaXYUrl(pokemonName, num) {
     }
     return url
 }
+

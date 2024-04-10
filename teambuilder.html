@@ -51,10 +51,7 @@
                         <div></div>
                     </button>
                     <h4 id="team-points-value"></h4>
-                    <div class="text-input-panel playerteam-input">
-                        <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
-                            oninput="presentInfoUpdate()"></textarea>
-                    </div>
+                    <button class="hover-button" id="pastebutton">PokePaste</button>
                 </div>
                 <div class="current-pokemon">
                     <div class="current-pokemon-top">
@@ -171,6 +168,8 @@
                     </div>
                 </div>
                 <div class="teambuilder-results">
+                    <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
+                        oninput="presentInfoUpdate()"></textarea>
                     <ul>
                         <li class="result">
                             <a class="current-result">
