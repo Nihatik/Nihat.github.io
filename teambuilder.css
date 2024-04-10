@@ -569,7 +569,8 @@ input[type="range"] {
     .current-pokemon{
         width: 100%;
         font-size: 10px;
-        
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
     .teambuilder-results{
         width: 100%;
@@ -598,6 +599,8 @@ input[type="range"] {
         width: 980px;
         width: none;
         font-size: 12px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
     }
     .teambuilder-results{
         width: 964px;
