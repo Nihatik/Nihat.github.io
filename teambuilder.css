@@ -84,7 +84,7 @@ body {
 }
 
 #team-points-value{
-    width: 80px;
+    width: 70px;
 }
 
 .right-menu{
@@ -576,7 +576,7 @@ input[type="range"] {
     .team{
         font-size: 8px;
     }
-    .team button:not(.current-pokemon-choice) {
+    .team button:not(.current-pokemon-choice),#pastebutton {
         font-size: 6px;
         width: 10%;
     }
