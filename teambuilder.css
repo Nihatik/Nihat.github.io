@@ -23,7 +23,7 @@ body {
 #playerteam-input-text , #opponentteam-input-text {
     padding-left: 4px;
     padding-top: 2px;
-    width: 240px;
+    width: 100%;
     height: 100%;
     min-height: 100%;
     max-height: 18px;
@@ -306,9 +306,7 @@ select{
     height: 24px;
 }
 
-.current-pokemon-top .name{
-    width: 146px;
-}
+
 
 .current-pokemon-top img{
     left: 0px;
@@ -565,13 +563,106 @@ input[type="range"] {
     position: relative;
 }
 
-@media (min-width: 320px){
+@media (max-width: 960px){
+    .teambuilder-results {
+        top: 196px;
+    }
+    .team button {
+        font-size: 6px;
+    }
     .current-pokemon{
         width: 100%;
-        font-size: 8px;
+        font-size: 6px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        height: 120px;
     }
+
+
+
+    .current-pokemon input, select{
+        font-size: 8px;
+        width: 100%;
+    }
+    .current-pokemon-add-info select, .current-pokemon-add-info input{
+        width: 75%;
+        height: 100%;
+        padding: 0;
+    }
+
+    .current-pokemon-add-info input{
+        padding: 0px 4px;
+    }
+    .current-pokemon-add-info label {
+        width: 25%;
+        text-align: right;
+    }
+    .item-info > span {
+        width: 75%;
+    }
+    .current-pokemon-add-info > div{
+        margin-bottom: 4px;
+        margin-top: 4px;
+    }
+    .current-pokemon-add-info .types {
+        width: 75%;
+    }
+    .current-pokemon-add-info{
+        width: 30%;
+    }
+    .pokemon-info-item {
+        scale: 0.5;
+    }
+    .moves{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 30%;
+        height: 100%;
+    }
+    .current-pokemon .moves span{
+        width: 100%;
+        height: 20%;
+        margin: 0;
+    }
+    
+    .current-pokemon img{
+        height: 12px;
+    }
+    .current-pokemon-top input, .current-pokemon .moves input{
+        width: 75%;
+        height: 75%;
+    }
+    
+    .current-pokemon-stats{
+        width: 20%;
+    }
+    .current-pokemon-stats p, .current-pokemon-stats h3 {
+        text-align: right;
+        height: 16px;
+        line-height: 24px;
+        width: 30px;
+    }
+
+    .vertical-line{
+        display: none
+    }
+
+    .current-pokemon-top{
+        width: 20%;
+    }
+    .current-pokemon .pokemon-info-sprite{
+        width: 80px;
+        padding-left: 0;
+        min-width: 80px;
+        min-height: 80px;
+    }
+
+    .evs, .evs-ranges, .ivs{
+        display: none;
+    }
+
     .teambuilder-results{
         width: 100%;
         font-size: 8px;
