@@ -576,11 +576,6 @@ input[type="range"] {
         width: 100%;
         font-size: 8px;
     }
-    .result a {
-        width: 98%;
-        font-size: 7px;
-        height: 100%;
-    }
     .result-pokemon-name{
         font-size: 8px
     }
@@ -588,12 +583,22 @@ input[type="range"] {
         font-size: 6px
     }
     .result-pokemon-icon, .result-pokemon-types {
-        scale: 0.6;
+        scale: 0.5;
     }
     
     .result {
         width: 100%;
-        height: 24px;
+        height: 18px;
+    }
+    .result a {
+        width: 98%;
+        font-size: 7px;
+        height: 100%;
+        border-radius: 10px;
+    }
+    .result h3{
+        height: 10px;
+        font-size: 6pt;
     }
 }
 
