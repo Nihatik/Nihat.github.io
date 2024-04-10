@@ -214,6 +214,9 @@ select{
     height: 22px;
     transition: 0.3s;
 }
+.current-pokemon-stats h3{
+    width: 40px;
+}
 
 .text-input-panel{
     display: flex;
@@ -292,7 +295,7 @@ select{
     flex-direction: row;
     height: 26px;
     padding: 0px 6px;
-    width: 160px;
+    width: 140px;
 }
 
 .current-pokemon-top input{
@@ -312,7 +315,7 @@ select{
 }
 
 .current-pokemon-add-info input , .current-pokemon-add-info select{
-    width: 154px;
+    width: 144px;
     height: 24px;
     padding: 0px 6px;
 }
@@ -382,14 +385,14 @@ input[type="range"] {
     right: 0;
     width: 974px;
     overflow-y: scroll;
+    overflow-x: hidden;
     background-color: gray;
     padding: 0px 0px 10px 0px;
-    left: 16px;
 }
 
 .result {
     font-size: 14px;
-    width: 960px;
+    width: 950px;
     height: 32px;
 }
 
@@ -401,12 +404,12 @@ input[type="range"] {
 .result a {
     height: 30px;
     display: flex;
-    width: 950px;
+    width: 930px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: 0.1s;
     border-color: black;
 }
@@ -435,7 +438,7 @@ input[type="range"] {
 }
 
 .result-pokemon-types {
-    width: 120px;
+    width: 100px;
     height: 24px;
     display: flex;
     justify-content: flex-start;
@@ -457,7 +460,7 @@ input[type="range"] {
 }
 
 .result-move-desc{
-    width: 450px;
+    width: 430px;
     text-align: left;
     font-size: 12px;
 }
@@ -511,7 +514,7 @@ input[type="range"] {
 }
 
 .result-pokemon-abilities, .result-pokemon-ha {
-    width: 160px;
+    width: 170px;
     text-align: center;
     font-size: 12px;
 }
@@ -558,10 +561,10 @@ input[type="range"] {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 154px;
+    width: 144px;
 }
 .item-info input {
-    width: 108px;
+    width: 98px;
 }
 
 .item-info > span > span {
@@ -571,11 +574,23 @@ input[type="range"] {
 @media (min-width: 320px){
     .current-pokemon{
         width: 100%;
+        font-size: 10px;
+        
+    }
+    .teambuilder-results{
+        width: 100%;
+        font-size: 10px;
     }
 }
 
-@media (min-width: 720px){
+@media (min-width: 1000px){
     .current-pokemon{
-        width: 1020px;
+        width: 980px;
+        width: none;
+        font-size: 12px;
+    }
+    .teambuilder-results{
+        width: 964px;
+        left: 8px;
     }
 }
