@@ -412,6 +412,8 @@ input[type="range"] {
     border-radius: 12px;
     transition: 0.1s;
     border-color: black;
+    font-size: 12px;
+    padding: 2px;
 }
 
 .result a:hover{
@@ -456,37 +458,31 @@ input[type="range"] {
 .result-item-desc{
     width: 720px;
     text-align: left;
-    font-size: 12px;
 }
 
 .result-move-desc{
     width: 430px;
     text-align: left;
-    font-size: 12px;
 }
 
 .result-move-power{
     width: 60px;
     text-align: center;
-    font-size: 12px;
 }
 
 .result-move-pp{
     width: 50px;
     text-align: center;
-    font-size: 12px;
 }
 
 .result-move-acc{
     width: 60px;
     text-align: center;
-    font-size: 12px;
 }
 
 .result-move-cat{
     width: 60px;
     text-align: center;
-    font-size: 12px;
 }
 
 .result-move-type{
@@ -499,7 +495,6 @@ input[type="range"] {
 
 .result-pokemon-stat, .result-pokemon-bst, .result-pokemon-bst-sort, .result-pokemon-stat-sort  {
     width: 36px;
-    font-size: 12px;
     text-align: center;
 }
 .result-pokemon-abilities-sort  {
@@ -516,7 +511,6 @@ input[type="range"] {
 .result-pokemon-abilities, .result-pokemon-ha {
     width: 170px;
     text-align: center;
-    font-size: 12px;
 }
 
 .result-sort {
@@ -581,6 +575,22 @@ input[type="range"] {
         width: 100%;
         font-size: 10px;
     }
+    .result a {
+        width: 98%;
+        font-size: 10px;
+        height: 100%;
+    }
+    .result-pokemon-name{
+        font-size: 12px
+    }
+    .result-pokemon-icon, .result-pokemon-types {
+        scale: 0.7;
+    }
+    
+    .result {
+        width: 100%;
+        height: 24px;
+    }
 }
 
 @media (min-width: 1000px){
@@ -592,5 +602,23 @@ input[type="range"] {
     .teambuilder-results{
         width: 964px;
         left: 8px;
+    }
+    .result a {
+        width: 99%;
+        font-size: 12px;
+        height: 30px;
+    }
+    .result-pokemon-name{
+        font-size: 14px
+    }
+    .result-pokemon-icon {
+        scale: none;
+    }
+    .result-pokemon-types{
+        scale: none;
+    }
+    .result {
+        width: 100%;
+        height: 32px;
     }
 }
