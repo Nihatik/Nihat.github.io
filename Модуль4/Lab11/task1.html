@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1</title>
+    <script>
+        function getMinValue(){
+            x = +document.getElementById('x').value
+            y = +document.getElementById('y').value
+            z = +document.getElementById('z').value
+        
+            nums = [x,y,z]
+        
+            min = x
+            nums.forEach(num => {
+                if (min > num){
+                    min = num
+                }
+            });
+            
+            alert('Ответ: ' + min)
+        };
+    </script>
+</head>
+<body>
+    <label for="x">X:</label>
+    <input id="x" type="number">
+    <label for="y">Y:</label>
+    <input id="y" type="number">
+    <label for="z">Z:</label>
+    <input id="z" type="number">
+    <button onclick="getMinValue()">Получить минимальное значение</button>
+</body>
+</html>
