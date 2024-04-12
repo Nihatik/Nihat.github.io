@@ -14,9 +14,7 @@ body {
 .present-menu {
     display: flex;
     justify-content: center;
-    /* Центрирование по горизонтали */
     align-items: center;
-    /* Центрирование по вертикали */
     flex-direction: column;
     width: 1918px;
     border: 1px solid green;

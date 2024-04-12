@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интерактивная карта Кубы</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([21.5218, -77.7812], 7);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var markers = [
+      { coords: [23.1136, -82.3666], name: 'Гавана', description: 'Столица Кубы.' },
+      { coords: [23.1345, -82.3874], name: 'Морро-Кабаньяс', description: 'Крепость и символ Гаваны.' },
+      { coords: [23.1416312, -82.3566769], name: 'Музей Революции', description: 'Музей в Гаване, посвященный кубинской революции.' },
+      { coords: [23.17986, -81.18853], name: 'Варадеро', description: 'Популярный курорт на севере Кубы.' },
+      { coords: [21.8067, -79.9378], name: 'Тринидад', description: 'Исторический город с колониальной архитектурой.' },
+      { coords: [22.4069, -79.9647], name: 'Санта-Клара', description: 'Город, где находится мавзолей Че Гевары.' }
+    ];
+
+    markers.forEach(function (markerData) {
+      var marker = L.marker(markerData.coords).addTo(map);
+      marker.bindPopup("<b>" + markerData.name + "</b><br>" + markerData.description).openPopup();
+    });
+  </script>
+
+</body>
+
+</html>

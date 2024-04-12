@@ -1772,7 +1772,58 @@ function updateVisualTeam(pokemon, num= null, object = null) {
     }
 }
 
+
 function onLoad(){
+    var savedTeams = JSON.parse(localStorage.getItem("savedTeams"));
+    if (savedTeams) {
+        savedTeams.forEach(function(dataTeam, index) {
+            var teamPointsValue = 0;
+            let newTeam = document.createElement('div');
+            newTeam.classList.add('data-team');
+            console.log(dataTeam)
+            dataTeam.pokemonsTeam.forEach(function(pokemon) {
+                let div = document.createElement('div');
+                div.classList.add('pokemon-icon');
+                div.style.width = '40px';
+                div.style.height = '30px';
+                div.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
+                div.style.backgroundRepeat = 'no-repeat';
+                if (pokemon.iconLoc) {
+                    div.style.backgroundPosition = pokemon.iconLoc;
+                } else {
+                    var dex_number = +pokemon.num;
+                    var first = dex_number % 12 * 40;
+                    var second = Math.floor(dex_number / 12) * 30;
+                    div.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
+                }
+
+                div.style.backgroundColor = 'transparent';
+                newTeam.appendChild(div);
+
+                if(pokemon.name){
+                    var findedPokemon = pokemonPointsData.find(function(item) {
+                        return item.name === pokemon.name && item.num === pokemon.num;
+                    });
+                    teamPointsValue += findedPokemon.points
+                }
+            });
+            
+            let h5 = document.createElement('h5')
+            h5.textContent = teamPointsValue
+
+            newTeam.appendChild(h5)
+
+            newTeam.onclick = function() {
+                console.log(savedTeams[index]);
+                playerPokemons = JSON.parse(JSON.stringify(savedTeams[index].pokemonsTeam));
+                presentInfoUpdate();
+                document.getElementById("playerteam-input-text").value = null;
+            };
+
+            document.querySelector('.teams').appendChild(newTeam);
+        });
+    }
+
     document.getElementById('pastebutton').onclick = function() {
         var playerteamInput = document.getElementById('playerteam-input-text');
         var teambuilderResultsUl = document.querySelector('.teambuilder-results ul')
@@ -1788,6 +1839,9 @@ function onLoad(){
             teambuilderResults.style.overflowY = 'hidden';
             teambuilderResults.scrollTop = 0;
         }
+    }
+    document.getElementById('saveteambutton').onclick = function() {
+        saveTeam()
     }
     var buttons = document.querySelectorAll('.team button')
     createResults(null, 0, buttons[0])
@@ -1829,7 +1883,6 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     let infoPokemon = document.querySelector('.current-pokemon')
     infoPokemon.querySelector('.name').value = pokemon ? pokemon.name : '';
 
-    console.log(pokemon)
     var div = infoPokemon.querySelector('.pokemon-info-sprite div');
     if (pokemon && (pokemon.name.includes('-Mega-X') || pokemon.name.includes('-Mega-Y'))) {
         var pokemonUrl = megaXYUrl(pokemon.name, 0);
@@ -2636,3 +2689,19 @@ function megaXYUrl(pokemonName, num) {
     return url
 }
 
+function saveTeam() {
+    var savedTeams = JSON.parse(localStorage.getItem("savedTeams")) || [];
+    var teamNum = savedTeams.length;
+
+    if(savedTeams.length < 10){
+        var team = playerPokemons;
+    
+        savedTeams.push({
+            teamId: teamNum,
+            pokemonsTeam: team
+        });
+    
+        localStorage.setItem("savedTeams", JSON.stringify(savedTeams));
+    }
+
+}

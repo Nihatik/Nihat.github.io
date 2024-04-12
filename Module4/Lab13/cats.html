@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Коты и мыши</title>
+  <style>
+    body {
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Рассказ про котов и мышей</h1>
+    <p>Коты - это удивительные животные. Они могут быть ленивыми, но иногда очень энергичными. Однажды <span
+        class="hover-replace">КОТ</span> пошел на прогулку и встретил мышь...</p>
+    <p>Вдруг <span class="hover-replace">КОТ</span> заглянул в уголок и увидел другого <span
+        class="hover-replace">КОТа</span>, который играл с мышью. <span class="hover-replace">КОТ</span> был очень
+      удивлен и решил присоединиться к игре...</p>
+    <p>Но в этот момент появился пес и начал лаять на <span class="hover-replace">КОТов</span> и мышь. Все разбежались в
+      разные стороны, и <span class="hover-replace">КОТы</span> решили больше не играть с мышами.</p>
+    <p><span class="hover-replace">КОТы</span> и мыши стали друзьями и жили долго и счастливо.</p>
+    <p><span class="hover-replace">КОТ</span> <span class="hover-replace">КОТ</span> <span
+        class="hover-replace">КОТ</span> <span class="hover-replace">КОТ</span> <span class="hover-replace">КОТ</span>
+    </p>
+    <img src="catandmouse.jpg" alt="Кот и мышь" id="cat-img" style="display: none;">
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.hover-replace').hover(function () {
+        var originalText = $(this).text();
+        $(this).text('');
+        $('#cat-img').show();
+      }, function () {
+        $(this).text('КОТ');
+        $('#cat-img').hide();
+      });
+    });
+  </script>
+
+</body>
+
+</html>

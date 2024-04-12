@@ -90,7 +90,7 @@ body {
     width: 900px;
     height: 200px;
 }
-.team button:not(.current-pokemon-choice), #pastebutton{
+.team button:not(.current-pokemon-choice){
     font-weight: 100;
     display: flex;
     justify-content: center;
@@ -567,6 +567,9 @@ input[type="range"] {
     position: relative;
 }
 
+#buttons button {
+    height: 30px;
+}
 @media (max-width: 960px){
     .teambuilder-results {
         top: 196px;
@@ -718,9 +721,14 @@ input[type="range"] {
     #playerteam-input-text , #opponentteam-input-text {
         font-size: 8px;
     }
+    
+    #buttons button {
+        width: 30px;
+    }
 }
 
 @media (min-width: 1000px){
+    
     .current-pokemon{
         width: 980px;
         width: none;
@@ -757,4 +765,36 @@ input[type="range"] {
     #playerteam-input-text , #opponentteam-input-text {
         font-size: 14px;
     }
+}
+
+
+.teams {
+    background-color:#2e2e2e;
+    width: 300px;
+    height: 300px;
+    border-radius: 12px;
+}
+
+.data-team {
+    display: flex;
+    flex-direction: row;
+    width: 270px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.1s;
+    border-color: black;
+    padding: 2px;
+    background-color: #535353;
+    border: 1px solid transparent;
+    margin-bottom: 2px;
+}
+
+.data-team h5{
+    width: 28px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.data-team:hover{
+    border: 1px solid black;
 }
