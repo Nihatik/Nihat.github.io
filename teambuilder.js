@@ -1575,7 +1575,7 @@ function filterPokemon(pokemonArray, filters) {
         return true;
     });
 }
-
+ 
 function pokemonToBaseValues(pokemon){
     pokemon.moves = [{}, {}, {}, {}];
     pokemon.stats = {};
