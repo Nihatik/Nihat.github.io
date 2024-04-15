@@ -1615,6 +1615,8 @@ function submitPokePaste(team, inputText) {
     for (var i = 0; i < pastes.length; i++) {
         var lines = pastes[i].split('\n');
         if (team[j] && lines[0] != '') {
+            team[j] = {}
+            console.log(team[j])
             team[j].moves = [{}, {}, {}, {}];
             team[j].stats = {};
             team[j].boosts = {
