@@ -1772,11 +1772,13 @@ function updateVisualTeam(pokemon, num= null, object = null) {
     }
 }
 
-
-function onLoad(){
+function savedTeamsUpdate(){
+    document.querySelector('.teams').innerHTML = ''
     var savedTeams = JSON.parse(localStorage.getItem("savedTeams"));
     if (savedTeams) {
         savedTeams.forEach(function(dataTeam, index) {
+            let teamResult = document.createElement('div')
+            teamResult.classList.add('team-result')
             var teamPointsValue = 0;
             let newTeam = document.createElement('div');
             newTeam.classList.add('data-team');
@@ -1813,17 +1815,48 @@ function onLoad(){
 
             newTeam.appendChild(h5)
 
+            
+
             newTeam.onclick = function() {
                 console.log(savedTeams[index]);
                 playerPokemons = JSON.parse(JSON.stringify(savedTeams[index].pokemonsTeam));
+                playerPokemons.teamId = savedTeams[index].teamId
+                console.log(playerPokemons)
                 presentInfoUpdate();
                 document.getElementById("playerteam-input-text").value = null;
+                document.querySelector('.teams').style.left = '-100%'
             };
 
-            document.querySelector('.teams').appendChild(newTeam);
+
+            teamResult.appendChild(newTeam)
+
+            let butt = document.createElement('button')
+            butt.classList.add('team-delete-button')
+
+            butt.onclick = function(){
+                console.log(savedTeams[index])
+                savedTeams.splice(index, 1);
+                localStorage.setItem("savedTeams", JSON.stringify(savedTeams));
+                savedTeamsUpdate();
+            }
+
+            teamResult.appendChild(butt)
+
+            document.querySelector('.teams').appendChild(teamResult);
         });
     }
+    newTeamButton = document.createElement('button')
+    newTeamButton.id = 'new-team-button';
+    newTeamButton.classList.add('hover-button')
+    newTeamButton.textContent = 'New team';
+    document.querySelector('.teams').appendChild(newTeamButton);
+}
 
+function onLoad(){
+
+
+
+    savedTeamsUpdate()
     document.getElementById('pastebutton').onclick = function() {
         var playerteamInput = document.getElementById('playerteam-input-text');
         var teambuilderResultsUl = document.querySelector('.teambuilder-results ul')
@@ -1842,6 +1875,17 @@ function onLoad(){
     }
     document.getElementById('saveteambutton').onclick = function() {
         saveTeam()
+        document.querySelector('.teams').style.left = '0';
+    }
+    document.getElementById('teamsbutton').onclick = function() {
+        var teams = document.querySelector('.teams')
+        if(teams.style.left != '-100%'){
+            teams.style.left = '-100%';
+        }
+        else{
+            teams.style.left = '0';
+        }
+        
     }
     var buttons = document.querySelectorAll('.team button')
     createResults(null, 0, buttons[0])
@@ -2703,5 +2747,5 @@ function saveTeam() {
     
         localStorage.setItem("savedTeams", JSON.stringify(savedTeams));
     }
-
+    savedTeamsUpdate()
 }

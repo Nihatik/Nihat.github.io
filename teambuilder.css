@@ -78,7 +78,7 @@ body {
 }
 
 .teambuilder-menu{
-    width: 100%;
+    width: 980px;
     height: 100%;
 }
 
@@ -90,6 +90,7 @@ body {
     width: 900px;
     height: 200px;
 }
+
 .team button:not(.current-pokemon-choice){
     font-weight: 100;
     display: flex;
@@ -570,7 +571,15 @@ input[type="range"] {
 #buttons button {
     height: 30px;
 }
+.teams{
+    width: 340px;
+}
+
 @media (max-width: 960px){
+    .teambuilder-menu{
+        width: 100%;
+        height: 100%;
+    }
     .teambuilder-results {
         top: 196px;
     }
@@ -700,7 +709,7 @@ input[type="range"] {
     }
 
     
-    .result-pokemon-icon {
+    .result-pokemon-icon, .team .pokemon-icon {
         scale: 0.5;
     }
     
@@ -724,6 +733,9 @@ input[type="range"] {
     
     #buttons button {
         width: 30px;
+    }
+    .teams{
+        width: 100%;
     }
 }
 
@@ -769,16 +781,26 @@ input[type="range"] {
 
 
 .teams {
+    overflow-y: scroll;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color:#2e2e2e;
-    width: 300px;
-    height: 300px;
+    height: 100%;
     border-radius: 12px;
+    position: absolute;
+    transition: 0.5s;
+    z-index: 10;
+    left: 0;
+    border-top-left-radius: 0;
 }
 
 .data-team {
     display: flex;
     flex-direction: row;
-    width: 270px;
+    width: 280px;
     cursor: pointer;
     border-radius: 12px;
     transition: 0.1s;
@@ -797,4 +819,36 @@ input[type="range"] {
 
 .data-team:hover{
     border: 1px solid black;
+}
+
+.team-delete-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: transparent;
+    background-image: url(img/x.png);
+    background-size: 20px;
+    transition: 0.3s;
+}
+
+.team-delete-button:hover{
+    scale: 1.1;
+}
+
+.team-result {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+
+#new-team-button{
+    border-radius: 16px;
+    background-color: rgb(97,97,97);
+    color: white;
+    width: 50%;
+    height: 20px;
+    margin-top: 4px;
 }
