@@ -1867,6 +1867,9 @@ function onLoad(){
             swipeMenu.add(activeClassMenu)
         }
     })
+
+
+
     savedTeamsUpdate()
     document.getElementById('pastebutton').onclick = function() {
         var playerteamInput = document.getElementById('playerteam-input-text');
@@ -1883,6 +1886,9 @@ function onLoad(){
             teambuilderResults.style.overflowY = 'hidden';
             teambuilderResults.scrollTop = 0;
         }
+    }
+    document.getElementById('saveteambutton').onclick = function() {
+        saveTeam();
     }
     var buttons = document.querySelectorAll('.team button')
     createResults(null, 0, buttons[0])
@@ -2759,7 +2765,7 @@ function saveTeam() {
     var savedTeams = JSON.parse(localStorage.getItem("savedTeams")) || [];
     var teamNum = savedTeams.length;
 
-    if(savedTeams.length < 10){
+    if(savedTeams.length < 25){
         var team = playerPokemons;
     
         savedTeams.push({
