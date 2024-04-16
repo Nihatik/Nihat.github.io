@@ -625,7 +625,6 @@ input[type="range"] {
     z-index: 10;
     left: -340px;
     border-top-left-radius: 0;
-    top: 0;
 }
 
 .teams--show{
