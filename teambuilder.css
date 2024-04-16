@@ -635,6 +635,13 @@ input[type="range"] {
         width: 10%;
     }
     .team button:not(.current-pokemon-choice){
+        border-radius: 12px;
+        height: 50px;
+    }
+
+    .team button:not(.current-pokemon-choice):hover{
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
         height: 50px;
     }
 
