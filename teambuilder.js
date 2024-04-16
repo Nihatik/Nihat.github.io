@@ -1818,7 +1818,8 @@ function savedTeamsUpdate(){
             newTeam.appendChild(h5)
 
             
-
+            newTeam.setAttribute('easy-remove', '#teamsMenu')
+            newTeam.setAttribute('easy-class', 'teams--show')
             newTeam.onclick = function() {
                 console.log(savedTeams[index]);
                 playerPokemons = JSON.parse(JSON.stringify(savedTeams[index].pokemonsTeam));
@@ -1826,7 +1827,6 @@ function savedTeamsUpdate(){
                 console.log(playerPokemons)
                 presentInfoUpdate();
                 document.getElementById("playerteam-input-text").value = null;
-                document.querySelector('.teams').style.left = '-100%'
             };
 
 
@@ -1855,27 +1855,18 @@ function savedTeamsUpdate(){
 }
 
 function onLoad(){
-    var menu = document.querySelector('.teams');
-    var startX;
-    
-    menu.addEventListener('touchstart', function(event) {
-        startX = event.touches[0].clientX;
-    });
-    
-    menu.addEventListener('touchmove', function(event) {
-        var currentX = event.touches[0].clientX;
-        var diffX = startX - currentX; 
-    
-        if (diffX > 50) { 
-            menu.style.left = '-100%';
+    const mc = new Hammer(document.body);
+    const swipeMenu = document.querySelector('.teams').classList
+    const activeClassMenu = 'teams--show'
+
+    mc.on("swipeleft swiperight", function(ev){
+        
+        if(ev.type === "swipeleft"){
+            swipeMenu.remove(activeClassMenu)
+        }else{
+            swipeMenu.add(activeClassMenu)
         }
-    });
-    
-    menu.addEventListener('touchend', function(event) {
-        startX = null; // сбрасываем начальную позицию
-    });
-
-
+    })
     savedTeamsUpdate()
     document.getElementById('pastebutton').onclick = function() {
         var playerteamInput = document.getElementById('playerteam-input-text');
@@ -1892,20 +1883,6 @@ function onLoad(){
             teambuilderResults.style.overflowY = 'hidden';
             teambuilderResults.scrollTop = 0;
         }
-    }
-    document.getElementById('saveteambutton').onclick = function() {
-        saveTeam()
-        document.querySelector('.teams').style.left = '0';
-    }
-    document.getElementById('teamsbutton').onclick = function() {
-        var teams = document.querySelector('.teams')
-        if(teams.style.left != '-100%'){
-            teams.style.left = '-100%';
-        }
-        else{
-            teams.style.left = '0';
-        }
-        
     }
     var buttons = document.querySelectorAll('.team button')
     createResults(null, 0, buttons[0])

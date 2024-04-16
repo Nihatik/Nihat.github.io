@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="teambuilder.css">
     <link rel="icon" href="img/snorlaxfavicon.png" type="image/gif">
     <script src="teambuilder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 </head>
 
 <body>
@@ -55,9 +57,9 @@
                     <h4 id="team-points-value"></h4>
                     <button id="pastebutton">PokePaste</button>
                     <button id="saveteambutton">Save Team</button>
-                    <button id="teamsbutton">Teams</button>
+                    <button id="teamsbutton" easy-add="#teamsMenu" easy-class="teams--show">Teams</button>
                 </div>
-                <div class="teams">
+                <div id="teamsMenu" class="teams">
                 </div>
                 <div class="current-pokemon">
                     <div class="current-pokemon-top">
