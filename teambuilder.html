@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="icon" href="img/snorlaxfavicon.png" type="image/gif">
     <script src="teambuilder.js"></script>
 </head>
+
 <body>
     <div class="main">
         <div class="present-menu">
@@ -60,114 +62,117 @@
                 <div class="current-pokemon">
                     <div class="current-pokemon-top">
                         <input type="text" class="name">
+                    </div>
+                    <div class="current-pokemon-info">
                         <div class="pokemon-info-sprite">
                             <div id="pokesprite">
                             </div>
                         </div>
-                    </div>
-                    <div class="vertical-line"></div>
-                    <div class="current-pokemon-add-info">
-                        <div>
-                            <label for="types">Types: </label>
-                            <span class="types" id="types">
-                                <img src="img/normal_type.png">
-                                <img src="img/normal_type.png">
-                            </span>
-                        </div>
-                        <div>
-                            <label for="ability">Ability: </label>
-                            <select class="ability" id="ability" name="ability">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
-                        </div>
-                        <div class="item-info">
-                            <label for="item">Item: </label>
-                            <span>
-                                <input type="text" class="item" id="item">
-                                <span class="pokemon-info-item" title="XZ" style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -0px -0px no-repeat scroll transparent;">
+                        <div class="vertical-line"></div>
+                        <div class="current-pokemon-add-info">
+                            <div>
+                                <label for="types">Types: </label>
+                                <span class="types" id="types">
+                                    <img src="img/normal_type.png">
+                                    <img src="img/normal_type.png">
                                 </span>
+                            </div>
+                            <div>
+                                <label for="ability">Ability: </label>
+                                <select class="ability" id="ability" name="ability">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div class="item-info">
+                                <label for="item">Item: </label>
+                                <span>
+                                    <input type="text" class="item" id="item">
+                                    <span class="pokemon-info-item" title="XZ"
+                                        style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -0px -0px no-repeat scroll transparent;">
+                                    </span>
+                                </span>
+                            </div>
+                            <div>
+
+                                <label for="nature">Nature: </label>
+                                <select class="nature" name="nature" id="nature"></select>
+                            </div>
+                        </div>
+                        <div class="vertical-line"></div>
+                        <div class="moves">
+                            <span>
+                                <input type="text">
+                                <img src="img/normal_type.png">
+                            </span>
+                            <span>
+                                <input type="text">
+                                <img src="img/normal_type.png">
+                            </span>
+                            <span>
+                                <input type="text">
+                                <img src="img/normal_type.png">
+                            </span>
+                            <span>
+                                <input type="text">
+                                <img src="img/normal_type.png">
                             </span>
                         </div>
-                        <div>
-    
-                            <label for="nature">Nature: </label>
-                            <select class="nature" name="nature" id="nature"></select>
-                        </div>
-                    </div>
-                    <div class="vertical-line"></div>
-                    <div class="moves">
-                        <span>
-                            <input type="text">
-                            <img src="img/normal_type.png">
-                        </span>
-                        <span>
-                            <input type="text">
-                            <img src="img/normal_type.png">
-                        </span>
-                        <span>
-                            <input type="text">
-                            <img src="img/normal_type.png">
-                        </span>
-                        <span>
-                            <input type="text">
-                            <img src="img/normal_type.png">
-                        </span>
-                    </div>
-                    <div class="vertical-line"></div>
-                    <div class="current-pokemon-stats">
-                        <div class="current-pokemon-stat-names">
-                            <p>HP</p>
-                            <p>Attack</p>
-                            <p>Defense</p>
-                            <p>Sp. Atk</p>
-                            <p>Sp. Def</p>
-                            <p>Speed</p>
-                        </div>
-                        <div class="current-pokemon-stat-values">
-                            <h3>0</h3>
-                            <h3>0</h3>
-                            <h3>0</h3>
-                            <h3>0</h3>
-                            <h3>0</h3>
-                            <h3>0</h3>
-                        </div>
-                        <div class="evs">
-                            <input type="number" min="0" max="252" step="4">
-                            <input type="number" min="0" max="252" step="4">
-                            <input type="number" min="0" max="252" step="4">
-                            <input type="number" min="0" max="252" step="4">
-                            <input type="number" min="0" max="252" step="4">
-                            <input type="number" min="0" max="252" step="4">
-                        </div>
-                        <div class="evs-ranges">
-                            <div>
-                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                        <div class="vertical-line"></div>
+                        <div class="current-pokemon-stats">
+                            <div class="current-pokemon-stat-names">
+                                <p>HP</p>
+                                <p>Attack</p>
+                                <p>Defense</p>
+                                <p>Sp. Atk</p>
+                                <p>Sp. Def</p>
+                                <p>Speed</p>
                             </div>
-                            <div>
-                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            <div class="current-pokemon-stat-values">
+                                <h3>0</h3>
+                                <h3>0</h3>
+                                <h3>0</h3>
+                                <h3>0</h3>
+                                <h3>0</h3>
+                                <h3>0</h3>
                             </div>
-                            <div>
-                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            <div class="evs">
+                                <input type="number" min="0" max="252" step="4">
+                                <input type="number" min="0" max="252" step="4">
+                                <input type="number" min="0" max="252" step="4">
+                                <input type="number" min="0" max="252" step="4">
+                                <input type="number" min="0" max="252" step="4">
+                                <input type="number" min="0" max="252" step="4">
                             </div>
-                            <div>
-                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            <div class="evs-ranges">
+                                <div>
+                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                </div>
+                                <div>
+                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                </div>
+                                <div>
+                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                </div>
+                                <div>
+                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                </div>
+                                <div>
+                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                </div>
+                                <div>
+                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                </div>
                             </div>
-                            <div>
-                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            <div class="ivs">
+                                <input type="number" min="0" max="31">
+                                <input type="number" min="0" max="31">
+                                <input type="number" min="0" max="31">
+                                <input type="number" min="0" max="31">
+                                <input type="number" min="0" max="31">
+                                <input type="number" min="0" max="31">
                             </div>
-                            <div>
-                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
-                            </div>
-                        </div>
-                        <div class="ivs">
-                            <input type="number" min="0" max="31">
-                            <input type="number" min="0" max="31">
-                            <input type="number" min="0" max="31">
-                            <input type="number" min="0" max="31">
-                            <input type="number" min="0" max="31">
-                            <input type="number" min="0" max="31">
                         </div>
                     </div>
                 </div>
@@ -210,5 +215,5 @@
         </div>
     </div>
 </body>
+
 </html>
-    

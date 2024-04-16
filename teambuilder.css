@@ -35,11 +35,16 @@ body {
     color: #ccc;
 }
 
+.pokemon-icon{
+    image-rendering: pixelated;
+}
+
 .pokemon-info>div {
     margin-bottom: 5px;
 }
 
 .pokemon-info-item {
+    image-rendering: pixelated;
     display: block;
     width: 24px;
     height: 24px;
@@ -50,7 +55,7 @@ body {
     display: flex;
     width: 150px;
     box-sizing: border-box;
-    padding: 8px;
+    padding: 4px;
     image-rendering: pixelated;
     min-width: 150px;
     min-height: 150px;
@@ -91,7 +96,7 @@ body {
     height: 200px;
 }
 
-.team button:not(.current-pokemon-choice){
+.team button:not(.current-pokemon-choice), #build-button{
     font-weight: 100;
     display: flex;
     justify-content: center;
@@ -107,7 +112,11 @@ body {
     transition: 0.3s;
     font-weight: 500;
 }
-
+#build-button:hover{
+    transform: translateY(-4px);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
 .team button:not(.current-pokemon-choice):hover {
     transform: translateY(-4px);
     border-bottom-right-radius: 12px;
@@ -149,10 +158,26 @@ body {
     height: 200px;
     font-size: 12px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     background-image: url(https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png);
     border-radius: 12px;
+}
+
+.current-pokemon-info{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.name {
+    margin-left: 1%;
+}
+
+#build-button{
+    width: 60px;
+    height: 80%;
 }
 
 .vertical-line {
@@ -215,6 +240,7 @@ select{
     width: 50px;
     height: 22px;
     transition: 0.3s;
+
 }
 .current-pokemon-stats h3{
     width: 40px;
@@ -264,7 +290,22 @@ select{
 }
 
 .current-pokemon-top {
-    margin-left: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 18%;
+}
+
+.current-pokemon-top input {
+    border: 1px solid #4d4d4d;
+    color: white;
+    background-color: #2e2e2e;
+    transition: 0.3s;
+    padding: 0px 6px;
+    right: 0;
+    width: 15%;
+    height: 70%;
 }
 
 .current-pokemon .moves span, .current-pokemon-top span {
@@ -288,7 +329,7 @@ select{
 }
 
 
-.current-pokemon .moves input, .current-pokemon-top input{
+.current-pokemon .moves input {
     border: 1px solid #4d4d4d;
     color: white;
     background-color: #2e2e2e;
@@ -300,9 +341,6 @@ select{
     width: 140px;
 }
 
-.current-pokemon-top input{
-    right: 0;
-}
 
 .current-pokemon img,  .current-pokemon-top img{
     height: 24px;
@@ -576,19 +614,32 @@ input[type="range"] {
 }
 
 @media (max-width: 960px){
+    #build-button:hover{
+        transform: translateY(-2px);
+        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
     .teambuilder-menu{
         width: 100%;
         height: 100%;
     }
     .teambuilder-results {
-        top: 196px;
+        top: 182px;
     }
     .team{
         font-size: 8px;
+        margin-top: 4px;
     }
-    .team button:not(.current-pokemon-choice),#pastebutton {
+    .team button:not(.current-pokemon-choice),#pastebutton,#build-button {
         font-size: 6px;
         width: 10%;
+    }
+    .team button:not(.current-pokemon-choice){
+        height: 50px;
+    }
+
+    .team .current-pokemon-choice {
+        height: 50px;
     }
     
     .current-pokemon-choice {
@@ -608,36 +659,47 @@ input[type="range"] {
 
     .current-pokemon input, select{
         font-size: 8px;
-        width: 100%;
     }
     .current-pokemon-add-info select, .current-pokemon-add-info input{
-        width: 75%;
+        width: 100%;
         height: 100%;
         padding: 0;
+    }
+
+    .current-pokemon-add-info {
+        height: 100%;
     }
 
     .current-pokemon-add-info input{
         padding: 0px 4px;
     }
     .current-pokemon-add-info label {
-        width: 25%;
-        text-align: right;
+        width: 0%;
+        display: none;
     }
     .item-info > span {
-        width: 75%;
+        width: 100%;
+        height: 12px;
     }
     .current-pokemon-add-info > div{
+        height: 15%;
         margin-bottom: 4px;
         margin-top: 4px;
     }
     .current-pokemon-add-info .types {
-        width: 75%;
+        width: 100%;
     }
     .current-pokemon-add-info{
-        width: 30%;
+        width: 25%;
     }
-    .pokemon-info-item {
-        scale: 0.5;
+    .item-info {
+        height: 100%;
+    }
+    .item-info .item{
+        width: 70%;
+    }
+    .pokemon-info-item{
+        scale: 0.7;
     }
     .moves{
         display: flex;
@@ -656,7 +718,7 @@ input[type="range"] {
     .current-pokemon img{
         height: 12px;
     }
-    .current-pokemon-top input, .current-pokemon .moves input{
+    .current-pokemon .moves input{
         width: 75%;
         height: 75%;
     }
@@ -672,7 +734,7 @@ input[type="range"] {
     .current-pokemon-stats p, .current-pokemon-stats h3 {
         text-align: right;
         height: 16px;
-        line-height: 24px;
+        line-height: 15px;
         width: 30px;
     }
 
@@ -680,12 +742,8 @@ input[type="range"] {
         display: none
     }
 
-    .current-pokemon-top{
-        width: 20%;
-    }
     .current-pokemon .pokemon-info-sprite{
         width: 80px;
-        padding-left: 0;
         min-width: 80px;
         min-height: 80px;
     }
@@ -709,8 +767,12 @@ input[type="range"] {
     }
 
     
-    .result-pokemon-icon, .team .pokemon-icon {
+    .result-pokemon-icon{
         scale: 0.5;
+    }
+
+    .pokemon-icon {
+        scale: 0.9;
     }
     
     .result {
@@ -778,7 +840,8 @@ input[type="range"] {
         font-size: 14px;
     }
 }
- 
+
+
 
 .teams {
     overflow-y: scroll;
