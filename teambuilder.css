@@ -610,7 +610,7 @@ input[type="range"] {
     height: 30px;
 }
 .teams {
-    width: 340px;
+    width: 375px;
     overflow-y: scroll;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -618,13 +618,13 @@ input[type="range"] {
     flex-direction: column;
     align-items: center;
     background-color:#2e2e2e;
-    height: 100%;
-    border-radius: 12px;
     position: absolute;
     transition: 0.5s;
     z-index: 10;
-    left: -340px;
-    border-top-left-radius: 0;
+    top: 76px;
+    left: -375px;
+    right: 0;
+    bottom: 0;
 }
 
 .teams--show{
@@ -647,6 +647,7 @@ input[type="range"] {
         top: 182px;
     }
     .teams {
+        top: 62px;
         left: -100%;
     }
     .teams--show{
@@ -804,7 +805,7 @@ input[type="range"] {
         scale: 0.5;
     }
 
-    .pokemon-icon {
+    .team .pokemon-icon {
         scale: 0.9;
     }
     
@@ -881,6 +882,7 @@ input[type="range"] {
 .data-team {
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 280px;
     cursor: pointer;
     border-radius: 12px;
@@ -894,7 +896,6 @@ input[type="range"] {
 
 .data-team h5{
     width: 28px;
-    line-height: 30px;
     text-align: center;
 }
 
@@ -903,18 +904,23 @@ input[type="range"] {
 }
 
 .team-delete-button {
+    margin-left: 8px;
     width: 20px;
     height: 20px;
     border-radius: 8px;
     border: none;
-    background-color: transparent;
+    background-color: #535353;
     background-image: url(img/x.png);
     background-size: 20px;
     transition: 0.3s;
+    opacity: 0.4;
+    box-shadow: black 1px 1px 1px .5px;
 }
 
 .team-delete-button:hover{
     scale: 1.1;
+    opacity: 0.7;
+    cursor: pointer;
 }
 
 .team-result {
@@ -927,9 +933,19 @@ input[type="range"] {
 
 #new-team-button{
     border-radius: 16px;
-    background-color: rgb(97,97,97);
+    background-color: #535353;
     color: white;
-    width: 50%;
-    height: 20px;
+    width: 30%;
+    height: 24px;
     margin-top: 4px;
+    opacity: 0.8;
+    transition: 0.3s;
+    box-shadow: black 1px 1px 1px .5px;
+    display: none;
+}
+#new-team-button:hover{
+    scale: 1.1;
+    opacity: 1;
+    cursor: pointer;
+
 }
