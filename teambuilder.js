@@ -1855,7 +1855,25 @@ function savedTeamsUpdate(){
 }
 
 function onLoad(){
-
+    var menu = document.querySelector('.teams');
+    var startX;
+    
+    menu.addEventListener('touchstart', function(event) {
+        startX = event.touches[0].clientX;
+    });
+    
+    menu.addEventListener('touchmove', function(event) {
+        var currentX = event.touches[0].clientX;
+        var diffX = startX - currentX; 
+    
+        if (diffX > 50) { 
+            menu.style.left = '-100%';
+        }
+    });
+    
+    menu.addEventListener('touchend', function(event) {
+        startX = null; // сбрасываем начальную позицию
+    });
 
 
     savedTeamsUpdate()
