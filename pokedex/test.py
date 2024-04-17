@@ -36,6 +36,7 @@ db_path = "pokemon.db"  # Укажите путь к вашей базе дан�
 data = fetch_data_from_db(db_path, "pokemons")
 db_path = "pokemon.db"  # Укажите путь к вашей базе данных SQLite3
 data2 = fetch_data_from_db(db_path, "learnsets")
+data3 = fetch_data_from_db(db_path, "builds")
 
 with open('pokedex.js', 'r') as file:
     script_content = file.read()
@@ -155,8 +156,13 @@ for pokemon in data:
             else:
                 pokemonDataText += key + ': ' + keyValue + ', '
         pokemonDataText += 'learnset: ' + pokemon2['moves'] + ', '
+        
+        pokemonDataText += 'builds: ['
+        for pokemon3 in data3:
+            if pokemon['name'] == pokemon3['name']:
+                pokemonDataText += '{type: "' + pokemon3['type'] + '", ability: "' + pokemon3['ability'] + '", item: "' + pokemon3['item'] +  '",nature: "' + pokemon3['nature'] + '",evs: ' + pokemon3['evs']  + ',moves: ' + pokemon3['moves'] + '}, '
+        pokemonDataText += '], '
         pokemonDataText += '}'
-        # Добавляем словарь текущего покемона в общий список
         dataForTable += str(pokemonDataText) + ',\n'
 
 dataForTable+= ']'

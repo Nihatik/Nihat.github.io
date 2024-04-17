@@ -56,7 +56,7 @@
                     </button>
                     <h4 id="team-points-value"></h4>
                     <button id="pastebutton">PokePaste</button>
-                    <button id="saveteambutton">Save Team</button>
+                    <button id="saveteambutton" easy-add="#teamsMenu" easy-class="teams--show">Save Team</button>
                     <button id="teamsbutton" easy-add="#teamsMenu" easy-class="teams--show">Teams</button>
                 </div>
                 <div id="teamsMenu" class="teams">
@@ -181,6 +181,7 @@
                 <div class="teambuilder-results">
                     <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
                         oninput="presentInfoUpdate()"></textarea>
+                    <div class="current-pokemon-builds"></div>
                     <ul>
                         <li class="result">
                             <a class="current-result">
