@@ -633,7 +633,18 @@ input[type="range"] {
 .build-result {
     height: 120px;
 }
+
+.build-result-left div p, .build-result-right div p {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+}
 @media (max-width: 960px){
+    .build-result-left div p, .build-result-right div p {
+        height: 20px;
+        line-height: 20px;
+    }
+
     #build-button:hover{
         transform: translateY(-2px);
         border-bottom-right-radius: 12px;
@@ -999,13 +1010,6 @@ input[type="range"] {
     flex-direction: column;
 }
 
-
-
-.build-result-left div p, .build-result-right div p {
-    height: 20px;
-    line-height: 20px;
-    text-align: left;
-}
 
 .build-result-left div:first-child p, .build-result-right div:first-child p {
     text-align: right;
