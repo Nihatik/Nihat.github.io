@@ -640,10 +640,6 @@ input[type="range"] {
     text-align: left;
 }
 @media (max-width: 960px){
-    .build-result-left div p, .build-result-right div p {
-        height: 20px;
-        line-height: 20px;
-    }
 
     #build-button:hover{
         transform: translateY(-2px);
@@ -849,7 +845,6 @@ input[type="range"] {
     }
 
     .build-result{
-        height: 100px;
         font-size: 8px;
     }
 }
