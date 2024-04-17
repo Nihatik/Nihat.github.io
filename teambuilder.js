@@ -1918,11 +1918,11 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         buildButton.id = 'build-button'
         buildButton.onclick = function(){
             builds = document.querySelector('.current-pokemon-builds')
-            if(builds.style.display == 'none'){
-                builds.style.display = 'flex';
+            if(builds.classList.contains('current-pokemon-builds-show')){
+                builds.classList.remove('current-pokemon-builds-show')
             }
             else{
-                builds.style.display = 'none';
+                builds.classList.add('current-pokemon-builds-show')
             }
         }
         document.querySelector('.current-pokemon-top').appendChild(buildButton)
@@ -2391,7 +2391,7 @@ function loadBuildResults(pokemon, num, object){
     });
 
     if(findedPokemon.builds.length == 0){
-        builds.style.display = 'none'
+        builds.classList.remove('current-pokemon-builds-show')
         return
     }
     findedPokemon.builds.forEach(function(build){
@@ -2404,7 +2404,11 @@ function loadBuildResults(pokemon, num, object){
                 pokemon.moves[i] = allMoves[moveName]
             })
             pokemon.item = allItems[build.item]
-            pokemon.ability = allAbilities[build.ability]
+            if (build.ability != ''){
+                pokemon.ability = allAbilities[build.ability].name
+            }else{
+                pokemon.ability  = pokemon.abilities[0];
+            }
             pokemonStatsLoad(playerPokemons)
             teamCurPokemonChange(pokemon, num, object)
         }
@@ -2517,7 +2521,7 @@ function returnPokePaste(team){
     team.forEach(function(pokemon){
         if(pokemon.name){
             pokePaste += pokemon.name + " @ " + pokemon.item.name + '  \n'
-            pokePaste +=  "Ability: " + pokemon.ability.name + '  \n'
+            pokePaste += "Ability: " + pokemon.ability.name + '  \n'
             pokePaste += "Tera Type: " + pokemon.types[0] + '  \n';
     
             pokePaste += "EVs: ";

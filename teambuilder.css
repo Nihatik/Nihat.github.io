@@ -12,6 +12,10 @@ body {
     overflow: hidden;
 }
 
+.main {
+    background-color: rgb(34, 34, 34);
+}
+
 .boosted {
     color: #51a151;
 }
@@ -124,6 +128,7 @@ body {
 }
 
 .team {
+    z-index: 2;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -153,6 +158,7 @@ body {
 
 
 .current-pokemon {
+    z-index: 2;
     border-top-left-radius: 0;
     width: 1010px;
     height: 200px;
@@ -416,6 +422,7 @@ input[type="range"] {
 
 
 .teambuilder-results {
+    z-index: -3;
     position: absolute;
     top: 276px;
     left: 0;
@@ -438,6 +445,7 @@ input[type="range"] {
 }
 
 .current-result {
+    z-index: 2;
     background-color: #535353;
     border: 1px solid white;
 }
@@ -639,8 +647,44 @@ input[type="range"] {
     line-height: 24px;
     text-align: left;
 }
+.current-pokemon-builds{
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    overflow-y: auto;
+    background-color: rgb(65, 65, 65);
+    z-index: -2;
+    width: 964px;
+    left: 8px;
+    max-height: 70%;
+    top: -100%;
+    border-radius: 16px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.current-pokemon-builds-show {
+    top: 276px;
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-height: 800px) and (orientation: landscape) {
+    .current-pokemon-builds {
+        bottom: 0;
+    }
+}
+
 @media (max-width: 960px){
 
+    .current-pokemon-builds-show {
+        top: 182px;
+    }
     #build-button:hover{
         transform: translateY(-2px);
         border-bottom-right-radius: 12px;
@@ -847,6 +891,10 @@ input[type="range"] {
     .build-result{
         font-size: 8px;
     }
+    .current-pokemon-builds{
+        width: 100%;
+        left: 0;
+    }
 }
 
 @media (min-width: 1000px){
@@ -964,14 +1012,7 @@ input[type="range"] {
 
 }
 
-.current-pokemon-builds{
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-}
+
 .build-result {
     padding: 4px 2px;
     background-color: #252525;
@@ -984,7 +1025,8 @@ input[type="range"] {
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    margin-top: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 .build-content {
     height: 100%;
