@@ -1010,7 +1010,7 @@ input[type="range"] {
 .build-result-left div:first-child p, .build-result-right div:first-child p {
     text-align: right;
     margin-right: 8px;
-    font-size: 80%;
+    font-size: 90%;
     opacity: 0.9;
 }
 
