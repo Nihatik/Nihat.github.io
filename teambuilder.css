@@ -639,7 +639,7 @@ input[type="range"] {
     left: 0;
 }
 .build-result {
-    height: 120px;
+    height: 130px;
 }
 
 .build-result-left div p, .build-result-right div p {
@@ -1027,7 +1027,13 @@ input[type="range"] {
     justify-content: center;
     margin-top: 8px;
     margin-bottom: 8px;
+    transition: 0.3s;
 }
+
+.build-result:hover{
+    width: 92%;
+}
+
 .build-content {
     height: 100%;
     width: 100%;
@@ -1045,6 +1051,12 @@ input[type="range"] {
 .build-result-left div, .build-result-right div {
     display: flex;
     flex-direction: column;
+}
+.build-result-right div, .build-result-left div {
+    width: 65%;
+}
+.build-result-left div:first-child, .build-result-right div:first-child {
+    width: 35%;
 }
 
 
