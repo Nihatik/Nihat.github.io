@@ -1823,10 +1823,9 @@ function savedTeamsUpdate(){
             newTeam.onclick = function() {
                 console.log(savedTeams[index]);
                 playerPokemons = JSON.parse(JSON.stringify(savedTeams[index].pokemonsTeam));
-                playerPokemons.teamId = savedTeams[index].teamId
                 console.log(playerPokemons)
-                presentInfoUpdate();
                 document.getElementById("playerteam-input-text").value = null;
+                presentInfoUpdate();
             };
 
 
