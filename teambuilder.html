@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="teambuilder.css">
     <link rel="stylesheet" href="types.css">
     <link rel="icon" href="img/snorlaxfavicon.png" type="image/gif">
-    <script src="teambuilder.js"></script>
+    <script type="module" src="teambuilder.js"></script>
+    <script type="module" src="teambuilderData.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 </head>
@@ -182,8 +183,7 @@
                 <div class="current-pokemon-builds">
                 </div>
                 <div class="teambuilder-results">
-                    <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."
-                        oninput="presentInfoUpdate()"></textarea>
+                    <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."></textarea>
                     <ul>
                         <li class="result">
                             <a class="current-result">

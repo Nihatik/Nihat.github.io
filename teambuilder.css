@@ -639,7 +639,7 @@ input[type="range"] {
     left: 0;
 }
 .build-result {
-    height: 130px;
+    height: 180px;
 }
 
 .build-result-left div p, .build-result-right div p {
@@ -891,6 +891,9 @@ input[type="range"] {
     .build-result{
         font-size: 8px;
     }
+    .build-load-button{
+        font-size: 8px;
+    }
     .current-pokemon-builds{
         width: 100%;
         left: 0;
@@ -1015,6 +1018,9 @@ input[type="range"] {
 
 .build-result {
     padding: 4px 2px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     background-color: #252525;
     width: 90%;
     border: none;
@@ -1022,7 +1028,6 @@ input[type="range"] {
     display: flex;
     flex-direction: column;
     color: white;
-    cursor: pointer;
     align-items: center;
     justify-content: center;
     margin-top: 8px;
@@ -1031,36 +1036,51 @@ input[type="range"] {
 }
 
 .build-result:hover{
-    width: 92%;
+    box-shadow: rgba(255, 255, 255, 0.137) 0px 2px 16px 0px;
 }
 
+
 .build-content {
-    height: 100%;
+    height: 65%;
     width: 100%;
     display: flex;
 }
+.build-result h3, .build-result .build-load-button{
+    height: 20%;
+}
+
+.build-result h3{
+    height: 15%;
+}
 
 .build-result-left, .build-result-right {
-    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
 
-.build-result-left div, .build-result-right div {
+.build-result-left{
+    width: 40%;
+}
+
+.build-result-right {
+    width: 60%;
+}
+
+.build-result-left > div, .build-result-right > div {
     display: flex;
     flex-direction: column;
 }
-.build-result-right div, .build-result-left div {
-    width: 65%;
+.build-result-right > div, .build-result-left > div {
+    width: 70%;
 }
 .build-result-left div:first-child, .build-result-right div:first-child {
-    width: 35%;
+    width: 30%;
 }
 
 
-.build-result-left div:first-child p, .build-result-right div:first-child p {
+.build-result-left > div:first-child p, .build-result-right div:first-child p {
     text-align: right;
     margin-right: 8px;
     font-size: 90%;
@@ -1071,4 +1091,36 @@ input[type="range"] {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.build-load-button{
+    color: white;
+    background: rgb(65, 65, 65);
+    cursor: pointer;
+    width: 25%;
+    border-radius: 32px;
+    border: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.build-load-button:hover{
+    width: 26%;
+    box-shadow: rgba(255, 255, 255, 0.075) 0px 2px 16px 0px;
+}
+
+.choice-build-element{
+    border-radius: 20%;
+    border-bottom: 2px solid gray;
+}
+
+.build-item{
+    display: flex;
+    align-items: center;
+}
+
+.slash {
+    margin: 0px 8px;
 }
