@@ -647,6 +647,12 @@ input[type="range"] {
     line-height: 24px;
     text-align: left;
 }
+
+.build-result-left div > span:not(.slash), .build-result-right div > span:not(.slash) {
+    height: 24px;
+    text-align: left;
+}
+
 .current-pokemon-builds{
     border-bottom: 1px solid black;
     display: flex;
@@ -889,7 +895,7 @@ input[type="range"] {
     }
 
     .build-result{
-        font-size: 8px;
+        font-size: 7px;
     }
     .build-load-button{
         font-size: 8px;
@@ -1072,11 +1078,19 @@ input[type="range"] {
     display: flex;
     flex-direction: column;
 }
-.build-result-right > div, .build-result-left > div {
-    width: 70%;
+.build-result-right > div{
+    width: 80%;
 }
-.build-result-left div:first-child, .build-result-right div:first-child {
-    width: 30%;
+
+.build-result-left > div {
+    width: 95%;
+}
+.build-result-right div:first-child {
+    width: 20%;
+}
+
+.build-result-left div:first-child {
+    width: 5%;
 }
 
 
@@ -1112,7 +1126,7 @@ input[type="range"] {
 }
 
 .choice-build-element{
-    border-radius: 20%;
+    border-radius: 15%;
     border-bottom: 2px solid gray;
 }
 
