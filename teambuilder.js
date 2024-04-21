@@ -2526,14 +2526,9 @@ function loadBuildResults(pokemon, num, object){
             })
             pokemon.item = allItems[build.item.split("/")[0]]
             if (build.ability != ''){
-                if (build.ability.includes('/')){
-                    pokemon.ability = allAbilities[build.ability.split("/")[0]]
-                }
-                else{
-                    pokemon.ability = allAbilities[build.ability]
-                }
+                pokemon.ability = allAbilities[build.ability.split("/")[0]]
             }else{
-                pokemon.ability  = pokemon.abilities[0];
+                pokemon.ability  = allAbilities[pokemon.abilities[0].replace(' ','').toLowerCase()];
             }
             pokemonStatsLoad(playerPokemons)
             teamCurPokemonChange(pokemon, num, object)
