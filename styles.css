@@ -54,12 +54,13 @@ nav ul li a {
 
 
 ::-webkit-scrollbar {
+    border-radius: 16px; /* Скругление углов полосы прокрутки */
     width: 14px; /* Ширина полосы прокрутки */
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: rgb(92, 92, 92); /* Цвет полосы прокрутки */
-    border-radius: 5px; /* Скругление углов полосы прокрутки */
+    border-radius: 8px; /* Скругление углов полосы прокрутки */
 }
 
 ::-webkit-scrollbar-track {
@@ -74,13 +75,31 @@ nav ul li a {
 
 ::-ms-scrollbar-thumb {
     background-color: #424242; /* Цвет полосы прокрутки */
-    border-radius: 5px; /* Скругление углов полосы прокрутки */
+    border-radius: 15px; /* Скругление углов полосы прокрутки */
 }
 
 ::-ms-scrollbar-track {
     background-color: #000000; /* Цвет фона для трека прокрутки */
 }
 
+@media (min-width: 320px){
+    
+    ::-webkit-scrollbar {
+        width: 8px; 
+    }
+}
+@media (min-width: 560px){
+    
+    ::-webkit-scrollbar {
+        width: 10px; 
+    }
+    }
+@media (min-width: 960px){
+    
+::-webkit-scrollbar {
+    width: 12px; 
+}
+}
 
 .Logo,
 #navbar {

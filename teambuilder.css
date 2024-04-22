@@ -639,7 +639,9 @@ input[type="range"] {
     left: 0;
 }
 .build-result {
-    height: 180px;
+    height: 150px;
+    max-height: 150px;
+    min-height: 150px;
 }
 
 .build-result-left div p, .build-result-right div p {
@@ -652,26 +654,31 @@ input[type="range"] {
     height: 24px;
     text-align: left;
 }
+.build-result-left > span > span:not(.slash), .build-result-right > span > span:not(.slash) {
+    height: 24px;
+    text-align: left;
+}
+
 
 .current-pokemon-builds{
-    border-bottom: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    overflow-y: auto;
+    overflow-y: scroll;
     background-color: rgb(65, 65, 65);
     z-index: -2;
     width: 964px;
     left: 8px;
     max-height: 70%;
     top: -100%;
-    border-radius: 32px;
+    border-radius: 16px;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     transition: 0.5s;
     opacity: 0;
     visibility: hidden;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .current-pokemon-builds-show {
@@ -680,14 +687,47 @@ input[type="range"] {
     visibility: visible;
 }
 
+.slash {
+    margin: 0px 8px;
+}
 @media (max-height: 800px) and (orientation: landscape) {
     .current-pokemon-builds {
         bottom: 0;
     }
 }
 
-@media (max-width: 960px){
+.type-icon {
+    scale: 0.7;
+    width: 24px;
+    margin-right: 8px;
+}
 
+
+.build-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.build-result .build-load-button{
+    height: 30%;
+}
+
+@media (max-width: 960px){
+    .build-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
+    
+
+    .type-icon {    
+        scale: 0.4;
+        margin-right: 0;
+    }
+    
+    .slash {
+        margin: 0px 4px;
+    }
     .current-pokemon-builds-show {
         top: 182px;
     }
@@ -895,7 +935,7 @@ input[type="range"] {
     }
 
     .build-result{
-        font-size: 7px;
+        font-size: 6px;
     }
     .build-load-button{
         font-size: 8px;
@@ -1023,10 +1063,7 @@ input[type="range"] {
 
 
 .build-result {
-    padding: 4px 2px;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
+    padding-bottom: 8px;
     background-color: #252525;
     width: 90%;
     border: none;
@@ -1042,22 +1079,11 @@ input[type="range"] {
 }
 
 .build-result:hover{
+
     box-shadow: rgba(255, 255, 255, 0.137) 0px 2px 16px 0px;
 }
 
 
-.build-content {
-    height: 65%;
-    width: 100%;
-    display: flex;
-}
-.build-result h3, .build-result .build-load-button{
-    height: 20%;
-}
-
-.build-result h3{
-    height: 15%;
-}
 
 .build-result-left, .build-result-right {
     display: flex;
@@ -1067,11 +1093,11 @@ input[type="range"] {
 }
 
 .build-result-left{
-    width: 40%;
+    width: 45%;
 }
 
 .build-result-right {
-    width: 60%;
+    width: 55%;
 }
 
 .build-result-left > div, .build-result-right > div {
@@ -1079,18 +1105,15 @@ input[type="range"] {
     flex-direction: column;
 }
 .build-result-right > div{
-    width: 80%;
+    width: 75%;
 }
 
-.build-result-left > div {
-    width: 95%;
-}
 .build-result-right div:first-child {
-    width: 20%;
+    width: 25%;
 }
 
-.build-result-left div:first-child {
-    width: 5%;
+.build-result-left div:not(:first-child) {
+    width: 100%;
 }
 
 
@@ -1109,32 +1132,28 @@ input[type="range"] {
 
 .build-load-button{
     color: white;
-    background: rgb(65, 65, 65);
+    background: transparent;
     cursor: pointer;
-    width: 25%;
+    width: 100%;
     border-radius: 32px;
     border: none;
     font-weight: bold;
     transition: 0.3s;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.025); 
 }
 
 .build-load-button:hover{
-    width: 26%;
-    box-shadow: rgba(255, 255, 255, 0.075) 0px 2px 16px 0px;
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.05); 
 }
 
 .choice-build-element{
-    border-radius: 15%;
-    border-bottom: 2px solid gray;
+    border-radius: 10%;
+    box-shadow: rgba(65, 65, 65, 1) 0px 2px 1px 0px;
 }
 
 .build-item{
     display: flex;
     align-items: center;
-}
-
-.slash {
-    margin: 0px 8px;
 }
