@@ -1760,6 +1760,10 @@ function updateVisualTeam(pokemon, num= null, object = null) {
 
 function savedTeamsUpdate(){
     document.querySelector('.teams').innerHTML = ''
+    let h3 = document.createElement('h4')
+    h3.textContent = 'Your teams';
+    
+    document.querySelector('.teams').appendChild(h3);
     var savedTeams = JSON.parse(localStorage.getItem("savedTeams"));
     if (savedTeams) {
         savedTeams.forEach(function(dataTeam, index) {
