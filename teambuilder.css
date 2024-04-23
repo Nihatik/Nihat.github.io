@@ -1002,6 +1002,9 @@ input[type="range"] {
     .teams {
         padding-top: 0;
     }
+    #teamsbutton{
+        display: none;
+    }
     .teams h4{
         height: 76px;
         line-height: 76px;
