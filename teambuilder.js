@@ -2725,7 +2725,7 @@ function createResults(filter = null, num = null, object = null){
         
             pokemonInfo.types.forEach(function(type) {
                 const imgType = document.createElement('img');
-                imgType.src = 'img/' + type.toLowerCase() + '_type.png';
+                imgType.src = 'img/' + type + '_type.png';
                 divTypes.appendChild(imgType);
             });
         
