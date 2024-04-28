@@ -115,7 +115,7 @@ else:
 
 dataForTable = '['  # Создаем пустой список
 
-keysForTable = ['num','name','points', 'iconLoc']
+keysForTable = ['num','name','points', 'pointsHa', 'iconLoc']
 for pokemon in data:
     for pokemon2 in data2:
         if pokemon['name'].lower().replace(' ', '').replace('-', '') == pokemon2['name']:

@@ -5,14 +5,13 @@
 }
 
 body {
-    background: rgb(34, 34, 34);
     color: white;
-    width: 100%;
-    height: 100%;
     overflow: hidden;
 }
 
-.main {
+main {
+    display: flex;
+    height: 100vh;
     background-color: rgb(34, 34, 34);
 }
 
@@ -87,17 +86,25 @@ body {
 }
 
 .teambuilder-menu{
+    background-color: rgb(34, 34, 34);
     width: 980px;
     height: 100%;
 }
 
 #team-points-value{
     width: 100px;
+    text-align: center;
 }
 
 .right-menu{
-    width: 900px;
-    height: 200px;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: rgb(34, 34, 34);
+    display: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .team button:not(.current-pokemon-choice), #build-button{
@@ -128,12 +135,15 @@ body {
 }
 
 .team {
-    z-index: 2;
+    background-color: rgb(34, 34, 34);
+    position: relative;
+    z-index: 3;
     width: 100%;
     display: flex;
+    align-items: center;
     flex-direction: row;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .current-pokemon-choice {
@@ -158,7 +168,8 @@ body {
 
 
 .current-pokemon {
-    z-index: 2;
+    position: relative;
+    z-index: 3;
     border-top-left-radius: 0;
     width: 1010px;
     height: 200px;
@@ -422,7 +433,8 @@ input[type="range"] {
 
 
 .teambuilder-results {
-    z-index: -3;
+    background-color: rgb(34, 34, 34);
+    z-index: 1;
     position: absolute;
     top: 276px;
     left: 0;
@@ -430,7 +442,6 @@ input[type="range"] {
     right: 0;
     width: 980px;
     overflow-y: scroll;
-    background-color: transparent;
     padding: 2px 0px 10px 0px;
 }
 .teambuilder-results ul{
@@ -445,11 +456,11 @@ input[type="range"] {
 }
 
 .current-result {
-    z-index: 2;
     background-color: #535353;
 }
 
 .result a {
+    opacity: 0.9;
     height: 30px;
     display: flex;
     width: 930px;
@@ -458,14 +469,17 @@ input[type="range"] {
     justify-content: center;
     cursor: pointer;
     border-radius: 12px;
-    transition: 0.1s;
+    transition: 0.25s;
     border-color: black;
     font-size: 12px;
     padding: 2px;
+    border:1px solid transparent;
 }
 
 .result a:hover{
+    opacity: 1;
     background-color: #535353;
+    border:1px solid #535353;
 }
 
 .teambuilder-results li {
@@ -621,6 +635,7 @@ input[type="range"] {
     height: 30px;
 }
 .teams {
+    border-radius: 16px;
     width: 375px;
     overflow-y: scroll;
     padding-bottom: 8px;
@@ -635,6 +650,7 @@ input[type="range"] {
     left: -375px;
     right: 0;
     bottom: 0;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .teams--show{
@@ -663,13 +679,13 @@ input[type="range"] {
 
 
 .current-pokemon-builds{
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     overflow-y: scroll;
     background-color: rgb(65, 65, 65);
-    z-index: -2;
     width: 980px;
     max-height: 70%;
     top: -100%;
@@ -683,6 +699,7 @@ input[type="range"] {
 }
 
 .current-pokemon-builds-show {
+    box-shadow: none; 
     top: 276px;
     opacity: 1;
     visibility: visible;
@@ -698,10 +715,15 @@ input[type="range"] {
 }
 
 .type-icon {
+    width: 24px;
+}
+
+.current-pokemon-builds .type-icon  {
     scale: 0.7;
     width: 24px;
     margin-right: 8px;
 }
+
 
 
 .build-content {
@@ -709,11 +731,40 @@ input[type="range"] {
     width: 100%;
     display: flex;
 }
-.build-result .build-load-button{
+.build-result .build-name{
     height: 30%;
 }
 
 @media (max-width: 960px){
+    .right-menu{
+        display: flex;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 50%;
+    }
+    .right-menu table tbody, .right-menu table thead{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .right-menu table tbody tr {
+        border: none;
+        display: table-column;
+        width: 45px;
+        height: 100%;
+        flex-wrap: wrap;
+    }
+    .right-menu table thead {
+        display: none;
+    }
+    .right-menu table tbody tr td {
+        border: none;
+        width: 100%;
+        height: 33%;
+        flex-direction: column;
+    }
     .build-content {
         height: 100%;
         width: 100%;
@@ -721,7 +772,7 @@ input[type="range"] {
     }
     
 
-    .type-icon {    
+    .current-pokemon-builds .type-icon {    
         scale: 0.4;
         margin-right: 0;
     }
@@ -761,7 +812,7 @@ input[type="range"] {
     }
     .team{
         font-size: 8px;
-        margin-top: 4px;
+        padding-top: 4px;
     }
     .team button:not(.current-pokemon-choice),#pastebutton,#build-button {
         font-size: 6px;
@@ -943,7 +994,7 @@ input[type="range"] {
     .build-result{
         font-size: 6px;
     }
-    .build-load-button{
+    .build-name{
         font-size: 8px;
     }
     .current-pokemon-builds{
@@ -995,15 +1046,16 @@ input[type="range"] {
 
 @media (min-width: 1355px){
     .teams{
-        left: 980px;
+        background-color: rgb(34, 34, 34);
+        z-index: 0;
+        left: 600px;
         top: 0;
-        background-color: transparent;
+    }
+    .teams--show{
+        left: 980px;
     }
     .teams {
         padding-top: 0;
-    }
-    #teamsbutton{
-        display: none;
     }
     .teams h4{
         height: 76px;
@@ -1022,12 +1074,13 @@ input[type="range"] {
     width: 270px;
     cursor: pointer;
     border-radius: 12px;
-    transition: 0.1s;
+    transition: 0.3s;
     border-color: black;
     padding: 2px;
     background-color: #535353;
     border: 1px solid transparent;
     margin-bottom: 2px;
+    opacity: 0.9;
 }
 
 .data-team h5{
@@ -1036,7 +1089,8 @@ input[type="range"] {
 }
 
 .data-team:hover{
-    border: 1px solid black;
+    opacity: 1;
+    border: 1px solid gray;
 }
 
 .team-delete-button {
@@ -1067,20 +1121,40 @@ input[type="range"] {
 }
 
 
-#new-team-button{
+#new-team{
+    display: flex;
     border-radius: 16px;
     background-color: #535353;
     color: white;
-    width: 30%;
-    height: 24px;
+    width: 60%;
+    height: 28px;
     margin-top: 4px;
     opacity: 0.8;
+    border: 1px solid transparent;
     transition: 0.3s;
     box-shadow: black 1px 1px 1px .5px;
-    display: none;
+    align-items: center;
 }
-#new-team-button:hover{
-    scale: 1.1;
+
+#new-team input {
+    height: 100%;
+    padding: 0 0px 0px 4px;
+    width: 20%;
+    border-top: none;
+    border-bottom: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+#new-team button{
+    font-weight: bold;
+    padding-left: 6px;
+    text-align: left;
+    color: white;
+    width: 100%;
+}
+
+#new-team:hover{
+    border: 1px solid gray;
     opacity: 1;
     cursor: pointer;
 
@@ -1154,7 +1228,7 @@ input[type="range"] {
     justify-content: center;
 }
 
-.build-load-button{
+.build-name{
     color: white;
     background: transparent;
     cursor: pointer;
@@ -1168,16 +1242,48 @@ input[type="range"] {
     box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.025); 
 }
 
-.build-load-button:hover{
-    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.05); 
-}
-
 .choice-build-element{
     border-radius: 10%;
-    box-shadow: rgba(65, 65, 65, 1) 0px 2px 1px 0px;
+    box-shadow: rgb(117, 117, 117) 0px 2px 1px 0px;
 }
 
 .build-item{
     display: flex;
     align-items: center;
+}
+
+
+.build-select-item {
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+td{
+    display: flex;
+    align-items: center;
+    width: 33%;
+    justify-content: center;
+    font-size: 14px;
+    height: 50%;
+    font-weight: bold;
+    transition: 0.3s
+}
+
+th{
+    width: 90px;
+}
+
+tr{
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    margin-bottom: 4px;
+    border-radius: 32px;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    width: 100%;
+}
+thead tr{
+    border: none;
 }

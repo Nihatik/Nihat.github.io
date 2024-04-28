@@ -16,209 +16,293 @@
 </head>
 
 <body>
-    <div class="main">
-        <div class="present-menu">
-            <div class="teambuilder-menu">
-                <div class="team">
-                    <button class="hover-button">
-                        <div class="pokemon-icon"
-                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
-                        </div>
-                        <div></div>
-                    </button>
-                    <button class="hover-button">
-                        <div class="pokemon-icon"
-                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
-                        </div>
-                        <div></div>
-                    </button>
-                    <button class="hover-button">
-                        <div class="pokemon-icon"
-                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
-                        </div>
-                        <div></div>
-                    </button>
-                    <button class="hover-button">
-                        <div class="pokemon-icon"
-                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
-                        </div>
-                        <div></div>
-                    </button>
-                    <button class="hover-button">
-                        <div class="pokemon-icon"
-                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
-                        </div>
-                        <div></div>
-                    </button>
-                    <button class="hover-button">
-                        <div class="pokemon-icon"
-                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
-                        </div>
-                        <div> </div>
-                    </button>
-                    <h4 id="team-points-value"></h4>
-                    <button id="pastebutton">PokePaste</button>
-                    <button id="saveteambutton" easy-add="#teamsMenu" easy-class="teams--show">Save Team</button>
-                    <button id="teamsbutton" easy-add="#teamsMenu" easy-class="teams--show">Teams</button>
-                </div>
-                <div id="teamsMenu" class="teams">
-                </div>
-                <div class="current-pokemon">
-                    <div class="current-pokemon-top">
-                        <input type="text" class="name">
+    <main>
+        <div class="teambuilder-menu">
+            <div class="team">
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
                     </div>
-                    <div class="current-pokemon-info">
-                        <div class="pokemon-info-sprite">
-                            <div id="pokesprite">
-                            </div>
+                    <div></div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                    </div>
+                    <div></div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                    </div>
+                    <div></div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                    </div>
+                    <div></div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                    </div>
+                    <div></div>
+                </button>
+                <button class="hover-button">
+                    <div class="pokemon-icon"
+                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                    </div>
+                    <div> </div>
+                </button>
+                <h4 id="team-points-value"></h4>
+                <button id="pastebutton">PokePaste</button>
+                <button id="saveteambutton" easy-add="#teamsMenu" easy-class="teams--show">Save Team</button>
+                <button id="teamsbutton" easy-add="#teamsMenu" easy-class="teams--show">Teams</button>
+            </div>
+            <div class="current-pokemon">
+                <div class="current-pokemon-top">
+                    <input type="text" class="name">
+                </div>
+                <div class="current-pokemon-info">
+                    <div class="pokemon-info-sprite">
+                        <div id="pokesprite">
                         </div>
-                        <div class="vertical-line"></div>
-                        <div class="current-pokemon-add-info">
-                            <div>
-                                <label for="types">Types: </label>
-                                <span class="types" id="types">
-                                    <img src="img/normal_type.png">
-                                    <img src="img/normal_type.png">
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div class="current-pokemon-add-info">
+                        <div>
+                            <label for="types">Types: </label>
+                            <span class="types" id="types">
+                                <img src="img/normal_type.png">
+                                <img src="img/normal_type.png">
+                            </span>
+                        </div>
+                        <div>
+                            <label for="ability">Ability: </label>
+                            <select class="ability" id="ability" name="ability">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="item-info">
+                            <label for="item">Item: </label>
+                            <span>
+                                <input type="text" class="item" id="item">
+                                <span class="pokemon-info-item" title="XZ"
+                                    style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -0px -0px no-repeat scroll transparent;">
                                 </span>
-                            </div>
-                            <div>
-                                <label for="ability">Ability: </label>
-                                <select class="ability" id="ability" name="ability">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="item-info">
-                                <label for="item">Item: </label>
-                                <span>
-                                    <input type="text" class="item" id="item">
-                                    <span class="pokemon-info-item" title="XZ"
-                                        style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -0px -0px no-repeat scroll transparent;">
-                                    </span>
-                                </span>
-                            </div>
-                            <div>
+                            </span>
+                        </div>
+                        <div>
 
-                                <label for="nature">Nature: </label>
-                                <select class="nature" name="nature" id="nature"></select>
-                            </div>
-                        </div>
-                        <div class="vertical-line"></div>
-                        <div class="moves">
-                            <span>
-                                <input type="text">
-                                <img src="img/normal_type.png">
-                            </span>
-                            <span>
-                                <input type="text">
-                                <img src="img/normal_type.png">
-                            </span>
-                            <span>
-                                <input type="text">
-                                <img src="img/normal_type.png">
-                            </span>
-                            <span>
-                                <input type="text">
-                                <img src="img/normal_type.png">
-                            </span>
-                        </div>
-                        <div class="vertical-line"></div>
-                        <div class="current-pokemon-stats">
-                            <div class="current-pokemon-stat-names">
-                                <p>HP</p>
-                                <p>Attack</p>
-                                <p>Defense</p>
-                                <p>Sp. Atk</p>
-                                <p>Sp. Def</p>
-                                <p>Speed</p>
-                            </div>
-                            <div class="current-pokemon-stat-values">
-                                <h3>0</h3>
-                                <h3>0</h3>
-                                <h3>0</h3>
-                                <h3>0</h3>
-                                <h3>0</h3>
-                                <h3>0</h3>
-                            </div>
-                            <div class="evs">
-                                <input type="number" min="0" max="252" step="4">
-                                <input type="number" min="0" max="252" step="4">
-                                <input type="number" min="0" max="252" step="4">
-                                <input type="number" min="0" max="252" step="4">
-                                <input type="number" min="0" max="252" step="4">
-                                <input type="number" min="0" max="252" step="4">
-                            </div>
-                            <div class="evs-ranges">
-                                <div>
-                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
-                                </div>
-                                <div>
-                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
-                                </div>
-                                <div>
-                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
-                                </div>
-                                <div>
-                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
-                                </div>
-                                <div>
-                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
-                                </div>
-                                <div>
-                                    <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
-                                </div>
-                            </div>
-                            <div class="ivs">
-                                <input type="number" min="0" max="31">
-                                <input type="number" min="0" max="31">
-                                <input type="number" min="0" max="31">
-                                <input type="number" min="0" max="31">
-                                <input type="number" min="0" max="31">
-                                <input type="number" min="0" max="31">
-                            </div>
+                            <label for="nature">Nature: </label>
+                            <select class="nature" name="nature" id="nature"></select>
                         </div>
                     </div>
-                </div>
-                <div class="current-pokemon-builds">
-                </div>
-                <div class="teambuilder-results">
-                    <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."></textarea>
-                    <ul>
-                        <li class="result">
-                            <a class="current-result">
-                                <div class="result-pokemon-icon">
-                                    <div class="pokemon-icon"
-                                        style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
-                                    </div>
-                                </div>
-                                <div class="result-pokemon-name"></div>
-                                <div class="result-pokemon-types">
-                                    <img src="img/normal_type.png">
-                                    <img src="img/normal_type.png">
-                                </div>
-                                <div class="result-pokemon-abilities">
-                                    <p></p>
-                                    <p></p>
-                                </div>
-                                <div class="result-pokemon-ha">
-                                    <p></p>
-                                    <p></p>
-                                </div>
-                                <div class="result-pokemon-stat">0</div>
-                                <div class="result-pokemon-stat">0</div>
-                                <div class="result-pokemon-stat">0</div>
-                                <div class="result-pokemon-stat">0</div>
-                                <div class="result-pokemon-stat">0</div>
-                                <div class="result-pokemon-stat">0</div>
-                                <div class="result-pokemon-bst">0</div>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="vertical-line"></div>
+                    <div class="moves">
+                        <span>
+                            <input type="text">
+                            <img src="img/normal_type.png">
+                        </span>
+                        <span>
+                            <input type="text">
+                            <img src="img/normal_type.png">
+                        </span>
+                        <span>
+                            <input type="text">
+                            <img src="img/normal_type.png">
+                        </span>
+                        <span>
+                            <input type="text">
+                            <img src="img/normal_type.png">
+                        </span>
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div class="current-pokemon-stats">
+                        <div class="current-pokemon-stat-names">
+                            <p>HP</p>
+                            <p>Attack</p>
+                            <p>Defense</p>
+                            <p>Sp. Atk</p>
+                            <p>Sp. Def</p>
+                            <p>Speed</p>
+                        </div>
+                        <div class="current-pokemon-stat-values">
+                            <h3>0</h3>
+                            <h3>0</h3>
+                            <h3>0</h3>
+                            <h3>0</h3>
+                            <h3>0</h3>
+                            <h3>0</h3>
+                        </div>
+                        <div class="evs">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                            <input type="number" min="0" max="252" step="4">
+                        </div>
+                        <div class="evs-ranges">
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                            <div>
+                                <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                            </div>
+                        </div>
+                        <div class="ivs">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                            <input type="number" min="0" max="31">
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="teambuilder-results">
+                <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."></textarea>
+                <ul>
+                    <li class="result">
+                        <a class="current-result">
+                            <div class="result-pokemon-icon">
+                                <div class="pokemon-icon"
+                                    style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                                </div>
+                            </div>
+                            <div class="result-pokemon-name"></div>
+                            <div class="result-pokemon-types">
+                                <img src="img/normal_type.png">
+                                <img src="img/normal_type.png">
+                            </div>
+                            <div class="result-pokemon-abilities">
+                                <p></p>
+                                <p></p>
+                            </div>
+                            <div class="result-pokemon-ha">
+                                <p></p>
+                                <p></p>
+                            </div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-stat">0</div>
+                            <div class="result-pokemon-bst">0</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="current-pokemon-builds">
+            </div>
         </div>
-    </div>
+        <div class="right-menu">
+            <h4>Team Type Defense</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Eff</th>
+                        <th>Immune</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img class="type-icon" src="img/normal_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/fire_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/water_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/grass_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/electric_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/ice_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/fighting_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/poison_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/ground_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/flying_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/psychic_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/bug_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/rock_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/ghost_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/dragon_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/dark_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/steel_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><img class="type-icon" src="img/fairy_type.png"></td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="teamsMenu" class="teams">
+        </div>
+    </main>
 </body>
 
 </html>

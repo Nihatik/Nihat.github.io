@@ -64,7 +64,7 @@ nav ul li a {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #3b3b3b; /* Цвет фона для трека прокрутки */
+    background-color: transparent; /* Цвет фона для трека прокрутки */
 }
 
 /* Для браузеров Microsoft (например, Microsoft Edge) */
@@ -79,7 +79,7 @@ nav ul li a {
 }
 
 ::-ms-scrollbar-track {
-    background-color: #000000; /* Цвет фона для трека прокрутки */
+    background-color: transparent; /* Цвет фона для трека прокрутки */
 }
 
 @media (min-width: 320px){
