@@ -2347,6 +2347,7 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     let abilitiesSelect = infoPokemon.querySelector('.ability');
     abilitiesSelect.onchange = function (){
         playerPokemons[num].ability.name = this.value;
+        updateVisualTeam(playerPokemons[num], num, object);
         abilitiesParam(playerPokemons)
         returnPokePaste(playerPokemons)
     }
