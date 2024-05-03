@@ -35,7 +35,7 @@ var pokemonData = [{num: 1, name: "Bulbasaur", types: ["Grass","Poison"], points
 {num: 22, name: "Fearow", types: ["Normal","Flying"], points: 0, pointsHa: null, hp: 65, atk: 90, def: 65, spa: 61, spd: 61, spe: 100, bst: 442, abilities: { 0: "Keen Eye", H: "Sniper"}, forme: null, iconLoc: null, show: 0},
 {num: 23, name: "Ekans", types: ["Poison"], points: 0, pointsHa: null, hp: 35, atk: 60, def: 44, spa: 40, spd: 54, spe: 55, bst: 288, abilities: { 0: "Intimidate", 1: "Shed Skin", H: "Unnerve"}, forme: null, iconLoc: null, show: 0},
 {num: 24, name: "Arbok", types: ["Poison"], points: 0, pointsHa: null, hp: 60, atk: 95, def: 69, spa: 65, spd: 79, spe: 80, bst: 448, abilities: { 0: "Intimidate", 1: "Shed Skin", H: "Unnerve"}, forme: null, iconLoc: null, show: 0},
-{num: 25, name: "Pikachu", types: ["Electric"], points: 0, pointsHa: null, hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90, bst: 320, abilities: { 0: "Static", H: "Lightning Rod"}, forme: null, iconLoc: null, show: 0},
+{num: 25, name: "Pikachu", types: ["Electric"], points: 0, pointsHa: null, hp: 35, atk: 123, def: 40, spa: 50, spd: 50, spe: 90, bst: 388, abilities: { 0: "Static", H: "Lightning Rod"}, forme: null, iconLoc: null, show: 0},
 {num: 25, name: "Pikachu-Cosplay", types: ["Electric"], points: null, pointsHa: null, hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90, bst: 320, abilities: { 0: "Lightning Rod"}, forme: "Cosplay", iconLoc: null, show: 0},
 {num: 25, name: "Pikachu-Rock-Star", types: ["Electric"], points: null, pointsHa: null, hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90, bst: 320, abilities: { 0: "Lightning Rod"}, forme: "Rock-Star", iconLoc: null, show: 0},
 {num: 25, name: "Pikachu-Belle", types: ["Electric"], points: null, pointsHa: null, hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90, bst: 320, abilities: { 0: "Lightning Rod"}, forme: "Belle", iconLoc: null, show: 0},
@@ -1335,6 +1335,16 @@ var lastColumnIndex = 1;
 var abilitiesName = []
 
 function abilitySortLoad(){
+    document.getElementById('close-left-menu').addEventListener('click', function(){
+        console.log("Clicked!");
+        if(document.querySelector('.left-menu').style.left == '0px'){
+            document.querySelector('.left-menu').style.left = '-415px';
+        }
+        else{
+            document.querySelector('.left-menu').style.left = '0px';
+        }
+    });
+
     abilitiesSelect = document.querySelector('.ability-filter')
     pokemonData.forEach(function(pokemon) {
         Object.keys(pokemon.abilities).forEach(function (ability){

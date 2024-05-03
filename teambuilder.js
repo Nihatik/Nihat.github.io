@@ -1,15 +1,15 @@
 window.onload = onLoad;
 
 
-import {allPokemons, allItems, allAbilities, allMoves} from './teambuilderBase.js';
+import { allPokemons, allItems, allAbilities, allMoves } from './teambuilderBase.js';
 
 var playerPokemons = [
-    {name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' },ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 },baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 },boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },color: "Green",eggGroups: ['Monster', 'Grass'],evos: ['Ivysaur'],evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },genderRatio: { M: 0.875, F: 0.125 },heightm: 0.7,hp: 231,item: {},ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },level: 100,moves: [{}, {}, {}, {}],nature: "Bashful",num: 1,stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 },status: null,tier: "LC",types: ['Grass', 'Poison'],weightkg: 6.9}, 
-    {name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' },ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 },baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 },boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },color: "Green",eggGroups: ['Monster', 'Grass'],evos: ['Ivysaur'],evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },genderRatio: { M: 0.875, F: 0.125 },heightm: 0.7,hp: 231,item: {},ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },level: 100,moves: [{}, {}, {}, {}],nature: "Bashful",num: 1,stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 },status: null,tier: "LC",types: ['Grass', 'Poison'],weightkg: 6.9}, 
-    {name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' },ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 },baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 },boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },color: "Green",eggGroups: ['Monster', 'Grass'],evos: ['Ivysaur'],evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },genderRatio: { M: 0.875, F: 0.125 },heightm: 0.7,hp: 231,item: {},ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },level: 100,moves: [{}, {}, {}, {}],nature: "Bashful",num: 1,stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 },status: null,tier: "LC",types: ['Grass', 'Poison'],weightkg: 6.9}, 
-    {name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' },ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 },baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 },boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },color: "Green",eggGroups: ['Monster', 'Grass'],evos: ['Ivysaur'],evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },genderRatio: { M: 0.875, F: 0.125 },heightm: 0.7,hp: 231,item: {},ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },level: 100,moves: [{}, {}, {}, {}],nature: "Bashful",num: 1,stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 },status: null,tier: "LC",types: ['Grass', 'Poison'],weightkg: 6.9}, 
-    {name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' },ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 },baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 },boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },color: "Green",eggGroups: ['Monster', 'Grass'],evos: ['Ivysaur'],evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },genderRatio: { M: 0.875, F: 0.125 },heightm: 0.7,hp: 231,item: {},ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },level: 100,moves: [{}, {}, {}, {}],nature: "Bashful",num: 1,stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 },status: null,tier: "LC",types: ['Grass', 'Poison'],weightkg: 6.9}, 
-    {name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' },ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 },baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 },boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },color: "Green",eggGroups: ['Monster', 'Grass'],evos: ['Ivysaur'],evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },genderRatio: { M: 0.875, F: 0.125 },heightm: 0.7,hp: 231,item: {},ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },level: 100,moves: [{}, {}, {}, {}],nature: "Bashful",num: 1,stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 },status: null,tier: "LC",types: ['Grass', 'Poison'],weightkg: 6.9}
+    { name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' }, ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 }, baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 }, boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, color: "Green", eggGroups: ['Monster', 'Grass'], evos: ['Ivysaur'], evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, genderRatio: { M: 0.875, F: 0.125 }, heightm: 0.7, hp: 231, item: {}, ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 }, level: 100, moves: [{}, {}, {}, {}], nature: "Bashful", num: 1, stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 }, status: null, tier: "LC", types: ['Grass', 'Poison'], weightkg: 6.9 },
+    { name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' }, ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 }, baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 }, boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, color: "Green", eggGroups: ['Monster', 'Grass'], evos: ['Ivysaur'], evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, genderRatio: { M: 0.875, F: 0.125 }, heightm: 0.7, hp: 231, item: {}, ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 }, level: 100, moves: [{}, {}, {}, {}], nature: "Bashful", num: 1, stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 }, status: null, tier: "LC", types: ['Grass', 'Poison'], weightkg: 6.9 },
+    { name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' }, ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 }, baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 }, boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, color: "Green", eggGroups: ['Monster', 'Grass'], evos: ['Ivysaur'], evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, genderRatio: { M: 0.875, F: 0.125 }, heightm: 0.7, hp: 231, item: {}, ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 }, level: 100, moves: [{}, {}, {}, {}], nature: "Bashful", num: 1, stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 }, status: null, tier: "LC", types: ['Grass', 'Poison'], weightkg: 6.9 },
+    { name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' }, ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 }, baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 }, boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, color: "Green", eggGroups: ['Monster', 'Grass'], evos: ['Ivysaur'], evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, genderRatio: { M: 0.875, F: 0.125 }, heightm: 0.7, hp: 231, item: {}, ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 }, level: 100, moves: [{}, {}, {}, {}], nature: "Bashful", num: 1, stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 }, status: null, tier: "LC", types: ['Grass', 'Poison'], weightkg: 6.9 },
+    { name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' }, ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 }, baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 }, boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, color: "Green", eggGroups: ['Monster', 'Grass'], evos: ['Ivysaur'], evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, genderRatio: { M: 0.875, F: 0.125 }, heightm: 0.7, hp: 231, item: {}, ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 }, level: 100, moves: [{}, {}, {}, {}], nature: "Bashful", num: 1, stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 }, status: null, tier: "LC", types: ['Grass', 'Poison'], weightkg: 6.9 },
+    { name: "Bulbasaur", abilities: { 0: 'Overgrow', H: 'Chlorophyll' }, ability: { name: 'Overgrow', onModifyAtkPriority: 5, onModifySpAPriority: 5, flags: {}, rating: 2 }, baseStats: { hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45 }, boosts: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, color: "Green", eggGroups: ['Monster', 'Grass'], evos: ['Ivysaur'], evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }, genderRatio: { M: 0.875, F: 0.125 }, heightm: 0.7, hp: 231, item: {}, ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 }, level: 100, moves: [{}, {}, {}, {}], nature: "Bashful", num: 1, stats: { hp: 231, atk: 134, def: 134, spa: 166, spd: 166, spe: 134 }, status: null, tier: "LC", types: ['Grass', 'Poison'], weightkg: 6.9 }
 ];
 
 var pokemonPointsData = [{num: 1, name: "Bulbasaur", points: 0, pointsHa: null, iconLoc: null, learnset: ["acidspray","amnesia","attract","bide","bind","block","bodyslam","bulletseed","captivate","celebrate","charm","confide","curse","cut","defensecurl","doubleedge","doubleteam","echoedvoice","endure","energyball","facade","falseswipe","flash","frenzyplant","frustration","furycutter","gigadrain","grassknot","grasspledge","grasswhistle","grassyglide","grassyterrain","growl","growth","headbutt","helpinghand","hiddenpower","ingrain","knockoff","leafstorm","leechseed","lightscreen","magicalleaf","megadrain","mimic","mudslap","naturalgift","naturepower","outrage","petaldance","poisonpowder","powerwhip","protect","rage","razorleaf","razorwind","reflect","rest","return","rocksmash","round","safeguard","secretpower","seedbomb","skullbash","sleeppowder","sleeptalk","sludge","sludgebomb","snore","solarbeam","strength","stringshot","substitute","sunnyday","swagger","sweetscent","swordsdance","synthesis","tackle","takedown","terablast","toxic","trailblaze","venoshock","vinewhip","weatherball","workup","worryseed","ancientpower"], builds: [], },
@@ -49,7 +49,7 @@ var pokemonPointsData = [{num: 1, name: "Bulbasaur", points: 0, pointsHa: null, 
 {num: 22, name: "Fearow", points: 0, pointsHa: null, iconLoc: null, learnset: ["aerialace","agility","aircutter","assurance","attract","bide","captivate","confide","curse","defog","detect","doubleedge","doubleteam","drillpeck","drillrun","echoedvoice","endure","facade","falseswipe","fly","focusenergy","frustration","furyattack","gigaimpact","growl","headbutt","heatwave","hiddenpower","hyperbeam","laserfocus","leer","mimic","mirrormove","mudslap","naturalgift","ominouswind","peck","pluck","protect","pursuit","quickattack","rage","raindance","razorwind","rest","return","roost","round","secretpower","skyattack","sleeptalk","snore","steelwing","substitute","sunnyday","swagger","swift","tailwind","takedown","thief","throatchop","toxic","triattack","twister","uproar","uturn","whirlwind","workup","payday"], builds: [], },
 {num: 23, name: "Ekans", points: 0, pointsHa: null, iconLoc: null, learnset: ["acid","acidspray","aquatail","attract","beatup","belch","bide","bind","bite","bodyslam","brutalswing","bulldoze","captivate","coil","confide","crunch","curse","darkpulse","dig","disable","doubleedge","doubleteam","earthquake","endure","facade","firefang","fissure","frustration","gastroacid","gigadrain","glare","gunkshot","haze","headbutt","hiddenpower","infestation","irontail","knockoff","lashout","leechlife","leer","megadrain","mimic","mudbomb","mudshot","mudslap","naturalgift","payback","poisonfang","poisonjab","poisonsting","poisontail","protect","psychicfangs","pursuit","rage","raindance","rest","return","rockslide","rocktomb","round","scaleshot","scaryface","screech","secretpower","seedbomb","skittersmack","skullbash","slam","sleeptalk","sludgebomb","sludgewave","snarl","snatch","snore","spite","spitup","stockpile","strength","substitute","suckerpunch","sunnyday","swagger","swallow","switcheroo","takedown","terablast","thief","torment","toxic","toxicspikes","trailblaze","venoshock","wrap"], builds: [], },
 {num: 24, name: "Arbok", points: 0, pointsHa: null, iconLoc: null, learnset: ["acid","acidspray","aquatail","attract","belch","bide","bind","bite","bodyslam","breakingswipe","brutalswing","bulldoze","captivate","coil","confide","crunch","curse","darkpulse","dig","doubleedge","doubleteam","dragontail","earthquake","endure","facade","firefang","fissure","frustration","gastroacid","gigadrain","gigaimpact","glare","gunkshot","haze","headbutt","hiddenpower","hyperbeam","icefang","infestation","irontail","knockoff","lashout","leechlife","leer","megadrain","mimic","mudbomb","mudshot","mudslap","naturalgift","painsplit","payback","poisonjab","poisonsting","poisontail","protect","psychicfangs","rage","raindance","refresh","rest","return","rockslide","rocktomb","round","scaleshot","scaryface","screech","secretpower","seedbomb","skittersmack","skullbash","slam","sleeptalk","sludgebomb","sludgewave","snarl","snatch","snore","spite","spitup","stockpile","stompingtantrum","strength","substitute","suckerpunch","sunnyday","swagger","swallow","takedown","terablast","thief","throatchop","thunderfang","torment","toxic","toxicspikes","trailblaze","venoshock","wrap"], builds: [], },
-{num: 25, name: "Pikachu", points: 0, pointsHa: null, iconLoc: null, learnset: ["agility","alluringvoice","attract","bestow","bide","bodyslam","brickbreak","calmmind","captivate","celebrate","charge","chargebeam","charm","confide","counter","covet","curse","defensecurl","detect","dig","disarmingvoice","discharge","doubleedge","doublekick","doubleteam","drainingkiss","dynamicpunch","echoedvoice","eerieimpulse","electricterrain","electroball","electroweb","encore","endeavor","endure","extremespeed","facade","fakeout","faketears","feint","flash","fling","fly","focuspunch","frustration","grassknot","growl","happyhour","headbutt","heartstamp","helpinghand","hiddenpower","holdhands","irontail","knockoff","laserfocus","lastresort","lightscreen","magnetrise","megakick","megapunch","mimic","mudslap","nastyplot","naturalgift","nuzzle","payday","playnice","playrough","present","protect","quickattack","rage","raindance","reflect","refresh","rest","return","reversal","risingvoltage","rocksmash","rollout","round","secretpower","seismictoss","shockwave","signalbeam","sing","skullbash","slam","sleeptalk","snore","spark","strength","submission","substitute","surf","swagger","sweetkiss","sweetscent","swift","tailwhip","takedown","teeterdance","terablast","thief","thunder","thunderbolt","thunderpunch","thundershock","thunderwave","toxic","trailblaze","upperhand","uproar","voltswitch","volttackle","wildcharge","wish","yawn","zapcannon"], builds: [], },
+{num: 25, name: "Pikachu", points: 0, pointsHa: null, iconLoc: null, learnset: ["agility","alluringvoice","attract","bestow","bide","bodyslam","brickbreak","calmmind","captivate","celebrate","charge","chargebeam","charm","confide","counter","covet","curse","defensecurl","detect","dig","disarmingvoice","discharge","doubleedge","doublekick","doubleteam","drainingkiss","dynamicpunch","echoedvoice","eerieimpulse","electricterrain","electroball","electroweb","encore","endeavor","endure","extremespeed","facade","fakeout","faketears","feint","flash","fling","fly","focuspunch","frustration","grassknot","growl","happyhour","headbutt","heartstamp","helpinghand","hiddenpower","holdhands","irontail","knockoff","laserfocus","lastresort","lightscreen","magnetrise","megakick","megapunch","mimic","mudslap","nastyplot","naturalgift","nuzzle","payday","playnice","playrough","present","protect","quickattack","rage","raindance","reflect","refresh","rest","return","reversal","risingvoltage","rocksmash","rollout","round","secretpower","seismictoss","shockwave","signalbeam","sing","skullbash","slam","sleeptalk","snore","spark","strength","submission","substitute","surf","swagger","sweetkiss","sweetscent","swift","tailwhip","takedown","teeterdance","terablast","thief","thunder","thunderbolt","thunderpunch","thundershock","thunderwave","toxic","trailblaze","upperhand","uproar","voltswitch","volttackle","wildcharge","wish","yawn","zapcannon"], builds: [{type: "", ability: "static", item: "lightclay",nature: "Jolly",evs: {"hp":252,"atk":0,"def":252,"spa":0,"spd":4,"spe":0},moves: ['thunderbolt/quickattack', 'irontail', 'voltswitch','knockoff']}, ], },
 {num: 25, name: "Pikachu-Cosplay", points: null, pointsHa: null, iconLoc: null, learnset: ["agility","attract","brickbreak","chargebeam","confide","covet","dig","discharge","doubleteam","echoedvoice","electroball","electroweb","facade","feint","flash","fling","focuspunch","frustration","grassknot","growl","helpinghand","hiddenpower","irontail","knockoff","lightscreen","magnetrise","nuzzle","playnice","protect","quickattack","raindance","rest","return","rocksmash","round","secretpower","shockwave","signalbeam","slam","sleeptalk","snore","spark","strength","substitute","swagger","tailwhip","thunder","thunderbolt","thunderpunch","thundershock","thunderwave","toxic","voltswitch","wildcharge"], builds: [], },
 {num: 25, name: "Pikachu-Rock-Star", points: null, pointsHa: null, iconLoc: null, learnset: ["meteormash"], builds: [], },
 {num: 25, name: "Pikachu-Belle", points: null, pointsHa: null, iconLoc: null, learnset: ["iciclecrash"], builds: [], },
@@ -780,7 +780,7 @@ var pokemonPointsData = [{num: 1, name: "Bulbasaur", points: 0, pointsHa: null, 
 {num: 595, name: "Joltik", points: 0, pointsHa: null, iconLoc: null, learnset: ["absorb","agility","attract","bounce","bugbite","bugbuzz","camouflage","chargebeam","confide","crosspoison","cut","disable","discharge","doubleteam","electroball","electroweb","endure","energyball","facade","feintattack","flash","frustration","furycutter","gastroacid","gigadrain","helpinghand","hiddenpower","infestation","leechlife","lightscreen","lunge","magnetrise","pinmissile","poisonjab","poisonsting","pounce","protect","pursuit","raindance","rest","return","risingvoltage","rockclimb","round","screech","secretpower","shockwave","signalbeam","skittersmack","slash","sleeptalk","snore","speedswap","spiderweb","stringshot","strugglebug","substitute","suckerpunch","swagger","swift","terablast","thief","thunder","thunderbolt","thunderwave","toxic","voltswitch","wildcharge","xscissor"], builds: [], },
 {num: 596, name: "Galvantula", points: 1, pointsHa: null, iconLoc: null, learnset: ["absorb","agility","attract","bounce","bugbite","bugbuzz","charge","chargebeam","confide","crosspoison","cut","disable","discharge","doubleteam","electroball","electroweb","endure","energyball","facade","flash","frustration","furycutter","gastroacid","gigadrain","gigaimpact","helpinghand","hiddenpower","hyperbeam","infestation","leechlife","lightscreen","lunge","magnetrise","pinmissile","poisonjab","pounce","protect","pursuit","raindance","rest","return","risingvoltage","round","screech","secretpower","shockwave","signalbeam","skittersmack","slash","sleeptalk","snore","speedswap","spiderweb","stickyweb","stringshot","strugglebug","substitute","suckerpunch","swagger","swift","terablast","thief","throatchop","thunder","thunderbolt","thunderwave","toxic","voltswitch","wildcharge","xscissor"], builds: [], },
 {num: 597, name: "Ferroseed", points: 0, pointsHa: null, iconLoc: null, learnset: ["acidspray","assurance","attract","bulletseed","confide","curse","doubleteam","endeavor","endure","energyball","explosion","facade","flash","flashcannon","frustration","gigadrain","gravity","gyroball","harden","hiddenpower","honeclaws","ingrain","irondefense","ironhead","knockoff","leechseed","magnetrise","metalclaw","mirrorshot","naturepower","payback","pinmissile","poisonjab","protect","rest","return","revenge","rockclimb","rockpolish","rocksmash","rollout","round","secretpower","seedbomb","selfdestruct","sleeptalk","snore","solarbeam","spikes","stealthrock","steelbeam","steelroller","substitute","sunnyday","swagger","tackle","thunderbolt","thunderwave","toxic","worryseed"], builds: [], },
-{num: 598, name: "Ferrothorn", points: 3, pointsHa: null, iconLoc: null, learnset: ["aerialace","assurance","attract","block","bodypress","brutalswing","bulldoze","bulletseed","confide","curse","cut","doubleteam","endeavor","endure","energyball","explosion","facade","flash","flashcannon","frustration","gigadrain","gigaimpact","grassknot","gravity","gyroball","harden","heavyslam","hiddenpower","honeclaws","hyperbeam","ingrain","irondefense","ironhead","knockoff","magnetrise","metalclaw","mirrorshot","naturepower","payback","pinmissile","poisonjab","powerwhip","protect","rest","return","revenge","rockclimb","rockpolish","rocksmash","rollout","round","sandstorm","secretpower","seedbomb","selfdestruct","shadowclaw","sleeptalk","snore","solarbeam","spikes","stealthrock","steelbeam","steelroller","strength","substitute","sunnyday","swagger","swordsdance","tackle","thunder","thunderbolt","thunderwave","toxic","worryseed"], builds: [{type: "Defensive", ability: "", item: "leftovers/rockyhelmet",nature: "Relaxed",evs: {"hp":252,"atk":0,"def":24,"spa":0,"spd":232,"spe":0},moves: ['leechseed','knockoff','protect','gyroball/powerwhip/bodypress']}, {type: "Defensive", ability: "", item: "leftovers/rockyhelmet",nature: "Sassy/Careful",evs: {"hp":252,"atk":0,"def":24,"spa":0,"spd":232,"spe":0},moves: ['spikes/stealthrock','knockoff','powerwhip/bodypress/thunderwave']}, {type: "Physical Defense", ability: "", item: "leftovers",nature: "Impish",evs: {"hp":252,"atk":0,"def":252,"spa":0,"spd":4,"spe":0},moves: ['leechseed','spikes/knockoff','irondefense/curse','bodypress']}, ], },
+{num: 598, name: "Ferrothorn", points: 3, pointsHa: null, iconLoc: null, learnset: ["aerialace","assurance","attract","block","bodypress","brutalswing","bulldoze","bulletseed","confide","curse","cut","doubleteam","endeavor","endure","energyball","explosion","facade","flash","flashcannon","frustration","gigadrain","gigaimpact","grassknot","gravity","gyroball","harden","heavyslam","hiddenpower","honeclaws","hyperbeam","ingrain","irondefense","ironhead","knockoff","magnetrise","metalclaw","mirrorshot","naturepower","payback","pinmissile","poisonjab","powerwhip","protect","rest","return","revenge","rockclimb","rockpolish","rocksmash","rollout","round","sandstorm","secretpower","seedbomb","selfdestruct","shadowclaw","sleeptalk","snore","solarbeam","spikes","stealthrock","steelbeam","steelroller","strength","substitute","sunnyday","swagger","swordsdance","tackle","thunder","thunderbolt","thunderwave","toxic","worryseed"], builds: [{type: "Defensive", ability: "", item: "leftovers/rockyhelmet",nature: "Relaxed",evs: {"hp":252,"atk":0,"def":24,"spa":0,"spd":232,"spe":0},moves: ['leechseed','knockoff','protect','gyroball/powerwhip/bodypress']}, {type: "Defensive", ability: "", item: "leftovers/rockyhelmet",nature: "Sassy/Careful",evs: {"hp":252,"atk":0,"def":24,"spa":0,"spd":232,"spe":0},moves: ['leechseed','spikes/stealthrock','knockoff','powerwhip/bodypress/thunderwave']}, {type: "Physical Defense", ability: "", item: "leftovers",nature: "Impish",evs: {"hp":252,"atk":0,"def":252,"spa":0,"spd":4,"spe":0},moves: ['leechseed','spikes/knockoff','irondefense/curse','bodypress']}, ], },
 {num: 599, name: "Klink", points: 0, pointsHa: null, iconLoc: null, learnset: ["assurance","autotomize","bind","charge","chargebeam","confide","discharge","doubleteam","endure","facade","flashcannon","frustration","geargrind","gravity","hiddenpower","hyperbeam","irondefense","lockon","magiccoat","magnetrise","metalsound","mirrorshot","powergem","protect","recycle","rest","return","risingvoltage","rockpolish","rocksmash","round","sandstorm","screech","secretpower","shiftgear","shockwave","signalbeam","sleeptalk","snore","steelbeam","steelroller","substitute","swagger","telekinesis","thunderbolt","thundershock","thunderwave","toxic","uproar","visegrip","voltswitch","wildcharge","zapcannon"], builds: [], },
 {num: 600, name: "Klang", points: 0, pointsHa: null, iconLoc: null, learnset: ["allyswitch","assurance","autotomize","bind","charge","chargebeam","confide","discharge","doubleteam","endure","facade","flashcannon","frustration","geargrind","gravity","hiddenpower","hyperbeam","irondefense","lockon","magiccoat","magnetrise","metalsound","mirrorshot","powergem","protect","recycle","rest","return","risingvoltage","rockpolish","rocksmash","round","sandstorm","screech","secretpower","shiftgear","shockwave","signalbeam","sleeptalk","snore","steelbeam","steelroller","substitute","swagger","telekinesis","thunderbolt","thundershock","thunderwave","toxic","uproar","visegrip","voltswitch","wildcharge","zapcannon"], builds: [], },
 {num: 601, name: "Klinklang", points: 0, pointsHa: null, iconLoc: null, learnset: ["allyswitch","assurance","autotomize","bind","charge","chargebeam","confide","discharge","doubleteam","electricterrain","endure","facade","flashcannon","frustration","geargrind","gearup","gigaimpact","gravity","hiddenpower","hyperbeam","irondefense","lockon","magiccoat","magneticflux","magnetrise","metalsound","mirrorshot","powergem","protect","recycle","rest","return","risingvoltage","rockpolish","rocksmash","round","sandstorm","screech","secretpower","shiftgear","shockwave","signalbeam","sleeptalk","snore","steelbeam","steelroller","substitute","swagger","telekinesis","thunder","thunderbolt","thundershock","thunderwave","toxic","trickroom","uproar","visegrip","voltswitch","wildcharge","zapcannon"], builds: [], },
@@ -1363,7 +1363,7 @@ const typeEffectiveness = {
     fairy: { normal: 1, fire: 0.5, water: 1, electric: 1, grass: 1, ice: 1, fighting: 2, poison: 0.5, ground: 1, flying: 1, psychic: 1, bug: 1, rock: 1, ghost: 1, dragon: 2, dark: 2, steel: 0.5, fairy: 1 },
 };
 
-  
+
 
 
 var natures = {
@@ -1373,7 +1373,7 @@ var natures = {
     "Brave": { boosted: "atk", reduced: "spe" },
     "Calm": { boosted: "spd", reduced: "atk" },
     "Careful": { boosted: "spd", reduced: "spa" },
-    "Docile": {}, 
+    "Docile": {},
     "Gentle": { boosted: "spd", reduced: "def" },
     "Hardy": {},
     "Hasty": { boosted: "spe", reduced: "def" },
@@ -1394,7 +1394,7 @@ var natures = {
     "Timid": { boosted: "spe", reduced: "atk" }
 };
 
-var movesForPoints = ['Whirlwind','Roar','Baton Pass']
+var movesForPoints = ['Whirlwind', 'Roar', 'Baton Pass']
 
 function presentInfoUpdate(opponent = null) {
     var buttons = document.querySelectorAll('.team button')
@@ -1423,7 +1423,7 @@ function checkToSpace(text) {
 
 function pokemonsParam(team) {
     team.forEach(function (pokemon) {
-        if(pokemon.name){
+        if (pokemon.name) {
             var pokebase = allPokemons[pokemon.name.replace(/\s/g, '').replace(/-/g, '').replace(/'/, '').toLowerCase()];
             for (var key in pokebase) {
                 if (pokebase.hasOwnProperty(key)) {
@@ -1495,10 +1495,10 @@ function pokemonStatsLoad(team) {
 
 
 
-        pokemon.stats.atk = ((2 * baseStats.atk) / 100 * level) + 5  + ivs.atk;
+        pokemon.stats.atk = ((2 * baseStats.atk) / 100 * level) + 5 + ivs.atk;
         pokemon.stats.def = ((2 * baseStats.def) / 100 * level) + 5 + ivs.def;
         pokemon.stats.spa = ((2 * baseStats.spa) / 100 * level) + 5 + ivs.spa;
-        pokemon.stats.spd = ((2 * baseStats.spd) / 100 * level) + 5  + ivs.spd;
+        pokemon.stats.spd = ((2 * baseStats.spd) / 100 * level) + 5 + ivs.spd;
         pokemon.stats.spe = ((2 * baseStats.spe) / 100 * level) + 5 + ivs.spe;
 
 
@@ -1583,8 +1583,8 @@ function filterPokemon(pokemonArray, filters) {
         return true;
     });
 }
- 
-function pokemonToBaseValues(pokemon){
+
+function pokemonToBaseValues(pokemon) {
     pokemon.moves = [{}, {}, {}, {}];
     pokemon.stats = {};
     pokemon.boosts = {
@@ -1734,49 +1734,49 @@ function submitPokePaste(team, inputText) {
     abilitiesParam(team);
 }
 
-function calculateTeamPointsValue(team){
+function calculateTeamPointsValue(team) {
     let teamPointsValue = 0
-    team.forEach(function(pokemon){
-        if(pokemon.name){
+    team.forEach(function (pokemon) {
+        if (pokemon.name) {
             let pokemonOtherForm = null
-            var findedPokemon = null
-            if (pokemon.otherFormes){
+            let findedPokemon = null
+            if (pokemon.otherFormes) {
                 pokemonOtherForm = allPokemons[pokemon.otherFormes[0].replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()];
             }
-            if(pokemonOtherForm && pokemonOtherForm.requiredItem && pokemonOtherForm.requiredItem == pokemon.item.name){
-                findedPokemon = pokemonPointsData.find(function(item) {
+            if (pokemonOtherForm && pokemonOtherForm.requiredItem && pokemonOtherForm.requiredItem == pokemon.item.name) {
+                findedPokemon = pokemonPointsData.find(function (item) {
                     return item.name === pokemon.otherFormes[0] && item.num === pokemon.num;
                 });
             }
-            else if (pokemon.item.itemUser && pokemon.item.itemUser == pokemon.name){
-                if (pokemon.item.megaStone){
-                    findedPokemon = pokemonPointsData.find(function(item) {
+            else if (pokemon.item.itemUser && pokemon.item.itemUser == pokemon.name) {
+                if (pokemon.item.megaStone) {
+                    findedPokemon = pokemonPointsData.find(function (item) {
                         return item.name === pokemon.item.megaStone && item.num === pokemon.num;
                     });
-                }else{
-                    findedPokemon = pokemonPointsData.find(function(item) {
+                } else {
+                    findedPokemon = pokemonPointsData.find(function (item) {
                         return item.name === pokemon.item.itemUser[0] && item.num === pokemon.num;
                     });
                 }
             }
-            else{
-                findedPokemon = pokemonPointsData.find(function(item) {
+            else {
+                findedPokemon = pokemonPointsData.find(function (item) {
                     return item.name === pokemon.name && item.num === pokemon.num;
                 });
             }
-            if (pokemon.ability.name == pokemon.abilities.H && findedPokemon.pointsHa){
+            if (pokemon.ability.name == pokemon.abilities.H && findedPokemon.pointsHa) {
                 teamPointsValue += findedPokemon.pointsHa
             }
-            else{
+            else {
                 teamPointsValue += findedPokemon.points
             }
 
 
 
-            if(pokemon.moves){
-                pokemon.moves.forEach(function(move){
-                    if(move.name){
-                        if(movesForPoints.includes(move.name)){
+            if (pokemon.moves) {
+                pokemon.moves.forEach(function (move) {
+                    if (move.name) {
+                        if (movesForPoints.includes(move.name)) {
                             teamPointsValue += 1;
                         }
                     }
@@ -1787,15 +1787,15 @@ function calculateTeamPointsValue(team){
     return teamPointsValue;
 }
 
-function updateVisualTeam(pokemon, num= null, object = null) {
+function updateVisualTeam(pokemon, num = null, object = null) {
     var teamPointsValue = calculateTeamPointsValue(playerPokemons);
-    
+
     document.getElementById('team-points-value').textContent = 'Points: ' + teamPointsValue;
 
     let sprite = object.querySelector('.pokemon-icon')
 
-    sprite.style.width = '40px'; 
-    sprite.style.height = '30px'; 
+    sprite.style.width = '40px';
+    sprite.style.height = '30px';
     sprite.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
     sprite.style.backgroundRepeat = 'no-repeat';
     let filters = []
@@ -1805,11 +1805,11 @@ function updateVisualTeam(pokemon, num= null, object = null) {
     if (pokemonDataIconLoc[0].iconLoc) {
         sprite.style.backgroundPosition = pokemonDataIconLoc[0].iconLoc;
     }
-    else{
+    else {
         let dex_number = +pokemon.num;
         let first = dex_number % 12 * 40;
         let second = Math.floor(dex_number / 12) * 30;
-    
+
         sprite.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
     }
     sprite.style.backgroundColor = 'transparent';
@@ -1817,7 +1817,7 @@ function updateVisualTeam(pokemon, num= null, object = null) {
     let objectDivs = object.querySelectorAll('div')
     let pokemonName = objectDivs[1];
     pokemonName.textContent = pokemon.name;
-    if (pokemon.baseSpecies){
+    if (pokemon.baseSpecies) {
         pokemonName.textContent = pokemon.baseSpecies
     }
     object.onclick = function () {
@@ -1826,22 +1826,22 @@ function updateVisualTeam(pokemon, num= null, object = null) {
     }
 }
 
-function savedTeamsUpdate(){
+function savedTeamsUpdate() {
     document.querySelector('.teams').innerHTML = ''
     let h3 = document.createElement('h4')
     h3.textContent = 'Your teams';
-    
+
     document.querySelector('.teams').appendChild(h3);
     var savedTeams = JSON.parse(localStorage.getItem("savedTeams"));
     if (savedTeams) {
-        savedTeams.forEach(function(dataTeam, index) {
+        savedTeams.forEach(function (dataTeam, index) {
             let teamResult = document.createElement('div')
             teamResult.classList.add('team-result')
             let newTeam = document.createElement('div');
             newTeam.classList.add('data-team');
-            dataTeam.pokemonsTeam.forEach(function(pokemon) {                
-                if(pokemon.name){
-                    var findedPokemon = pokemonPointsData.find(function(item) {
+            dataTeam.pokemonsTeam.forEach(function (pokemon) {
+                if (pokemon.name) {
+                    var findedPokemon = pokemonPointsData.find(function (item) {
                         return item.name === pokemon.name && item.num === pokemon.num;
                     });
                 }
@@ -1865,16 +1865,16 @@ function savedTeamsUpdate(){
                 newTeam.appendChild(div);
 
             });
-            
+
             let h5 = document.createElement('h5')
             h5.textContent = calculateTeamPointsValue(dataTeam.pokemonsTeam)
 
             newTeam.appendChild(h5)
 
-            
+
             newTeam.setAttribute('easy-remove', '#teamsMenu')
             newTeam.setAttribute('easy-class', 'teams--show')
-            newTeam.onclick = function() {
+            newTeam.onclick = function () {
                 playerPokemons = JSON.parse(JSON.stringify(savedTeams[index].pokemonsTeam));
                 document.getElementById("playerteam-input-text").value = null;
                 presentInfoUpdate();
@@ -1886,7 +1886,7 @@ function savedTeamsUpdate(){
             let butt = document.createElement('button')
             butt.classList.add('team-delete-button')
 
-            butt.onclick = function(){
+            butt.onclick = function () {
                 savedTeams.splice(index, 1);
                 localStorage.setItem("savedTeams", JSON.stringify(savedTeams));
                 savedTeamsUpdate();
@@ -1910,34 +1910,34 @@ function savedTeamsUpdate(){
     newTeamSpan.appendChild(newTeamButton)
     newTeamButton.classList.add('hover-button')
     newTeamButton.textContent = 'Create random team';
-    newTeamButton.onclick = function(){
+    newTeamButton.onclick = function () {
         let buttons = document.querySelectorAll('.team button')
-        
-        if (pointsInput.value){
+
+        if (pointsInput.value) {
             let sum = +pointsInput.value
             let teamForPoints = [];
             let teamForPointsSum = 0;
             let current = false;
-            if (sum == 34){
-                teamForPoints = [6,6,6,6,5,5]
+            if (sum == 34) {
+                teamForPoints = [6, 6, 6, 6, 5, 5]
             }
-            else if(sum == 33){
-                teamForPoints = [6,6,6,6,5,4]
+            else if (sum == 33) {
+                teamForPoints = [6, 6, 6, 6, 5, 4]
             }
-            else{
+            else {
                 while (!current) {
                     let randomNum = Math.floor(Math.random() * 7);
-                    if (sum - randomNum >= 0) { 
+                    if (sum - randomNum >= 0) {
                         teamForPoints.push(randomNum);
                         teamForPointsSum += randomNum;
                         sum -= randomNum;
                     }
                     console.log(teamForPoints)
-                    if (teamForPoints.length == 6){
-                        if (teamForPointsSum == +pointsInput.value){
+                    if (teamForPoints.length == 6) {
+                        if (teamForPointsSum == +pointsInput.value) {
                             current = true;
                         }
-                        else{
+                        else {
                             teamForPoints = [];
                             teamForPointsSum = 0;
                             sum = +pointsInput.value
@@ -1947,27 +1947,27 @@ function savedTeamsUpdate(){
             }
             let fullTeam = []
             let mega = false;
-            for(let i = 0; i < playerPokemons.length; i++){
+            for (let i = 0; i < playerPokemons.length; i++) {
                 let randomElement = null
                 let j = 0;
-                while (!randomElement){
+                while (!randomElement) {
                     let randomIndex = Math.floor(Math.random() * pokemonPointsData.length);
-                    if (pokemonPointsData[randomIndex].name.includes('-Mega')){
-                        if (!mega){
+                    if (pokemonPointsData[randomIndex].name.includes('-Mega')) {
+                        if (!mega) {
                             mega = true;
                         }
-                        else{
+                        else {
                             let noMega = false
-                            while(!noMega){
+                            while (!noMega) {
                                 randomIndex = Math.floor(Math.random() * pokemonPointsData.length);
-                                if(!(pokemonPointsData[randomIndex].name.includes('-Mega'))){
+                                if (!(pokemonPointsData[randomIndex].name.includes('-Mega'))) {
                                     noMega = true;
                                 }
                             }
                         }
                     }
-                    if(!fullTeam.includes(pokemonPointsData[randomIndex].num) && pokemonPointsData[randomIndex].points >= 0 && pokemonPointsData[randomIndex].points <= Math.max(...teamForPoints)){
-                        if(teamForPoints.includes(pokemonPointsData[randomIndex].points)){
+                    if (!fullTeam.includes(pokemonPointsData[randomIndex].num) && pokemonPointsData[randomIndex].points >= 0 && pokemonPointsData[randomIndex].points <= Math.max(...teamForPoints)) {
+                        if (teamForPoints.includes(pokemonPointsData[randomIndex].points)) {
                             let elementToRemove = pokemonPointsData[randomIndex].points;
                             let index = teamForPoints.indexOf(elementToRemove);
                             if (index !== -1) {
@@ -1978,25 +1978,25 @@ function savedTeamsUpdate(){
                             break
                         }
                     }
-                    j ++;
-                    if (j > 3000){
+                    j++;
+                    if (j > 3000) {
                         randomElement = allPokemons.bulbasaur;
                     }
                 }
-                pokemonLoad(i,randomElement,buttons[i])
+                pokemonLoad(i, randomElement, buttons[i])
                 updateVisualTeam(playerPokemons[i], i, buttons[i])
             }
-        }else{
-            for (let i = 0; i < playerPokemons.length; i++){
+        } else {
+            for (let i = 0; i < playerPokemons.length; i++) {
                 let randomElement = null
-                while (true){
+                while (true) {
                     const randomIndex = Math.floor(Math.random() * pokemonPointsData.length);
-                    if (pokemonPointsData[randomIndex].points >= 0 && pokemonPointsData[randomIndex].points <= 6){
+                    if (pokemonPointsData[randomIndex].points >= 0 && pokemonPointsData[randomIndex].points <= 6) {
                         randomElement = allPokemons[pokemonPointsData[randomIndex].name.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()];
                         break
                     }
                 }
-                pokemonLoad(i,randomElement,buttons[i])
+                pokemonLoad(i, randomElement, buttons[i])
                 updateVisualTeam(playerPokemons[i], i, buttons[i])
             }
         }
@@ -2005,18 +2005,21 @@ function savedTeamsUpdate(){
     document.querySelector('.teams').appendChild(newTeamSpan);
 }
 
-function onLoad(){
+function onLoad() {
+
+    
+
     document.getElementById('playerteam-input-text').oninput = presentInfoUpdate;
 
     const mc = new Hammer(document.body);
     const swipeMenu = document.querySelector('.teams').classList
     const activeClassMenu = 'teams--show'
 
-    mc.on("swipeleft swiperight", function(ev){
-        
-        if(ev.type === "swipeleft"){
+    mc.on("swipeleft swiperight", function (ev) {
+
+        if (ev.type === "swipeleft") {
             swipeMenu.remove(activeClassMenu)
-        }else{
+        } else {
             swipeMenu.add(activeClassMenu)
         }
     })
@@ -2024,7 +2027,7 @@ function onLoad(){
 
 
     savedTeamsUpdate()
-    document.getElementById('pastebutton').onclick = function() {
+    document.getElementById('pastebutton').onclick = function () {
         var playerteamInput = document.getElementById('playerteam-input-text');
         var teambuilderResultsUl = document.querySelector('.teambuilder-results ul')
         var teambuilderResults = document.querySelector('.teambuilder-results')
@@ -2040,13 +2043,13 @@ function onLoad(){
             teambuilderResults.scrollTop = 0;
         }
     }
-    document.getElementById('saveteambutton').onclick = function() {
+    document.getElementById('saveteambutton').onclick = function () {
         saveTeam();
     }
     var buttons = document.querySelectorAll('.team button')
     createResults(null, 0, buttons[0])
     for (var i = 0; i < 6; i++) {
-        if (buttons[i]){
+        if (buttons[i]) {
             buttons[i].onclick = function () {
                 teamCurPokemonChange(playerPokemons[i], i, this);
                 document.querySelectorAll('.moves span')[0].querySelector('input').focus();
@@ -2057,26 +2060,26 @@ function onLoad(){
 
 function teamCurPokemonChange(pokemon, num = null, object = null) {
     teamTypesDefenseUpdate(playerPokemons)
-    if(document.getElementById('build-button')){
+    if (document.getElementById('build-button')) {
         document.getElementById('build-button').remove()
     }
-    var findedPokemon = pokemonPointsData.find(function(item) {
+    var findedPokemon = pokemonPointsData.find(function (item) {
         return item.name === pokemon.name && item.num === pokemon.num;
     });
-    if (findedPokemon.builds.length != 0){
+    if (findedPokemon.builds.length != 0) {
         let buildButton = document.createElement('button');
         buildButton.textContent = "Builds";
         buildButton.id = 'build-button'
-        buildButton.onclick = function(){
+        buildButton.onclick = function () {
             let builds = document.querySelector('.current-pokemon-builds')
-            if(builds.classList.contains('current-pokemon-builds-show')){
+            if (builds.classList.contains('current-pokemon-builds-show')) {
                 builds.classList.remove('current-pokemon-builds-show')
             }
-            else{
+            else {
                 builds.classList.add('current-pokemon-builds-show')
             }
         }
-        document.querySelector('.current-pokemon-top').appendChild(buildButton)
+        document.querySelector('.current-pokemon-top-start').appendChild(buildButton)
     }
 
     returnPokePaste(playerPokemons)
@@ -2085,16 +2088,16 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     var results = document.querySelectorAll('.result')
 
     var buttons = document.querySelectorAll('.team button');
-    buttons.forEach(function (button){
-        if(button.classList.contains('current-pokemon-choice')){
+    buttons.forEach(function (button) {
+        if (button.classList.contains('current-pokemon-choice')) {
             button.classList.remove('current-pokemon-choice');
         }
     });
-    if (!object){
-        if (num){
+    if (!object) {
+        if (num) {
             object = buttons[num];
         }
-        else{
+        else {
             object = buttons[0];
         }
     }
@@ -2108,14 +2111,14 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     if (pokemon && (pokemon.name.includes('-Mega-X') || pokemon.name.includes('-Mega-Y'))) {
         var pokemonUrl = megaXYUrl(pokemon.name, 0);
     }
-    else if(pokemon.changesFrom){
-        var pokemonUrl = 'https://play.pokemonshowdown.com/sprites/ani/' + pokemon.changesFrom.replace(/\s/g, '').toLowerCase() + '-' + pokemon.forme.replace(/\s/g, '').replace('-','').toLowerCase() + '.gif';
+    else if (pokemon.changesFrom) {
+        var pokemonUrl = 'https://play.pokemonshowdown.com/sprites/ani/' + pokemon.changesFrom.replace(/\s/g, '').toLowerCase() + '-' + pokemon.forme.replace(/\s/g, '').replace('-', '').toLowerCase() + '.gif';
     }
     else {
-        if (!pokemon){
+        if (!pokemon) {
             var pokemonUrl = 'https://play.pokemonshowdown.com/sprites/ani/bulbasaur.gif';
         }
-        else{
+        else {
             var pokemonUrl = 'https://play.pokemonshowdown.com/sprites/ani/' + pokemon.name.replace(/\s/g, '').toLowerCase() + '.gif';
         }
     }
@@ -2134,8 +2137,8 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     };
 
 
-    
-    function evsValuesUpdate(pokemon){
+
+    function evsValuesUpdate(pokemon) {
         let evsKeys = Object.keys(pokemon.evs);
         let evs = infoPokemon.querySelectorAll('.evs input');
         let evsRanges = infoPokemon.querySelectorAll('.evs-range');
@@ -2151,14 +2154,14 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
 
     evsValuesUpdate(pokemon)
     for (let i = 0; i < 6; i++) {
-        evs[i].oninput = function (){
+        evs[i].oninput = function () {
             let evs = infoPokemon.querySelectorAll('.evs input');
             total = 0
             for (let j = 0; j < 6; j++) {
                 total += +evs[j].value
             }
             totalWithout = total - +evs[i].value
-            if (totalWithout + +evs[i].value > 508){
+            if (totalWithout + +evs[i].value > 508) {
                 evs[i].value = 508 - totalWithout
             }
             playerPokemons[num].evs[evsKeys[i]] = +this.value;
@@ -2167,14 +2170,14 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
             statValuesUpdate(playerPokemons[num])
             returnPokePaste(playerPokemons)
         }
-        evsRanges[i].oninput = function (){
+        evsRanges[i].oninput = function () {
             let evsRanges = infoPokemon.querySelectorAll('.evs-range');
             let total = 0
             for (let j = 0; j < 6; j++) {
                 total += +evsRanges[j].value
             }
             let totalWithout = total - +evsRanges[i].value
-            if (totalWithout + +evsRanges[i].value > 508){
+            if (totalWithout + +evsRanges[i].value > 508) {
                 evsRanges[i].value = 508 - totalWithout
             }
             playerPokemons[num].evs[evsKeys[i]] = +this.value;
@@ -2185,7 +2188,7 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         }
     }
 
-    function ivsValuesUpdate(){
+    function ivsValuesUpdate() {
         let ivs = infoPokemon.querySelectorAll('.ivs input');
         for (let i = 0; i < 6; i++) {
             ivs[i].value = pokemon.ivs[evsKeys[i]];
@@ -2195,11 +2198,11 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     let ivs = infoPokemon.querySelectorAll('.ivs input');
     for (let i = 0; i < 6; i++) {
         ivs[i].value = pokemon.ivs[evsKeys[i]];
-        ivs[i].oninput = function (){
-            if(ivs[i].value > 31){
+        ivs[i].oninput = function () {
+            if (ivs[i].value > 31) {
                 ivs[i].value = 31;
             }
-            else if(ivs[i].value < 0){
+            else if (ivs[i].value < 0) {
                 ivs[i].value = 0;
             }
             playerPokemons[num].ivs[evsKeys[i]] = +this.value;
@@ -2209,9 +2212,9 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         }
     }
 
-    
+
     statValuesUpdate(pokemon)
-    function statValuesUpdate(pokemon){
+    function statValuesUpdate(pokemon) {
         let stats = infoPokemon.querySelectorAll('.current-pokemon-stat-values h3');
         for (let i = 0; i < 6; i++) {
             stats[i].textContent = pokemon.stats[evsKeys[i]];
@@ -2219,7 +2222,7 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     }
 
     var item = infoPokemon.querySelector('.pokemon-info-item')
-    if(pokemon.item.name){
+    if (pokemon.item.name) {
 
         let firstCord = -(pokemon.item.spritenum % 16 * 24)
         let secondCord = -(Math.floor(pokemon.item.spritenum / 16) * 24)
@@ -2228,14 +2231,14 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         item.style = "background:transparent url(https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1) no-repeat scroll " + firstCord + 'px ' + secondCord + 'px';
         infoPokemon.querySelector('.current-pokemon .item').value = pokemon.item.name;
     }
-    else{
+    else {
         item.title = '';
         item.style = "background:transparent url(https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1) no-repeat scroll " + 0 + 'px ' + 0 + 'px';
         infoPokemon.querySelector('.current-pokemon .item').value = '';
     }
-    
+
     let moves = infoPokemon.querySelectorAll('.moves span');
-    function movesValuesUpdate(pokemon){
+    function movesValuesUpdate(pokemon) {
         for (let i = 0; i < 4; i++) {
             if (pokemon.moves[i].name) {
                 moves[i].querySelector('input').value = pokemon.moves[i].name;
@@ -2247,36 +2250,36 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         }
     }
     for (let i = 0; i < 4; i++) {
-        moves[i].querySelector('input').oninput = function() {
-            if (this.value == ''){
+        moves[i].querySelector('input').oninput = function () {
+            if (this.value == '') {
                 createMovesResults(null, num, object, i);
             }
-            else if(allMoves[this.value.replace(' ','').toLowerCase()]){
-                playerPokemons[num].moves[i] = allMoves[this.value.replace(' ','').toLowerCase()];
+            else if (allMoves[this.value.replace(' ', '').toLowerCase()]) {
+                playerPokemons[num].moves[i] = allMoves[this.value.replace(' ', '').toLowerCase()];
                 updateVisualTeam(playerPokemons[num], num, object)
                 teamCurPokemonChange(playerPokemons[num], num, object)
                 let moves = document.querySelectorAll('.moves span');
-                moves[i+1].querySelector('input').focus();
+                moves[i + 1].querySelector('input').focus();
             }
-            else{
+            else {
                 createMovesResults(this.value, num, object, i);
             }
-            
+
         };
-        moves[i].querySelector('input').onfocus = function() {
+        moves[i].querySelector('input').onfocus = function () {
             this.select();
             createMovesResults(null, num, object, i);
             let curResult = document.querySelector('.current-result')
-            if(curResult.getAttribute('data-name') != pokemon.moves[i].name){
+            if (curResult.getAttribute('data-name') != pokemon.moves[i].name) {
                 while (curResult.firstChild) {
                     curResult.removeChild(curResult.firstChild);
                 }
                 let move = pokemon.moves[i]
                 const li = document.createElement('li');
                 li.classList.add('result');
-            
+
                 const a = document.createElement('a');
-            
+
                 const divName = document.createElement('div');
                 divName.classList.add('result-pokemon-name');
                 divName.textContent = move.name;
@@ -2284,12 +2287,12 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
                 const divDesc = document.createElement('div');
                 divDesc.classList.add('result-move-desc')
                 divDesc.textContent = move.shortDesc
-                
+
                 const divTypes = document.createElement('div');
                 divTypes.classList.add('result-move-type');
-            
+
                 const imgType = document.createElement('img');
-                if (move.type){
+                if (move.type) {
                     imgType.src = 'img/' + move.type.toLowerCase() + '_type.png';
                 }
                 divTypes.appendChild(imgType);
@@ -2304,10 +2307,10 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
 
                 let divAcc = document.createElement('div');
                 divAcc.classList.add('result-move-acc');
-                if(move.accuracy == true){
+                if (move.accuracy == true) {
                     divAcc.textContent = '-'
                 }
-                else{
+                else {
                     divAcc.textContent = move.accuracy
                 }
 
@@ -2345,7 +2348,7 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     }
 
     let abilitiesSelect = infoPokemon.querySelector('.ability');
-    abilitiesSelect.onchange = function (){
+    abilitiesSelect.onchange = function () {
         playerPokemons[num].ability.name = this.value;
         updateVisualTeam(playerPokemons[num], num, object);
         abilitiesParam(playerPokemons)
@@ -2370,9 +2373,9 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
             option.textContent = pokemon.abilities["H"];
         }
     }
-    
+
     let naturesSelect = document.querySelector('.nature');
-    naturesSelect.onchange = function (){
+    naturesSelect.onchange = function () {
         playerPokemons[num].nature = this.value;
         pokemonStatsLoad(playerPokemons)
         statValuesUpdate(playerPokemons[num])
@@ -2388,19 +2391,19 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
                 option.textContent += ' (+' + natures[nature].boosted + '; -' + natures[nature].reduced + ')';
             }
             naturesSelect.appendChild(option);
-            
+
         });
     }
-    
-    function statNameColorsUpdate(){
+
+    function statNameColorsUpdate() {
         let statNames = document.querySelectorAll('.current-pokemon-stat-names p')
-        for (let i = 0; i < evsKeys.length; i ++){
+        for (let i = 0; i < evsKeys.length; i++) {
             statNames[i].classList.remove('boosted')
             statNames[i].classList.remove('decreased')
-            if (evsKeys[i] == natures[playerPokemons[num].nature].boosted){
+            if (evsKeys[i] == natures[playerPokemons[num].nature].boosted) {
                 statNames[i].classList.add('boosted')
             }
-            if (evsKeys[i] == natures[playerPokemons[num].nature].reduced){
+            if (evsKeys[i] == natures[playerPokemons[num].nature].reduced) {
                 statNames[i].classList.add('decreased')
             }
         }
@@ -2426,25 +2429,25 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
 
     const myInput = document.querySelector('.current-pokemon .name');
 
-    myInput.onfocus = function() {
+    myInput.onfocus = function () {
         this.select();
         createResults(null, num, object);
     }
-    myInput.addEventListener('input', function() {
-        if (this.value == ''){
+    myInput.addEventListener('input', function () {
+        if (this.value == '') {
             createResults(null, num, object);
         }
-        else{
+        else {
             createResults(pokemon => pokemon.name.toLowerCase().startsWith(this.value.toLowerCase()), num, object);
         }
     });
 
     let itemInput = document.querySelector('.current-pokemon .item');
-    itemInput.onfocus = function() {
+    itemInput.onfocus = function () {
         this.select();
         createItemsResults(null, num, object)
         let curResult = document.querySelector('.current-result')
-        if(pokemon.item.name && curResult.getAttribute('data-name') != pokemon.item.name){
+        if (pokemon.item.name && curResult.getAttribute('data-name') != pokemon.item.name) {
             while (curResult.firstChild) {
                 curResult.removeChild(curResult.firstChild);
             }
@@ -2453,103 +2456,103 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
 
             const divIcon = document.createElement('div');
             divIcon.classList.add('result-pokemon-icon');
-        
+
             const divPokemonIcon = document.createElement('div');
             divPokemonIcon.classList.add('pokemon-icon');
-    
+
             let firstCord = -(item.spritenum % 16 * 24)
             let secondCord = -(Math.floor(item.spritenum / 16) * 24)
-            
+
             divPokemonIcon.style.width = '24px';
             divPokemonIcon.style.height = '24px';
             divPokemonIcon.style.backgroundImage = 'url(img/itemicons-sheet.png)';
             divPokemonIcon.style.backgroundRepeat = 'no-repeat';
-            
+
             divPokemonIcon.style.backgroundPosition = firstCord + 'px ' + secondCord + 'px';
-    
+
             divPokemonIcon.style.backgroundColor = 'transparent';
-        
+
             divIcon.appendChild(divPokemonIcon);
-        
+
             const divName = document.createElement('div');
             divName.classList.add('result-pokemon-name');
             divName.textContent = item.name;
-    
+
             const divDesc = document.createElement('div');
             divDesc.classList.add('result-item-desc')
             divDesc.textContent = item.desc
-    
+
             curResult.appendChild(divIcon);
             curResult.appendChild(divName);
             curResult.appendChild(divDesc)
-        
+
             curResult.setAttribute('data-name', item.name)
         }
-        else if(playerPokemons[num].requiredItem){
+        else if (playerPokemons[num].requiredItem) {
             while (curResult.firstChild) {
                 curResult.removeChild(curResult.firstChild);
             }
-            item = allItems[playerPokemons[num].requiredItem.replace(' ','').toLowerCase()]
+            item = allItems[playerPokemons[num].requiredItem.replace(' ', '').toLowerCase()]
 
             const divIcon = document.createElement('div');
             divIcon.classList.add('result-pokemon-icon');
-        
+
             const divPokemonIcon = document.createElement('div');
             divPokemonIcon.classList.add('pokemon-icon');
-    
+
             let firstCord = -(item.spritenum % 16 * 24)
             let secondCord = -(Math.floor(item.spritenum / 16) * 24)
-            
+
             divPokemonIcon.style.width = '24px';
             divPokemonIcon.style.height = '24px';
             divPokemonIcon.style.backgroundImage = 'url(img/itemicons-sheet.png)';
             divPokemonIcon.style.backgroundRepeat = 'no-repeat';
-            
+
             divPokemonIcon.style.backgroundPosition = firstCord + 'px ' + secondCord + 'px';
-    
+
             divPokemonIcon.style.backgroundColor = 'transparent';
-        
+
             divIcon.appendChild(divPokemonIcon);
-        
+
             const divName = document.createElement('div');
             divName.classList.add('result-pokemon-name');
             divName.textContent = item.name;
-    
+
             const divDesc = document.createElement('div');
             divDesc.classList.add('result-item-desc')
             divDesc.textContent = item.desc
-    
+
             curResult.appendChild(divIcon);
             curResult.appendChild(divName);
             curResult.appendChild(divDesc)
-        
+
             curResult.setAttribute('data-name', item.name)
         }
     }
 
-    itemInput.oninput = function() {
-        if (this.value == ''){
+    itemInput.oninput = function () {
+        if (this.value == '') {
             createItemsResults(null, num, object);
         }
-        else{
+        else {
             createItemsResults(this.value, num, object);
         }
     };
     loadBuildResults(pokemon, num, object)
 }
 
-function loadBuildResults(pokemon, num, object){
+function loadBuildResults(pokemon, num, object) {
     let builds = document.querySelector('.current-pokemon-builds');
     builds.innerHTML = '';
-    var findedPokemon = pokemonPointsData.find(function(item) {
+    var findedPokemon = pokemonPointsData.find(function (item) {
         return item.name === pokemon.name && item.num === pokemon.num;
     });
 
-    if(findedPokemon.builds.length == 0){
+    if (findedPokemon.builds.length == 0) {
         builds.classList.remove('current-pokemon-builds-show')
         return
     }
-    findedPokemon.builds.forEach(function(build, l){
+    findedPokemon.builds.forEach(function (build, l) {
         let button = document.createElement('button')
         button.classList.add('build-result')
 
@@ -2561,7 +2564,7 @@ function loadBuildResults(pokemon, num, object){
         leftContent.classList.add('build-result-left')
 
         let div = document.createElement('div')
-        for(let i = 0; i < build.moves.length; i++){
+        for (let i = 0; i < build.moves.length; i++) {
             let p = document.createElement('img')
             p.classList.add('type-icon')
             p.src = 'img/' + allMoves[build.moves[i].split('/')[0]].type.toLowerCase() + '_type.png';
@@ -2572,30 +2575,30 @@ function loadBuildResults(pokemon, num, object){
         div = document.createElement('div')
 
 
-        for(let i = 0; i < build.moves.length; i++){
+        for (let i = 0; i < build.moves.length; i++) {
             let moveContent = document.createElement('span');
             moveContent.classList.add('build-item');
             let g = 0;
-            build.moves[i].split('/').forEach(function(move){
+            build.moves[i].split('/').forEach(function (move) {
                 let p = document.createElement('span');
                 p.textContent = allMoves[move].name;
-                
-                if(build.moves[i].split('/').length > 1){
+
+                if (build.moves[i].split('/').length > 1) {
                     p.classList.add('build-select-item')
-                    if(g == 0){
+                    if (g == 0) {
                         p.classList.add('choice-build-element');
                     }
-                    p.onclick = function(event){
+                    p.onclick = function (event) {
                         event.stopPropagation();
                         let newItem = move;
-                        build.moves[i].split('/').forEach(function(item2){
-                            if(item2 != move){
+                        build.moves[i].split('/').forEach(function (item2) {
+                            if (item2 != move) {
                                 newItem += "/" + item2;
                             }
                         });
                         build.moves[i] = newItem;
-                        moveContent.querySelectorAll('span').forEach(function(span){
-                            if (span.classList.contains('choice-build-element')){
+                        moveContent.querySelectorAll('span').forEach(function (span) {
+                            if (span.classList.contains('choice-build-element')) {
                                 span.classList.remove('choice-build-element');
                             }
                         });
@@ -2606,7 +2609,7 @@ function loadBuildResults(pokemon, num, object){
                     };
                 }
                 moveContent.appendChild(p);
-                if(build.moves[i].split('/')[g+1]){
+                if (build.moves[i].split('/')[g + 1]) {
                     let slash = document.createElement('span');
                     slash.textContent = '/';
                     slash.classList.add('slash');
@@ -2620,7 +2623,7 @@ function loadBuildResults(pokemon, num, object){
 
 
 
-        
+
         let rightContent = document.createElement('div')
         rightContent.classList.add('build-result-right')
 
@@ -2628,7 +2631,7 @@ function loadBuildResults(pokemon, num, object){
 
         let keys = ['Ability', 'Item', 'Nature', 'EVs']
 
-        keys.forEach(function(key){
+        keys.forEach(function (key) {
             let p = document.createElement('p')
             p.textContent = key + ':'
             div.appendChild(p);
@@ -2638,30 +2641,28 @@ function loadBuildResults(pokemon, num, object){
         div = document.createElement('div')
 
         let p = document.createElement('p')
-        if (build.ability != ''){
-            if (build.ability.includes('/')){
-                p.textContent = allAbilities[build.ability.split("/")[0]].name
+        if (build.ability != '') {
+            p.textContent = allAbilities[build.ability.split("/")[0]].name
+            if (build.ability.includes('/')) {
                 p.classList.add('choice-build-element')
             }
-            else{
-                p.textContent = allAbilities[build.ability].name
-            }
-        }else{
+            
+        } else {
             p.textContent = pokemon.abilities[0];
         }
         div.appendChild(p);
 
-        function buildItemOnClickSet(object, item, buildElement, content, event){
+        function buildItemOnClickSet(object, item, buildElement, content, event) {
             event.stopPropagation();
             let newItem = item;
-            build[buildElement].split('/').forEach(function(item2){
-                if(item2 != item){
+            build[buildElement].split('/').forEach(function (item2) {
+                if (item2 != item) {
                     newItem += "/" + item2;
                 }
             });
             build[buildElement] = newItem;
-            content.querySelectorAll('span').forEach(function(span){
-                if (span.classList.contains('choice-build-element')){
+            content.querySelectorAll('span').forEach(function (span) {
+                if (span.classList.contains('choice-build-element')) {
                     span.classList.remove('choice-build-element');
                 }
             });
@@ -2671,27 +2672,27 @@ function loadBuildResults(pokemon, num, object){
         let itemContent = document.createElement('div')
         itemContent.classList.add('build-item')
         let c = 0
-        build.item.split('/').forEach(function(item){
+        build.item.split('/').forEach(function (item) {
             let itemSpan = document.createElement('span')
             itemSpan.classList.add('pokemon-info-item')
-            itemSpan.title = allItems[item].name
-            if(build.item.split('/').length > 1){
+            itemSpan.setAttribute('data-title', allItems[item].name)
+            if (build.item.split('/').length > 1) {
                 itemSpan.classList.add('build-select-item')
-                if(c == 0){
+                if (c == 0) {
                     itemSpan.classList.add('choice-build-element')
                 }
-                itemSpan.onclick = function(event) {
+                itemSpan.onclick = function (event) {
                     buildItemOnClickSet(this, item, 'item', itemContent, event);
                 };
             }
-            
+
             let firstCord = -(allItems[item].spritenum % 16 * 24)
             let secondCord = -(Math.floor(allItems[item].spritenum / 16) * 24)
-    
+
             itemSpan.style = "width: 24px; height: 24px; background:transparent url(https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1) no-repeat scroll " + firstCord + 'px ' + secondCord + 'px';
-            
+
             itemContent.appendChild(itemSpan)
-            if(build.item.split('/')[c+1]){
+            if (build.item.split('/')[c + 1]) {
                 let slash = document.createElement('span')
                 slash.textContent = '/'
                 slash.classList.add('slash')
@@ -2703,23 +2704,23 @@ function loadBuildResults(pokemon, num, object){
         c = 0
         let natureContent = document.createElement('span')
         natureContent.classList.add('build-item')
-        build.nature.split('/').forEach(function(nature){
+        build.nature.split('/').forEach(function (nature) {
             let natureSpan = document.createElement('span')
             natureSpan.textContent = nature;
 
-            if(build.nature.split('/').length > 1){
+            if (build.nature.split('/').length > 1) {
                 natureSpan.classList.add('build-select-item')
-                if(c == 0){
+                if (c == 0) {
                     natureSpan.classList.add('choice-build-element')
                 }
-                natureSpan.onclick = function(event) {
+                natureSpan.onclick = function (event) {
                     buildItemOnClickSet(this, nature, 'nature', natureContent, event);
                 };
             }
 
             natureContent.appendChild(natureSpan)
 
-            if(build.nature.split('/')[c+1]){
+            if (build.nature.split('/')[c + 1]) {
                 let slash = document.createElement('span')
                 slash.textContent = '/'
                 slash.classList.add('slash')
@@ -2728,22 +2729,22 @@ function loadBuildResults(pokemon, num, object){
             c++;
         })
         div.appendChild(natureContent);
-        
+
 
 
         p = document.createElement('p')
         var evsNames = ['HP', 'Atk', 'Def', 'SpA', 'SpD', 'Spe'];
         var i = 0;
         var lastNonZeroIndex = -1;
-    
-        Object.keys(build.evs).forEach(function(ev, index, array){
+
+        Object.keys(build.evs).forEach(function (ev, index, array) {
             if (build.evs[ev] != 0) {
                 p.textContent += build.evs[ev] + ' ' + evsNames[i] + ' / ';
                 lastNonZeroIndex = i;
             }
             i++;
         });
-    
+
         if (lastNonZeroIndex != -1) {
             p.textContent = p.textContent.slice(0, -3);
         }
@@ -2756,69 +2757,142 @@ function loadBuildResults(pokemon, num, object){
         buildDiv.appendChild(leftContent)
 
 
-
-        let buildName = document.createElement('button')
+        let buildTop = document.createElement('div');
+        buildTop.classList.add('build-top')
+        let buildName = document.createElement('span')
         buildName.classList.add('build-name')
         buildName.textContent = build.type;
-        button.onclick = function(){
-            
+        button.onclick = function () {
+
             pokemon.evs = build.evs;
             pokemon.nature = build.nature.split("/")[0];
-            build.moves.forEach(function(moveName, i){
+            build.moves.forEach(function (moveName, i) {
                 pokemon.moves[i] = allMoves[moveName.split('/')[0]]
             })
             pokemon.item = allItems[build.item.split("/")[0]]
-            if (build.ability != ''){
+            if (build.ability != '') {
                 pokemon.ability = allAbilities[build.ability.split("/")[0]]
-            }else{
-                pokemon.ability  = allAbilities[pokemon.abilities[0].replace(/[\s()]/g, '').replace('-','').toLowerCase()];
+            } else {
+                pokemon.ability = allAbilities[pokemon.abilities[0].replace(/[\s()]/g, '').replace('-', '').toLowerCase()];
             }
             pokemonStatsLoad(playerPokemons)
             updateVisualTeam(playerPokemons[num], num, object)
             teamCurPokemonChange(pokemon, num, object)
         }
-        button.appendChild(buildName)
+
+        let pointsValue = document.createElement('span')
+        let addValues = checkToPointsAddValue(pokemon, build)
+        pointsValue.textContent = addValues[0];
+
+        if(addValues[1]){
+            pointsValue.classList.add('points-add-value')
+
+            const tooltip = document.createElement('div');
+            tooltip.classList.add('tooltip');
+            tooltip.innerHTML = addValues[1];
+            pointsValue.appendChild(tooltip);
+        }
+
+
+        let tierValue = document.createElement('span')
+        tierValue.textContent = '';
+
+        buildTop.appendChild(tierValue)
+
+        buildTop.appendChild(buildName)
+
+        buildTop.appendChild(pointsValue)
+
+        button.appendChild(buildTop)
         button.appendChild(buildDiv)
 
         builds.appendChild(button)
     })
 }
 
-function returnPokePaste(team){
+function checkToPointsAddValue(pokemon, build){
+    let titleText = ''
+    let pointsAdd = 0
+    let findedPokemon = pokemonPointsData.find(function (item) {
+        return item.name === pokemon.name && item.num === pokemon.num;
+    });
+    if (pokemon.abilities.H && findedPokemon.pointsHa && findedPokemon.pointsHa != findedPokemon.points && build.ability == pokemon.abilities.H.replace(/\s/g, '').toLowerCase()){ 
+        pointsAdd += findedPokemon.pointsHa - findedPokemon.points;
+        titleText += 'Ability: +' + (findedPokemon.pointsHa - findedPokemon.points) + '<br>';
+    }
+    build.moves.forEach(function(moves){
+        if (movesForPoints.map(move => move.toLowerCase()).includes(moves.split('/')[0])){
+            console.log(moves.split('/')[0])
+            pointsAdd += 1;
+            titleText += '<span>' + allMoves[moves.split('/')[0]].name + ': +1' + '</span>';
+        }
+    })
+
+    if(allItems[build.item.split('/')[0]] && allItems[build.item.split('/')[0]].megaStone){
+        let megaFormName = allItems[build.item.split('/')[0]].megaStone
+        let findedForm = pokemonPointsData.find(function (item) {
+            return item.name === megaFormName && item.num === pokemon.num;
+        });
+        pointsAdd += findedForm.points - findedPokemon.points;
+        
+        let firstCord = -(allItems[build.item.split('/')[0]].spritenum % 16 * 24)
+        let secondCord = -(Math.floor(allItems[build.item.split('/')[0]].spritenum / 16) * 24)
+
+        let itemSpan = '<span class="pokemon-info-item" data-title="' + allItems[build.item.split('/')[0]].name +'" style="width: 24px; height: 24px; background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;)' + firstCord + 'px ' + secondCord + 'px' + ' no-repeat scroll transparent;"></span>'
+
+
+
+        titleText += '<span>' + 'Mega'+ itemSpan +': ' + '+' + (findedForm.points - findedPokemon.points) + '</span>';
+
+    }
+    console.log(titleText)
+
+    if (pointsAdd > 0){
+        return ["+" + pointsAdd, titleText]
+    }
+    else if(pointsAdd < 0){
+        return [pointsAdd, titleText]
+    }
+    else{
+        return ['']
+    }
+}
+
+function returnPokePaste(team) {
     let pokePaste = ''
-    team.forEach(function(pokemon){
-        if(pokemon.name){
+    team.forEach(function (pokemon) {
+        if (pokemon.name) {
             pokePaste += pokemon.name + " @ " + pokemon.item.name + '  \n'
             pokePaste += "Ability: " + pokemon.ability.name + '  \n'
             pokePaste += "Tera Type: " + pokemon.types[0] + '  \n';
-    
+
             pokePaste += "EVs: ";
-    
+
             var evsNames = ['HP', 'Atk', 'Def', 'SpA', 'SpD', 'Spe'];
             var i = 0;
             var lastNonZeroIndex = -1;
-    
-            Object.keys(pokemon.evs).forEach(function(ev, index, array){
+
+            Object.keys(pokemon.evs).forEach(function (ev, index, array) {
                 if (pokemon.evs[ev] != 0) {
                     pokePaste += pokemon.evs[ev] + ' ' + evsNames[i] + ' / ';
                     lastNonZeroIndex = i;
                 }
                 i++;
             });
-    
+
             if (lastNonZeroIndex != -1) {
                 pokePaste = pokePaste.slice(0, -3);
             }
-    
-    
+
+
             pokePaste += '  \n'
             pokePaste += pokemon.nature + " Nature  \n"
-    
-            pokemon.moves.forEach(function(move){
+
+            pokemon.moves.forEach(function (move) {
                 pokePaste += '- ' + move.name + '  \n'
             })
-    
-    
+
+
             pokePaste += '\n'
         }
 
@@ -2826,15 +2900,15 @@ function returnPokePaste(team){
     document.getElementById("playerteam-input-text").value = pokePaste
 }
 
-function createResults(filter = null, num = null, object = null){
+function createResults(filter = null, num = null, object = null) {
     let minPointValue = 0
     var results = document.querySelectorAll('.teambuilder-results ul .result');
-    results.forEach(function(result) {
+    results.forEach(function (result) {
         if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
             result.remove();
         }
     });
-    if (filter){
+    if (filter) {
         minPointValue = -1
     }
 
@@ -2843,11 +2917,11 @@ function createResults(filter = null, num = null, object = null){
     for (let i = 6; i > minPointValue; i--) {
         const filters = [];
         filters.push(pokemon => pokemon.points == i);
-        if(filter){
+        if (filter) {
             filters.push(filter);
         }
         let pokemons = filterPokemon(pokemonPointsData, filters)
-        if(pokemons.length != 0){
+        if (pokemons.length != 0) {
             var li = document.createElement('li');
             li.classList.add('result');
             let h3 = document.createElement('h3')
@@ -2855,52 +2929,52 @@ function createResults(filter = null, num = null, object = null){
             li.appendChild(h3)
             document.querySelector('.teambuilder-results ul').appendChild(li);
         }
-        
+
         for (let pokemon of pokemons) {
             const pokemonInfo = allPokemons[pokemon.name.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()];
             const li = document.createElement('li');
             li.classList.add('result');
-        
+
             const a = document.createElement('a');
-        
+
             const divIcon = document.createElement('div');
             divIcon.classList.add('result-pokemon-icon');
-        
+
             const divPokemonIcon = document.createElement('div');
             divPokemonIcon.classList.add('pokemon-icon');
             divPokemonIcon.style.width = '40px';
             divPokemonIcon.style.height = '30px';
             divPokemonIcon.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
             divPokemonIcon.style.backgroundRepeat = 'no-repeat';
-            
+
             if (pokemon.iconLoc) {
                 divPokemonIcon.style.backgroundPosition = pokemon.iconLoc;
             }
-            else{
+            else {
                 let dex_number = +pokemonInfo.num;
                 let first = dex_number % 12 * 40;
                 let second = Math.floor(dex_number / 12) * 30;
-            
+
                 divPokemonIcon.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
             }
             divPokemonIcon.style.backgroundColor = 'transparent';
-        
-        
+
+
             divIcon.appendChild(divPokemonIcon);
-        
+
             const divName = document.createElement('div');
             divName.classList.add('result-pokemon-name');
             divName.textContent = pokemonInfo.name;
-        
+
             const divTypes = document.createElement('div');
             divTypes.classList.add('result-pokemon-types');
-        
-            pokemonInfo.types.forEach(function(type) {
+
+            pokemonInfo.types.forEach(function (type) {
                 const imgType = document.createElement('img');
                 imgType.src = 'img/' + type.toLowerCase() + '_type.png';
                 divTypes.appendChild(imgType);
             });
-        
+
             const divAbilities = document.createElement('div');
             divAbilities.classList.add('result-pokemon-abilities');
             for (let i = 0; i < 2; i++) {
@@ -2908,12 +2982,12 @@ function createResults(filter = null, num = null, object = null){
                 pAbility.textContent = pokemonInfo.abilities[i]
                 divAbilities.appendChild(pAbility);
             }
-        
+
             const divHA = document.createElement('div');
             divHA.classList.add('result-pokemon-ha');
             for (let i = 0; i < 2; i++) {
                 const pHA = document.createElement('p');
-                if (i == 0){
+                if (i == 0) {
                     pHA.textContent = pokemonInfo.abilities.H
                 }
                 else {
@@ -2921,17 +2995,17 @@ function createResults(filter = null, num = null, object = null){
                 }
                 divHA.appendChild(pHA);
             }
-        
+
             const divBST = document.createElement('div');
             divBST.classList.add('result-pokemon-bst');
             divBST.textContent = Object.values(pokemonInfo.baseStats).reduce((total, stat) => total + stat, 0);
-        
+
             a.appendChild(divIcon);
             a.appendChild(divName);
             a.appendChild(divTypes);
             a.appendChild(divAbilities);
             a.appendChild(divHA);
-        
+
             for (let i = 0; i < 6; i++) {
                 const divStat = document.createElement('div');
                 divStat.classList.add('result-pokemon-stat');
@@ -2940,7 +3014,7 @@ function createResults(filter = null, num = null, object = null){
             }
             a.appendChild(divBST);
             a.setAttribute('data-name', pokemon.name)
-            a.onclick =  function() {
+            a.onclick = function () {
                 const nameInput = document.querySelector('.current-pokemon .name');
                 const pokemonName = this.getAttribute('data-name');
                 nameInput.value = pokemonName;
@@ -2952,16 +3026,16 @@ function createResults(filter = null, num = null, object = null){
             };
 
             li.appendChild(a);
-        
+
             document.querySelector('.teambuilder-results ul').appendChild(li);
         }
     }
 }
 
-function pokemonLoad(pokemonNum, newPokemon, object){
+function pokemonLoad(pokemonNum, newPokemon, object) {
     let num = pokemonNum
     let requiredItem = false
-    if (newPokemon.requiredItem){
+    if (newPokemon.requiredItem) {
         requiredItem = newPokemon.requiredItem
         newPokemon = allPokemons[newPokemon.baseSpecies.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()]
     }
@@ -2969,7 +3043,7 @@ function pokemonLoad(pokemonNum, newPokemon, object){
     pokemonToBaseValues(playerPokemons[num])
     playerPokemons[num].name = newPokemon.name
     playerPokemons[num].ability.name = newPokemon.abilities[0]
-    if (requiredItem){
+    if (requiredItem) {
         playerPokemons[num].item = allItems[requiredItem.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()]
     }
     abilitiesParam(playerPokemons)
@@ -2977,25 +3051,25 @@ function pokemonLoad(pokemonNum, newPokemon, object){
     pokemonStatsLoad(playerPokemons)
 }
 
-function createItemsResults(filter = null, num = null, object = null){
+function createItemsResults(filter = null, num = null, object = null) {
     var results = document.querySelectorAll('.teambuilder-results ul .result');
-    results.forEach(function(result) {
+    results.forEach(function (result) {
         if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
             result.remove();
         }
     });
     const filters = [];
-    if(filter){
+    if (filter) {
         filters.push(filter);
     }
     const filteredItems = Object.keys(allItems).reduce((acc, key) => {
-        if (filters.every(filter => allItems[key].name.toLowerCase().replace(' ','').startsWith(filter.replace(' ','').toLowerCase()) || allItems[key].name.toLowerCase().replace(' ','').includes(filter.replace(' ','').toLowerCase()))) {
+        if (filters.every(filter => allItems[key].name.toLowerCase().replace(' ', '').startsWith(filter.replace(' ', '').toLowerCase()) || allItems[key].name.toLowerCase().replace(' ', '').includes(filter.replace(' ', '').toLowerCase()))) {
             acc[key] = allItems[key];
         }
         return acc;
     }, {});
-    
-    
+
+
     var li = document.createElement('li');
     li.classList.add('result');
     let h3 = document.createElement('h3')
@@ -3007,29 +3081,29 @@ function createItemsResults(filter = null, num = null, object = null){
         item = allItems[item]
         const li = document.createElement('li');
         li.classList.add('result');
-    
+
         const a = document.createElement('a');
-    
+
         const divIcon = document.createElement('div');
         divIcon.classList.add('result-pokemon-icon');
-    
+
         const divPokemonIcon = document.createElement('div');
         divPokemonIcon.classList.add('pokemon-icon');
 
         let firstCord = -(item.spritenum % 16 * 24)
         let secondCord = -(Math.floor(item.spritenum / 16) * 24)
-        
+
         divPokemonIcon.style.width = '24px';
         divPokemonIcon.style.height = '24px';
         divPokemonIcon.style.backgroundImage = 'url(img/itemicons-sheet.png)';
         divPokemonIcon.style.backgroundRepeat = 'no-repeat';
-        
+
         divPokemonIcon.style.backgroundPosition = firstCord + 'px ' + secondCord + 'px';
 
         divPokemonIcon.style.backgroundColor = 'transparent';
-    
+
         divIcon.appendChild(divPokemonIcon);
-    
+
         const divName = document.createElement('div');
         divName.classList.add('result-pokemon-name');
         divName.textContent = item.name;
@@ -3041,11 +3115,11 @@ function createItemsResults(filter = null, num = null, object = null){
         a.appendChild(divIcon);
         a.appendChild(divName);
         a.appendChild(divDesc)
-    
+
         a.setAttribute('data-name', item.name)
-        a.onclick =  function() {
+        a.onclick = function () {
             let itemName = this.getAttribute('data-name');
-            playerPokemons[num].item = allItems[itemName.replace(' ','').replace('-','').toLowerCase()];
+            playerPokemons[num].item = allItems[itemName.replace(' ', '').replace('-', '').toLowerCase()];
 
             updateVisualTeam(playerPokemons[num], num, object)
             teamCurPokemonChange(playerPokemons[num], num, object)
@@ -3053,24 +3127,24 @@ function createItemsResults(filter = null, num = null, object = null){
         };
 
         li.appendChild(a);
-    
+
         document.querySelector('.teambuilder-results ul').appendChild(li);
     }
 }
 
-function createMovesResults(filter = null, num = null, object = null, moveNum){
+function createMovesResults(filter = null, num = null, object = null, moveNum) {
     var results = document.querySelectorAll('.teambuilder-results ul .result');
-    results.forEach(function(result) {
+    results.forEach(function (result) {
         if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
             result.remove();
         }
     });
     const filters = [];
-    if(filter){
+    if (filter) {
         filters.push(filter);
     }
     const filteredMoves = Object.keys(allMoves).reduce((acc, key) => {
-        if (filters.every(filter => key.startsWith(filter.replace(' ','').toLowerCase()) || key.includes(filter.replace(' ','').toLowerCase()))) {
+        if (filters.every(filter => key.startsWith(filter.replace(' ', '').toLowerCase()) || key.includes(filter.replace(' ', '').toLowerCase()))) {
             acc[key] = allMoves[key];
         }
         return acc;
@@ -3083,17 +3157,17 @@ function createMovesResults(filter = null, num = null, object = null, moveNum){
     li.appendChild(h3)
     document.querySelector('.teambuilder-results ul').appendChild(li);
 
-    var foundPokemon = pokemonPointsData.find(function(pokemon) {
+    var foundPokemon = pokemonPointsData.find(function (pokemon) {
         return pokemon.name === playerPokemons[num].name;
     });
     for (let move of Object.keys(filteredMoves)) {
-        if (foundPokemon.learnset.includes(move)){    
+        if (foundPokemon.learnset.includes(move)) {
             move = allMoves[move]
             const li = document.createElement('li');
             li.classList.add('result');
-        
+
             const a = document.createElement('a');
-        
+
             const divName = document.createElement('div');
             divName.classList.add('result-pokemon-name');
             divName.textContent = move.name;
@@ -3101,10 +3175,10 @@ function createMovesResults(filter = null, num = null, object = null, moveNum){
             const divDesc = document.createElement('div');
             divDesc.classList.add('result-move-desc')
             divDesc.textContent = move.shortDesc
-            
+
             const divTypes = document.createElement('div');
             divTypes.classList.add('result-move-type');
-        
+
             const imgType = document.createElement('img');
             imgType.src = 'img/' + move.type.toLowerCase() + '_type.png';
             divTypes.appendChild(imgType);
@@ -3119,10 +3193,10 @@ function createMovesResults(filter = null, num = null, object = null, moveNum){
 
             let divAcc = document.createElement('div');
             divAcc.classList.add('result-move-acc');
-            if(move.accuracy == true){
+            if (move.accuracy == true) {
                 divAcc.textContent = '-'
             }
-            else{
+            else {
                 divAcc.textContent = move.accuracy
             }
 
@@ -3137,21 +3211,21 @@ function createMovesResults(filter = null, num = null, object = null, moveNum){
             a.appendChild(divAcc);
             a.appendChild(divPP);
             a.appendChild(divDesc)
-        
+
             a.setAttribute('data-name', move.name)
-            a.onclick =  function() {
+            a.onclick = function () {
                 let moveName = this.getAttribute('data-name');
-                playerPokemons[num].moves[moveNum] = allMoves[moveName.replace(' ','').replace('-','').toLowerCase()];
+                playerPokemons[num].moves[moveNum] = allMoves[moveName.replace(' ', '').replace('-', '').toLowerCase()];
                 updateVisualTeam(playerPokemons[num], num, object)
                 teamCurPokemonChange(playerPokemons[num], num, object)
                 let moves = document.querySelectorAll('.moves span');
-                if(moves[moveNum+1]){
-                    moves[moveNum+1].querySelector('input').focus();
+                if (moves[moveNum + 1]) {
+                    moves[moveNum + 1].querySelector('input').focus();
                 }
             };
 
             li.appendChild(a);
-        
+
             document.querySelector('.teambuilder-results ul').appendChild(li);
         }
     }
@@ -3176,58 +3250,59 @@ function megaXYUrl(pokemonName, num) {
 }
 
 function saveTeam() {
+    console.log(playerPokemons)
     var savedTeams = JSON.parse(localStorage.getItem("savedTeams")) || [];
     var teamNum = savedTeams.length;
 
-    if(savedTeams.length < 25){
+    if (savedTeams.length < 25) {
         var team = playerPokemons;
-    
+
         savedTeams.push({
             teamId: teamNum,
             pokemonsTeam: team
         });
-    
+
         localStorage.setItem("savedTeams", JSON.stringify(savedTeams));
     }
     savedTeamsUpdate()
 }
 
-function teamTypesDefenseUpdate(playerPokemons){
+function teamTypesDefenseUpdate(playerPokemons) {
     let tds = document.querySelectorAll('table tr td')
     let trs = document.querySelectorAll('.right-menu table tbody tr')
     let allTypes = Object.keys(typeEffectiveness)
     let teamTypesDefense = []
-    for(let i = 0; i<18; i ++){
+    for (let i = 0; i < 18; i++) {
         teamTypesDefense[allTypes[i]] = 0;
-        if(trs[i].querySelectorAll('td')[2] && trs[i].querySelectorAll('td')[2].querySelector('div')){
+        if (trs[i].querySelectorAll('td')[2] && trs[i].querySelectorAll('td')[2].querySelector('div')) {
             trs[i].querySelectorAll('td')[2].remove()
         }
     }
 
-    playerPokemons.forEach(function(pokemon){
-        if(pokemon.types && pokemon.name != 'Bulbasaur'){
-            pokemon.types.forEach(function(checkType){
+    playerPokemons.forEach(function (pokemon) {
+        if (pokemon.types && pokemon.name != 'Bulbasaur') {
+            pokemon.types.forEach(function (checkType) {
                 checkType = checkType.toLowerCase()
-                allTypes.forEach(function (typeEff){
-                    if(typeEffectiveness[typeEff][checkType] == 0.5){
+                allTypes.forEach(function (typeEff) {
+                    if (typeEffectiveness[typeEff][checkType] == 0.5) {
                         teamTypesDefense[typeEff] += 1
                     }
-                    else if(typeEffectiveness[typeEff][checkType] == 2){
+                    else if (typeEffectiveness[typeEff][checkType] == 2) {
                         teamTypesDefense[typeEff] -= 1
-                    }else if(typeEffectiveness[typeEff][checkType] == 0){
-                        allTypes.forEach(function (typ, i){
-                            if(typ == typeEff){
+                    } else if (typeEffectiveness[typeEff][checkType] == 0) {
+                        allTypes.forEach(function (typ, i) {
+                            if (typ == typeEff) {
                                 let td = null
-                                if (trs[i].querySelectorAll('td')[2]){
+                                if (trs[i].querySelectorAll('td')[2]) {
                                     td = trs[i].querySelectorAll('td')[2]
                                 }
-                                else{
+                                else {
                                     td = document.createElement('td')
                                 }
-                                let findedPokemon = pokemonPointsData.find(function(item) {
+                                let findedPokemon = pokemonPointsData.find(function (item) {
                                     return item.name === pokemon.name && item.num === pokemon.num;
                                 });
-                
+
                                 let div = document.createElement('div');
                                 div.classList.add('pokemon-icon');
                                 div.style.width = '40px';
@@ -3242,7 +3317,7 @@ function teamTypesDefenseUpdate(playerPokemons){
                                     var second = Math.floor(dex_number / 12) * 30;
                                     div.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
                                 }
-                
+
                                 div.style.backgroundColor = 'transparent';
                                 td.appendChild(div)
                                 trs[i].appendChild(td)
@@ -3254,15 +3329,51 @@ function teamTypesDefenseUpdate(playerPokemons){
         }
     })
     let j = 0
-    for(let i = 0; i < trs.length; i ++){
+    for (let i = 0; i < trs.length; i++) {
         let effObj = trs[i].querySelectorAll('td')[1]
         effObj.textContent = teamTypesDefense[allTypes[i]]
         effObj.removeAttribute('class')
-        if (teamTypesDefense[allTypes[i]] > 0){
+        if (teamTypesDefense[allTypes[i]] > 0) {
             effObj.classList.add('boosted')
-        }else if (teamTypesDefense[allTypes[j]] < 0){
+        } else if (teamTypesDefense[allTypes[j]] < 0) {
             effObj.classList.add('decreased')
         }
         j++;
     }
+}
+
+async function sendBuild(buildData){
+    const res = await fetch('/save-build', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(buildData)
+    })
+    const result = await res.json();
+    if (res.status === 200){
+        alert('Build saved!')
+    }
+}
+
+function saveBuild(num, event) {
+    event.preventDefault();
+    
+    let pokemon = playerPokemons[num];
+    if (!pokemon) {
+        console.error('Pokemon not found');
+        alert('Error occurred while saving build');
+        return;
+    }
+
+    const buildData = {
+        name: pokemon.name,
+        type: '',
+        nature: pokemon.nature,
+        ability: pokemon.ability ? pokemon.ability.name.replace(/\s/g, '').toLowerCase() : '',
+        item: pokemon.item ? pokemon.item.name.replace(/\s/g, '').toLowerCase() : '',
+        moves: '[' + pokemon.moves.map(move => move.name.replace(/\s/g, '').toLowerCase()).join(',') + ']',
+        evs: pokemon.evs
+    };
+    console.log(buildData);
+    
+    sendBuild(buildData)
 }

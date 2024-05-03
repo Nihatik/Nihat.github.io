@@ -1,5 +1,3 @@
-window.onload = onLoad;
-
 var playerPokemons = [{}, {}, {}, {}, {}, {}];
 
 var opponentPokemons = [{}, {}, {}, {}, {}, {}];
@@ -557,7 +555,6 @@ function damage_calculate(playerPokemon, move, targetPokemon, weather = 1, targe
     }
 
     var random = getRandomInRange(0.85, 1);
-
     if (move.category == "Physical") {
         if (playerPokemon.boosts.atk >= 0) {
             attackStat = playerPokemon.stats.atk * (playerPokemon.boosts.atk + 2) / 2;
@@ -1092,7 +1089,7 @@ function pokemonInfoChange(pokemon, object = null) {
 
 
     for (var i = 0; i < moves.length; i++) {
-        moves[i].textContent = '- ' + pokemon.moves[i].name;
+        moves[i].textContent = 'РІР‚Сћ ' + pokemon.moves[i].name;
     }
 
     var ability = pokemonInfo.querySelector('.pokemon-info-ability p')
@@ -1284,14 +1281,6 @@ function submitPokePaste(team, inputText) {
     movesParam(team);
     itemsParam(team);
     abilitiesParam(team);
-    var teamPointsValue = 0;
-    team.forEach(function(pokemon){
-        var findedPokemon = pokemonPointsData.find(function(item) {
-            return item.name === pokemon.name && item.num === pokemon.num;
-        });
-        teamPointsValue += findedPokemon.points
-    })
-    document.getElementById('team-points-value').textContent = 'Points: ' + teamPointsValue;
     console.log(team);
 }
 
@@ -1312,11 +1301,11 @@ function pokemonStatsLoad(team) {
 
 
 
-        pokemon.stats.atk = ((2 * baseStats.atk) / 100 * level) + 5  + ivs.atk;
-        pokemon.stats.def = ((2 * baseStats.def) / 100 * level) + 5 + ivs.def;
-        pokemon.stats.spa = ((2 * baseStats.spa) / 100 * level) + 5 + ivs.spa;
-        pokemon.stats.spd = ((2 * baseStats.spd) / 100 * level) + 5  + ivs.spd;
-        pokemon.stats.spe = ((2 * baseStats.spe) / 100 * level) + 5 + ivs.spe;
+        pokemon.stats.atk = ((2 * baseStats.atk + ivs.atk) / 100 * level) + 5;
+        pokemon.stats.def = ((2 * baseStats.def + ivs.def) / 100 * level) + 5;
+        pokemon.stats.spa = ((2 * baseStats.spa + ivs.spa) / 100 * level) + 5;
+        pokemon.stats.spd = ((2 * baseStats.spd + ivs.spd) / 100 * level) + 5;
+        pokemon.stats.spe = ((2 * baseStats.spe + ivs.spe) / 100 * level) + 5;
 
 
         if (!pokemon.evs) {
@@ -1512,7 +1501,7 @@ function firstChoice(index) {
 
 function pokeballAnimation() {
     var pokeball = document.createElement('img');
-    pokeball.src = "img/pokeball.gif"
+    pokeball.src = "assets/pokeball.gif"
     pokeball.classList.add("pokeball")
     document.querySelector('.battle-menu').appendChild(pokeball)
     var playerPokemon = document.querySelector('.player-pokemon');
@@ -1931,7 +1920,17 @@ function updateVisualTeam(pokemon, num, object) {
     }
 }
 
-function teamCurPokemonChange(pokemon, num = null, object = null) {
+function filterPokemon(pokemonArray, filters) {
+    return pokemonArray.filter(pokemon => {
+        for (const filter of filters) {
+            if (!filter(pokemon)) {
+                return false;
+            }
+        }
+        return true;
+    });
+}
+function teamCurPokemonChange(pokemon, num, object = null) {
     activePokemon = playerPokemons[num]
 
     curResult = document.querySelector('.current-result')
@@ -2039,81 +2038,16 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         div.style.backgroundImage = 'url(' + pokemonUrl + ')';
     };
 
-
-    
-    function evsValuesUpdate(pokemon){
-        let evsKeys = Object.keys(pokemon.evs);
-        let evs = infoPokemon.querySelectorAll('.evs input');
-        let evsRanges = infoPokemon.querySelectorAll('.evs-range');
-        total = 0
-        for (let i = 0; i < 6; i++) {
-            evs[i].value = pokemon.evs[evsKeys[i]];
-            evsRanges[i].value = pokemon.evs[evsKeys[i]]
-        }
-    }
     let evs = infoPokemon.querySelectorAll('.evs input');
-    let evsRanges = infoPokemon.querySelectorAll('.evs-range');
     let evsKeys = Object.keys(pokemon.evs);
-
-    evsValuesUpdate(pokemon)
     for (let i = 0; i < 6; i++) {
-        evs[i].oninput = function (){
-            let evs = infoPokemon.querySelectorAll('.evs input');
-            total = 0
-            for (let j = 0; j < 6; j++) {
-                total += +evs[j].value
-            }
-            totalWithout = total - +evs[i].value
-            if (totalWithout + +evs[i].value > 508){
-                evs[i].value = 508 - totalWithout
-            }
-            playerPokemons[num].evs[evsKeys[i]] = +this.value;
-            pokemonStatsLoad(playerPokemons)
-            evsValuesUpdate(pokemon)
-            statValuesUpdate(playerPokemons[num])
-        }
-        evsRanges[i].oninput = function (){
-            let evsRanges = infoPokemon.querySelectorAll('.evs-range');
-            total = 0
-            for (let j = 0; j < 6; j++) {
-                total += +evsRanges[j].value
-            }
-            totalWithout = total - +evsRanges[i].value
-            if (totalWithout + +evsRanges[i].value > 508){
-                evsRanges[i].value = 508 - totalWithout
-            }
-            playerPokemons[num].evs[evsKeys[i]] = +this.value;
-            pokemonStatsLoad(playerPokemons)
-            evsValuesUpdate(pokemon)
-            statValuesUpdate(playerPokemons[num])
-        }
+        evs[i].value = pokemon.evs[evsKeys[i]];
     }
-
-    function ivsValuesUpdate(){
-        let ivs = infoPokemon.querySelectorAll('.ivs input');
-        for (let i = 0; i < 6; i++) {
-            ivs[i].value = pokemon.ivs[evsKeys[i]];
-        }
-    }
-    ivsValuesUpdate()
     let ivs = infoPokemon.querySelectorAll('.ivs input');
     for (let i = 0; i < 6; i++) {
         ivs[i].value = pokemon.ivs[evsKeys[i]];
-        ivs[i].oninput = function (){
-            if(ivs[i].value > 31){
-                ivs[i].value = 31;
-            }
-            else if(ivs[i].value < 0){
-                ivs[i].value = 0;
-            }
-            playerPokemons[num].ivs[evsKeys[i]] = +this.value;
-            pokemonStatsLoad(playerPokemons)
-            ivsValuesUpdate(pokemon)
-            statValuesUpdate(playerPokemons[num])
-        }
     }
 
-    
     statValuesUpdate(pokemon)
     function statValuesUpdate(pokemon){
         let stats = infoPokemon.querySelectorAll('.current-pokemon-stat-values h3');
@@ -2122,19 +2056,10 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         }
     }
 
-    var item = infoPokemon.querySelector('.pokemon-info-item')
     if(pokemon.item.name){
-
-        firstCord = -(pokemon.item.spritenum % 16 * 24)
-        secondCord = -(Math.floor(pokemon.item.spritenum / 16) * 24)
-
-        item.title = pokemon.item.name;
-        item.style = "background:transparent url(https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1) no-repeat scroll " + firstCord + 'px ' + secondCord + 'px';
         infoPokemon.querySelector('.current-pokemon .item').value = pokemon.item.name;
     }
     else{
-        item.title = '';
-        item.style = "background:transparent url(https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1) no-repeat scroll " + 0 + 'px ' + 0 + 'px';
         infoPokemon.querySelector('.current-pokemon .item').value = '';
     }
     
@@ -2166,10 +2091,6 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     }
 
     let abilitiesSelect = infoPokemon.querySelector('.ability');
-    abilitiesSelect.onchange = function (){
-        playerPokemons[num].ability.name = this.value;
-        abilitiesParam(playerPokemons)
-    }
     let options = abilitiesSelect.querySelectorAll('option');
 
     options.forEach(option => option.remove());
@@ -2195,7 +2116,6 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         playerPokemons[num].nature = this.value;
         pokemonStatsLoad(playerPokemons)
         statValuesUpdate(playerPokemons[num])
-        statNameColorsUpdate()
     }
     if (naturesSelect.querySelector('option') == null) {
         Object.keys(natures).forEach(function (nature) {
@@ -2206,61 +2126,154 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
                 option.textContent += ' (+' + natures[nature].boosted + '; -' + natures[nature].reduced + ')';
             }
             naturesSelect.appendChild(option);
-            
         });
     }
-    
-    function statNameColorsUpdate(){
-        statNames = document.querySelectorAll('.current-pokemon-stat-names p')
-        for (i = 0; i < evsKeys.length; i ++){
-            statNames[i].classList.remove('boosted')
-            statNames[i].classList.remove('decreased')
-            if (evsKeys[i] == natures[playerPokemons[num].nature].boosted){
-                statNames[i].classList.add('boosted')
-            }
-            if (evsKeys[i] == natures[playerPokemons[num].nature].reduced){
-                statNames[i].classList.add('decreased')
-            }
-        }
-    }
-
     options = naturesSelect.querySelectorAll('option');
     options.forEach(function (option) {
-        option.selected = false;
         if (option.value == pokemon.nature) {
-            option.selected = true;
-            statNameColorsUpdate()
+            option.setAttribute('selected', 'selected');
+        } else {
+            option.removeAttribute('selected');
         }
     });
+
 
     options = abilitiesSelect.querySelectorAll('option')
     options.forEach(function (option) {
-        option.selected = false;
         if (option.value == pokemon.ability.name) {
-            option.selected = true;
+            option.setAttribute('selected', 'selected');
+        } else {
+            option.removeAttribute('selected');
         }
     });
-
-
     const myInput = document.querySelector('.current-pokemon .name');
 
     function createFilteredPokemonList() {
         document.querySelector('.teambuilder-results ul').innerHTML = '';
         document.querySelector('.teambuilder-results ul').appendChild(results[0])
         document.querySelector('.teambuilder-results ul').appendChild(results[1])
+        for (let i = 6; i > -1; i--) {
+            var li = document.createElement('li');
+            li.classList.add('result');
+            h3 = document.createElement('h3')
+            h3.textContent = i;
+            li.appendChild(h3)
+            document.querySelector('.teambuilder-results ul').appendChild(li);
+            const filters = [];
+            filters.push(pokemon => pokemon.points == i);
+            pokemons = filterPokemon(pokemonPointsData, filters)
+            
+            for (let pokemon of pokemons) {
+                const pokemonInfo = allPokemons[pokemon.name.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()];
+                const li = document.createElement('li');
+                li.classList.add('result');
+            
+                const a = document.createElement('a');
+            
+                const divIcon = document.createElement('div');
+                divIcon.classList.add('result-pokemon-icon');
+            
+                const divPokemonIcon = document.createElement('div');
+                divPokemonIcon.classList.add('pokemon-icon');
+                divPokemonIcon.style.width = '40px';
+                divPokemonIcon.style.height = '30px';
+                divPokemonIcon.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
+                divPokemonIcon.style.backgroundRepeat = 'no-repeat';
+                
+                let dex_number = +pokemonInfo.num;
+                if (formSprites[pokemonInfo.name.replace(/\s/g, '').replace(/-/g, '').toLowerCase()]) {
+                    dex_number = +formSprites[pokemonInfo.name.replace(/\s/g, '').replace(/-/g, '').toLowerCase()]
+                }
+            
+                let first = dex_number % 12 * 40;
+                let second = Math.floor(dex_number / 12) * 30;
+            
+                divPokemonIcon.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
+                divPokemonIcon.style.backgroundColor = 'transparent';
+            
+                divIcon.appendChild(divPokemonIcon);
+            
+                const divName = document.createElement('div');
+                divName.classList.add('result-pokemon-name');
+                divName.textContent = pokemonInfo.name;
+            
+                const divTypes = document.createElement('div');
+                divTypes.classList.add('result-pokemon-types');
+            
+                pokemonInfo.types.forEach(function(type) {
+                    const imgType = document.createElement('img');
+                    imgType.src = 'img/' + type.toLowerCase() + '_type.png';
+                    divTypes.appendChild(imgType);
+                });
+            
+                const divAbilities = document.createElement('div');
+                divAbilities.classList.add('result-pokemon-abilities');
+                for (let i = 0; i < 2; i++) {
+                    const pAbility = document.createElement('p');
+                    pAbility.textContent = pokemonInfo.abilities[i]
+                    divAbilities.appendChild(pAbility);
+                }
+            
+                const divHA = document.createElement('div');
+                divHA.classList.add('result-pokemon-ha');
+                for (let i = 0; i < 2; i++) {
+                    const pHA = document.createElement('p');
+                    if (i == 0){
+                        pHA.textContent = pokemonInfo.abilities.H
+                    }
+                    else {
+                        pHA.textContent = pokemonInfo.abilities.S
+                    }
+                    divHA.appendChild(pHA);
+                }
+            
+                const divBST = document.createElement('div');
+                divBST.classList.add('result-pokemon-bst');
+                divBST.textContent = Object.values(pokemonInfo.baseStats).reduce((total, stat) => total + stat, 0);
+            
+                a.appendChild(divIcon);
+                a.appendChild(divName);
+                a.appendChild(divTypes);
+                a.appendChild(divAbilities);
+                a.appendChild(divHA);
+            
+                for (let i = 0; i < 6; i++) {
+                    const divStat = document.createElement('div');
+                    divStat.classList.add('result-pokemon-stat');
+                    divStat.textContent = pokemonInfo.baseStats[Object.keys(pokemonInfo.baseStats)[i]];
+                    a.appendChild(divStat);
+                }
+                a.appendChild(divBST);
+                a.setAttribute('data-name', pokemon.name)
+                
+                a.addEventListener('click', function() {
+                    const nameInput = document.querySelector('.current-pokemon .name');
+                    const pokemonName = this.getAttribute('data-name');
+                    nameInput.value = pokemonName;
+                    basePokemon = allPokemons[pokemonName.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()]
+                    activePokemon.name = basePokemon.name;
+                    activePokemon.nature = 'Bashful';
+                    activePokemon.item = {}
+                    activePokemon.moves = [{},{},{},{}]
+                    console.log(activePokemon.moves)
+                    pokemonsParam(playerPokemons)
+                    pokemonStatsLoad(playerPokemons)
+                    updateVisualTeam(playerPokemons[num], num, object)
+                    teamCurPokemonChange(playerPokemons[num], num, object)
+                });
+
+                li.appendChild(a);
+            
+                document.querySelector('.teambuilder-results ul').appendChild(li);
+            }
+        }
     }
     
     myInput.addEventListener('click', createFilteredPokemonList);
     
     myInput.addEventListener('input', function() {
-        console.log('da');
+        console.log('Р—РЅР°С‡РµРЅРёРµ РїРѕР»СЏ РІРІРѕРґР° РёР·РјРµРЅРёР»РѕСЃСЊ');
     });
-
-    itemInput = document.querySelector('.current-pokemon .item');
-    itemInput.oninput = function() {
-        if (allItems[this.value.replace(/\s/g, '').replace(/-/g, '').replace(/'/, '').toLowerCase()]){
-            pokemon.item = allItems[this.value.replace(/\s/g, '').replace(/-/g, '').replace(/'/, '').toLowerCase()]
-            teamCurPokemonChange(playerPokemons[num], num, object)
-        }
-    };
 }
+
+window.onload = onLoad();

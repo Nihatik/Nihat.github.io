@@ -10,9 +10,10 @@ body {
 }
 
 main {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     display: flex;
     height: 100vh;
-    background-color: rgb(34, 34, 34);
 }
 
 .boosted {
@@ -86,7 +87,6 @@ main {
 }
 
 .teambuilder-menu{
-    background-color: rgb(34, 34, 34);
     width: 980px;
     height: 100%;
 }
@@ -99,15 +99,14 @@ main {
 .right-menu{
     overflow-y: auto;
     z-index: 0;
-    background-color: rgb(34, 34, 34);
     display: none;
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.team button:not(.current-pokemon-choice), #build-button{
+.team button:not(.current-pokemon-choice), #build-button, #save-build-button{
     font-weight: 100;
     display: flex;
     justify-content: center;
@@ -117,25 +116,25 @@ main {
     height: 60px;
     color: white;
     position: relative;
-    border-radius: 16px;
+    border-radius: 12px;
     background-color: rgb(97,97,97);
     margin-right: 4px;
     transition: 0.3s;
     font-weight: 500;
 }
-#build-button:hover{
-    transform: translateY(-4px);
+#build-button:hover, #save-build-button:hover{
+    transform: translateY(-2px);
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 .team button:not(.current-pokemon-choice):hover {
-    transform: translateY(-4px);
+    background-color: rgb(85, 85, 85);
+    transform: translateY(-2px);
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 
 .team {
-    background-color: rgb(34, 34, 34);
     position: relative;
     z-index: 3;
     width: 100%;
@@ -192,9 +191,13 @@ main {
     margin-left: 1%;
 }
 
-#build-button{
+#build-button,  #save-build-button{
     width: 60px;
     height: 80%;
+}
+#save-build-button{
+    display: none;
+    width: 100px;
 }
 
 .vertical-line {
@@ -303,25 +306,30 @@ select{
     position: absolute; /* Абсолютное позиционирование для иконки */
     top: 50%; /* Позиционируем иконку по вертикали посередине */
     right: 5px; /* Отступ справа */
-    transform: translateY(-50%); /* Коррекция вертикального выравнивания */
+    transform: translateY(-50%); 
 }
 
 .current-pokemon-top {
     display: flex;
-    flex-direction: row;
     align-items: center;
     width: 100%;
     height: 18%;
 }
 
-.current-pokemon-top input {
+.current-pokemon-top-start{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.current-pokemon-top-start input {
     border: 1px solid #4d4d4d;
     color: white;
     background-color: #2e2e2e;
-    transition: 0.3s;
     padding: 0px 6px;
-    right: 0;
-    width: 15%;
+    transition: 0.3s;
+    width: 140px;
     height: 70%;
 }
 
@@ -433,7 +441,6 @@ input[type="range"] {
 
 
 .teambuilder-results {
-    background-color: rgb(34, 34, 34);
     z-index: 1;
     position: absolute;
     top: 276px;
@@ -642,7 +649,8 @@ input[type="range"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#2e2e2e;
+    background-image:url(img/bg3.jpg);
+    background-size: 1000px 100%;
     position: absolute;
     transition: 0.5s;
     z-index: 10;
@@ -650,6 +658,8 @@ input[type="range"] {
     left: -375px;
     right: 0;
     bottom: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5); 
 }
 
@@ -731,13 +741,13 @@ input[type="range"] {
     width: 100%;
     display: flex;
 }
-.build-result .build-name{
+.build-result .build-top{
     height: 30%;
 }
 
 @media (max-width: 960px){
     .right-menu{
-        display: flex;
+        display: none;
         position: absolute;
         width: 100%;
         bottom: 0;
@@ -783,7 +793,7 @@ input[type="range"] {
     .current-pokemon-builds-show {
         top: 182px;
     }
-    #build-button:hover{
+    #build-button:hover, #save-build-button:hover{
         transform: translateY(-2px);
         border-bottom-right-radius: 12px;
         border-bottom-left-radius: 12px;
@@ -814,10 +824,14 @@ input[type="range"] {
         font-size: 8px;
         padding-top: 4px;
     }
-    .team button:not(.current-pokemon-choice),#pastebutton,#build-button {
+    .team button:not(.current-pokemon-choice),#pastebutton{
         font-size: 6px;
         width: 10%;
     }
+    #save-build-button, #build-button {
+        font-size: 6px;
+    }
+
     .team button:not(.current-pokemon-choice){
         border-radius: 12px;
         height: 50px;
@@ -992,10 +1006,10 @@ input[type="range"] {
     }
 
     .build-result{
-        font-size: 6px;
+        font-size: 8px;
     }
     .build-name{
-        font-size: 8px;
+        font-size: 10px;
     }
     .current-pokemon-builds{
         width: 100%;
@@ -1045,15 +1059,6 @@ input[type="range"] {
 }
 
 @media (min-width: 1355px){
-    .teams{
-        background-color: rgb(34, 34, 34);
-        z-index: 0;
-        left: 600px;
-        top: 0;
-    }
-    .teams--show{
-        left: 980px;
-    }
     .teams {
         padding-top: 0;
     }
@@ -1166,7 +1171,7 @@ input[type="range"] {
     background-color: #252525;
     width: 95%;
     border: none;
-    border-radius: 32px;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
     color: white;
@@ -1228,18 +1233,25 @@ input[type="range"] {
     justify-content: center;
 }
 
-.build-name{
+.build-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     color: white;
     background: transparent;
     cursor: pointer;
     width: 100%;
     border-radius: 32px;
     border: none;
-    font-weight: bold;
     transition: 0.3s;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.025); 
+}
+
+.build-name {
+    font-weight: bold;
+    width: 30%;
 }
 
 .choice-build-element{
@@ -1271,14 +1283,25 @@ td{
     transition: 0.3s
 }
 
-th{
-    width: 90px;
+th {
+    width: 120px;
+}
+
+.teams{
+    background: rgb(34, 34, 34, 0.99);
+}
+
+.team-types-defense{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 tr{
-    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-    margin-bottom: 4px;
-    border-radius: 32px;
+    background: rgb(34, 34, 34, 0.9);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+    margin-bottom: 2px;
+    border-radius: 12px;
     display: flex;
     height: 40px;
     align-items: center;
@@ -1287,3 +1310,76 @@ tr{
 thead tr{
     border: none;
 }
+
+
+.new-build-menu{
+    width: 375px;
+    height: 320px;
+    border: 1px solid purple;
+    border-radius: 16px;
+}
+
+.current-pokemon-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.current-pokemon-top-start {
+    align-self: flex-start; 
+}
+
+.pokemon-info-item::after {
+    position: relative;
+    content: attr(data-title);
+    position: absolute;
+    background-color: rgb(51, 51, 51);
+    border: 1px solid rgb(36, 36, 36);
+    border-radius: 8px;
+    padding: 4px 8px;
+    transition: opacity 0.3s; 
+    opacity: 0;
+    transform: translateY(28px) translateX(-10px); 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 1); 
+    visibility: hidden;
+}
+
+
+
+.pokemon-info-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 11;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
+    max-width: 20%;
+    max-height: 100px;
+    content: attr(data-title);
+    background-color: rgb(51, 51, 51);
+    border: 1px solid rgb(36, 36, 36);
+    border-radius: 12px;
+    padding: 4px 8px;
+    transition: opacity 0.3s; 
+    opacity: 0;
+    margin-top: 5px;
+    margin-left: -5%;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 1); 
+    visibility: hidden;
+}
+.tooltip span{
+    display: flex;
+    align-items: center;
+}
+.points-add-value{
+    padding: 6px 8px;
+}
+
+.points-add-value:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+

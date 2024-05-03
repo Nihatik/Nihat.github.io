@@ -250,83 +250,42 @@ def generate_pokemon_page(pokemon):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{pokemon['name']}</title>
-    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="pokedex.css">
+    <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../scrollbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="icon" href="https://www.smogon.com/dex/media/sprites/xy/{pokemon["name"].replace('%', '').lower()}.gif" type="image/gif">
     <script src="pokedex.js"></script>
+    <script src="../theme.js"></script>
 </head>
 <body>
     <header>
-    </header>
-    <div class="main">
-        <div class="left-menu">
-            <div class="left-menu-top">
-                <div>
-                    <div class="filters">
-                        <select class="ability-filter" placeholder="Enter name" onchange="searchUpdate()">
-                        <option value="None">None (Ability)</option>
-                        </select>
-                    </div>
-                    <div class="search">
-                        <button onclick="sortTable(0)" class="pokemon-icon">
-                        <img src="../img/sort.png">
-                        </button>
-                        <input placeholder="Enter name" type="search" oninput="searchUpdate()">
-                        <select class="type-sort" onchange="searchUpdate()">
-                            <option value="None">None</option>
-                            <option value="Normal">Normal</option>
-                            <option value="Fire">Fire</option>
-                            <option value="Water">Water</option>
-                            <option value="Grass">Grass</option>
-                            <option value="Electric">Electric</option>
-                            <option value="Ice">Ice</option>
-                            <option value="Fighting">Fighting</option>
-                            <option value="Poison">Poison</option>
-                            <option value="Ground">Ground</option>
-                            <option value="Flying">Flying</option>
-                            <option value="Psychic">Psychic</option>
-                            <option value="Bug">Bug</option>
-                            <option value="Rock">Rock</option>
-                            <option value="Ghost">Ghost</option>
-                            <option value="Dragon">Dragon</option>
-                            <option value="Dark">Dark</option>
-                            <option value="Steel">Steel</option>
-                            <option value="Fairy">Fairy</option>
-                        </select>
-                        <select class="points-sort" onchange="searchUpdate()">
-                            <option value="No">No</option>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                        <select class="stat-sort" onchange="searchUpdate()">
-                            <option value="No">No</option>
-                            <option value="hp">HP</option>
-                            <option value="atk">Atk</option>
-                            <option value="def">Def</option>
-                            <option value="spa">SpA</option>
-                            <option value="spd">SpD</option>
-                            <option value="spe">Spe</option>
-                            <option value="bst">BST</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="xzpoka">
-                </div>
-            </div>
-            <div class="left-menu-main">
-                <div class="pokemons-list">
-                    <table id="pokemonTable">
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
+        <img id="logo" src="../img/snorlaxfavicon.png">
+        <a href="../index.html">Главная</a>
+        <div class="dropdown">
+            <a href="#">Покедекс</a>
+            <div class="dropdown-content">
+                <a href="bulbasaur.html">Покемоны</a>
+                <a href="#">Атаки</a>
+                <a href="#">Способности</a>
+                <a href="#">Типы</a>
             </div>
         </div>
+        <a href="../teambuilder.html">Тимбилдер</a>
+        <div id="settings">
+            <input type="checkbox" id="theme-slider" class="toggle">
+
+            <label for="theme-slider" class="label">
+                <div class="ball">
+
+                </div>
+            </label>
+        </div>
+
+    </header>
+    <div class="main">
         <div class="pokemon-info">
             <h1 class="block-inline">{pokemon['name']}</h1>
             <div class="pokemon-info-top">
@@ -390,48 +349,51 @@ def generate_pokemon_page(pokemon):
                     }
                 </div>
                 <div class="pokemon-stats">
-                    <div>
-                        <p class="stat-name">HP:</p>
-                        <p class="stat-value">{base_stats["hp"]}</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: {base_stats["hp"]};"></div>
+                    <div style="display: none;">
+                        <div>
+                            <p class="stat-name">HP:</p>
+                            <p class="stat-value">{base_stats["hp"]}</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: {base_stats["hp"]};"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Attack:</p>
+                            <p class="stat-value">{base_stats["atk"]}</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: {base_stats["atk"]};"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Defense:</p>
+                            <p class="stat-value">{base_stats["def"]}</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: {base_stats["def"]};"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Sp. Atk:</p>
+                            <p class="stat-value">{base_stats["spa"]}</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: {base_stats["spa"]};"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Sp. Def:</p>
+                            <p class="stat-value">{base_stats["spd"]}</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: {base_stats["spd"]};"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Speed:</p>
+                            <p class="stat-value">{base_stats["spe"]}</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: {base_stats["spe"]};"></div>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="stat-name">Attack:</p>
-                        <p class="stat-value">{base_stats["atk"]}</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: {base_stats["atk"]};"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Defense:</p>
-                        <p class="stat-value">{base_stats["def"]}</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: {base_stats["def"]};"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Sp. Atk:</p>
-                        <p class="stat-value">{base_stats["spa"]}</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: {base_stats["spa"]};"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Sp. Def:</p>
-                        <p class="stat-value">{base_stats["spd"]}</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: {base_stats["spd"]};"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Speed:</p>
-                        <p class="stat-value">{base_stats["spe"]}</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: {base_stats["spe"]};"></div>
-                        </div>
-                    </div>
+                    <canvas id="myChart" width="240" height="240"></canvas>
                 </div>
             </div>
              {f"""
@@ -497,6 +459,126 @@ def generate_pokemon_page(pokemon):
             </div>
         </div>
     </div>
+    <div class="left-menu">
+            <div class="left-menu-top">
+                <div>
+                    <div class="filters">
+                        <select class="ability-filter" placeholder="Enter name" onchange="searchUpdate()">
+                        <option value="None">None (Ability)</option>
+                        </select>
+                    </div>
+                    <div class="search">
+                        <button onclick="sortTable(0)" class="pokemon-icon">
+                        <img src="../img/sort.png">
+                        </button>
+                        <input placeholder="Enter name" type="search" oninput="searchUpdate()">
+                        <select class="type-sort" onchange="searchUpdate()">
+                            <option value="None">None</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Fire">Fire</option>
+                            <option value="Water">Water</option>
+                            <option value="Grass">Grass</option>
+                            <option value="Electric">Electric</option>
+                            <option value="Ice">Ice</option>
+                            <option value="Fighting">Fighting</option>
+                            <option value="Poison">Poison</option>
+                            <option value="Ground">Ground</option>
+                            <option value="Flying">Flying</option>
+                            <option value="Psychic">Psychic</option>
+                            <option value="Bug">Bug</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Ghost">Ghost</option>
+                            <option value="Dragon">Dragon</option>
+                            <option value="Dark">Dark</option>
+                            <option value="Steel">Steel</option>
+                            <option value="Fairy">Fairy</option>
+                        </select>
+                        <select class="points-sort" onchange="searchUpdate()">
+                            <option value="No">No</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <select class="stat-sort" onchange="searchUpdate()">
+                            <option value="No">No</option>
+                            <option value="hp">HP</option>
+                            <option value="atk">Atk</option>
+                            <option value="def">Def</option>
+                            <option value="spa">SpA</option>
+                            <option value="spd">SpD</option>
+                            <option value="spe">Spe</option>
+                            <option value="bst">BST</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="close-left-menu">
+                    <span style="width: 1px; height: 70%; background-color: gray; border-left: 1px solid gray;"></span>
+                </button>
+            </div>
+            <div class="left-menu-main">
+                <div class="pokemons-list">
+                    <table id="pokemonTable">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // Создайте новый экземпляр диаграммы
+        var myChart = new Chart(ctx,''' + ''' { 
+            type: "radar", 
+            data: { 
+                labels: [ 
+                    "HP", 
+                    "Attack", 
+                    "Defense", 
+                    "Sp. Atk", 
+                    "Sp. Def", 
+                    "Speed", 
+                ], 
+                datasets: [ 
+                    { 
+                        label: "Stats", 
+                        data:''' + f'''[{base_stats["hp"]}, {base_stats["atk"]}, {base_stats["def"]} , {base_stats["spa"]}, {base_stats["spd"]}, {base_stats["spe"]}], 
+                        fill: true, 
+                        backgroundColor: "rgba(75, 192, 192, 0.2)", 
+                        borderColor: "rgb(75, 192, 192)", 
+                        pointBackgroundColor: "rgb(75, 192, 192)", 
+                        pointBorderColor: "#fff", 
+                        pointHoverBackgroundColor: "#fff", 
+                        pointHoverBorderColor: "rgb(75, 192, 192)", ''' + '''
+                    }, 
+                ], 
+            }, 
+            options: {
+                maintainAspectRatio: false,
+                scale: {
+                    ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 255,
+                        stepSize: 50,
+                        callback: function(value) {
+                            return value % 50 === 0 ? value : '';
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        borderWidth: 3,
+                    },
+                },
+            },
+        }); 
+    </script>
 </body>
 </html>
     '''

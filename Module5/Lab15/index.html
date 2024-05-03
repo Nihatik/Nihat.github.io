@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <div id="loginForm">
+        <h2>Вход</h2>
+        <input type="text" id="username" placeholder="Username"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <input type="text" id="secretWord" placeholder="Secret Word"><br>
+        <button onclick="saveCredentials()">Сохранить данные</button>
+        <button style="display: none;" id="showCookies" onclick="showCookies()">Показать секретные данные</button>
+        <p id="notCurrentSecretWord" style="display: none;">Неверное секретное слово</p>
+    </div>
+    <div id="secretData" style="display:none;">
+        <h2>Секретные данные</h2>
+        <p id="secretContent"></p>
+        <button onclick="clearCredentials()">Очистить данные</button>
+    </div>
+
+    <script>
+        var currentSecretWord = 'SecretWord';
+        document.cookie = "secretWord=" + currentSecretWord + ";expires=" + getExpirationDate(2);
+        function saveCredentials() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var secretWord = document.getElementById("secretWord").value;
+            // Сохранение данных
+            document.cookie = "username=" + username + ";expires=" + getExpirationDate(2);
+            document.cookie = "password=" + password + ";expires=" + getExpirationDate(2);
+            // Показываем секретные данные если они верны
+            var currentSecretWord = getCookie("secretWord");
+            console.log(currentSecretWord, secretWord)
+            if (secretWord == currentSecretWord) {
+                document.getElementById('showCookies').style.display = 'flex'
+                document.getElementById('notCurrentSecretWord').style.display = 'none'
+            }
+            else{
+                document.getElementById('showCookies').style.display = 'none'
+                document.getElementById('notCurrentSecretWord').style.display = 'flex'
+            }
+        }
+        function showCookies(){
+            document.getElementById("secretContent").textContent = "Секретные данные";
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("secretData").style.display = "block";
+            document.getElementById('secretContent').innerHTML = "Имя: " + getCookie('username') + "<br>" + 'Пароль: ' + getCookie('password') + "<br>" + 'Секретное слово: ' + getCookie('secretWord') + "<br>"
+        }
+        function getExpirationDate(days) {
+            var date = new Date();
+            date.setDate(date.getDate() + days);
+            return date.toUTCString();
+        }
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith(name + "=")) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return "";
+        }
+        function clearCredentials() {
+            // Очистка всех куки
+            document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            document.cookie = "password=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            document.cookie = "secretWord=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            // Перезагрузка страницы
+            location.reload();
+        }
+        // Проверка даты
+        window.onload = function () {
+            var expirationDate = new Date(getCookie("expires"));
+            var currentDate = new Date();
+            if (currentDate > expirationDate) {
+                // Очиска Куки
+                clearCredentials();
+            }
+        };
+    </script>
+</body>
+</html>

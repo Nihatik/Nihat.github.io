@@ -5,16 +5,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oddish</title>
-    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="pokedex.css">
+    <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../scrollbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="icon" href="https://www.smogon.com/dex/media/sprites/xy/oddish.gif" type="image/gif">
     <script src="pokedex.js"></script>
+    <script src="../theme.js"></script>
 </head>
 <body>
     <header>
+        <img id="logo" src="../img/snorlaxfavicon.png">
+        <a href="../index.html">Главная</a>
+        <div class="dropdown">
+            <a href="#">Покедекс</a>
+            <div class="dropdown-content">
+                <a href="bulbasaur.html">Покемоны</a>
+                <a href="#">Атаки</a>
+                <a href="#">Способности</a>
+                <a href="#">Типы</a>
+            </div>
+        </div>
+        <a href="../teambuilder.html">Тимбилдер</a>
+        <div id="settings">
+            <input type="checkbox" id="theme-slider" class="toggle">
+
+            <label for="theme-slider" class="label">
+                <div class="ball">
+
+                </div>
+            </label>
+        </div>
+
     </header>
     <div class="main">
-        <div class="left-menu">
+        <div class="pokemon-info">
+            <h1 class="block-inline">Oddish</h1>
+            <div class="pokemon-info-top">
+                <div class="pokemon-image-container" >
+                    <div id="pokemon-image" style="background-image: url(https://www.smogon.com/dex/media/sprites/xy/oddish.gif)" alt="Oddish">
+                    </div>
+                    
+                </div>
+                <div class="pokemon-evolutions">
+                    
+                    
+                    <div class="pokemon-first-evo">
+                        <div>
+                            <div class="pokemon-icon">
+                                <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -280px -90px;"></span>
+                            </div>
+                            <p>Oddish</p>
+                        </div>
+                    </div>
+                    
+                        <div class="pokemon-second-evo">
+                            <div>
+                                <div class="pokemon-icon">
+                                    <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -320px -90px;"></span>
+                                </div>
+                                <a href="gloom.html">Gloom</a>
+                            </div>
+                        </div>
+                    
+                        <div class="pokemon-third-evo">
+                            <div>
+                                <div class="pokemon-icon">
+                                    <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -90px;"></span>
+                                </div>
+                                <a href="vileplume.html">Vileplume</a>
+                            </div>
+                        </div>
+                </div>
+                <div class="pokemon-stats">
+                    <div style="display: none;">
+                        <div>
+                            <p class="stat-name">HP:</p>
+                            <p class="stat-value">45</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: 45;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Attack:</p>
+                            <p class="stat-value">50</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: 50;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Defense:</p>
+                            <p class="stat-value">55</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: 55;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Sp. Atk:</p>
+                            <p class="stat-value">75</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: 75;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Sp. Def:</p>
+                            <p class="stat-value">65</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: 65;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="stat-name">Speed:</p>
+                            <p class="stat-value">30</p>
+                            <div class="stat-bar">
+                                <div class="progress" style="--data-value: 30;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="myChart" width="240" height="240"></canvas>
+                </div>
+            </div>
+             
+            <div class="block">
+                <div class="pokemon-types">
+                    <p>Type:   </p>
+                    <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
+                    <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
+                </div>
+                <div>
+                    <p>Points: 0</p>
+                </div>
+                
+                <div>
+                    <p>HA points: None</p>
+                </div>
+                <div>
+                    <p>Tier: LC</p>
+                </div>
+                <div class="pokemon-abilities">
+                    <p>Abilities: Chlorophyll, Run Away</p>
+                </div>
+                <div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left-menu">
             <div class="left-menu-top">
                 <div>
                     <div class="filters">
@@ -70,8 +209,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="xzpoka">
-                </div>
+                <button id="close-left-menu">
+                    <span style="width: 1px; height: 70%; background-color: gray; border-left: 1px solid gray;"></span>
+                </button>
             </div>
             <div class="left-menu-main">
                 <div class="pokemons-list">
@@ -82,115 +222,57 @@
                 </div>
             </div>
         </div>
-        <div class="pokemon-info">
-            <h1 class="block-inline">Oddish</h1>
-            <div class="pokemon-info-top">
-                <div class="pokemon-image-container" >
-                    <div id="pokemon-image" style="background-image: url(https://www.smogon.com/dex/media/sprites/xy/oddish.gif)" alt="Oddish">
-                    </div>
-                    
-                </div>
-                <div class="pokemon-evolutions">
-                    
-                    
-                    <div class="pokemon-first-evo">
-                        <div>
-                            <div class="pokemon-icon">
-                                <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -280px -90px;"></span>
-                            </div>
-                            <p>Oddish</p>
-                        </div>
-                    </div>
-                    
-                        <div class="pokemon-second-evo">
-                            <div>
-                                <div class="pokemon-icon">
-                                    <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -320px -90px;"></span>
-                                </div>
-                                <a href="gloom.html">Gloom</a>
-                            </div>
-                        </div>
-                    
-                        <div class="pokemon-third-evo">
-                            <div>
-                                <div class="pokemon-icon">
-                                    <span style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -360px -90px;"></span>
-                                </div>
-                                <a href="vileplume.html">Vileplume</a>
-                            </div>
-                        </div>
-                </div>
-                <div class="pokemon-stats">
-                    <div>
-                        <p class="stat-name">HP:</p>
-                        <p class="stat-value">45</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 45;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Attack:</p>
-                        <p class="stat-value">50</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 50;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Defense:</p>
-                        <p class="stat-value">55</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 55;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Sp. Atk:</p>
-                        <p class="stat-value">75</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 75;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Sp. Def:</p>
-                        <p class="stat-value">65</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 65;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="stat-name">Speed:</p>
-                        <p class="stat-value">30</p>
-                        <div class="stat-bar">
-                            <div class="progress" style="--data-value: 30;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             
-            <div class="block">
-                <div class="pokemon-types">
-                    <p>Type:   </p>
-                    <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Grass.png">
-                    <img id="type-img" src="https://play.pokemonshowdown.com/sprites/types/Poison.png">
-                </div>
-                <div>
-                    <p>Points: 0</p>
-                </div>
-                
-                <div>
-                    <p>HA points: None</p>
-                </div>
-                <div>
-                    <p>Tier: LC</p>
-                </div>
-                <div class="pokemon-abilities">
-                    <p>Abilities: Chlorophyll, Run Away</p>
-                </div>
-                <div>
-                    <p></p>
-                </div>
-            </div>
-        </div>
-    </div>
+        
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // Создайте новый экземпляр диаграммы
+        var myChart = new Chart(ctx, { 
+            type: "radar", 
+            data: { 
+                labels: [ 
+                    "HP", 
+                    "Attack", 
+                    "Defense", 
+                    "Sp. Atk", 
+                    "Sp. Def", 
+                    "Speed", 
+                ], 
+                datasets: [ 
+                    { 
+                        label: "Stats", 
+                        data:[45, 50, 55 , 75, 65, 30], 
+                        fill: true, 
+                        backgroundColor: "rgba(75, 192, 192, 0.2)", 
+                        borderColor: "rgb(75, 192, 192)", 
+                        pointBackgroundColor: "rgb(75, 192, 192)", 
+                        pointBorderColor: "#fff", 
+                        pointHoverBackgroundColor: "#fff", 
+                        pointHoverBorderColor: "rgb(75, 192, 192)", 
+                    }, 
+                ], 
+            }, 
+            options: {
+                maintainAspectRatio: false,
+                scale: {
+                    ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 255,
+                        stepSize: 50,
+                        callback: function(value) {
+                            return value % 50 === 0 ? value : '';
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        borderWidth: 3,
+                    },
+                },
+            },
+        }); 
+    </script>
 </body>
 </html>
     

@@ -2,30 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a865a645-d774-4ddb-b50c-4014d25b7613" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme_module4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme_module4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/enamorus-therian.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/enamorus-therian.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/enamorus.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/enamorus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/pikachu-pop-star.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/pikachu-pop-star.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/pikachu.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/pikachu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/pokedex.js" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/pokedex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/pokemon.db" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/pokemon.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/rapidash-galar.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/rapidash-galar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokedex/yamask.html" beforeDir="false" afterPath="$PROJECT_DIR$/pokedex/yamask.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pvp59.js" beforeDir="false" afterPath="$PROJECT_DIR$/pvp59.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teambuilder.css" beforeDir="false" afterPath="$PROJECT_DIR$/teambuilder.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teambuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/teambuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teambuilder.js" beforeDir="false" afterPath="$PROJECT_DIR$/teambuilder.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2f8557gDtvCtol9Gxv3qjHw2FQE" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

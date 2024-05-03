@@ -5,34 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="scrollbar.css">
+    <script src="theme.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let next = document.querySelector('.next')
+            let prev = document.querySelector('.prev')
+
+            next.addEventListener('click', function () {
+                let items = document.querySelectorAll('.item')
+                document.querySelector('.slide').appendChild(items[0])
+            })
+
+            prev.addEventListener('click', function () {
+                let items = document.querySelectorAll('.item')
+                let lastItem = items[items.length - 1]
+                let slide = document.querySelector('.slide')
+                slide.insertBefore(lastItem, slide.firstChild)
+            })
+        });
+    </script>
 </head>
 
 <body>
     <header>
-        <div class="All_header_menu">
-            <div class="Logo">
+        <img id="logo" src="img/snorlaxfavicon.png">
+        <a href="#">Главная</a>
+        <div class="dropdown">
+            <a href="#">Покедекс</a>
+            <div class="dropdown-content">
+                <a href="pokedex/bulbasaur.html">Покемоны</a>
+                <a href="#">Атаки</a>
+                <a href="#">Способности</a>
+                <a href="#">Типы</a>
             </div>
-            <ul id="navbar">
-                <li><a href="index.html">Главная</a></li>
-                <li>
-                    <a>Покедекс</a>
-                    <ul>
-                        <li><a href="pokedex/bulbasaur.html">Покемоны</a></li>
-                        <li><a href="pokedex/moves.html">Атаки</a></li>
-                        <li><a href="pokedex/abilities.html">Способности</a></li>
-                        <li><a href="pokedex/types.html">Типы</a></li>
-                    </ul>
-                </li>
-                <li><a href="help.html">Поддержка</a></li>
-                <li><a href="register.html">Войти/Регистрация</a></li>
-            </ul>
         </div>
-    </header>
+        <a href="teambuilder.html">Тимбилдер</a>
+        <div id="settings">
+            <input type="checkbox" id="theme-slider" class="toggle">
 
-    <div class="panel">
-        <div class="block">
+            <label for="theme-slider" class="label">
+                <div class="ball">
+
+                </div>
+            </label>
+        </div>
+
+    </header>
+    <div class="main">
+        <div class="container">
             <h2>ДОБРО ПОЖАЛОВАТЬ В WIKI!</h2>
             <p>
                 Мы рады, что вы здесь! Мы стремимся быть лучшим ресурсом о мире покемонов в сети, поэтому освещаем все
@@ -40,9 +71,43 @@
                 фильмы — здесь приветствуется все. Просто зарегистрируйте абсолютно бесплатный аккаунт и начните вносить
                 свой вклад уже сегодня! Если у вас возникнут проблемы, обязательно сообщите одному из наших
                 администраторов! О, и не забудьте ознакомиться с нашими рекомендациями и Руководством по стилю, чтобы
-                получить несколько советов о том, как вы можете помочь нам расширить эту базу данных!</p>
+                получить несколько советов о том, как вы можете помочь нам расширить эту базу данных!
+            </p>
+            
+
+        </div>
+        <div class="slider-container">
+            <div class="slide">
+                <div class="item" style="background-image: url(img/bg0.jpg);">
+                    <div class="content">
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(img/bg1.jpg);">
+                    <div class="content">
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(img/bg2.jpeg);">
+                    <div class="content">
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(img/bg3.jpg);">
+                    <div class="content">
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(img/bg4.jpg);">
+                    <div class="content">
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
         </div>
     </div>
+    <footer>
+
+    </footer>
 </body>
 
 </html>
