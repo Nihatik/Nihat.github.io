@@ -2006,9 +2006,17 @@ function savedTeamsUpdate() {
 }
 
 function onLoad() {
-    
 
-    document.getElementById('pokepaste-save').onclick = presentInfoUpdate;
+    document.getElementById('pokepaste-save').onclick = function(){
+        var playerteamInput = document.getElementById('pokepaste');
+        var teambuilderResultsUl = document.querySelector('.teambuilder-results ul')
+        var teambuilderResults = document.querySelector('.teambuilder-results')
+        playerteamInput.style.display = "none";
+        teambuilderResultsUl.style.display = 'flex'
+        teambuilderResults.style.overflowY = 'scroll';
+        playerteamInput.scrollTop = 0;
+        presentInfoUpdate();
+    }
 
     const mc = new Hammer(document.body);
     const swipeMenu = document.querySelector('.teams').classList
