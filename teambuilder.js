@@ -2063,7 +2063,6 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     if (document.getElementById('build-button')) {
         document.getElementById('build-button').remove()
     }
-    console.log(playerPokemons)
     var findedPokemon = pokemonPointsData.find(function (item) {
         return item.name === pokemon.name && item.num === pokemon.num;
     });
@@ -2823,7 +2822,6 @@ function checkToPointsAddValue(pokemon, build){
     }
     build.moves.forEach(function(moves){
         if (movesForPoints.map(move => move.toLowerCase()).includes(moves.split('/')[0])){
-            console.log(moves.split('/')[0])
             pointsAdd += 1;
             titleText += '<span>' + allMoves[moves.split('/')[0]].name + ': +1' + '</span>';
         }
@@ -2846,7 +2844,6 @@ function checkToPointsAddValue(pokemon, build){
         titleText += '<span>' + 'Mega'+ itemSpan +': ' + '+' + (findedForm.points - findedPokemon.points) + '</span>';
 
     }
-    console.log(titleText)
 
     if (pointsAdd > 0){
         return ["+" + pointsAdd, titleText]
@@ -3257,7 +3254,6 @@ function megaXYUrl(pokemonName, num) {
 }
 
 function saveTeam() {
-    console.log(playerPokemons)
     var savedTeams = JSON.parse(localStorage.getItem("savedTeams")) || [];
     var teamNum = savedTeams.length;
 
@@ -3380,7 +3376,6 @@ function saveBuild(num, event) {
         moves: '[' + pokemon.moves.map(move => move.name.replace(/\s/g, '').toLowerCase()).join(',') + ']',
         evs: pokemon.evs
     };
-    console.log(buildData);
     
     sendBuild(buildData)
 }
