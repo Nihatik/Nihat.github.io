@@ -1734,9 +1734,59 @@ function submitPokePaste(team, inputText) {
     abilitiesParam(team);
 }
 
-function calculateTeamPointsValue(team) {
+function calculateTeamPointsValue(team, pokemon = null) {
     let teamPointsValue = 0
-    team.forEach(function (pokemon) {
+    if (team){
+        team.forEach(function (pokemon) {
+            if (pokemon.name) {
+                let pokemonOtherForm = null
+                let findedPokemon = null
+                if (pokemon.otherFormes) {
+                    pokemonOtherForm = allPokemons[pokemon.otherFormes[0].replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()];
+                }
+                if (pokemonOtherForm && pokemonOtherForm.requiredItem && pokemonOtherForm.requiredItem == pokemon.item.name) {
+                    findedPokemon = pokemonPointsData.find(function (item) {
+                        return item.name === pokemon.otherFormes[0] && item.num === pokemon.num;
+                    });
+                }
+                else if (pokemon.item.itemUser && pokemon.item.itemUser == pokemon.name) {
+                    if (pokemon.item.megaStone) {
+                        findedPokemon = pokemonPointsData.find(function (item) {
+                            return item.name === pokemon.item.megaStone && item.num === pokemon.num;
+                        });
+                    } else {
+                        findedPokemon = pokemonPointsData.find(function (item) {
+                            return item.name === pokemon.item.itemUser[0] && item.num === pokemon.num;
+                        });
+                    }
+                }
+                else {
+                    findedPokemon = pokemonPointsData.find(function (item) {
+                        return item.name === pokemon.name && item.num === pokemon.num;
+                    });
+                }
+                if (pokemon.ability.name == pokemon.abilities.H && findedPokemon.pointsHa) {
+                    teamPointsValue += findedPokemon.pointsHa
+                }
+                else {
+                    teamPointsValue += findedPokemon.points
+                }
+    
+    
+    
+                if (pokemon.moves) {
+                    pokemon.moves.forEach(function (move) {
+                        if (move.name) {
+                            if (movesForPoints.includes(move.name)) {
+                                teamPointsValue += 1;
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    }
+    else {
         if (pokemon.name) {
             let pokemonOtherForm = null
             let findedPokemon = null
@@ -1783,7 +1833,7 @@ function calculateTeamPointsValue(team) {
                 })
             }
         }
-    })
+    }
     return teamPointsValue;
 }
 
@@ -2081,6 +2131,8 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
         }
         document.querySelector('.current-pokemon-top-start').appendChild(buildButton)
     }
+
+    document.getElementById('current-pokemon-points').textContent = calculateTeamPointsValue(null, pokemon)
 
     returnPokePaste(playerPokemons)
     let activePokemon = playerPokemons[num]
