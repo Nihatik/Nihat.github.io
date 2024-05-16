@@ -206,7 +206,7 @@ main {
     position: relative;
     right: 16px;
     padding: 4px 8px;
-    
+
     background-color: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 16px;
@@ -693,6 +693,26 @@ input[type="range"] {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5); 
+}
+#clearteams{
+    width: 40%;
+    border-radius: 16px;
+    background-color: #535353;
+    color: white;
+    width: 40%;
+    height: 28px;
+    margin-top: 4px;
+    opacity: 0.8;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    box-shadow: black 1px 1px 1px 0.5px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+#clearteams:hover{
+    border: 1px solid gray;
+    opacity: 1;
+    cursor: pointer;
 }
 
 .teams--show{

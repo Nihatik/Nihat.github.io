@@ -1880,10 +1880,17 @@ function savedTeamsUpdate() {
     document.querySelector('.teams').innerHTML = ''
     let h3 = document.createElement('h4')
     h3.textContent = 'Your teams';
-
+    let teamsClear = document.createElement('button')
+    teamsClear.id = 'clearteams'
+    teamsClear.textContent = 'Clear all teams'
+    teamsClear.onclick = function(){
+        localStorage.setItem("savedTeams", '[]')
+        savedTeamsUpdate()
+    }
+    document.querySelector('.teams').appendChild(teamsClear);
     document.querySelector('.teams').appendChild(h3);
     var savedTeams = JSON.parse(localStorage.getItem("savedTeams"));
-    if (savedTeams) {
+    if (savedTeams.length > 0) {
         savedTeams.forEach(function (dataTeam, index) {
             let teamResult = document.createElement('div')
             teamResult.classList.add('team-result')
@@ -2053,6 +2060,8 @@ function savedTeamsUpdate() {
         buttons[0].click()
     }
     document.querySelector('.teams').appendChild(newTeamSpan);
+
+    
 }
 
 function onLoad() {
