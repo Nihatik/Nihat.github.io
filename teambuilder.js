@@ -2006,10 +2006,9 @@ function savedTeamsUpdate() {
 }
 
 function onLoad() {
-
     
 
-    document.getElementById('playerteam-input-text').oninput = presentInfoUpdate;
+    document.getElementById('pokepaste-save').onclick = presentInfoUpdate;
 
     const mc = new Hammer(document.body);
     const swipeMenu = document.querySelector('.teams').classList
@@ -2028,7 +2027,7 @@ function onLoad() {
 
     savedTeamsUpdate()
     document.getElementById('pastebutton').onclick = function () {
-        var playerteamInput = document.getElementById('playerteam-input-text');
+        var playerteamInput = document.getElementById('pokepaste');
         var teambuilderResultsUl = document.querySelector('.teambuilder-results ul')
         var teambuilderResults = document.querySelector('.teambuilder-results')
         if (playerteamInput.style.display === "flex") {
@@ -2048,14 +2047,7 @@ function onLoad() {
     }
     var buttons = document.querySelectorAll('.team button')
     createResults(null, 0, buttons[0])
-    for (var i = 0; i < 6; i++) {
-        if (buttons[i]) {
-            buttons[i].onclick = function () {
-                teamCurPokemonChange(playerPokemons[i], i, this);
-                document.querySelectorAll('.moves span')[0].querySelector('input').focus();
-            }
-        }
-    }
+    presentInfoUpdate()
 }
 
 function teamCurPokemonChange(pokemon, num = null, object = null) {
@@ -2063,6 +2055,7 @@ function teamCurPokemonChange(pokemon, num = null, object = null) {
     if (document.getElementById('build-button')) {
         document.getElementById('build-button').remove()
     }
+    console.log(playerPokemons)
     var findedPokemon = pokemonPointsData.find(function (item) {
         return item.name === pokemon.name && item.num === pokemon.num;
     });
@@ -2862,7 +2855,11 @@ function returnPokePaste(team) {
     let pokePaste = ''
     team.forEach(function (pokemon) {
         if (pokemon.name) {
-            pokePaste += pokemon.name + " @ " + pokemon.item.name + '  \n'
+            pokePaste += pokemon.name
+            if(pokemon.item.name){
+                pokePaste += " @ " + pokemon.item.name
+            } 
+            pokePaste += '  \n'
             pokePaste += "Ability: " + pokemon.ability.name + '  \n'
             pokePaste += "Tera Type: " + pokemon.types[0] + '  \n';
 
@@ -2889,7 +2886,9 @@ function returnPokePaste(team) {
             pokePaste += pokemon.nature + " Nature  \n"
 
             pokemon.moves.forEach(function (move) {
-                pokePaste += '- ' + move.name + '  \n'
+                if(move.name){
+                    pokePaste += '- ' + move.name + '  \n'
+                }
             })
 
 
