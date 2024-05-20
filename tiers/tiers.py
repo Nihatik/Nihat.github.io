@@ -154,8 +154,26 @@ def generate_pokemon_cards_for_tier(tier):
     text+= '</div>'
     return text
 
+def generate_tiers(currentTier):
+    tiers = ['AG', 'Uber', 'OU', 'UU', 'RU']
+    text = ''
+    for tier in tiers:
+        if currentTier == tier:
+            text += f'''<a class='current-page' id='{tier.lower()}' href="{tier.lower()}.html">{tier}</a> '''
+        else:
+            text += f'''<a id='{tier.lower()}' href="{tier.lower()}.html">{tier}</a> '''
+    return text
+
 def generate_pokemon_page(tier):
+    tiersFullNames = {
+        "AG" : 'Anything Goes',
+        "Uber": 'Uber',
+        "OU" : 'Over Used',
+        "UU": 'Under Used',
+        "RU": 'Rarely Used'
+    }
     cards_for_tier = generate_pokemon_cards_for_tier(tier)
+    tiers_code = generate_tiers(tier)
     html = f'''
 <!DOCTYPE html>
 <html lang="en">
@@ -171,16 +189,11 @@ def generate_pokemon_page(tier):
     <div id="right-menu">
         <a class="visiblea" href="rules.html">Общие правила</a>
         <input class='search-input' type="search" placeholder="Найти...">
-        <a id='ag' href="ag.html">AG</a>
-        <a id='uber' href="uber.html">Uber</a>
-        <a id='ou' href="ou.html">OU</a>
-        <a id='uu' href="uu.html">UU</a>
-        <a id='ru' href="ru.html">RU</a>
-        <a href="ru.html">Monotype</a>
+        {tiers_code}
     </div>
     <div id="main">
         <div id="tiername">
-            <h3>Тир {tier}</h3>
+            <h3>Тир {tiersFullNames[tier]}</h3>
         </div>
         {f'''
         <div>
