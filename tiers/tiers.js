@@ -26,19 +26,19 @@ function changePokemonResultForTier(value) {
     
     if (value != ''){
         as.forEach(function(a){
-            a.style.display = 'none'
+            a.style.opacity = '0.1'
         })
         let filteredPokemons = filterPokemon(pokemonPointsData, filters)
         filteredPokemons.forEach(function(pokemon){
             if(pokemon.tier && document.getElementById(pokemon.tier.toLowerCase())){
-                document.getElementById(pokemon.tier.toLowerCase()).style.display = ''
+                document.getElementById(pokemon.tier.toLowerCase()).style.opacity = '1'
             }
         })
 
     }
     else{
         as.forEach(function(a){
-            a.style.display = ''
+            a.style.opacity = '1'
         })
     }
 }
