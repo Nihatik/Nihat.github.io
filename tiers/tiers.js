@@ -26,7 +26,7 @@ function changePokemonResultForTier(value) {
     
     if (value != ''){
         as.forEach(function(a){
-            a.style.opacity = '0.1'
+            a.style.opacity = '0.3'
         })
         let filteredPokemons = filterPokemon(pokemonPointsData, filters)
         filteredPokemons.forEach(function(pokemon){
