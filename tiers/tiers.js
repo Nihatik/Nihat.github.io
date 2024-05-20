@@ -21,17 +21,21 @@ function filterPokemon(pokemonArray, filters) {
 
 function changePokemonResultForTier(value) {
     let filters = []
-    filters.push(pokemon => pokemon.name.toLowerCase().includes(value.toLowerCase()))
+    filters.push(pokemon => pokemon.name.replace(' ','').replace('-','').toLowerCase().includes(value.replace('-','').replace(' ','').toLowerCase()))
     let as = document.querySelectorAll('#right-menu a')
     
     if (value != ''){
         as.forEach(function(a){
-            a.style.opacity = '0.3'
+            if(!a.classList.contains('visiblea')){
+                a.style.opacity = '0.3'
+                a.style.border = '1px solid transparent'
+            }
         })
         let filteredPokemons = filterPokemon(pokemonPointsData, filters)
         filteredPokemons.forEach(function(pokemon){
             if(pokemon.tier && document.getElementById(pokemon.tier.toLowerCase())){
                 document.getElementById(pokemon.tier.toLowerCase()).style.opacity = '1'
+                document.getElementById(pokemon.tier.toLowerCase()).style.border = '1px solid rgb(255,255,255,0.1)'
             }
         })
 
@@ -39,6 +43,7 @@ function changePokemonResultForTier(value) {
     else{
         as.forEach(function(a){
             a.style.opacity = '1'
+            a.style.border = '1px solid transparent'
         })
     }
 }

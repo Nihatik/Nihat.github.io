@@ -134,7 +134,7 @@ with open('../pokemonPointsBase.js', 'w', encoding='utf-8') as file:
 
 data = sorted(data, key=lambda x: x["name"])
 def generate_pokemon_cards_for_tier(tier):
-    defisNames = ['Chi-Yu','Chien-Pao', 'Ho-Oh','Kommo-o']
+    defisNames = ['Chi-Yu','Chien-Pao', 'Ho-Oh','Kommo-o', 'Porygon-Z']
     text = '<div id="pokemon-cards">'
     for pokemon in data:
         if(pokemon['tier'] == tier):
@@ -154,14 +154,14 @@ def generate_pokemon_cards_for_tier(tier):
     text+= '</div>'
     return text
 
-def generate_tiers(currentTier):
+def generate_tiers(currentTier, tiersImg, tiersFullNames):
     tiers = ['AG', 'Uber', 'OU', 'UU', 'RU']
     text = ''
     for tier in tiers:
         if currentTier == tier:
-            text += f'''<a class='current-page' id='{tier.lower()}' href="{tier.lower()}.html">{tier}</a> '''
+            text += f'''<a class='current-page' id='{tier.lower()}' href="{tier.lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
         else:
-            text += f'''<a id='{tier.lower()}' href="{tier.lower()}.html">{tier}</a> '''
+            text += f'''<a id='{tier.lower()}' href="{tier.lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
     return text
 
 def generate_pokemon_page(tier):
@@ -172,8 +172,15 @@ def generate_pokemon_page(tier):
         "UU": 'Under Used',
         "RU": 'Rarely Used'
     }
+    tiersImg = {
+        "AG": '',
+        "Uber": 'https://www.smogon.com/tiers/ubers/uberslogo.png',
+        "OU": 'https://www.smogon.com/tiers/ou/banner_bummer.png',
+        "UU": 'https://www.smogon.com/tiers/uu/uu_logo.png',
+        "RU": 'https://www.smogon.com/tiers/ru/ru_logo.png'
+    }
     cards_for_tier = generate_pokemon_cards_for_tier(tier)
-    tiers_code = generate_tiers(tier)
+    tiers_code = generate_tiers(tier, tiersImg, tiersFullNames)
     html = f'''
 <!DOCTYPE html>
 <html lang="en">
@@ -200,8 +207,15 @@ def generate_pokemon_page(tier):
             <p>Разрешено всё, кроме пунктов 2, 6, 7, 9, 11 общих правил.</p>
         </div>''' if tier == 'AG' else ''
         }
+        {f'''
         <div>
-            <p>Покемоны {tier} тира</p>
+            <h4>Запрещенные предметы(шапки):</h4>
+            <p>King's Rock</p>
+            <p>Legend Plate</p>
+        </div>''' if tier == 'OU' else ''
+        }
+        <div>
+            <h4>Покемоны {tier} тира:</h4>
             {cards_for_tier}
         </div>
     </div>
