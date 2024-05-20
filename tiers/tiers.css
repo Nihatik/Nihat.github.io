@@ -1,0 +1,176 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana;
+    display: flex;
+    flex-direction: row;
+    right: 0;
+    overflow-y: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+#right-menu{
+    border-right: 1px solid rgb(50, 50, 50);
+    overflow-y: scroll;
+    height: 100%;
+    width: 280px;
+    left: 0;
+    display: flex;
+    background-color: rgb(12, 12, 12);
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#right-menu a{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background-color: rgb(24, 24, 24);
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    border: 1px solid transparent;
+    width: 90%;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#right-menu a:first-child{
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+#right-menu a:hover{
+    background-color: rgb(36, 36, 36);
+}
+
+#main{
+    font-size: 18px;
+    color: white;
+    overflow-y: auto;
+    width: 100%;
+    background-color: rgb(16, 16, 16);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#main > div {
+    padding-left: 16px;
+    box-sizing: border-box;
+}
+
+#content{
+    display: flex;
+    position: absolute;
+    right: 0;
+    width: 500px;
+}
+
+#pokemon-cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokemon-card{
+    padding: 8px 0;
+    border-radius: 16px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.pokemon-card span{
+    position: relative;
+    bottom: 0;
+}
+
+.pokemon-sprite {
+    display: flex;
+    width: 120px;
+    box-sizing: border-box;
+    padding: 4px;
+    image-rendering: pixelated;
+    min-width: 120px;
+    min-height: 120px;
+}
+
+.pokemon-sprite>div {
+    flex: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#tiername{
+    border-bottom: 1px solid rgb(50, 50, 50);
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+}
+
+
+ol {
+}
+
+ol li{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    text-align: left;
+    padding: 8px 8px;
+    line-height: 24px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+ol li:hover{
+    background-color: rgb(28, 28, 28);
+    cursor: pointer;
+}
+input {
+    border: 1px rgb(48, 48, 48);
+    color: white;
+    font-size: 19px;
+    width: 240px;
+    max-width: 90%;
+    height: 40px;
+    padding: 4px;
+    padding-left: 8px;
+    background-color: rgb(28, 28, 28);
+    border-radius: 6px;
+    transition: 0.3s;
+    margin-bottom: 16px;
+}
+input:focus{
+    border: none;
+}
+
+.search-input {
+    padding-right: 25px; /* Добавляем небольшой отступ справа для размещения нашего крестика */
+    position: relative; /* Устанавливаем позицию relative, чтобы позиционировать псевдоэлемент */
+}
+
+/* Псевдоэлемент для крестика */
+.search-input::after {
+    content: "\2715"; /* Юникод символ крестика (✕) */
+    position: absolute; /* Позиционируем относительно родительского элемента */
+    top: 50%; /* Положение по вертикали на середину */
+    transform: translateY(-50%); /* Центрируем вертикально */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+    color: gray; /* Цвет крестика */
+}
+
+/* Изменение стиля крестика при наведении */
+.search-input:hover::after {
+    color: red; /* Изменяем цвет крестика при наведении */
+}

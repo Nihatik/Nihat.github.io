@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Loading</title>
+    <style>
+        #menu {
+            width: 200px;
+            float: left;
+            margin-right: 20px;
+        }
+        #content {
+            margin-left: 220px;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="page1" onclick="loadContent('ag.html', 'Page 1'); return false;">Page 1</a></li>
+            <li><a href="page2" onclick="loadContent('uber.html', 'Page 2'); return false;">Page 2</a></li>
+            <li><a href="page3" onclick="loadContent('ou.html', 'Page 3'); return false;">Page 3</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <p>Welcome! Click on the links in the menu to load content here.</p>
+    </div>
+
+    <script>
+        function loadContent(page, pageTitle) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', page, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('content').innerHTML = xhr.responseText;
+                    history.pushState({page: page, title: pageTitle}, pageTitle, `/${page.replace('.html', '')}`);
+                    document.title = pageTitle;
+                }
+            };
+            xhr.send();
+        }
+
+        window.onpopstate = function(event) {
+            if (event.state) {
+                loadContent(event.state.page, event.state.title);
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = location.pathname.split('/').pop();
+            const page = path ? `${path}.html` : 'page1.html';
+            page += 'q'
+            loadContent(tierpage, document.title);
+        });
+    </script>
+</body>
+</html>

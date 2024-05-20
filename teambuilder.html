@@ -181,6 +181,60 @@
                 </div>
             </div>
             <div class="teambuilder-results">
+                <div class="result-filters">
+                    <div class="result-pokemon-icon">
+                        <select>
+                            <option>No</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
+                    <div class="result-pokemon-name"></div>
+                    <div class="result-pokemon-types">
+                        <select>
+                            <option value="None">None</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Fire">Fire</option>
+                            <option value="Water">Water</option>
+                            <option value="Grass">Grass</option>
+                            <option value="Electric">Electric</option>
+                            <option value="Ice">Ice</option>
+                            <option value="Fighting">Fighting</option>
+                            <option value="Poison">Poison</option>
+                            <option value="Ground">Ground</option>
+                            <option value="Flying">Flying</option>
+                            <option value="Psychic">Psychic</option>
+                            <option value="Bug">Bug</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Ghost">Ghost</option>
+                            <option value="Dragon">Dragon</option>
+                            <option value="Dark">Dark</option>
+                            <option value="Steel">Steel</option>
+                            <option value="Fairy">Fairy</option>
+                        </select>
+                    </div>
+                    <div class="result-pokemon-abilities">
+                        <button>Ability</button>
+                        <button>Move</button>
+                        <p></p>
+                    </div>
+                    <div class="result-pokemon-ha">
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <button class="result-pokemon-stat">HP</button>
+                    <button class="result-pokemon-stat">Atk</button>
+                    <button class="result-pokemon-stat">Def</button>
+                    <button class="result-pokemon-stat">SpA</button>
+                    <button class="result-pokemon-stat">SpD</button>
+                    <button class="result-pokemon-stat">Spe</button>
+                    <button class="result-pokemon-bst">BST</button>
+                </div>
                 <div id="pokepaste">
                     <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."></textarea>
                     <button id="pokepaste-save">Save</button>
@@ -309,6 +363,14 @@
             </div>
         </div>
         <div id="teamsMenu" class="teams">
+            <h4>Teams</h4>
+            <span id="new-team">
+                <button>Create random team</button>
+            </span>
+            <div id="teamsContent">
+
+            </div>
+            <button id="clearteams">Clear all teams</button>
         </div>
     </main>
 </body>

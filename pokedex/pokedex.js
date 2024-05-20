@@ -1440,7 +1440,6 @@ function filterPokemon(pokemonArray, filters) {
 }
 
 function searchUpdate(){
-    
 
     inputValue = document.querySelector('.search input').value.toLowerCase()
     if (inputValue == ''){
