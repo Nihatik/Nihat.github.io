@@ -107,7 +107,7 @@ function changePokemonResultForTier(value, tier){
             if(pokemon.points && document.getElementById('pokemon-' + pokemon.name)){
                 document.getElementById('pokemon-' + pokemon.name).style.display = ''
             }
-            if(pokemon.points == tier){
+            if(pointsNames[pokemon.points] == tier){
                 currentTier = true
                 console.log('q')
             }
@@ -115,7 +115,7 @@ function changePokemonResultForTier(value, tier){
         if (!currentTier){
             let p = document.createElement('p')
             p.id = 'noneResult'
-            p.textContent = 'Неверно указанно название покемона или же он не ' + tier + ' тира. Его тир может быть указан левее.'
+            p.textContent = 'Неверно указанно название покемона или же он не стоит столько баллов. Его стоимость указана левее.'
             document.querySelector('#pokemon-cards').appendChild(p)
             as.forEach(function(a){
                 if(!a.classList.contains('visiblea')){
@@ -124,10 +124,8 @@ function changePokemonResultForTier(value, tier){
                 }
             })
             filteredPokemons.forEach(function(pokemon){
-                if(allTiers.includes(pokemon.tier)){
-                    document.getElementById(pointsNames[pokemon.points]).style.opacity = '1'
-                    document.getElementById(pointsNames[pokemon.points]).style.border = '1px solid rgb(255,255,255,0.1)'
-                }
+                document.getElementById(pointsNames[pokemon.points]).style.opacity = '1'
+                document.getElementById(pointsNames[pokemon.points]).style.border = '1px solid rgb(255,255,255,0.1)'
             })
         }else{
             as.forEach(function(a){
