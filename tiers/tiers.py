@@ -194,45 +194,75 @@ def generate_pokemon_page(tier):
     <title>{tier} | Турниры по системе тиров</title>
     <link rel="stylesheet" href="tiers.css">
     <link rel="stylesheet" href="../scrollbar.css">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="../index.css">
     <script type="module" src="tiers.js"></script>
+    <script src="../theme.js"></script>
 </head>
 <body>
-    <div id="right-menu">
-        <a class="visiblea" href="rules.html">Общие правила</a>
-        <input class='search-input' type="search" placeholder="Найти...">
-        {tiers_code}
-    </div>
-    <div id="main">
-        <div id="tiername">
-            <img src="{tiersImg[tier]}">
-            <h3>Тир {tiersFullNames[tier]}</h3>
+    <header>
+        <img id="logo" src="../img/snorlaxfavicon.png">
+        <a href="#">Главная</a>
+        <div class="dropdown">
+            <a href="#">Покедекс</a>
+            <div class="dropdown-content">
+                <a href="pokedex/bulbasaur.html">Покемоны</a>
+                <a href="#">Атаки</a>
+                <a href="#">Способности</a>
+                <a href="#">Типы</a>
+            </div>
         </div>
-        <div>
-            <h4>Покемоны {tier} тира:</h4>
-            <input id='{tier}' class='search-input-tier' placeholder="Найти...">
-            {cards_for_tier}
+        <a href="tiers/rules.html">Турниры</a>
+        <a href="teambuilder.html">Тимбилдер</a>
+        <div id="settings">
+            <input type="checkbox" id="theme-slider" class="toggle">
+
+            <label for="theme-slider" class="label">
+                <div class="ball">
+
+                </div>
+            </label>
         </div>
-        {f'''
-        <div>
-            <p>Разрешено всё, кроме пунктов 2, 6, 7, 9, 11 общих правил.</p>
-        </div>''' if tier == 'AG' else ''
-        }
-        {f'''
-        <div>
-            <h4>Запрещенные предметы(шапки):</h4>
-            <p>King's Rock</p>
-            <p>Legend Plate</p>
-        </div>''' if tier == 'OU' else ''
-        }
-        {f'''
-        <div>
-            <h4>Запрещенные предметы(шапки):</h4>
-            <p>Light Clay</p>
-            <p>King's Rock</p>
-            <p>Legend Plate</p>
-        </div>''' if tier == 'UU' or tier == 'RU' else ''
-        }
-    </div>
+    </header>
+    <main>
+        <div id="right-menu">
+            <a class="visiblea" href="rules.html">Общие правила</a>
+            <input class='search-input' type="search" placeholder="Найти...">
+            {tiers_code}
+        </div>
+        <div id="main">
+            <div id="tiername">
+                <img src="{tiersImg[tier]}">
+                <h3>Тир {tiersFullNames[tier]}</h3>
+            </div>
+            <div>
+                <h4>Покемоны {tier} тира:</h4>
+                <input id='{tier}' class='search-input-tier' placeholder="Найти...">
+                {cards_for_tier}
+            </div>
+            {f'''
+            <div>
+                <p>Разрешено всё, кроме пунктов 2, 6, 7, 9, 11 общих правил.</p>
+            </div>''' if tier == 'AG' else ''
+            }
+            {f'''
+            <div>
+                <h4>Запрещенные предметы(шапки):</h4>
+                <p>King's Rock</p>
+                <p>Legend Plate</p>
+            </div>''' if tier == 'OU' else ''
+            }
+            {f'''
+            <div>
+                <h4>Запрещенные предметы(шапки):</h4>
+                <p>Light Clay</p>
+                <p>King's Rock</p>
+                <p>Legend Plate</p>
+            </div>''' if tier == 'UU' or tier == 'RU' else ''
+            }
+        </div>
+    </main>
 </body>
 </html>
     '''

@@ -31,6 +31,10 @@
     box-shadow: 1px 1px 4px #333333;
 }
 
+.light-theme .current-page {
+    background-color: rgb(220, 220, 220) !important;
+}
+
 .light-theme {
     background-color: white;
     color: black;

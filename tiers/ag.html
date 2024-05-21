@@ -7,23 +7,52 @@
     <title>AG | Турниры по системе тиров</title>
     <link rel="stylesheet" href="tiers.css">
     <link rel="stylesheet" href="../scrollbar.css">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="../index.css">
     <script type="module" src="tiers.js"></script>
+    <script src="../theme.js"></script>
 </head>
 <body>
-    <div id="right-menu">
-        <a class="visiblea" href="rules.html">Общие правила</a>
-        <input class='search-input' type="search" placeholder="Найти...">
-        <a class='current-page' id='ag' href="ag.html"><img class="tier-img" src="">Anything Goes</a> <a id='uber' href="uber.html"><img class="tier-img" src="https://www.smogon.com/tiers/ubers/uberslogo.png">Uber</a> <a id='ou' href="ou.html"><img class="tier-img" src="https://www.smogon.com/tiers/ou/banner_bummer.png">Over Used</a> <a id='uu' href="uu.html"><img class="tier-img" src="https://www.smogon.com/tiers/uu/uu_logo.png">Under Used</a> <a id='ru' href="ru.html"><img class="tier-img" src="https://www.smogon.com/tiers/ru/ru_logo.png">Rarely Used</a> <a id='monotype' href="monotype.html"><img class="tier-img" src="">Monotype</a> <a id='dual type' href="dualtype.html"><img class="tier-img" src="">Dual Type</a> 
-    </div>
-    <div id="main">
-        <div id="tiername">
-            <img src="">
-            <h3>Тир Anything Goes</h3>
+    <header>
+        <img id="logo" src="../img/snorlaxfavicon.png">
+        <a href="#">Главная</a>
+        <div class="dropdown">
+            <a href="#">Покедекс</a>
+            <div class="dropdown-content">
+                <a href="pokedex/bulbasaur.html">Покемоны</a>
+                <a href="#">Атаки</a>
+                <a href="#">Способности</a>
+                <a href="#">Типы</a>
+            </div>
         </div>
-        <div>
-            <h4>Покемоны AG тира:</h4>
-            <input id='AG' class='search-input-tier' placeholder="Найти...">
-            <div id="pokemon-cards">
+        <a href="tiers/rules.html">Правила турниров</a>
+        <a href="teambuilder.html">Тимбилдер</a>
+        <div id="settings">
+            <input type="checkbox" id="theme-slider" class="toggle">
+
+            <label for="theme-slider" class="label">
+                <div class="ball">
+
+                </div>
+            </label>
+        </div>
+    </header>
+    <main>
+        <div id="right-menu">
+            <a class="visiblea" href="rules.html">Общие правила</a>
+            <input class='search-input' type="search" placeholder="Найти...">
+            <a class='current-page' id='ag' href="ag.html"><img class="tier-img" src="">Anything Goes</a> <a id='uber' href="uber.html"><img class="tier-img" src="https://www.smogon.com/tiers/ubers/uberslogo.png">Uber</a> <a id='ou' href="ou.html"><img class="tier-img" src="https://www.smogon.com/tiers/ou/banner_bummer.png">Over Used</a> <a id='uu' href="uu.html"><img class="tier-img" src="https://www.smogon.com/tiers/uu/uu_logo.png">Under Used</a> <a id='ru' href="ru.html"><img class="tier-img" src="https://www.smogon.com/tiers/ru/ru_logo.png">Rarely Used</a> <a id='monotype' href="monotype.html"><img class="tier-img" src="">Monotype</a> <a id='dual type' href="dualtype.html"><img class="tier-img" src="">Dual Type</a> 
+        </div>
+        <div id="main">
+            <div id="tiername">
+                <img src="">
+                <h3>Тир Anything Goes</h3>
+            </div>
+            <div>
+                <h4>Покемоны AG тира:</h4>
+                <input id='AG' class='search-input-tier' placeholder="Найти...">
+                <div id="pokemon-cards">
                 <div id='pokemon-Gengar-Mega' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/gengar-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
@@ -38,14 +67,15 @@
                     </div>
                     <span>Rayquaza-Mega</span>
                 </div></div>
+            </div>
+            
+            <div>
+                <p>Разрешено всё, кроме пунктов 2, 6, 7, 9, 11 общих правил.</p>
+            </div>
+            
+            
         </div>
-        
-        <div>
-            <p>Разрешено всё, кроме пунктов 2, 6, 7, 9, 11 общих правил.</p>
-        </div>
-        
-        
-    </div>
+    </main>
 </body>
 </html>
     
