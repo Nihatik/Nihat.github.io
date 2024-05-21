@@ -11,6 +11,7 @@ body{
     flex-direction: row;
     right: 0;
     overflow-y: hidden;
+    color: white;
 }
 
 a{
@@ -37,11 +38,11 @@ a{
     display: flex;
     align-items: center;
     justify-content: left;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
     text-align: center;
-    line-height: 50px;
-    height: 50px;
+    line-height: 48px;
+    height: 48px;
     border: 1px solid transparent;
     width: 90%;
     border-radius: 8px;
@@ -62,9 +63,8 @@ a{
 }
 
 #main{
+    overflow-y: scroll;
     font-size: 18px;
-    color: white;
-    overflow-y: auto;
     width: 100%;
     background-color: rgb(16, 16, 16);
     height: 100%;
@@ -82,21 +82,29 @@ a{
     right: 0;
     width: 500px;
 }
-
-#pokemon-cards{
+#pokemon-cards {
+    border-radius: 32px;
+    width: 98%;
+    border-bottom: 1px solid rgb(36, 36, 36);
+    border-top: 1px solid rgb(36, 36, 36);
     display: flex;
     flex-wrap: wrap;
 }
-
 .pokemon-card{
+    border: 1px solid transparent;
+    transition: 0.3s;
     padding: 8px 0;
-    border-radius: 8px;
-    width: 200px;
+    border-radius: 32px;
+    width: 190px;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-weight: bold;
     font-size: 14px;
+}
+
+#noneResult{
+    padding-left: 16px;
 }
 
 .pokemon-card span{
@@ -125,10 +133,17 @@ a{
     border-bottom: 1px solid rgb(50, 50, 50);
     display: flex;
     align-items: center;
-    height: 48px;
+    height: 80px;
     width: 100%;
 }
 
+#tiername img{
+    width: 80px;
+}
+
+#tiername h3{
+    margin-left: 16px;
+}
 
 ol {
 }
@@ -209,4 +224,11 @@ input:focus{
 .tier-img{
     margin-right: 12px;
     width: 48px;
+}
+
+.line{
+    width: 90%;
+    height: 2px;
+    border-radius: 30%;
+    background-color: rgb(36, 36, 36);
 }

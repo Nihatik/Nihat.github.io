@@ -144,24 +144,24 @@ def generate_pokemon_cards_for_tier(tier):
             if url.count('-') == 2:
                 url = remove_second_dash(url)
             text += f'''
-            <div class="pokemon-card">
-                <div class="pokemon-sprite">
-                    <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
+                <div id='pokemon-{pokemon['name']}' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
                     </div>
-                </div>
-                <span>{pokemon['name']}</span>
-            </div>'''
+                    <span>{pokemon['name']}</span>
+                </div>'''
     text+= '</div>'
     return text
 
+tiers = ['AG', 'Uber', 'OU', 'UU', 'RU', 'Monotype', 'Dual Type']
 def generate_tiers(currentTier, tiersImg, tiersFullNames):
-    tiers = ['AG', 'Uber', 'OU', 'UU', 'RU']
     text = ''
     for tier in tiers:
         if currentTier == tier:
-            text += f'''<a class='current-page' id='{tier.lower()}' href="{tier.lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
+            text += f'''<a class='current-page' id='{tier.lower()}' href="{tier.replace(' ','').lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
         else:
-            text += f'''<a id='{tier.lower()}' href="{tier.lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
+            text += f'''<a id='{tier.lower()}' href="{tier.replace(' ','').lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
     return text
 
 def generate_pokemon_page(tier):
@@ -170,14 +170,18 @@ def generate_pokemon_page(tier):
         "Uber": 'Uber',
         "OU" : 'Over Used',
         "UU": 'Under Used',
-        "RU": 'Rarely Used'
+        "RU": 'Rarely Used',
+        "Monotype": 'Monotype',
+        "Dual Type": 'Dual Type'
     }
     tiersImg = {
         "AG": '',
         "Uber": 'https://www.smogon.com/tiers/ubers/uberslogo.png',
         "OU": 'https://www.smogon.com/tiers/ou/banner_bummer.png',
         "UU": 'https://www.smogon.com/tiers/uu/uu_logo.png',
-        "RU": 'https://www.smogon.com/tiers/ru/ru_logo.png'
+        "RU": 'https://www.smogon.com/tiers/ru/ru_logo.png',
+        "Monotype": '',
+        "Dual Type": ''
     }
     cards_for_tier = generate_pokemon_cards_for_tier(tier)
     tiers_code = generate_tiers(tier, tiersImg, tiersFullNames)
@@ -200,7 +204,13 @@ def generate_pokemon_page(tier):
     </div>
     <div id="main">
         <div id="tiername">
+            <img src="{tiersImg[tier]}">
             <h3>Тир {tiersFullNames[tier]}</h3>
+        </div>
+        <div>
+            <h4>Покемоны {tier} тира:</h4>
+            <input id='{tier}' class='search-input-tier' placeholder="Найти...">
+            {cards_for_tier}
         </div>
         {f'''
         <div>
@@ -214,10 +224,14 @@ def generate_pokemon_page(tier):
             <p>Legend Plate</p>
         </div>''' if tier == 'OU' else ''
         }
+        {f'''
         <div>
-            <h4>Покемоны {tier} тира:</h4>
-            {cards_for_tier}
-        </div>
+            <h4>Запрещенные предметы(шапки):</h4>
+            <p>Light Clay</p>
+            <p>King's Rock</p>
+            <p>Legend Plate</p>
+        </div>''' if tier == 'UU' or tier == 'RU' else ''
+        }
     </div>
 </body>
 </html>
@@ -226,9 +240,8 @@ def generate_pokemon_page(tier):
 
 
 
-tiers = ['AG', 'Uber', 'OU', 'UU', 'RU']
 for tier in tiers:
-    with open(tier.lower() + '.html', 'w', encoding='utf-8') as file:
+    with open(tier.replace(' ','').lower() + '.html', 'w', encoding='utf-8') as file:
         file.write(generate_pokemon_page(tier))
 
 
