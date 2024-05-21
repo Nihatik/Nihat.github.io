@@ -45,6 +45,10 @@
 .light-theme a {
     color: black;
 }
+
+.light-theme input{
+    color: black;
+}
 a:hover {
     color: gray;
 }

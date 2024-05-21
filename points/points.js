@@ -78,6 +78,10 @@ function findTierByName(value) {
                 document.getElementById(pointsNames[pokemon.points]).style.opacity = '1'
                 document.getElementById(pointsNames[pokemon.points]).style.border = '1px solid rgb(255,255,255,0.1)'
             }
+            if(document.getElementById(pointsNames[pokemon.pointsHa])){
+                document.getElementById(pointsNames[pokemon.pointsHa]).style.opacity = '1'
+                document.getElementById(pointsNames[pokemon.pointsHa]).style.border = '1px solid rgb(255,255,255,0.1)'
+            }
         })
 
     }
@@ -104,7 +108,7 @@ function changePokemonResultForTier(value, tier){
         })
         let filteredPokemons = filterPokemon(pokemonPointsData, filters)
         filteredPokemons.forEach(function(pokemon){
-            if(pokemon.points && document.getElementById('pokemon-' + pokemon.name)){
+            if(document.getElementById('pokemon-' + pokemon.name)){
                 document.getElementById('pokemon-' + pokemon.name).style.display = ''
             }
             if(pointsNames[pokemon.points] == tier){
@@ -124,8 +128,14 @@ function changePokemonResultForTier(value, tier){
                 }
             })
             filteredPokemons.forEach(function(pokemon){
-                document.getElementById(pointsNames[pokemon.points]).style.opacity = '1'
-                document.getElementById(pointsNames[pokemon.points]).style.border = '1px solid rgb(255,255,255,0.1)'
+                if(document.getElementById(pointsNames[pokemon.points])){
+                    document.getElementById(pointsNames[pokemon.points]).style.opacity = '1'
+                    document.getElementById(pointsNames[pokemon.points]).style.border = '1px solid rgb(255,255,255,0.1)'
+                }
+                if(document.getElementById(pointsNames[pokemon.pointsHa])){
+                    document.getElementById(pointsNames[pokemon.pointsHa]).style.opacity = '1'
+                    document.getElementById(pointsNames[pokemon.pointsHa]).style.border = '1px solid rgb(255,255,255,0.1)'
+                }
             })
         }else{
             as.forEach(function(a){

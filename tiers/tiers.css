@@ -272,3 +272,18 @@ main input:focus{
     border-radius: 30%;
     background-color: rgb(36, 36, 36);
 }
+
+
+.light-theme #right-menu {
+    
+    border-right: 1px solid rgb(220, 220, 220);
+}
+
+.light-theme #pokemon-cards {
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-top: 1px solid rgb(220, 220, 220);
+}
+
+.light-theme #tiername{
+    border-bottom: 1px solid rgb(220, 220, 220);
+}

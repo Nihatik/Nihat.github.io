@@ -233,7 +233,13 @@ def generate_pokemon_page(tier):
                 <a href="#">Типы</a>
             </div>
         </div>
-        <a href="rules.html">Турниры</a>
+        <div class="dropdown">
+            <a href="#">Турниры</a>
+            <div class="dropdown-content">
+                <a href="../tiers/rules.html">Система тиров</a>
+                <a href="rules.html">Система баллов</a>
+            </div>
+        </div>
         <a href="../teambuilder.html">Тимбилдер</a>
         <div id="settings">
             <input type="checkbox" id="theme-slider" class="toggle">
