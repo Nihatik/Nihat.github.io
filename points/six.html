@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>six | Турниры по системе тиров</title>
+    <link rel="stylesheet" href="../tiers/tiers.css">
+    <link rel="stylesheet" href="../scrollbar.css">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="../index.css">
+    <script type="module" src="points.js"></script>
+    <script src="../theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+</head>
+<body>
+    <header>
+        <img id="logo" src="../img/snorlaxfavicon.png">
+        <a href="../index.html">Главная</a>
+        <div class="dropdown">
+            <a href="#">Покедекс</a>
+            <div class="dropdown-content">
+                <a href="../pokedex/bulbasaur.html">Покемоны</a>
+                <a href="#">Атаки</a>
+                <a href="#">Способности</a>
+                <a href="#">Типы</a>
+            </div>
+        </div>
+        <a href="rules.html">Турниры</a>
+        <a href="../teambuilder.html">Тимбилдер</a>
+        <div id="settings">
+            <input type="checkbox" id="theme-slider" class="toggle">
+
+            <label for="theme-slider" class="label">
+                <div class="ball">
+
+                </div>
+            </label>
+        </div>
+        <button id="close-menu" easy-add="#right-menu" easy-class="right-menu-show">
+            <span class="button-line"></span>
+            <span class="button-line"></span>
+            <span class="button-line"></span>
+        </button>
+    </header>
+    <main>
+        <div id="right-menu">
+            <a class="visiblea" href="rules.html">Общие правила</a>
+            <input class='search-input' type="search" placeholder="Найти...">
+            <a class='current-page' id='six' href="six.html">6 баллов</a> <a id='five' href="five.html">5 баллов</a> <a id='four' href="four.html">4 балла</a> <a id='three' href="three.html">3 балла</a> <a id='two' href="two.html">2 балла</a> <a id='one' href="one.html">1 балл</a> <a id='zero' href="zero.html">0 баллов</a> 
+        </div>
+        <div id="main">
+            <div id="tiername">
+                <h3>6 баллов</h3>
+            </div>
+            <div>
+                <h4>Список покемонов за 6 баллов:</h4>
+                <input id='six' class='search-input-tier' placeholder="Найти...">
+                <div id="pokemon-cards">
+                <div id='pokemon-Calyrex-Shadow' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/calyrex-shadow.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Calyrex-Shadow</span>
+                </div>
+                <div id='pokemon-Groudon-Primal' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/groudon-primal.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Groudon-Primal</span>
+                </div>
+                <div id='pokemon-Rayquaza-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/rayquaza-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Rayquaza-Mega</span>
+                </div></div>
+            </div>
+            
+            
+            
+        </div>
+    </main>
+</body>
+</html>
+    

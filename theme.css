@@ -31,6 +31,7 @@
     box-shadow: 1px 1px 4px #333333;
 }
 
+
 .light-theme .current-page {
     background-color: rgb(220, 220, 220) !important;
 }
@@ -59,4 +60,12 @@
 
 .light-theme #right-menu{
     background-color: white;
+}
+
+.light-theme input{
+    background-color: rgb(220, 220, 220);
+}
+
+.light-theme #right-menu a:hover{
+    background-color: rgb(220, 220, 220);
 }
