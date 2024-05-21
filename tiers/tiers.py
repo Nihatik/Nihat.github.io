@@ -204,8 +204,7 @@ def generate_pokemon_page(tier):
 </head>
 <body>
     <header>
-        <img id="logo" src="../img/snorlaxfavicon.png">
-        <a href="../index.html">Главная</a>
+        <a href="../index.html"><img id="logo" src="../img/snorlaxfavicon.png"></a>
         <div class="dropdown">
             <a href="#">Покедекс</a>
             <div class="dropdown-content">

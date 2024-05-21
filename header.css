@@ -140,12 +140,12 @@ a {
 }
 
 #logo {
-    width: 40px;
+    width: 60px;
 }
 
 @media (max-width:450px) {
     header {
-        font-size: 60%;
+        font-size: 80%;
     }
 
 }

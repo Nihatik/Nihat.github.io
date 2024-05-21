@@ -62,9 +62,6 @@ a:hover {
     box-shadow: 1px 1px 4px #464646;
 }
 
-.light-theme #right-menu{
-    background-color: white;
-}
 
 .light-theme input{
     background-color: rgb(220, 220, 220);
@@ -72,4 +69,9 @@ a:hover {
 
 .light-theme #right-menu a:hover{
     background-color: rgb(220, 220, 220);
+}
+
+.dark-theme footer{
+    box-shadow: -1px -1px 4px rgb(255, 255, 255, 0.1);
+
 }

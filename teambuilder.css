@@ -475,7 +475,7 @@ input[type="range"] {
 .teambuilder-results {
     z-index: 1;
     position: absolute;
-    top: 274px;
+    top: 314px;
     left: 0;
     bottom: 0;
     right: 0;
@@ -690,7 +690,7 @@ input[type="range"] {
     position: absolute;
     transition: 0.5s;
     z-index: 10;
-    top: 76px;
+    top: 71px;
     left: -375px;
     right: 0;
     bottom: 0;
@@ -877,7 +877,7 @@ input[type="range"] {
         height: 100%;
     }
     .teambuilder-results {
-        top: 180px;
+        top: 218px;
     }
 
     .teams {

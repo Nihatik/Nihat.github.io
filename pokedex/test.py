@@ -191,8 +191,7 @@ def generate_pokemon_page(pokemon):
 </head>
 <body>
     <header>
-        <img id="logo" src="../img/snorlaxfavicon.png">
-        <a href="../index.html">Главная</a>
+        <a href="../index.html"><img id="logo" src="../img/snorlaxfavicon.png"></a>
         <div class="dropdown">
             <a href="#">Покедекс</a>
             <div class="dropdown-content">
@@ -200,6 +199,13 @@ def generate_pokemon_page(pokemon):
                 <a href="#">Атаки</a>
                 <a href="#">Способности</a>
                 <a href="#">Типы</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Турниры</a>
+            <div class="dropdown-content">
+                <a href="../tiers/rules.html">Система тиров</a>
+                <a href="../points/rules.html">Система баллов</a>
             </div>
         </div>
         <a href="../teambuilder.html">Тимбилдер</a>
