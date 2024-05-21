@@ -8,8 +8,34 @@ function onLoad() {
     document.querySelector('.search-input').oninput = function() {
         findTierByName(this.value);
     }
-    document.querySelector('.search-input-tier').oninput = function() {
-        changePokemonResultForTier(this.value, this.id);
+    if(document.querySelector('.search-input-tier')){
+        document.querySelector('.search-input-tier').oninput = function() {
+            changePokemonResultForTier(this.value, this.id);
+        }
+    }
+    const mc = new Hammer(document.body);
+    const swipeMenu = document.querySelector('#right-menu').classList
+    const activeClassMenu = 'right-menu-show'
+
+    mc.on("swipeleft swiperight", function (ev) {
+
+        if (ev.type === "swipeleft") {
+            swipeMenu.remove(activeClassMenu)
+        } else {
+            swipeMenu.add(activeClassMenu)
+        }
+    })
+    document.querySelector("#close-menu").onclick = function(){
+        setTimeout(() => {
+            if(this.hasAttribute('easy-add')){
+                this.removeAttribute('easy-add')
+                this.setAttribute('easy-remove', '#right-menu')
+            }
+            else{
+                this.removeAttribute('easy-remove')
+                this.setAttribute('easy-add', '#right-menu')
+            }
+        }, 100);
     }
 }
 

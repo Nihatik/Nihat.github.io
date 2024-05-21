@@ -254,7 +254,7 @@ select {
     width: 180px;
 }
 
-input, select {
+main input, select {
     border: 1px solid #4d4d4d;
     color: white;
     background-color: #2e2e2e;

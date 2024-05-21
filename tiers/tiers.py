@@ -199,6 +199,8 @@ def generate_pokemon_page(tier):
     <link rel="stylesheet" href="../index.css">
     <script type="module" src="tiers.js"></script>
     <script src="../theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 </head>
 <body>
     <header>
@@ -224,6 +226,11 @@ def generate_pokemon_page(tier):
                 </div>
             </label>
         </div>
+        <button id="close-menu" easy-add="#right-menu" easy-class="right-menu-show">
+            <span class="button-line"></span>
+            <span class="button-line"></span>
+            <span class="button-line"></span>
+        </button>
     </header>
     <main>
         <div id="right-menu">

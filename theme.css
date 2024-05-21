@@ -56,3 +56,7 @@
     background: linear-gradient(to bottom left, #ffffff, #ececec);
     box-shadow: 1px 1px 4px #464646;
 }
+
+.light-theme #right-menu{
+    background-color: white;
+}

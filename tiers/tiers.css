@@ -205,6 +205,34 @@ main input:focus{
 .search-input:hover::after {
     color: red; /* Изменяем цвет крестика при наведении */
 }
+
+
+#close-menu{
+    display: none;
+    top: 4px;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    width: 45px;
+    height: 40px;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2px;
+    transition: 0.5s;
+    opacity: 0.7;
+}
+#close-menu:hover{
+    opacity: 1;
+}
+
+#close-menu .button-line{
+    transition: 0.3s;
+    background-color: gray;
+    width: 100%;
+    height: 5px;
+    border-radius: 32px;
+}
+
 @media (max-width: 960px){
     #main > div{
         padding-left: 8px;
@@ -214,11 +242,22 @@ main input:focus{
         font-size: 12px;
     }
 }
+.right-menu-show{
+    left: 0 !important;
+}
 @media (max-width: 480px){
     #right-menu{
+        left: -100%;
+        background-color: rgb(36, 36, 36);
         position: absolute;
         width: 100%;
         z-index: 1;
+        box-sizing: border-box;
+        transition: 0.5s ease-in-out;
+        border-right: none;
+    }
+    #close-menu{
+        display: flex;
     }
 }
 
