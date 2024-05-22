@@ -254,7 +254,7 @@ main input:focus{
 .right-menu-show{
     left: 0 !important;
 }
-@media (max-width: 480px){
+@media (max-width: 768px){
     #right-menu{
         left: -100%;
         background-color: rgb(20, 20, 20);
@@ -271,6 +271,10 @@ main input:focus{
 
     #main {
         left: 0;
+    }
+    .pokemon-card{
+        width: 110px;
+        font-size: 10px;
     }
 }
 
