@@ -263,11 +263,6 @@ def generate_pokemon_page(tier):
                 <img src="{tiersImg[tier]}">
                 <h3>Тир {tiersFullNames[tier]}</h3>
             </div>
-            <div>
-                {f'''<h4>Покемоны {tier} тира:</h4>''' if tier != 'Monotype' else f'''<h4>Покемоны запрещенные в тире {tier}:</h4>'''}
-                <input id='{tier}' class='search-input-tier' placeholder="Найти...">
-                {cards_for_tier}
-            </div>
             {f'''
             <div>
                 <p>Разрешено всё, кроме пунктов 2, 6, 7, 9, 11 общих правил.</p>
@@ -276,31 +271,62 @@ def generate_pokemon_page(tier):
             {f'''
             <div>
                 <h4>Запрещенные предметы(шапки):</h4>
-                <p>King's Rock</p>
-                <p>Legend Plate</p>
+                <div id='blocked-moves'>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -336px; background-color: transparent;"></div><p>King’s Rock</p>
+                    </div>
+                </div>
             </div>''' if tier == 'OU' else ''
             }
             {f'''
             <div>
                 <h4>Запрещенные предметы(шапки):</h4>
-                <p>Light Clay</p>
-                <p>King's Rock</p>
-                <p>Legend Plate</p>
+                <div id='blocked-moves'>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -336px; background-color: transparent;"></div><p>King’s Rock</p>
+                    </div>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -360px; background-color: transparent;"></div><p>Light Clay</p>
+                    </div>
+                </div>
             </div>''' if tier == 'UU' or tier == 'RU' else ''
             }
             {f'''
             <div>
                 <h4>Запрещенные предметы(шапки):</h4>
-                <p>Damp Rock</p>
-                <p>Bright Powder</p>
-                <p>Focus Band</p>
-                <p>King’s Rock</p>
-                <p>Lax Incense</p>
-                <p>Quick Claw</p>
-                <p>Smooth Rock</p>
-                <p>Terrain Extender</p>
+                <div id='blocked-moves'>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -192px -120px; background-color: transparent;"></div><p>Damp Rock</p>
+                    </div>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -72px -72px; background-color: transparent;"></div><p>Bright Powder</p>
+                    </div>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -144px -216px; background-color: transparent;"></div><p>Focus Band</p>
+                    </div>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -336px; background-color: transparent;"></div><p>King’s Rock</p>
+                    </div>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: 0px -360px; background-color: transparent;"></div><p>Lax Incense</p>
+                    </div>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -120px -552px; background-color: transparent;"></div><p>Quick Claw</p>
+                    </div>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -120px -672px; background-color: transparent;"></div><p>Smooth Rock</p>
+                    </div>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -144px -984px; background-color: transparent;"></div><p>Terrain Extender</p>
+                    </div>
+                </div>
             </div>''' if tier == 'Monotype' else ''
             }
+            <div>
+                {f'''<h4>Покемоны {tier} тира:</h4>''' if tier != 'Monotype' else f'''<h4>Покемоны ЗАПРЕЩЕННЫЕ в тире {tier}:</h4>'''}
+                <input id='{tier}' class='search-input-tier' placeholder="Найти...">
+                {cards_for_tier}
+            </div>
         </div>
     </main>
 </body>
