@@ -119,16 +119,15 @@ main {
 }
 
 .right-menu{
-    overflow-y: auto;
+
+    height: auto;
+    overflow-y: scroll;
     z-index: 0;
-    display: none;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .team button:not(.current-pokemon-choice), #build-button, #save-build-button{
+    opacity: 0.8;
     font-weight: 100;
     display: flex;
     justify-content: center;
@@ -138,19 +137,21 @@ main {
     height: 60px;
     color: white;
     position: relative;
-    border-radius: 12px;
-    background-color: rgb(97,97,97);
+    border-radius: 10px;
+    background-color: rgb(97,97,97, 0.1);
     margin-right: 4px;
     transition: 0.3s;
     font-weight: 500;
 }
 #build-button:hover, #save-build-button:hover{
+    opacity: 1;
     transform: translateY(-2px);
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 .team button:not(.current-pokemon-choice):hover {
-    background-color: rgb(85, 85, 85);
+    opacity: 1;
+    background-color: rgb(85, 85, 85, 0.5);
     transform: translateY(-2px);
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -475,7 +476,7 @@ input[type="range"] {
 .teambuilder-results {
     z-index: 1;
     position: absolute;
-    top: 314px;
+    top: 347px;
     left: 0;
     bottom: 0;
     right: 0;
@@ -488,7 +489,7 @@ input[type="range"] {
     flex-direction: column;
     position: absolute;
     overflow-y: scroll;
-    top: 34px;
+    top: 0;
     left: 0;
     bottom: 0;
     right: 0;
@@ -681,7 +682,7 @@ input[type="range"] {
 }
 .teams {
     border-radius: 16px;
-    width: 375px;
+    width: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1235,9 +1236,9 @@ input[type="range"] {
 
 .build-result {
     padding-bottom: 8px;
-    background-color: #252525;
+    background-color:#252525;
     width: 95%;
-    border: none;
+    border: 1px solid #252525;
     border-radius: 24px;
     display: flex;
     flex-direction: column;
@@ -1358,11 +1359,6 @@ th {
     background: rgb(34, 34, 34, 0.99);
 }
 
-.team-types-defense{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 tr{
     background: rgb(34, 34, 34, 0.9);
@@ -1458,4 +1454,29 @@ thead tr{
     justify-content: center;
     background-color: white;
     padding: 4px;
+}
+
+
+#tab-buttons{
+
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+#tab-buttons button{
+    width: 80px;
+    border: none;
+    height: 50px;
+    padding: 4px;
+    transition: 0.3s;
+    background-color: rgb(97, 97, 97);
+    border-radius: 8px;
+}   
+#tab-buttons button:hover{
+    background-color: rgb(85, 85, 85);
+}  
+
+#current-tab {
+    background-color: rgb(91, 91, 91);
 }

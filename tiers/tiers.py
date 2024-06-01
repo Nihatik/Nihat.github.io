@@ -137,12 +137,22 @@ def generate_pokemon_cards_for_tier(tier):
     defisNames = ['Chi-Yu','Chien-Pao', 'Ho-Oh','Kommo-o', 'Porygon-Z']
     text = '<div id="pokemon-cards">'
     for pokemon in data:
-        if(pokemon['tier'] == tier):
-            url = pokemon['name'].replace(' ','').lower()
-            if pokemon['name'] in defisNames:
-                url = pokemon['name'].replace(' ','').replace('-','').lower()
-            if url.count('-') == 2:
-                url = remove_second_dash(url)
+        url = pokemon['name'].replace(' ','').lower()
+        if pokemon['name'] in defisNames:
+            url = pokemon['name'].replace(' ','').replace('-','').lower()
+        if url.count('-') == 2:
+            url = remove_second_dash(url)
+        if (tier == 'Monotype'):
+            if (pokemon['monotype'] == False):
+                text += f'''
+                <div id='pokemon-{pokemon['name']}' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>{pokemon['name']}</span>
+                </div>'''
+        elif(pokemon['tier'] == tier):
             text += f'''
                 <div id='pokemon-{pokemon['name']}' class="pokemon-card">
                     <div class="pokemon-sprite">
@@ -162,6 +172,11 @@ def generate_tiers(currentTier, tiersImg, tiersFullNames):
             text += f'''<a class='current-page' id='{tier.lower()}' href="{tier.replace(' ','').lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
         else:
             text += f'''<a id='{tier.lower()}' href="{tier.replace(' ','').lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
+    return text
+
+def generate_monotype(currentTier):
+    text = ''
+
     return text
 
 def generate_pokemon_page(tier):
@@ -249,7 +264,7 @@ def generate_pokemon_page(tier):
                 <h3>Тир {tiersFullNames[tier]}</h3>
             </div>
             <div>
-                <h4>Покемоны {tier} тира:</h4>
+                {f'''<h4>Покемоны {tier} тира:</h4>''' if tier != 'Monotype' else f'''<h4>Покемоны запрещенные в тире {tier}:</h4>'''}
                 <input id='{tier}' class='search-input-tier' placeholder="Найти...">
                 {cards_for_tier}
             </div>
