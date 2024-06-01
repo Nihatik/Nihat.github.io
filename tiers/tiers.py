@@ -288,6 +288,19 @@ def generate_pokemon_page(tier):
                 <p>Legend Plate</p>
             </div>''' if tier == 'UU' or tier == 'RU' else ''
             }
+            {f'''
+            <div>
+                <h4>Запрещенные предметы(шапки):</h4>
+                <p>Damp Rock</p>
+                <p>Bright Powder</p>
+                <p>Focus Band</p>
+                <p>King’s Rock</p>
+                <p>Lax Incense</p>
+                <p>Quick Claw</p>
+                <p>Smooth Rock</p>
+                <p>Terrain Extender</p>
+            </div>''' if tier == 'Monotype' else ''
+            }
         </div>
     </main>
 </body>
