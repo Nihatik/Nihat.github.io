@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recognition Results</title>
+</head>
+<body>
+    <h1>Recognized Pokémon</h1>
+    <ul>
+        {% for poke in pokemon %}
+            <li>{{ poke }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Upload another image</a>
+</body>
+</html>

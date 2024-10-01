@@ -130,9 +130,26 @@ new_script_content2 = re.sub(r'var pokemonPointsData = \[.*?\];', new_data_str2,
 with open('../pokemonPointsBase.js', 'w', encoding='utf-8') as file:
     file.write(new_script_content2)
 
-
-
 data = sorted(data, key=lambda x: x["name"])
+
+with open('points.txt', 'w', encoding='utf-8') as file:
+    content = ''
+    for i in range(6, 0, -1):
+        content += f"Покемоны за {i} балл\n"
+        pokemons_found = False  # Флаг для отслеживания наличия покемонов с баллами i
+        for pokemon in data:
+            if pokemon['points'] == str(i):
+                content += pokemon['name'] + '\n'
+                pokemons_found = True
+            elif pokemon['pointsHa'] == str(i):
+                content += pokemon['name'] + ' (хид)\n'
+                pokemons_found = True
+        if not pokemons_found:
+            content += 'Нет покемонов\n'
+        content += '\n'
+    file.write(content)
+
+
 def generate_pokemon_cards_for_tier(tier):
     tierValues = {
         'six' : '6',

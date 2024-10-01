@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Распознавание покемонов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вставьте или загрузите скриншот команды</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="uploadImage()">Загрузить</button>
+    <div id="result"></div>
+    <script src="https://docs.opencv.org/4.x/opencv.js"></script>
+    <script src="teamanalizer.js"></script>
+</body>
+</html>

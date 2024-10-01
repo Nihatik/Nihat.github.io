@@ -1,0 +1,122 @@
+.tab {
+  display: flex;
+  overflow: hidden;
+  border-radius: 16px 16px 0px 0px;
+  padding: 8px 0;
+}
+
+#tabs2 .tab {
+  margin-top: 48px;
+}
+
+
+.tab button {
+  opacity: 0.7;
+  border-radius: 16px;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 0px;
+  transition: 0.5s;
+  width: calc(100% / 3);
+}
+
+.tab button:hover {
+  background-color: #4d4d4d;
+}
+
+#tabs2 .tab button {
+  width: 50%;
+}
+
+.tab button.active {
+  background-color: #2e2e2e;
+}
+
+.tabcontent,
+.tabcontent2 {
+  transition: 0.3s;
+  border-top: none;
+  border-radius: 0px 16px 16px 16px;
+  background-color: #1d1d1d;
+  height: 670px;
+}
+
+.tabcontent2 {
+  border-radius: 0px 0px 16px 16px;
+
+}
+
+.active-tab {
+  opacity: 1 !important;
+  background-color: #2e2e2e !important;
+}
+
+.tab-container {
+  border: 1px solid #4d4d4d;
+  height: 670px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.3s;
+  border-radius: 16px 16px 16px 16px;
+  background-color: #1d1d1d;
+}
+
+.tab-container-in {
+  display: flex;
+  flex-direction: row;
+  width: 600%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  transition: left 0.5s; /* Добавляем плавный переход */
+}
+
+
+.defaultOpen {
+  display: block;
+}
+
+
+
+.tab-item {
+  border: none;
+  width: 100%;
+  float: left;
+}
+
+
+.tab-search-container{
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.tab-search-container input {
+  all: unset;
+  padding: 0 8px;
+  border-radius: 16px;
+  width: 150px;
+  border: none;
+  background-color: #1d1d1d;
+  border: 1px solid #4d4d4d;
+  height: 32px;
+  font-size: 0.8rem;
+  transition: 0.3s;
+}
+
+.tab-search-container input:hover{
+  width: 240px;
+}
+
+.tab-search-container input:focus {
+  width: 240px;
+}
+
+.tablinks-container{
+  display: flex;
+  border-radius: 16px 16px 16px 16px;
+  width: 60%;
+}

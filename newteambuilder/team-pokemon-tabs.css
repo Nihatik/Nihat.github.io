@@ -1,0 +1,83 @@
+
+  
+  .tabcontent {
+    transition: 0.3s;
+    border-top: none;
+    border-radius: 0px 16px 16px 16px;
+    background-color: #1d1d1d;
+    height: 670px;
+  }
+  
+
+  .active-tab {
+    opacity: 1 !important;
+    background-color: #2e2e2e !important;
+  }
+  
+  #current-pokemon-info {
+    border: 1px solid #4d4d4d;
+    height: 200px;;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+    border-radius: 16px 16px 16px 16px;
+    background-color: #1d1d1d;
+  }
+  
+  #current-pokemon-info-in {
+    display: flex;
+    flex-direction: column;
+    width: 600%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: top 0.5s ease-out;
+  }
+  
+  
+  .defaultOpen {
+    display: block;
+  }
+  
+  
+  
+  .team-pokemon-tab {
+    display: flex;
+    border: none;
+    width: 1040px;
+    float: left;
+  }
+  
+  
+  .tab-search-container{
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+  
+  .tab-search-container input {
+    all: unset;
+    padding: 0 8px;
+    border-radius: 16px;
+    width: 150px;
+    border: none;
+    background-color: #1d1d1d;
+    border: 1px solid #4d4d4d;
+    height: 32px;
+    font-size: 0.8rem;
+    transition: 0.3s;
+  }
+  
+  .tab-search-container input:hover{
+    width: 240px;
+  }
+  
+  .tab-search-container input:focus {
+    width: 240px;
+  }
+  
+  .tablinks-container{
+    display: flex;
+    border-radius: 16px 16px 16px 16px;
+    width: 60%;
+  }

@@ -1987,6 +1987,7 @@ function megaXYUrl(pokemonName, num) {
 }
 
 function saveTeam() {
+    console.log(playerPokemons);
     var savedTeams = JSON.parse(localStorage.getItem("savedTeams")) || [];
     var teamNum = savedTeams.length;
 
