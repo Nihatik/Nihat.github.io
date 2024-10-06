@@ -285,10 +285,12 @@ main input:focus{
 }
 
 .line{
+    margin-top: 16px;
+    margin-bottom: 16px;
     width: 90%;
-    height: 2px;
+    height: 4px;
     border-radius: 30%;
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(64, 64, 64);
 }
 
 
@@ -322,4 +324,12 @@ main input:focus{
 }
 #blocked-moves {
     display: flex;
+}
+
+.red-text {
+    color: rgb(156, 0, 0);
+}
+
+.green-text {
+    color: rgb(0, 156, 0);
 }

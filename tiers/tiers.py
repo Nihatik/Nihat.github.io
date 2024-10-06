@@ -2,10 +2,9 @@ import sqlite3
 import re
 import json
 
-
 def urlfix(name):
-
-    return name.replace(' ','').replace('/','').lower()
+    name = name.replace(' ', '').replace('/', '').lower()
+    return name
 
 def fetch_data_from_db(db_path, table):
     try:
@@ -118,6 +117,10 @@ for pokemon in data:
                 pokemonDataText += key + ': ' + keyValue + ', '
         pokemonDataText += 'learnset: ' + pokemon2['moves'] + ', '
         
+        pokemonDataText += 'ubersuu: ' + str(pokemon['ubersuu']) + ', '
+        pokemonDataText += 'doublesou: ' + str(pokemon['doublesou']) + ', '
+        pokemonDataText += 'monotype: ' + str(pokemon['monotype']) + ', '
+
         pokemonDataText += 'builds: ['
         for pokemon3 in data3:
             if pokemon['name'] == pokemon3['name']:
@@ -126,14 +129,21 @@ for pokemon in data:
         pokemonDataText += '}'
         dataForTable += str(pokemonDataText) + ',\n'
 
-dataForTable+= ']'
+dataForTable += ']'
 
 new_data_str2 = 'var pokemonPointsData = ' + str(dataForTable) + ';'
 
+if not re.search(r'var pokemonPointsData = \[.*?\];', script_content2, flags=re.DOTALL):
+    print("Строка не найдена для замены!")
+
 new_script_content2 = re.sub(r'var pokemonPointsData = \[.*?\];', new_data_str2, script_content2, flags=re.DOTALL)
 
-with open('../pokemonPointsBase.js', 'w', encoding='utf-8') as file:
-    file.write(new_script_content2)
+try:
+    with open('../pokemonPointsBase.js', 'w', encoding='utf-8') as file:
+        file.write(new_script_content2)
+        print('Writed')
+except Exception as e:
+    print(f"Ошибка при записи в файл: {e}")
 
 
 
@@ -147,18 +157,11 @@ def generate_pokemon_cards_for_tier(tier):
             url = pokemon['name'].replace(' ','').replace('-','').lower()
         if url.count('-') == 2:
             url = remove_second_dash(url)
-        if (tier == 'Mono/Dual Type'):
-            if (pokemon['monotype'] == False):
-                text += f'''
-                <div id='pokemon-{pokemon['name']}' class="pokemon-card">
-                    <div class="pokemon-sprite">
-                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
-                        </div>
-                    </div>
-                    <span>{pokemon['name']}</span>
-                </div>'''
-        if (tier == 'Ubers UU'):
-            if (pokemon['ubersuu'] == False):
+        if tier in ['Mono/Dual Type','Doubles OU', 'Ubers UU']:
+            tierValue = urlfix(tier)
+            if tier == 'Mono/Dual Type':
+                tierValue = 'monotype'
+            if (pokemon[tierValue] == False):
                 text += f'''
                 <div id='pokemon-{pokemon['name']}' class="pokemon-card">
                     <div class="pokemon-sprite">
@@ -179,14 +182,19 @@ def generate_pokemon_cards_for_tier(tier):
     text+= '</div>'
     return text
 
-tiers = ['AG', 'Ubers', 'OU', 'UU', 'RU', 'Ubers UU', 'Mono/Dual Type']
+tiers = ['AG', 'Ubers', 'OU', 'UU', 'RU', 'Ubers UU', 'Doubles OU', 'Mono/Dual Type']
 def generate_tiers(currentTier, tiersImg, tiersFullNames):
     text = ''
     for tier in tiers:
+        classList = ''
+        if tier in ['Ubers UU', 'Doubles OU', 'Mono/Dual Type']:
+            classList += 'visiblea'
         if currentTier == tier:
-            text += f'''<a class='current-page' id='{tier.lower()}' href="{urlfix(tier)}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
+            text += f'''<a class='current-page' id='{urlfix(tier)}' href="{urlfix(tier)}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
         else:
-            text += f'''<a id='{tier.lower()}' href="{urlfix(tier)}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
+            text += f'''<a class='{classList}' id='{urlfix(tier)}' href="{urlfix(tier)}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
+        if tier == 'RU':
+            text += f'''<div class='line'></div> '''
     return text
 
 def generate_monotype(currentTier):
@@ -208,6 +216,7 @@ def generate_pokemon_page(tier):
         "OU" : 'Over Used',
         "UU": 'Under Used',
         "RU": 'Rarely Used',
+        "Doubles OU": 'Doubles OU',
         "Mono/Dual Type": 'Mono/Dual Type',
     }
     tiersImg = {
@@ -217,6 +226,7 @@ def generate_pokemon_page(tier):
         "OU": 'https://www.smogon.com/tiers/ou/banner_bummer.png',
         "UU": 'https://www.smogon.com/tiers/uu/uu_logo.png',
         "RU": 'https://www.smogon.com/tiers/ru/ru_logo.png',
+        "Doubles OU": '',
         "Mono/Dual Type": '',
     }
     cards_for_tier = generate_pokemon_cards_for_tier(tier)
@@ -291,7 +301,7 @@ def generate_pokemon_page(tier):
             }
             {f'''
             <div>
-                <h4>Запрещенные предметы(шапки):</h4>
+                <h4><label class="red-text">Запрещенные</label> предметы(шапки):</h4>
                 <div id='blocked-moves'>
                     <div>
                         <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -336px; background-color: transparent;"></div><p>King’s Rock</p>
@@ -301,7 +311,7 @@ def generate_pokemon_page(tier):
             }
             {f'''
             <div>
-                <h4>Запрещенные предметы(шапки):</h4>
+                <h4><label class="red-text">Запрещенные</label> предметы(шапки):</h4>
                 <div id='blocked-moves'>
                     <div>
                         <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -336px; background-color: transparent;"></div><p>King’s Rock</p>
@@ -311,7 +321,7 @@ def generate_pokemon_page(tier):
             }
             {f'''
             <div>
-                <h4>Запрещенные предметы(шапки):</h4>
+                <h4><label class="red-text">Запрещенные</label> предметы(шапки):</h4>
                 <div id='blocked-moves'>
                     <div>
                         <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -336px; background-color: transparent;"></div><p>King’s Rock</p>
@@ -324,7 +334,7 @@ def generate_pokemon_page(tier):
             }
             {f'''
             <div>
-                <h4>Запрещенные предметы(шапки):</h4>
+                <h4><label class="red-text">Запрещенные</label> предметы(шапки):</h4>
                 <div id='blocked-moves'>
                     <div>
                         <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -192px -120px; background-color: transparent;"></div><p>Damp Rock</p>
@@ -354,7 +364,7 @@ def generate_pokemon_page(tier):
             </div>''' if tier == 'Mono/Dual Type' else ''
             }
             <div>
-                {f'''<h4>Покемоны {tier} тира:</h4>''' if tier != 'Mono/Dual Type' and tier != 'Ubers UU' else f'''<h4>Покемоны ЗАПРЕЩЕННЫЕ в тире {tier}:</h4>'''}
+                {f'''<h4>Покемоны <label class="green-text">{tier}</label> тира:</h4>''' if tier != 'Mono/Dual Type' and tier != 'Ubers UU' and tier != 'Doubles OU' else f'''<h4>Покемоны <label class="red-text" >ЗАПРЕЩЕННЫЕ</label> в тире {tier}:</h4>'''}
                 <input id='{tier}' class='search-input-tier' placeholder="Найти...">
                 {cards_for_tier}
             </div>
