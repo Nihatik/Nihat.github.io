@@ -60,13 +60,17 @@ function findTierByName(value) {
             if(!a.classList.contains('visiblea')){
                 a.style.opacity = '0.3'
                 a.style.border = '1px solid transparent'
+                a.style.boxShadow = ''
             }
         })
         let filteredPokemons = filterPokemon(pokemonPointsData, filters)
         filteredPokemons.forEach(function(pokemon){
-            if(pokemon.tier && document.getElementById(pokemon.tier.toLowerCase())){
-                document.getElementById(pokemon.tier.toLowerCase()).style.opacity = '1'
-                document.getElementById(pokemon.tier.toLowerCase()).style.border = '1px solid rgb(255,255,255,0.1)'
+            let tierId = pokemon.tier.toLowerCase()
+            if(pokemon.tier && document.getElementById(tierId)){
+                document.getElementById(tierId).style.opacity = '1'
+                document.getElementById(tierId).style.boxShadow = '0 -2px 6px 0 rgba(0, 128, 0, 0.25), 0 4px 8px 0 rgba(128, 0, 0, 0.3)'
+                document.getElementById(tierId).style.border = '1px solid rgb(255,255,255,0.1)'
+                document.getElementById(tierId).style.borderBottom = '1px solid rgb(128,0,0,0.5)'
             }
         })
 
@@ -75,6 +79,7 @@ function findTierByName(value) {
         as.forEach(function(a){
             a.style.opacity = '1'
             a.style.border = '1px solid transparent'
+            a.style.boxShadow = ''
         })
     }
 }

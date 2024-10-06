@@ -2,6 +2,11 @@ import sqlite3
 import re
 import json
 
+
+def urlfix(name):
+
+    return name.replace(' ','').replace('/','').lower()
+
 def fetch_data_from_db(db_path, table):
     try:
         # Подключаемся к базе данных
@@ -142,8 +147,18 @@ def generate_pokemon_cards_for_tier(tier):
             url = pokemon['name'].replace(' ','').replace('-','').lower()
         if url.count('-') == 2:
             url = remove_second_dash(url)
-        if (tier == 'Monotype'):
+        if (tier == 'Mono/Dual Type'):
             if (pokemon['monotype'] == False):
+                text += f'''
+                <div id='pokemon-{pokemon['name']}' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>{pokemon['name']}</span>
+                </div>'''
+        if (tier == 'Ubers UU'):
+            if (pokemon['ubersuu'] == False):
                 text += f'''
                 <div id='pokemon-{pokemon['name']}' class="pokemon-card">
                     <div class="pokemon-sprite">
@@ -164,14 +179,14 @@ def generate_pokemon_cards_for_tier(tier):
     text+= '</div>'
     return text
 
-tiers = ['AG', 'Uber', 'OU', 'UU', 'RU', 'Monotype', 'Dual Type']
+tiers = ['AG', 'Ubers', 'OU', 'UU', 'RU', 'Ubers UU', 'Mono/Dual Type']
 def generate_tiers(currentTier, tiersImg, tiersFullNames):
     text = ''
     for tier in tiers:
         if currentTier == tier:
-            text += f'''<a class='current-page' id='{tier.lower()}' href="{tier.replace(' ','').lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
+            text += f'''<a class='current-page' id='{tier.lower()}' href="{urlfix(tier)}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
         else:
-            text += f'''<a id='{tier.lower()}' href="{tier.replace(' ','').lower()}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
+            text += f'''<a id='{tier.lower()}' href="{urlfix(tier)}.html"><img class="tier-img" src="{tiersImg[tier]}">{tiersFullNames[tier]}</a> '''
     return text
 
 def generate_monotype(currentTier):
@@ -179,24 +194,30 @@ def generate_monotype(currentTier):
 
     return text
 
+def generate_ubersuu(currentTier):
+    text = ''
+
+    return text
+
 def generate_pokemon_page(tier):
+    print(tier)
     tiersFullNames = {
         "AG" : 'Anything Goes',
-        "Uber": 'Uber',
+        "Ubers": 'Ubers',
+        "Ubers UU": 'Ubers UU',
         "OU" : 'Over Used',
         "UU": 'Under Used',
         "RU": 'Rarely Used',
-        "Monotype": 'Monotype',
-        "Dual Type": 'Dual Type'
+        "Mono/Dual Type": 'Mono/Dual Type',
     }
     tiersImg = {
         "AG": '',
-        "Uber": 'https://www.smogon.com/tiers/ubers/uberslogo.png',
+        "Ubers": 'https://www.smogon.com/tiers/ubers/uberslogo.png',
+        "Ubers UU": '',
         "OU": 'https://www.smogon.com/tiers/ou/banner_bummer.png',
         "UU": 'https://www.smogon.com/tiers/uu/uu_logo.png',
         "RU": 'https://www.smogon.com/tiers/ru/ru_logo.png',
-        "Monotype": '',
-        "Dual Type": ''
+        "Mono/Dual Type": '',
     }
     cards_for_tier = generate_pokemon_cards_for_tier(tier)
     tiers_code = generate_tiers(tier, tiersImg, tiersFullNames)
@@ -276,6 +297,16 @@ def generate_pokemon_page(tier):
                         <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -336px; background-color: transparent;"></div><p>King’s Rock</p>
                     </div>
                 </div>
+            </div>''' if tier == 'Ubers UU' else ''
+            }
+            {f'''
+            <div>
+                <h4>Запрещенные предметы(шапки):</h4>
+                <div id='blocked-moves'>
+                    <div>
+                        <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -288px -336px; background-color: transparent;"></div><p>King’s Rock</p>
+                    </div>
+                </div>
             </div>''' if tier == 'OU' else ''
             }
             {f'''
@@ -320,10 +351,10 @@ def generate_pokemon_page(tier):
                         <div class="pokemon-icon" style="width: 24px; height: 24px; background-image: url(&quot;../img/itemicons-sheet.png&quot;); background-repeat: no-repeat; background-position: -144px -984px; background-color: transparent;"></div><p>Terrain Extender</p>
                     </div>
                 </div>
-            </div>''' if tier == 'Monotype' else ''
+            </div>''' if tier == 'Mono/Dual Type' else ''
             }
             <div>
-                {f'''<h4>Покемоны {tier} тира:</h4>''' if tier != 'Monotype' else f'''<h4>Покемоны ЗАПРЕЩЕННЫЕ в тире {tier}:</h4>'''}
+                {f'''<h4>Покемоны {tier} тира:</h4>''' if tier != 'Mono/Dual Type' and tier != 'Ubers UU' else f'''<h4>Покемоны ЗАПРЕЩЕННЫЕ в тире {tier}:</h4>'''}
                 <input id='{tier}' class='search-input-tier' placeholder="Найти...">
                 {cards_for_tier}
             </div>
@@ -337,7 +368,9 @@ def generate_pokemon_page(tier):
 
 
 for tier in tiers:
-    with open(tier.replace(' ','').lower() + '.html', 'w', encoding='utf-8') as file:
+    url = urlfix(tier)
+    print(url)
+    with open(url + '.html', 'w', encoding='utf-8') as file:
         file.write(generate_pokemon_page(tier))
 
 

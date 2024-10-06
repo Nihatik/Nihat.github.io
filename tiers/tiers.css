@@ -50,9 +50,10 @@ a{
     height: 48px;
     border: 1px solid transparent;
     width: 90%;
-    border-radius: 8px;
+    border-radius: 12px;
     padding-left: 8px;
-    transition: 0.3s;
+    transition: 0.5s;
+    
 }
 
 .current-page {
