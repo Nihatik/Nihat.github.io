@@ -327,9 +327,11 @@ main input:focus{
 }
 
 .red-text {
-    color: rgb(156, 0, 0);
+    color: rgb(255, 180, 180);
+    text-decoration: underline rgb(156, 0, 0);
 }
 
 .green-text {
-    color: rgb(0, 156, 0);
+    color: rgb(180, 255, 180);
+    text-decoration: underline rgb(0, 156, 0);
 }
