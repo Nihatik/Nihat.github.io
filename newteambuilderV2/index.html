@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="custom-select.css">
+    <link rel="stylesheet" href="cur-team-info.css">
+    <link rel="stylesheet" href="pkmn-builder-menu.css">
+    <script type="module" src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="left-menu">
+
+    </div>
+    <div id="content">
+        <div id="left-content">
+
+        </div>
+        <div id="center-content">
+            <div id="team-pokemon-tabs">
+                <div id="pkmn-pick-btns">
+                    <button num="0" class="pkmn-pick-btn" id="pokemon-picked-btn">
+                        <div class="pokemon-icon">
+                            <span
+                                style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px 0px;"></span>
+                        </div>
+                    </button>
+                    <button num="1" class="pkmn-pick-btn">
+                        <div class="pokemon-icon">
+                            <span
+                                style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -1080px;"></span>
+                        </div>
+                    </button>
+                    <button num="2" class="pkmn-pick-btn">
+                        <div class="pokemon-icon">
+                            <span
+                                style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -1020px;"></span>
+                        </div>
+                    </button>
+                    <button num="3" class="pkmn-pick-btn">
+                        <div class="pokemon-icon">
+                            <span
+                                style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -240px;"></span>
+                        </div>
+                    </button>
+                    <button num="4" class="pkmn-pick-btn">
+                        <div class="pokemon-icon">
+                            <span
+                                style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -120px;"></span>
+                        </div>
+                    </button>
+                    <button num="5" class="pkmn-pick-btn">
+                        <div class="pokemon-icon">
+                            <span
+                                style="display:inline-block; width:40px; height:30px; background: transparent url(https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16) no-repeat scroll -120px -540px;"></span>
+                        </div>
+                    </button>
+                </div>
+                <div id="current-pkmn-info">
+                    <div id="current-pkmn-info-in">
+                        <div class="team-pokemon-tab team-pokemon-info">
+                            <div class="team-pokemon-sprite">
+                                <div class="pokesprite"
+                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-add-info">
+                                <div>
+                                    <label for="types">Types: </label>
+                                    <span class="types" id="types">
+                                        <img src="../img/grass_type.png">
+                                        <img src="../img/poison_type.png">
+                                    </span>
+                                </div>
+                                <div>
+                                    <label for="ability">Ability: </label>
+                                    <select class="ability" id="ability" name="ability">
+
+
+
+                                        <option value="Overgrow">Overgrow</option>
+                                        <option value="Chlorophyll">Chlorophyll</option>
+                                    </select>
+                                </div>
+                                <div class="item-info">
+                                    <label for="item">Item: </label>
+                                    <span>
+                                        <input type="text" class="item" id="item">
+                                        <span class="pokemon-info-item" title=""
+                                            style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) 0px 0px no-repeat scroll transparent;">
+                                        </span>
+                                    </span>
+                                </div>
+                                <div>
+
+                                    <label for="nature">Nature: </label>
+                                    <select class="nature" name="nature" id="nature">
+                                        <option value="Adamant">Adamant (+atk; -spa)</option>
+                                        <option value="Bashful">Bashful</option>
+                                        <option value="Bold">Bold (+def; -atk)</option>
+                                        <option value="Brave">Brave (+atk; -spe)</option>
+                                        <option value="Calm">Calm (+spd; -atk)</option>
+                                        <option value="Careful">Careful (+spd; -spa)</option>
+                                        <option value="Docile">Docile</option>
+                                        <option value="Gentle">Gentle (+spd; -def)</option>
+                                        <option value="Hardy">Hardy</option>
+                                        <option value="Hasty">Hasty (+spe; -def)</option>
+                                        <option value="Impish">Impish (+def; -spa)</option>
+                                        <option value="Jolly">Jolly (+spe; -spa)</option>
+                                        <option value="Lax">Lax (+def; -spd)</option>
+                                        <option value="Lonely">Lonely (+atk; -def)</option>
+                                        <option value="Mild">Mild (+spa; -def)</option>
+                                        <option value="Modest">Modest (+spa; -atk)</option>
+                                        <option value="Naive">Naive (+spe; -spd)</option>
+                                        <option value="Naughty">Naughty (+atk; -spd)</option>
+                                        <option value="Quiet">Quiet (+spa; -spe)</option>
+                                        <option value="Quirky">Quirky</option>
+                                        <option value="Rash">Rash (+spa; -spd)</option>
+                                        <option value="Relaxed">Relaxed (+def; -spe)</option>
+                                        <option value="Sassy">Sassy (+spd; -spe)</option>
+                                        <option value="Serious">Serious</option>
+                                        <option value="Timid">Timid (+spe; -atk)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-moves">
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-stats">
+                                <div class="current-pokemon-stat-names">
+                                    <p>HP</p>
+                                    <p>Attack</p>
+                                    <p>Defense</p>
+                                    <p>Sp. Atk</p>
+                                    <p>Sp. Def</p>
+                                    <p>Speed</p>
+                                </div>
+                                <div class="current-pokemon-stat-values">
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                </div>
+                                <div class="evs">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                </div>
+                                <div class="evs-ranges">
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                </div>
+                                <div class="ivs">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-pokemon-tab team-pokemon-info">
+                            <div class="team-pokemon-sprite">
+                                <div class="pokesprite"
+                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-add-info">
+                                <div>
+                                    <label for="types">Types: </label>
+                                    <span class="types" id="types">
+                                        <img src="../img/grass_type.png">
+                                        <img src="../img/poison_type.png">
+                                    </span>
+                                </div>
+                                <div>
+                                    <label for="ability">Ability: </label>
+                                    <select class="ability" id="ability" name="ability">
+
+
+
+                                        <option value="Overgrow">Overgrow</option>
+                                        <option value="Chlorophyll">Chlorophyll</option>
+                                    </select>
+                                </div>
+                                <div class="item-info">
+                                    <label for="item">Item: </label>
+                                    <span>
+                                        <input type="text" class="item" id="item">
+                                        <span class="pokemon-info-item" title=""
+                                            style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) 0px 0px no-repeat scroll transparent;">
+                                        </span>
+                                    </span>
+                                </div>
+                                <div>
+
+                                    <label for="nature">Nature: </label>
+                                    <select class="nature" name="nature" id="nature">
+                                        <option value="Adamant">Adamant (+atk; -spa)</option>
+                                        <option value="Bashful">Bashful</option>
+                                        <option value="Bold">Bold (+def; -atk)</option>
+                                        <option value="Brave">Brave (+atk; -spe)</option>
+                                        <option value="Calm">Calm (+spd; -atk)</option>
+                                        <option value="Careful">Careful (+spd; -spa)</option>
+                                        <option value="Docile">Docile</option>
+                                        <option value="Gentle">Gentle (+spd; -def)</option>
+                                        <option value="Hardy">Hardy</option>
+                                        <option value="Hasty">Hasty (+spe; -def)</option>
+                                        <option value="Impish">Impish (+def; -spa)</option>
+                                        <option value="Jolly">Jolly (+spe; -spa)</option>
+                                        <option value="Lax">Lax (+def; -spd)</option>
+                                        <option value="Lonely">Lonely (+atk; -def)</option>
+                                        <option value="Mild">Mild (+spa; -def)</option>
+                                        <option value="Modest">Modest (+spa; -atk)</option>
+                                        <option value="Naive">Naive (+spe; -spd)</option>
+                                        <option value="Naughty">Naughty (+atk; -spd)</option>
+                                        <option value="Quiet">Quiet (+spa; -spe)</option>
+                                        <option value="Quirky">Quirky</option>
+                                        <option value="Rash">Rash (+spa; -spd)</option>
+                                        <option value="Relaxed">Relaxed (+def; -spe)</option>
+                                        <option value="Sassy">Sassy (+spd; -spe)</option>
+                                        <option value="Serious">Serious</option>
+                                        <option value="Timid">Timid (+spe; -atk)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-moves">
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-stats">
+                                <div class="current-pokemon-stat-names">
+                                    <p>HP</p>
+                                    <p>Attack</p>
+                                    <p>Defense</p>
+                                    <p>Sp. Atk</p>
+                                    <p>Sp. Def</p>
+                                    <p>Speed</p>
+                                </div>
+                                <div class="current-pokemon-stat-values">
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                </div>
+                                <div class="evs">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                </div>
+                                <div class="evs-ranges">
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                </div>
+                                <div class="ivs">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-pokemon-tab team-pokemon-info">
+                            <div class="team-pokemon-sprite">
+                                <div class="pokesprite"
+                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-add-info">
+                                <div>
+                                    <label for="types">Types: </label>
+                                    <span class="types" id="types">
+                                        <img src="../img/grass_type.png">
+                                        <img src="../img/poison_type.png">
+                                    </span>
+                                </div>
+                                <div>
+                                    <label for="ability">Ability: </label>
+                                    <select class="ability" id="ability" name="ability">
+
+
+
+                                        <option value="Overgrow">Overgrow</option>
+                                        <option value="Chlorophyll">Chlorophyll</option>
+                                    </select>
+                                </div>
+                                <div class="item-info">
+                                    <label for="item">Item: </label>
+                                    <span>
+                                        <input type="text" class="item" id="item">
+                                        <span class="pokemon-info-item" title=""
+                                            style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) 0px 0px no-repeat scroll transparent;">
+                                        </span>
+                                    </span>
+                                </div>
+                                <div>
+
+                                    <label for="nature">Nature: </label>
+                                    <select class="nature" name="nature" id="nature">
+                                        <option value="Adamant">Adamant (+atk; -spa)</option>
+                                        <option value="Bashful">Bashful</option>
+                                        <option value="Bold">Bold (+def; -atk)</option>
+                                        <option value="Brave">Brave (+atk; -spe)</option>
+                                        <option value="Calm">Calm (+spd; -atk)</option>
+                                        <option value="Careful">Careful (+spd; -spa)</option>
+                                        <option value="Docile">Docile</option>
+                                        <option value="Gentle">Gentle (+spd; -def)</option>
+                                        <option value="Hardy">Hardy</option>
+                                        <option value="Hasty">Hasty (+spe; -def)</option>
+                                        <option value="Impish">Impish (+def; -spa)</option>
+                                        <option value="Jolly">Jolly (+spe; -spa)</option>
+                                        <option value="Lax">Lax (+def; -spd)</option>
+                                        <option value="Lonely">Lonely (+atk; -def)</option>
+                                        <option value="Mild">Mild (+spa; -def)</option>
+                                        <option value="Modest">Modest (+spa; -atk)</option>
+                                        <option value="Naive">Naive (+spe; -spd)</option>
+                                        <option value="Naughty">Naughty (+atk; -spd)</option>
+                                        <option value="Quiet">Quiet (+spa; -spe)</option>
+                                        <option value="Quirky">Quirky</option>
+                                        <option value="Rash">Rash (+spa; -spd)</option>
+                                        <option value="Relaxed">Relaxed (+def; -spe)</option>
+                                        <option value="Sassy">Sassy (+spd; -spe)</option>
+                                        <option value="Serious">Serious</option>
+                                        <option value="Timid">Timid (+spe; -atk)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-moves">
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-stats">
+                                <div class="current-pokemon-stat-names">
+                                    <p>HP</p>
+                                    <p>Attack</p>
+                                    <p>Defense</p>
+                                    <p>Sp. Atk</p>
+                                    <p>Sp. Def</p>
+                                    <p>Speed</p>
+                                </div>
+                                <div class="current-pokemon-stat-values">
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                </div>
+                                <div class="evs">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                </div>
+                                <div class="evs-ranges">
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                </div>
+                                <div class="ivs">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-pokemon-tab team-pokemon-info">
+                            <div class="team-pokemon-sprite">
+                                <div class="pokesprite"
+                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-add-info">
+                                <div>
+                                    <label for="types">Types: </label>
+                                    <span class="types" id="types">
+                                        <img src="../img/grass_type.png">
+                                        <img src="../img/poison_type.png">
+                                    </span>
+                                </div>
+                                <div>
+                                    <label for="ability">Ability: </label>
+                                    <select class="ability" id="ability" name="ability">
+
+
+
+                                        <option value="Overgrow">Overgrow</option>
+                                        <option value="Chlorophyll">Chlorophyll</option>
+                                    </select>
+                                </div>
+                                <div class="item-info">
+                                    <label for="item">Item: </label>
+                                    <span>
+                                        <input type="text" class="item" id="item">
+                                        <span class="pokemon-info-item" title=""
+                                            style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) 0px 0px no-repeat scroll transparent;">
+                                        </span>
+                                    </span>
+                                </div>
+                                <div>
+
+                                    <label for="nature">Nature: </label>
+                                    <select class="nature" name="nature" id="nature">
+                                        <option value="Adamant">Adamant (+atk; -spa)</option>
+                                        <option value="Bashful">Bashful</option>
+                                        <option value="Bold">Bold (+def; -atk)</option>
+                                        <option value="Brave">Brave (+atk; -spe)</option>
+                                        <option value="Calm">Calm (+spd; -atk)</option>
+                                        <option value="Careful">Careful (+spd; -spa)</option>
+                                        <option value="Docile">Docile</option>
+                                        <option value="Gentle">Gentle (+spd; -def)</option>
+                                        <option value="Hardy">Hardy</option>
+                                        <option value="Hasty">Hasty (+spe; -def)</option>
+                                        <option value="Impish">Impish (+def; -spa)</option>
+                                        <option value="Jolly">Jolly (+spe; -spa)</option>
+                                        <option value="Lax">Lax (+def; -spd)</option>
+                                        <option value="Lonely">Lonely (+atk; -def)</option>
+                                        <option value="Mild">Mild (+spa; -def)</option>
+                                        <option value="Modest">Modest (+spa; -atk)</option>
+                                        <option value="Naive">Naive (+spe; -spd)</option>
+                                        <option value="Naughty">Naughty (+atk; -spd)</option>
+                                        <option value="Quiet">Quiet (+spa; -spe)</option>
+                                        <option value="Quirky">Quirky</option>
+                                        <option value="Rash">Rash (+spa; -spd)</option>
+                                        <option value="Relaxed">Relaxed (+def; -spe)</option>
+                                        <option value="Sassy">Sassy (+spd; -spe)</option>
+                                        <option value="Serious">Serious</option>
+                                        <option value="Timid">Timid (+spe; -atk)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-moves">
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-stats">
+                                <div class="current-pokemon-stat-names">
+                                    <p>HP</p>
+                                    <p>Attack</p>
+                                    <p>Defense</p>
+                                    <p>Sp. Atk</p>
+                                    <p>Sp. Def</p>
+                                    <p>Speed</p>
+                                </div>
+                                <div class="current-pokemon-stat-values">
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                </div>
+                                <div class="evs">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                </div>
+                                <div class="evs-ranges">
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                </div>
+                                <div class="ivs">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-pokemon-tab team-pokemon-info">
+                            <div class="team-pokemon-sprite">
+                                <div class="pokesprite"
+                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-add-info">
+                                <div>
+                                    <label for="types">Types: </label>
+                                    <span class="types" id="types">
+                                        <img src="../img/grass_type.png">
+                                        <img src="../img/poison_type.png">
+                                    </span>
+                                </div>
+                                <div>
+                                    <label for="ability">Ability: </label>
+                                    <select class="ability" id="ability" name="ability">
+
+
+
+                                        <option value="Overgrow">Overgrow</option>
+                                        <option value="Chlorophyll">Chlorophyll</option>
+                                    </select>
+                                </div>
+                                <div class="item-info">
+                                    <label for="item">Item: </label>
+                                    <span>
+                                        <input type="text" class="item" id="item">
+                                        <span class="pokemon-info-item" title=""
+                                            style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) 0px 0px no-repeat scroll transparent;">
+                                        </span>
+                                    </span>
+                                </div>
+                                <div>
+
+                                    <label for="nature">Nature: </label>
+                                    <select class="nature" name="nature" id="nature">
+                                        <option value="Adamant">Adamant (+atk; -spa)</option>
+                                        <option value="Bashful">Bashful</option>
+                                        <option value="Bold">Bold (+def; -atk)</option>
+                                        <option value="Brave">Brave (+atk; -spe)</option>
+                                        <option value="Calm">Calm (+spd; -atk)</option>
+                                        <option value="Careful">Careful (+spd; -spa)</option>
+                                        <option value="Docile">Docile</option>
+                                        <option value="Gentle">Gentle (+spd; -def)</option>
+                                        <option value="Hardy">Hardy</option>
+                                        <option value="Hasty">Hasty (+spe; -def)</option>
+                                        <option value="Impish">Impish (+def; -spa)</option>
+                                        <option value="Jolly">Jolly (+spe; -spa)</option>
+                                        <option value="Lax">Lax (+def; -spd)</option>
+                                        <option value="Lonely">Lonely (+atk; -def)</option>
+                                        <option value="Mild">Mild (+spa; -def)</option>
+                                        <option value="Modest">Modest (+spa; -atk)</option>
+                                        <option value="Naive">Naive (+spe; -spd)</option>
+                                        <option value="Naughty">Naughty (+atk; -spd)</option>
+                                        <option value="Quiet">Quiet (+spa; -spe)</option>
+                                        <option value="Quirky">Quirky</option>
+                                        <option value="Rash">Rash (+spa; -spd)</option>
+                                        <option value="Relaxed">Relaxed (+def; -spe)</option>
+                                        <option value="Sassy">Sassy (+spd; -spe)</option>
+                                        <option value="Serious">Serious</option>
+                                        <option value="Timid">Timid (+spe; -atk)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-moves">
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-stats">
+                                <div class="current-pokemon-stat-names">
+                                    <p>HP</p>
+                                    <p>Attack</p>
+                                    <p>Defense</p>
+                                    <p>Sp. Atk</p>
+                                    <p>Sp. Def</p>
+                                    <p>Speed</p>
+                                </div>
+                                <div class="current-pokemon-stat-values">
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                </div>
+                                <div class="evs">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                </div>
+                                <div class="evs-ranges">
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                </div>
+                                <div class="ivs">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-pokemon-tab team-pokemon-info">
+                            <div class="team-pokemon-sprite">
+                                <div class="pokesprite"
+                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-add-info">
+                                <div>
+                                    <label for="types">Types: </label>
+                                    <span class="types" id="types">
+                                        <img src="../img/grass_type.png">
+                                        <img src="../img/poison_type.png">
+                                    </span>
+                                </div>
+                                <div>
+                                    <label for="ability">Ability: </label>
+                                    <select class="ability" id="ability" name="ability">
+
+
+
+                                        <option value="Overgrow">Overgrow</option>
+                                        <option value="Chlorophyll">Chlorophyll</option>
+                                    </select>
+                                </div>
+                                <div class="item-info">
+                                    <label for="item">Item: </label>
+                                    <span>
+                                        <input type="text" class="item" id="item">
+                                        <span class="pokemon-info-item" title=""
+                                            style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) 0px 0px no-repeat scroll transparent;">
+                                        </span>
+                                    </span>
+                                </div>
+                                <div>
+
+                                    <label for="nature">Nature: </label>
+                                    <select class="nature" name="nature" id="nature">
+                                        <option value="Adamant">Adamant (+atk; -spa)</option>
+                                        <option value="Bashful">Bashful</option>
+                                        <option value="Bold">Bold (+def; -atk)</option>
+                                        <option value="Brave">Brave (+atk; -spe)</option>
+                                        <option value="Calm">Calm (+spd; -atk)</option>
+                                        <option value="Careful">Careful (+spd; -spa)</option>
+                                        <option value="Docile">Docile</option>
+                                        <option value="Gentle">Gentle (+spd; -def)</option>
+                                        <option value="Hardy">Hardy</option>
+                                        <option value="Hasty">Hasty (+spe; -def)</option>
+                                        <option value="Impish">Impish (+def; -spa)</option>
+                                        <option value="Jolly">Jolly (+spe; -spa)</option>
+                                        <option value="Lax">Lax (+def; -spd)</option>
+                                        <option value="Lonely">Lonely (+atk; -def)</option>
+                                        <option value="Mild">Mild (+spa; -def)</option>
+                                        <option value="Modest">Modest (+spa; -atk)</option>
+                                        <option value="Naive">Naive (+spe; -spd)</option>
+                                        <option value="Naughty">Naughty (+atk; -spd)</option>
+                                        <option value="Quiet">Quiet (+spa; -spe)</option>
+                                        <option value="Quirky">Quirky</option>
+                                        <option value="Rash">Rash (+spa; -spd)</option>
+                                        <option value="Relaxed">Relaxed (+def; -spe)</option>
+                                        <option value="Sassy">Sassy (+spd; -spe)</option>
+                                        <option value="Serious">Serious</option>
+                                        <option value="Timid">Timid (+spe; -atk)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-moves">
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                                <span>
+                                    <input type="text">
+                                    <img src="../img/normal_type.png">
+                                </span>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="team-pokemon-stats">
+                                <div class="current-pokemon-stat-names">
+                                    <p>HP</p>
+                                    <p>Attack</p>
+                                    <p>Defense</p>
+                                    <p>Sp. Atk</p>
+                                    <p>Sp. Def</p>
+                                    <p>Speed</p>
+                                </div>
+                                <div class="current-pokemon-stat-values">
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                    <h3>0</h3>
+                                </div>
+                                <div class="evs">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                    <input type="number" min="0" max="252" step="4">
+                                </div>
+                                <div class="evs-ranges">
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                    <div>
+                                        <input type="range" min="0" max="252" value="0" step="4" class="evs-range">
+                                    </div>
+                                </div>
+                                <div class="ivs">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                    <input type="number" min="0" max="31">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pkmn-builder">
+                <div id="pkmn-builder-filters">
+                    <div class="custom-select vertical-select">
+                        <div class="select-selected">Choose</div>
+                        <div class="select-items select-hide">
+                            <div>Tiers</div>
+                            <div>Points</div>
+                        </div>
+                        <select>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                    </div>
+
+                    <div class="custom-select horizontal-select">
+                        <div class="select-selected">Choose Type</div>
+                        <div class="select-items select-hide">
+                            <div><img src="../img/normal_type.png" alt="Normal"></div>
+                            <div><img src="../img/fighting_type.png" alt="Fighting"></div>
+                            <div><img src="../img/flying_type.png" alt="Flying"></div>
+                            <div><img src="../img/poison_type.png" alt="Poison"></div>
+                            <div><img src="../img/ground_type.png" alt="Ground"></div>
+                            <div><img src="../img/rock_type.png" alt="Rock"></div>
+                            <div><img src="../img/bug_type.png" alt="Bug"></div>
+                            <div><img src="../img/ghost_type.png" alt="Ghost"></div>
+                            <div><img src="../img/steel_type.png" alt="Steel"></div>
+                            <div><img src="../img/fire_type.png" alt="Fire"></div>
+                            <div><img src="../img/water_type.png" alt="Water"></div>
+                            <div><img src="../img/grass_type.png" alt="Grass"></div>
+                            <div><img src="../img/electric_type.png" alt="Electric"></div>
+                            <div><img src="../img/psychic_type.png" alt="Psychic"></div>
+                            <div><img src="../img/ice_type.png" alt="Ice"></div>
+                            <div><img src="../img/dragon_type.png" alt="Dragon"></div>
+                            <div><img src="../img/fairy_type.png" alt="Fairy"></div>
+                            <div><img src="../img/dark_type.png" alt="Dark"></div>
+                        </div>
+                        <select>
+                            <option value="normal">Normal</option>
+                            <option value="fighting">Fighting</option>
+                            <option value="flying">Flying</option>
+                            <option value="poison">Poison</option>
+                            <option value="ground">Ground</option>
+                            <option value="rock">Rock</option>
+                            <option value="bug">Bug</option>
+                            <option value="ghost">Ghost</option>
+                            <option value="steel">Steel</option>
+                            <option value="fire">Fire</option>
+                            <option value="water">Water</option>
+                            <option value="grass">Grass</option>
+                            <option value="electric">Electric</option>
+                            <option value="psychic">Psychic</option>
+                            <option value="ice">Ice</option>
+                            <option value="dragon">Dragon</option>
+                            <option value="fairy">Fairy</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div id="pkmn-builder-tabs">
+                    <div class="tab">
+                        <div class="tab-search-container">
+                            <input type="text" placeholder="Введите текст...">
+                        </div>
+                        <div class="tablinks-container">
+                            <button class="tablinks active-tab" num="0" id="Search">Search</button>
+                            <button class="tablinks" num="1" id="Pokemons">Pokemons</button>
+                            <button class="tablinks" num="2" id="Moves">Moves</button>
+                            <button class="tablinks" num="3" id="Items">Items</button>
+                            <button class="tablinks" num="4" id="Builds">Builds</button>
+                            <button class="tablinks" num="5" id="Pokepaste">Ppaste</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-container" id="tabContainer">
+                        <div class="tab-container-in">
+                            <div id="SearchTab" class="teambuilder-results tabcontent tab-item">
+                                <div class="result-filters" style="display: none;">
+                                    <div class="result-pokemon-icon">
+                                        <select>
+                                            <option>No</option>
+                                            <option>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                        </select>
+                                    </div>
+                                    <div class="result-pokemon-name"></div>
+                                    <div class="result-pokemon-types">
+                                        <select>
+                                            <option value="None">None</option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Fire">Fire</option>
+                                            <option value="Water">Water</option>
+                                            <option value="Grass">Grass</option>
+                                            <option value="Electric">Electric</option>
+                                            <option value="Ice">Ice</option>
+                                            <option value="Fighting">Fighting</option>
+                                            <option value="Poison">Poison</option>
+                                            <option value="Ground">Ground</option>
+                                            <option value="Flying">Flying</option>
+                                            <option value="Psychic">Psychic</option>
+                                            <option value="Bug">Bug</option>
+                                            <option value="Rock">Rock</option>
+                                            <option value="Ghost">Ghost</option>
+                                            <option value="Dragon">Dragon</option>
+                                            <option value="Dark">Dark</option>
+                                            <option value="Steel">Steel</option>
+                                            <option value="Fairy">Fairy</option>
+                                        </select>
+                                    </div>
+                                    <div class="result-pokemon-abilities">
+                                        <button>Ability</button>
+                                        <button>Move</button>
+                                        <p></p>
+                                    </div>
+                                    <div class="result-pokemon-ha">
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                    <button class="result-pokemon-stat">HP</button>
+                                    <button class="result-pokemon-stat">Atk</button>
+                                    <button class="result-pokemon-stat">Def</button>
+                                    <button class="result-pokemon-stat">SpA</button>
+                                    <button class="result-pokemon-stat">SpD</button>
+                                    <button class="result-pokemon-stat">Spe</button>
+                                    <button class="result-pokemon-bst">BST</button>
+                                </div>
+                                <ul>
+                                    <li class="result">
+                                        <a class="current-result">
+                                            <div class="result-pokemon-icon">
+                                                <div class="pokemon-icon"
+                                                    style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                                                </div>
+                                            </div>
+                                            <div class="result-pokemon-name"></div>
+                                            <div class="result-pokemon-types">
+                                                <img src="../img/normal_type.png">
+                                                <img src="../img/normal_type.png">
+                                            </div>
+                                            <div class="result-pokemon-abilities">
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                            <div class="result-pokemon-ha">
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                            <div class="result-pokemon-stat">0</div>
+                                            <div class="result-pokemon-stat">0</div>
+                                            <div class="result-pokemon-stat">0</div>
+                                            <div class="result-pokemon-stat">0</div>
+                                            <div class="result-pokemon-stat">0</div>
+                                            <div class="result-pokemon-stat">0</div>
+                                            <div class="result-pokemon-bst">0</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="PokemonsTab" class="tabcontent tab-item">
+                                <h3>Pokemons</h3>
+                            </div>
+                            <div id="MovesTab" class="tabcontent tab-item">
+                                <h3>Moves</h3>
+                            </div>
+                            <div id="ItemsTab" class="tabcontent tab-item">
+                                <h3>Items</h3>
+                            </div>
+                            <div class="current-pokemon-builds tabcontent tab-item" id="BuildsTab">
+                                <h3>Builds</h3>
+                            </div>
+                            <div id="PokepasteTab" class="tabcontent tab-item">
+                                <div id="current-pokemon-pokepaste">
+                                    <textarea id="current-pokemon-pokepaste-input" rows="4"
+                                        placeholder="Введите текст..."></textarea>
+                                    <button id="current-pokemon-pokepaste-save">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right-content">
+
+        </div>
+    </div>
+</body>
+
+</html>

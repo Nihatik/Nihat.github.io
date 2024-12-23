@@ -1,0 +1,81 @@
+:root {
+    --border-color: #4d4d4d;
+    --bg-color: #2a2a2a;
+}
+
+button{
+    cursor: pointer;
+}
+
+* {
+    font-family: Verdana;
+    color: #ddd;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #0e0e0e;
+}
+
+#left-menu{
+    width: 240px;
+    height: 100vh;
+    background-color: #2a2a2a;
+}
+
+#content{
+    width: 100%;
+    height: 100vh;
+}
+
+#center-content{
+    width: 1240px;
+    height: 100vh;
+}
+
+#current-team-info {
+    display: flex;
+    width: 1180px;
+    height: 100vh;
+}
+
+#pkmn-pick-btns{
+    display: flex;
+    flex-direction: column;
+}
+
+.pkmn-pick-btn {
+    border-radius: 100%;
+    border: 1px solid var(--border-color);
+    background-color: #1d1d1d;
+    width: 40px;
+    height: 40px;
+    margin: 2px 8px;
+    padding: 0;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+
+
+.pkmn-pick-btn:hover{
+    opacity: 1;
+
+}
+
+
+.pokemon-icon {
+    width: 40px;
+    transition: 0.3s;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+

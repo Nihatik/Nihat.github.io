@@ -1,0 +1,96 @@
+.custom-select {
+    position: relative;
+    width: 60px; /* Ширина кастомного селекта */
+    font-size: 14px; /* Размер шрифта */
+}
+
+.select-selected {
+    background-color: #2e2e2e; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 4px 8px; /* Отступы внутри */
+    border: 1px solid var(--border-color); /* Цвет границы */
+    border-radius: 16px; /* Закругление углов */
+    cursor: pointer; /* Курсор при наведении */
+    user-select: none; /* Отключает выделение текста */
+}
+
+.select-items {
+    position: absolute; /* Позиционирование относительно родителя */
+    background-color: #2e2e2e; /* Цвет фона */
+    color: white; /* Цвет текста */
+    border: 1px solid var(--border-color); /* Цвет границы */
+    width: 100%; /* Ширина соответствует родителю */
+    max-height: 200px; /* Максимальная высота */
+    overflow-y: auto; /* Прокрутка по вертикали */
+    z-index: 99; /* Над другими элементами */
+    opacity: 0; /* Начальное состояние - скрыто */
+    transform: translateY(-10px); /* Сдвиг вверх для анимации */
+    visibility: hidden; /* Скрываем элемент при помощи visibility */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Плавный переход */
+    border-radius: 12px 12px 16px 16px; /* Закругление углов */
+}
+
+.select-items.show {
+    opacity: 1; /* Показать элемент */
+    transform: translateY(0); /* Вернуть на место */
+    visibility: visible; /* Делаем элемент видимым */
+}
+
+.select-items.hide {
+    opacity: 0; /* Скрытие */
+    transform: translateY(-10px); /* Убираем вверх для анимации */
+    visibility: hidden; /* Скрываем элемент при помощи visibility */
+}
+
+.select-items div {
+    padding: 4px 8px;   /* Отступы для элементов */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.custom-select img {
+    width: 24px; /* Ширина изображения */
+}
+
+.select-items div:hover {
+    background-color: #4d4d4d; /* Цвет фона при наведении */
+}
+
+
+
+
+
+
+
+
+.horizontal-select .select-items.show {
+    opacity: 1; /* Показать элемент */
+    transform: translate(60px,-36px);
+    visibility: visible; /* Делаем элемент видимым */
+}
+
+.horizontal-select .select-items.hide {
+    opacity: 0; /* Скрытие */
+    transform: translate(50px,-36px);
+    visibility: hidden; /* Скрываем элемент при помощи visibility */
+}
+
+/* Горизонтальный селект */
+.horizontal-select .select-items {
+    display: flex; /* Выравнивание по горизонтали */
+    flex-direction: row; /* Направление элементов */
+    overflow-x: auto; /* Прокрутка по горизонтали */
+    transform: translate(50px,-36px);
+    overflow-x: hidden;
+    width: auto;
+    border-radius: 12px 16px 16px 12px; /* Закругление углов */
+}
+
+.vertical-select .select-items {
+    display: block; 
+}
+
+/* Скрываем оригинальный select */
+select {
+    display: none; /* Скрыть оригинальный селект */
+}

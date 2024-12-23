@@ -13,13 +13,34 @@ import {savedTeamsUpdate} from './teams.js';
 function openTab(tabIndex, tabButton) {
     let i, tablinks;
     const boxes = document.querySelector('.tab-container-in');
+    
     boxes.style.left = -tabIndex * 100 + '%';
+
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active-tab", "");
     }
-    tabButton.classList.add("active-tab")
+
+    const tabitems = document.getElementsByClassName("tab-item");
+    for (let i = 0; i < tabitems.length; i++) {
+        tabitems[i].className = tabitems[i].className.replace(" active-tab", "");
+    }
+
+    tabButton.classList.add("active-tab");
+
+    const tabId = tabButton.id + 'Tab';
+    const tabContent = document.getElementById(tabId);
+    
+    if (tabContent) {
+        const allTabs = document.querySelectorAll('.tab-container-in > .tab');
+        allTabs.forEach(tab => tab.classList.remove("active-tab"));
+
+        tabContent.classList.add("active-tab");
+    } else {
+        console.error(`Элемент с id '${tabId}' не найден`);
+    }
 }
+
 
 function openTab2(evt, tabName) {
     let i, tabcontent, tablinks;
@@ -55,6 +76,7 @@ function openPokemonTab(tabIndex, tabButton){
         return item.name === pokemon.name && item.num === pokemon.num;
     });
     loadBuildResults(pokemon, tabIndex, tabButton)
+    createMovesResults(null, num, object, 0);
     console.log('q')
 }
 
@@ -133,6 +155,7 @@ function presentInfoUpdate(opponent = null) {
     } */
     for (var i = 0; i < 6; i++) {
         if (playerPokemons[i].types) {
+            console.log('ff')
             updateVisualTeam(playerPokemons[i], i, buttons[i])
             teamPokemonUpdate(playerPokemons[i], i);
         }
@@ -578,7 +601,7 @@ function updateVisualTeam(pokemon, num = null, object = null) {
 
     sprite.style.width = '40px';
     sprite.style.height = '30px';
-    sprite.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
+    sprite.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/ыs-sheet.png?v16")';
     sprite.style.backgroundRepeat = 'no-repeat';
     let filters = []
     let pokemonNameBase = pokemon.name
@@ -610,6 +633,12 @@ function updateVisualTeam(pokemon, num = null, object = null) {
 
 
 function onLoad() {
+
+    $('#teamsbutton').on('click', function(e) {
+        e.preventDefault();
+        $('#left-panel').toggleClass('left-panel-active');
+        $('#center-panel').toggleClass('center-panel-active');
+      })
 
     Array.from(document.getElementsByClassName("tablinks")).forEach(function (tabLink) {
         tabLink.onclick = function (event) {
@@ -693,6 +722,8 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
         return item.name === pokemon.name && item.num === pokemon.num;
     });
     loadBuilds(findedPokemon);
+    
+    createMovesResults(null, num, object, 0);
 
     /*       document.getElementById('current-pokemon-points').textContent = calculateTeamPointsValue(null, pokemon)
      */
@@ -860,6 +891,7 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
             }
         }
     }
+    
     for (let i = 0; i < 4; i++) {
         moves[i].querySelector('input').oninput = function () {
             if (this.value == '') {
@@ -1481,10 +1513,11 @@ function createItemsResults(filter = null, num = null, object = null) {
 }
 
 function createMovesResults(filter = null, num = null, object = null, moveNum) {
-    var results = document.querySelectorAll('.teambuilder-results ul .result');
+    console.log('zdarova')
+    var results = document.querySelectorAll('#MovesTab');
+    console.log(results)
     results.forEach(function (result) {
         if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
-            result.remove();
         }
     });
     const filters = [];
@@ -1503,7 +1536,7 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
     let h3 = document.createElement('h3')
     h3.textContent = 'Moves';
     li.appendChild(h3)
-    /* document.querySelector('.teambuilder-results ul').appendChild(li); */
+    document.querySelector('#MovesTab').appendChild(li);
 
     var foundPokemon = pokemonPointsData.find(function (pokemon) {
         return pokemon.name === playerPokemons[num].name;
@@ -1574,7 +1607,7 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
 
             li.appendChild(a);
 
-            /* document.querySelector('.teambuilder-results ul').appendChild(li); */
+            document.querySelector('#MovesTab').appendChild(li);
         }
     }
 }

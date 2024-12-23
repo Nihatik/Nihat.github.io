@@ -19,6 +19,7 @@
     <script type="module" src="../teambuilderBase.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -52,6 +53,12 @@
     <div id="center-panel">
         <div id="team-pokemon-tabs">
             <div class="top-buttons">
+                <div class="team-buttons">
+                    <h4 id="team-points-value" style="display: none;"></h4>
+                    <button id="saveteambutton" easy-add="#teamsMenu" easy-class="teams--show">Save Team</button>
+                    <button id="teamsbutton" easy-add="#teamsMenu" easy-class="teams--show">Teams</button>
+                    <button id="pastebutton">PokePaste</button>
+                </div>
                 <div id="pokemon-pick-buttons">
                     <button num="0" class="pokemon-pick-btn" id="pokemon-picked-btn">
                         <div class="pokemon-icon">
@@ -95,12 +102,6 @@
                         </div>
                         <label class="pokemon-pick-name">Magcargo</label>
                     </button>
-                </div>
-                <div class="team-buttons">
-                    <h4 id="team-points-value" style="display: none;"></h4>
-                    <button id="saveteambutton" easy-add="#teamsMenu" easy-class="teams--show">Save Team</button>
-                    <button id="teamsbutton" easy-add="#teamsMenu" easy-class="teams--show">Teams</button>
-                    <button id="pastebutton">PokePaste</button>
                 </div>
             </div>
             <div id="current-pokemon-info">

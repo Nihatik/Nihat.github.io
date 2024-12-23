@@ -49,7 +49,7 @@
 
 }
 
-.active-tab {
+.tablinks.active-tab {
   opacity: 1 !important;
   background-color: #2e2e2e !important;
 }
@@ -74,6 +74,15 @@
   transition: left 0.5s; /* Добавляем плавный переход */
 }
 
+.tab-container-in > div {
+  opacity: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.tab-item.active-tab {
+  opacity: 1;
+}
 
 .defaultOpen {
   display: block;

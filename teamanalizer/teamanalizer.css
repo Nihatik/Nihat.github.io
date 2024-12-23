@@ -1,0 +1,233 @@
+* {
+    font-family: Verdana;
+    color: #ddd;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 12px;
+    display: flex;
+    background-color: #0e0e0e;
+}
+
+.right-panel{
+    border-radius: 32px;
+    border: 1px solid #4d4d4d;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#itemOptions {
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+select {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button, button * {
+    cursor: pointer;
+}
+
+.main-menu{
+    display: flex;
+}
+
+
+#description-text-menu{
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    width: 540px;
+    height: 180px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#leftMenu {
+    display: flex;
+    flex-direction: column;
+    position:inherit;
+    height: 100vh;
+    position: fixed;
+    left: 0;top: 0;
+    z-index: 99;
+    height: 100vh;
+    display: flex;
+    transition: 0.5s;
+    transform: translateX(-100%);
+}
+
+.leftMenu-active {
+    transform: translateX(0%) !important;
+}
+
+#resultsMenu {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 1080px;
+    border: 1px solid #2a2a2a;
+    padding: 4px 4px 0 4px;
+    height: 640px;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 0px 4px;
+    background: #2a2a2a;
+    height: 40px;
+    width: 240px;
+    margin: 5px 0;
+    border-radius: 32px;
+    transition: 0.3s;
+}
+
+#itemList {
+    display: grid;
+    grid-template-columns: repeat(2, 0.2fr); /* Две колонки */
+    grid-template-rows: repeat(3, auto); /* Три строки */
+    gap: 10px;
+    padding: 8px 0px;
+}
+
+#itemList li {
+    display: flex;
+    align-items: center;
+    background-image: "../";
+    background-color: #1d1d1d;
+    width: 40px;
+    height: 40px;
+    border-radius: 32px;
+    border: 1px solid #4d4d4d;
+    transition: 0.5s;
+    overflow: hidden;
+    opacity: 0.5;
+    padding: 0;
+}
+
+.pokemon-pick-name {
+    width: 160px;
+    opacity: 1;
+    text-align: left;
+    font-size: 0.8rem;
+    transition: 0.5s;
+    margin-left: 4px;
+}
+
+.pokemon-pick-tier{
+    display: flex;
+    margin-left: auto;
+    margin-right: 8px;
+}
+
+.pokemon-pick-btn {
+    display: flex;
+    align-items: center;
+    background-image: "../";
+    background-color: #1d1d1d;
+    width: 240px;
+    height: 50px;
+    border-radius: 24px;
+    padding: 0px 2px;
+    border: 1px solid #4d4d4d;
+    transition: 0.5s;
+    overflow: hidden;
+    opacity: 0.8;
+    margin-right: 8px;
+}
+
+.pokemon-pick-btn label {
+
+    font-size: 14px;
+}
+
+.pokemon-pick-btn:hover {
+    width: 240px;
+    opacity: 1;
+}
+
+.current-picked-btn {
+    width: 240px;
+    opacity: 0.8;
+    border-radius: 16px;
+    
+    border: 1px solid #8d8d8d;
+}
+
+.pokemon-icon {
+    width: 40px;
+    transition: 0.3s;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#itemList li:hover {
+    cursor: pointer;
+    width: 160px;
+
+    opacity: 1;
+}
+
+select {
+    background: #2a2a2a;
+}
+
+#searchInput {
+    all: unset;
+    padding: 0 8px;
+    border-radius: 16px;
+    width: 150px;
+    border: none;
+    background-color: #1d1d1d;
+    border: 1px solid #4d4d4d;
+    height: 32px;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+#itemOptions>li,
+#itemList>li {
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+}
+
+#itemOptions label {
+    cursor: pointer;
+}
+
+#itemOptions li:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+#itemList li {
+    margin-right: 8px;
+}
+
+.delButton {
+    padding: 0;
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+}

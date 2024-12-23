@@ -1,0 +1,73 @@
+.custom-select {
+    position: relative;
+    width: 160px; /* Ширина кастомного селекта */
+    height: 40px;
+    font-size: 14px; /* Размер шрифта */
+}
+
+.select-selected:hover{
+    opacity: 1;
+}
+
+.select-selected {
+    background-color: #1d1d1d;
+    color: white; /* Цвет текста */
+    padding: 8px; /* Отступы внутри */
+    border: 1px solid #4d4d4d; /* Цвет границы */
+    border-radius: 32px; /* Закругление углов */
+    cursor: pointer; /* Курсор при наведении */
+    user-select: none; /* Отключает выделение текста */
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.select-items {
+    position: absolute; /* Позиционирование относительно родителя */
+    background-color: #1d1d1d;
+    color: white; /* Цвет текста */
+    border: 1px solid #4d4d4d; /* Цвет границы */
+    width: 100%; /* Ширина соответствует родителю */
+    max-height: 200px; /* Максимальная высота */
+    overflow-y: auto; /* Прокрутка по вертикали */
+    z-index: 99; /* Над другими элементами */
+    opacity: 0; /* Начальное состояние - скрыто */
+    transform: translateY(-10px); /* Сдвиг вверх для анимации */
+    visibility: hidden; /* Скрываем элемент при помощи visibility */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Плавный переход */
+    border-radius: 12px 12px 16px 16px; /* Закругление углов */
+}
+
+.select-items.show {
+    opacity: 1; /* Показать элемент */
+    transform: translateY(0); /* Вернуть на место */
+    visibility: visible; /* Делаем элемент видимым */
+}
+
+.select-items.hide {
+    opacity: 0; /* Скрытие */
+    transform: translateY(-10px); /* Убираем вверх для анимации */
+    visibility: hidden; /* Скрываем элемент при помощи visibility */
+}
+
+.select-items div {
+    padding: 8px 8px;   /* Отступы для элементов */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.custom-select img {
+    width: 24px; /* Ширина изображения */
+}
+
+.select-items div:hover {
+    background-color: #4d4d4d; /* Цвет фона при наведении */
+}
+
+.select-items {
+    display: block; 
+}
+
+/* Скрываем оригинальный select */
+select {
+    display: none; /* Скрыть оригинальный селект */
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Распознавание покемонов</title>
+    <link rel="stylesheet" href="teamanalizer.css">
+    <link rel="stylesheet" href="custom-select.css">
+    <link rel="stylesheet" href="../scrollbar.css">
+</head>
+
+<body>
+    <div id="leftMenu">
+
+    </div>
+    <div class="left-panel">
+        <div class="custom-select vertical-select">
+            <div class="select-selected">Choose</div>
+            <div class="select-items select-hide">
+                <div>0️⃣ Система баллов</div>
+                <div>🎯 Система тиров</div>
+            </div>
+            <select>
+                <option value="points">Points</option>
+                <option value="tiers">Tiers</option>
+            </select>
+        </div>
+        <div class="main-menu">
+            <div>
+                <h4 id="current-team-tier-value" style="margin-left: 150px; margin-top: 16px; margin-bottom: 8px;">Current Team </h4>
+                <ul id="itemList">
+                    <button num="0" class="pokemon-pick-btn">
+                        <div class="pokemon-icon">
+                            <span style="display: inline-block; width: 40px; height: 30px; background: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;) -0px -0px no-repeat scroll transparent;"></span>
+                        </div>
+                        <label class="pokemon-pick-name"></label>
+                        <label class="pokemon-pick-tier"></label>
+                    <button num="1" class="pokemon-pick-btn">
+                        <div class="pokemon-icon">
+                            <span style="display: inline-block; width: 40px; height: 30px; background: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;) -0px -0px no-repeat scroll transparent;"></span>
+                        </div>
+                        <label class="pokemon-pick-name"></label>
+                        <label class="pokemon-pick-tier"></label>
+                    </button>
+                    <button num="2" class="pokemon-pick-btn">
+                        <div class="pokemon-icon">
+                            <span style="display: inline-block; width: 40px; height: 30px; background: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;) -0px -0px no-repeat scroll transparent;"></span>
+                        </div>
+                        <label class="pokemon-pick-name"></label>
+                        <label class="pokemon-pick-tier"></label>
+                    </button>
+                    <button num="3" class="pokemon-pick-btn">
+                        <div class="pokemon-icon">
+                            <span style="display: inline-block; width: 40px; height: 30px; background: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;) -0px -0px no-repeat scroll transparent;"></span>
+                        </div>
+                        <label class="pokemon-pick-name"></label>
+                        <label class="pokemon-pick-tier"></label>
+                    </button>
+                    <button num="4" class="pokemon-pick-btn">
+                        <div class="pokemon-icon">
+                            <span style="display: inline-block; width: 40px; height: 30px; background: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;) -0px -0px no-repeat scroll transparent;"></span>
+                        </div>
+                        <label class="pokemon-pick-name"></label>
+                        <label class="pokemon-pick-tier"></label>
+                    </button>
+                    <button num="5" class="pokemon-pick-btn">
+                        <div class="pokemon-icon">
+                            <span style="display: inline-block; width: 40px; height: 30px; background: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;) -0px -0px no-repeat scroll transparent;"></span>
+                        </div>
+                        <label class="pokemon-pick-name"></label>
+                        <label class="pokemon-pick-tier"></label>
+                    </button>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-left: 150px; margin-top: 16px; margin-bottom: 8px;">Description</h4>
+                <div id="description-text-menu">
+                    Возможные атаки за балл:
+                </div>
+            </div>
+        </div>
+        <input type="text" id="searchInput" placeholder="Введите текст...">
+        <div id="resultsMenu">
+            <ul id="itemOptions">
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        Вставить фото
+    </div>
+
+    <script src="https://docs.opencv.org/4.x/opencv.js"></script>
+    <script type="module" src="teamanalizer.js"></script>
+    <script type="module" src="custom-select.js"></script>
+    <script type="module" src="../pokemonPointsBase.js"></script>
+</body>
+
+</html>
