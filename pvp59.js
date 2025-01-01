@@ -820,6 +820,7 @@ function openSelection(forced = null) {
     else {
         selectionMenu.style.display = 'flex';
         setTimeout(function () {
+            selectionMenu.style.transform = "translateX(0px)";
             selectionMenu.style.opacity = '1';
         }, 50);
     }
@@ -828,7 +829,10 @@ function openSelection(forced = null) {
 
 function closeSelection() {
     var selectionMenu = document.querySelector('.selection-menu');
+
     selectionMenu.style.opacity = '0';
+    selectionMenu.style.transform = "translateX(-50px)";
+    console.log("f")
     setTimeout(function () {
         selectionMenu.style.display = 'none';
     }, 300);

@@ -10,6 +10,10 @@ import {loadBuilds, loadBuildResults} from './builds.js';
 
 import {savedTeamsUpdate} from './teams.js';
 
+import {createResults, createMovesResults} from './results.js';
+
+export {filterPokemon, pokemonLoad, teamPokemonUpdate, pokemonStatsLoad, movesForPoints, playerPokemons, updateVisualTeam, teamPokemonUpdate as teamCurPokemonChange};
+
 function openTab(tabIndex, tabButton) {
     let i, tablinks;
     const boxes = document.querySelector('.tab-container-in');
@@ -76,8 +80,7 @@ function openPokemonTab(tabIndex, tabButton){
         return item.name === pokemon.name && item.num === pokemon.num;
     });
     loadBuildResults(pokemon, tabIndex, tabButton)
-    createMovesResults(null, num, object, 0);
-    console.log('q')
+    createMovesResults(null, tabIndex, null, 0);
 }
 
  
@@ -146,7 +149,6 @@ var natures = {
 
 var movesForPoints = ['Whirlwind', 'Roar', 'Baton Pass']
 
-export {pokemonStatsLoad, movesForPoints, playerPokemons, updateVisualTeam, teamPokemonUpdate as teamCurPokemonChange};
 
 function presentInfoUpdate(opponent = null) {
     var buttons = document.querySelectorAll('.pokemon-pick-btn');
@@ -173,7 +175,16 @@ function checkToSpace(text) {
     }
     return newText
 }
-
+function filterPokemon(pokemonArray, filters) {
+    return pokemonArray.filter(pokemon => {
+        for (const filter of filters) {
+            if (!filter(pokemon)) {
+                return false;
+            }
+        }
+        return true;
+    });
+}
 function pokemonsParam(team) {
     team.forEach(function (pokemon) {
         if (pokemon.name) {
@@ -324,17 +335,6 @@ function pokemonStatsLoad(team) {
         pokemon.status = null;
     })
 
-}
-
-function filterPokemon(pokemonArray, filters) {
-    return pokemonArray.filter(pokemon => {
-        for (const filter of filters) {
-            if (!filter(pokemon)) {
-                return false;
-            }
-        }
-        return true;
-    });
 }
 
 function pokemonToBaseValues(pokemon) {
@@ -599,9 +599,10 @@ function updateVisualTeam(pokemon, num = null, object = null) {
 
     let sprite = object.querySelector('.pokemon-icon span')
 
+
     sprite.style.width = '40px';
     sprite.style.height = '30px';
-    sprite.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/ыs-sheet.png?v16")';
+    sprite.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
     sprite.style.backgroundRepeat = 'no-repeat';
     let filters = []
     let pokemonNameBase = pokemon.name
@@ -979,8 +980,8 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
     if (pokemon.types.length == 2) {
         if (!types[1]) {
             var img = document.createElement('img');
-            infoPokemon.querySelector('.current-pokemon-add-info .types').appendChild(img);
-            types = infoPokemon.querySelectorAll('.current-pokemon-add-info .types img');
+            infoPokemon.querySelector('.team-pokemon-add-info .types').appendChild(img);
+            types = infoPokemon.querySelectorAll('.team-pokemon-add-info .types img');
         }
         types[1].src = imgSource + pokemon.types[1].toLowerCase() + '_type.png';
     }
@@ -1283,134 +1284,7 @@ function returnCurrentPokemonPokepaste(pokemon) {
     document.getElementById("current-pokemon-pokepaste-input").value = pokePaste
 }
 
-function createResults(filter = null, num = null, object = null) {
-    let minPointValue = 2
-    var results = document.querySelectorAll('.teambuilder-results ul .result');
-    results.forEach(function (result) {
-        if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
-            result.remove();
-        }
-    });
-    if (filter) {
-        minPointValue = -1
-    }
 
-    for (let i = 6; i > minPointValue; i--) {
-        const filters = [];
-        filters.push(pokemon => pokemon.points == i);
-        if (filter) {
-            filters.push(filter);
-        }
-        let pokemons = filterPokemon(pokemonPointsData, filters)
-        if (pokemons.length != 0) {
-            var li = document.createElement('li');
-            li.classList.add('result');
-            let h3 = document.createElement('h3')
-            h3.textContent = i;
-            li.appendChild(h3)
-            document.querySelector('.teambuilder-results ul').appendChild(li);
-        }
-
-        for (let pokemon of pokemons) {
-            const pokemonInfo = allPokemons[pokemon.name.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()];
-            const li = document.createElement('li');
-            li.classList.add('result');
-
-            const a = document.createElement('a');
-
-            const divIcon = document.createElement('div');
-            divIcon.classList.add('result-pokemon-icon');
-
-            const divPokemonIcon = document.createElement('div');
-            divPokemonIcon.classList.add('pokemon-icon');
-            divPokemonIcon.style.width = '40px';
-            divPokemonIcon.style.height = '30px';
-            divPokemonIcon.style.backgroundImage = 'url("../img/pokemonicon.png")';
-            divPokemonIcon.style.backgroundRepeat = 'no-repeat';
-
-            if (pokemon.iconLoc) {
-                divPokemonIcon.style.backgroundPosition = pokemon.iconLoc;
-            }
-            else {
-                let dex_number = +pokemonInfo.num;
-                let first = dex_number % 12 * 40;
-                let second = Math.floor(dex_number / 12) * 30;
-
-                divPokemonIcon.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
-            }
-            divPokemonIcon.style.backgroundColor = 'transparent';
-
-
-            divIcon.appendChild(divPokemonIcon);
-
-            const divName = document.createElement('div');
-            divName.classList.add('result-pokemon-name');
-            divName.textContent = pokemonInfo.name;
-
-            const divTypes = document.createElement('div');
-            divTypes.classList.add('result-pokemon-types');
-
-            pokemonInfo.types.forEach(function (type) {
-                const imgType = document.createElement('img');
-                imgType.src = imgSource + type.toLowerCase() + '_type.png';
-                divTypes.appendChild(imgType);
-            });
-
-            const divAbilities = document.createElement('div');
-            divAbilities.classList.add('result-pokemon-abilities');
-            for (let i = 0; i < 2; i++) {
-                const pAbility = document.createElement('p');
-                pAbility.textContent = pokemonInfo.abilities[i]
-                divAbilities.appendChild(pAbility);
-            }
-
-            const divHA = document.createElement('div');
-            divHA.classList.add('result-pokemon-ha');
-            for (let i = 0; i < 2; i++) {
-                const pHA = document.createElement('p');
-                if (i == 0) {
-                    pHA.textContent = pokemonInfo.abilities.H
-                }
-                else {
-                    pHA.textContent = pokemonInfo.abilities.S
-                }
-                divHA.appendChild(pHA);
-            }
-
-            const divBST = document.createElement('div');
-            divBST.classList.add('result-pokemon-bst');
-            divBST.textContent = Object.values(pokemonInfo.baseStats).reduce((total, stat) => total + stat, 0);
-
-            a.appendChild(divIcon);
-            a.appendChild(divName);
-            a.appendChild(divTypes);
-            a.appendChild(divAbilities);
-            a.appendChild(divHA);
-
-            for (let i = 0; i < 6; i++) {
-                const divStat = document.createElement('div');
-                divStat.classList.add('result-pokemon-stat');
-                divStat.textContent = pokemonInfo.baseStats[Object.keys(pokemonInfo.baseStats)[i]];
-                a.appendChild(divStat);
-            }
-            a.appendChild(divBST);
-            a.setAttribute('data-name', pokemon.name)
-            a.onclick = function () {
-
-                const pokemonName = this.getAttribute('data-name');
-                let basePokemon = allPokemons[pokemonName.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()]
-                pokemonLoad(num, basePokemon, object)
-                document.querySelector('#current-pokemon-add-info .item').focus()
-                updateVisualTeam(playerPokemons[num], num, object)
-                teamPokemonUpdate(playerPokemons[num], num, object)
-            };
-
-            li.appendChild(a);
-
-            document.querySelector('.teambuilder-results ul').appendChild(li);
-        }
-    }
-}
 
 function pokemonLoad(pokemonNum, newPokemon, object) {
     let num = pokemonNum
@@ -1512,105 +1386,6 @@ function createItemsResults(filter = null, num = null, object = null) {
     }
 }
 
-function createMovesResults(filter = null, num = null, object = null, moveNum) {
-    console.log('zdarova')
-    var results = document.querySelectorAll('#MovesTab');
-    console.log(results)
-    results.forEach(function (result) {
-        if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
-        }
-    });
-    const filters = [];
-    if (filter) {
-        filters.push(filter);
-    }
-    const filteredMoves = Object.keys(allMoves).reduce((acc, key) => {
-        if (filters.every(filter => key.startsWith(filter.replace(' ', '').toLowerCase()) || key.includes(filter.replace(' ', '').toLowerCase()))) {
-            acc[key] = allMoves[key];
-        }
-        return acc;
-    }, {});
-
-    var li = document.createElement('li');
-    li.classList.add('result');
-    let h3 = document.createElement('h3')
-    h3.textContent = 'Moves';
-    li.appendChild(h3)
-    document.querySelector('#MovesTab').appendChild(li);
-
-    var foundPokemon = pokemonPointsData.find(function (pokemon) {
-        return pokemon.name === playerPokemons[num].name;
-    });
-    for (let move of Object.keys(filteredMoves)) {
-        if (foundPokemon.learnset.includes(move)) {
-            move = allMoves[move]
-            const li = document.createElement('li');
-            li.classList.add('result');
-
-            const a = document.createElement('a');
-
-            const divName = document.createElement('div');
-            divName.classList.add('result-pokemon-name');
-            divName.textContent = move.name;
-
-            const divDesc = document.createElement('div');
-            divDesc.classList.add('result-move-desc')
-            divDesc.textContent = move.shortDesc
-
-            const divTypes = document.createElement('div');
-            divTypes.classList.add('result-move-type');
-
-            const imgType = document.createElement('img');
-            imgType.src = imgSource + move.type.toLowerCase() + '_type.png';
-            divTypes.appendChild(imgType);
-
-            let divPower = document.createElement('div');
-            divPower.classList.add('result-move-power');
-            divPower.textContent = move.basePower
-
-            let divPP = document.createElement('div');
-            divPP.classList.add('result-move-pp');
-            divPP.textContent = move.pp
-
-            let divAcc = document.createElement('div');
-            divAcc.classList.add('result-move-acc');
-            if (move.accuracy == true) {
-                divAcc.textContent = '-'
-            }
-            else {
-                divAcc.textContent = move.accuracy
-            }
-
-            let divCat = document.createElement('div');
-            divCat.classList.add('result-move-cat');
-            divCat.textContent = move.category
-
-            a.appendChild(divName);
-            a.appendChild(divTypes)
-            a.appendChild(divCat);
-            a.appendChild(divPower);
-            a.appendChild(divAcc);
-            a.appendChild(divPP);
-            a.appendChild(divDesc)
-
-            a.setAttribute('data-name', move.name)
-            a.onclick = function () {
-                let moveName = this.getAttribute('data-name');
-                playerPokemons[num].moves[moveNum] = allMoves[moveName.replace(' ', '').replace('-', '').toLowerCase()];
-                updateVisualTeam(playerPokemons[num], num, object)
-                teamPokemonUpdate(playerPokemons[num], num, object)
-                let moves = document.querySelectorAll('.moves span');
-                if (moves[moveNum + 1]) {
-                    moves[moveNum + 1].querySelector('input').focus();
-                }
-            };
-
-            li.appendChild(a);
-
-            document.querySelector('#MovesTab').appendChild(li);
-        }
-    }
-}
 
 function megaXYUrl(pokemonName, num) {
     if (pokemonName.includes('-Y')) {
@@ -1756,3 +1531,4 @@ function saveBuild(num, event) {
 
     sendBuild(buildData)
 }
+

@@ -1,3 +1,5 @@
+
+
 class Pokemon {
     constructor(name, abilities, ability, baseStats, boosts, color, eggGroups, evos, evs, genderRatio, heightm, hp, item, ivs, level, moves, nature, num, stats, status, tier, types, weightkg) {
         this.name = name;

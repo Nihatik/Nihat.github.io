@@ -1,109 +1,102 @@
+.moves-menu button{
+    border-radius: 64px;
+    height: 56px;
+    width: 220px;
+
+    border: none;
+    border: 1px solid white;
+    box-shadow: none;
+    font-size: 14px;
+}
+
 .normal {
-    background: #f0f0eb;
-    background: linear-gradient(to bottom, #f0f0eb, #cccabf);
-    border-color: #bdbda8;
+    background: linear-gradient(to bottom, #F1F1C1, #A8A878); /* светлый желтый с зеленоватым оттенком */
+    border-color: #A8A878;
 }
 
 .grass {
-    background: #ebf3e8;
-    background: linear-gradient(to bottom, #ebf3e8, #abc99c);
-    border-color: #abc99c;
+    background: linear-gradient(to bottom, #C6E1B0, #78C850); /* светлый зелёный с ярким зелёным */
+    border-color: #78C850;
 }
 
 .fire {
-    background: #f4ece6;
-    background: linear-gradient(to bottom, #f4ece6, #d1ad94);
-    border-color: #d1ad94;
+    background: linear-gradient(to bottom, #FF9F7F, #F08030); /* яркий оранжевый */
+    border-color: #F08030;
 }
 
 .water {
-    background: #e8ebf2;
-    background: linear-gradient(to bottom, #e8ebf2, #9caac9);
-    border-color: #9caac9;
+    background: linear-gradient(to bottom, #82C9FF, #6890F0); /* светлый голубой с ярким синим */
+    border-color: #6890F0;
 }
 
 .electric {
-    background: #f4f2e6;
-    background: linear-gradient(to bottom, #f4f2e6, #d2c593);
-    border-color: #d2c593;
+    background: linear-gradient(to bottom, #FFF96B, #F8D030); /* яркий жёлтый с насыщенным жёлтым */
+    border-color: #F8D030;
 }
 
 .psychic {
-    background: #f3e7eb;
-    background: linear-gradient(to bottom, #f3e7eb, #cc99a8);
-    border-color: #cc99a8;
+    background: linear-gradient(to bottom, #F8A1A1, #F85888); /* светло-розовый с ярким розовым */
+    border-color: #F85888;
 }
 
 .poison {
-    background: #f3e8f3;
-    background: linear-gradient(to bottom, #f3e8f3, #c99cc9);
-    border-color: #c99cc9;
+    background: linear-gradient(to bottom, #E0A6E1, #A040A0); /* нежно-фиолетовый с насыщенным фиолетовым */
+    border-color: #A040A0;
 }
 
 .dragon {
-    background: #eae6f4;
-    background: linear-gradient(to bottom, #eae6f4, #a695d0);
-    border-color: #a695d0;
+    background: linear-gradient(to bottom, #D3B4E6, #7038F8); /* светлый фиолетовый с глубоким фиолетовым */
+    border-color: #7038F8;
 }
 
 .ice {
-    background: #eaf0f0;
-    background: linear-gradient(to bottom, #eaf0f0, #a7bebe);
-    border-color: #a7bebe;
+    background: linear-gradient(to bottom, #C8D9D9, #98D8D8); /* светлый голубой с ярким бирюзовым */
+    border-color: #98D8D8;
 }
 
 .bug {
-    background: #f3f5e6;
-    background: linear-gradient(to bottom, #f3f5e6, #ccd392);
-    border-color: #ccd392;
+    background: linear-gradient(to bottom, #D3D686, #A8B820); /* светлый оливковый с ярким зелёным */
+    border-color: #A8B820;
 }
 
 .rock {
-    background: #f3f1e7;
-    background: linear-gradient(to bottom, #f3f1e7, #cdc398);
-    border-color: #cdc398;
+    background: linear-gradient(to bottom, #E3D3A4, #B8A038); /* светлый песочный с тёмным желтым */
+    border-color: #B8A038;
 }
 
 .ground {
-    background: #f2efe8;
-    background: linear-gradient(to bottom, #f2efe8, #c7bc9e);
-    border-color: #c7bc9e;
+    background: linear-gradient(to bottom, #D6C094, #E0C068); /* светлый коричневый с насыщенным желтым */
+    border-color: #E0C068;
 }
 
 .flying {
-    background: #ebeaf1;
-    background: linear-gradient(to bottom, #ebeaf1, #aba3c2);
-    border-color: #aba3c2;
+    background: linear-gradient(to bottom, #B7A8D9, #A890F0); /* светлый фиолетовый с ярким синим */
+    border-color: #A890F0;
 }
 
 .fighting {
-    background: #f4e7e6;
-    background: linear-gradient(to bottom, #f4e7e6, #d19794);
-    border-color: #d19794;
+    background: linear-gradient(to bottom, #E4B0A3, #C03028); /* светло-красный с насыщенным красным */
+    border-color: #C03028;
 }
 
 .ghost {
-    background: #ece9f1;
-    background: linear-gradient(to bottom, #ece9f1, #aea2c3);
-    border-color: #aea2c3;
+    background: linear-gradient(to bottom, #D0C5E8, #705898); /* светлый фиолетовый с глубоким фиолетовым */
+    border-color: #705898;
 }
 
 .dark {
-    background: #f0edea;
-    background: linear-gradient(to bottom, #f0edea, #c0b0a5);
-    border-color: #c0b0a5;
+    background: linear-gradient(to bottom, #D5C7B4, #705848); /* светлый коричневый с тёмным коричневым */
+    border-color: #705848;
 }
 
 .steel {
-    background: #ececee;
-    background: linear-gradient(to bottom, #ececee, #aeaeb7);
-    border-color: #aeaeb7;
+    background: linear-gradient(to bottom, #B7B9B7, #A7AEB7); /* светло-серый с нейтральным серым */
+    border-color: #A7AEB7;
 }
 
 .fairy {
-    background: #f4e6f2;
-    background: linear-gradient(to bottom, #f4e6f2, #d293c7);
-    border-color: #d293c7;
+    background: linear-gradient(to bottom, #F1C0D1, #EE99AC); /* светлый розовый с ярким розовым */
+    border-color: #EE99AC;
 }
 
 
