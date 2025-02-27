@@ -52,6 +52,22 @@ button{
     padding: 54px;
     padding-top: 0;
 }
+.right-panel-active{
+    opacity: 0;
+    animation: r-panel 1s ;
+    display: none;
+}
+
+
+#content {
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+}
+
+.content-active {
+    transform: translateX(30%);
+}
 
 #pokemon-pick-buttons{
     width: 600px;
@@ -85,7 +101,8 @@ button{
     width: 40px;
     height: 40px;
     border-radius: 32px;
-    padding: 0;border: 1px solid #4d4d4d;
+    padding: 0;
+    border: 1px solid #4d4d4d;
     transition: 0.4s;
     overflow: hidden;
     opacity: 0.5;
@@ -106,7 +123,8 @@ button{
 
 #pokemon-picked-btn{
     opacity: 1;
-    width: 40px;
+    width: 160px;
+    border-color: transparent;
     background-color: #1d1d1d;
 }
 
@@ -343,6 +361,7 @@ select{
 .pokemon-info-item {
     image-rendering: pixelated;
     display: block;
+    margin-left: 4px;
     width: 24px;
     height: 24px;
 }

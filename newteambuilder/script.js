@@ -637,8 +637,8 @@ function onLoad() {
 
     $('#teamsbutton').on('click', function(e) {
         e.preventDefault();
-        $('#left-panel').toggleClass('left-panel-active');
-        $('#center-panel').toggleClass('center-panel-active');
+        $('#content').toggleClass('content-active');
+        $('#right-panel').toggleClass('right-panel-active');
       })
 
     Array.from(document.getElementsByClassName("tablinks")).forEach(function (tabLink) {
@@ -715,6 +715,7 @@ function onLoad() {
 }
 
 function teamPokemonUpdate(pokemon, num = null, object = null) {
+    updateTeamStatsWeak();
     /* teamTypesDefenseUpdate(playerPokemons) */
     if (document.getElementById('build-button')) {
         document.getElementById('build-button').remove()
@@ -1532,3 +1533,25 @@ function saveBuild(num, event) {
     sendBuild(buildData)
 }
 
+function getGradientColor(value) {
+    value = value/40
+    const red = Math.max(0, 255 - (value * 2.55 * 2));
+    const green = Math.min(255, value * 2.55 * 2);
+    const blue = Math.max(0, 255 - Math.abs(127.5 - (value * 2.55)) * 2);
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function updateTeamStatsWeak() {
+    const stats = { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
+    playerPokemons.forEach(pokemon => {
+        Object.keys(stats).forEach(stat => stats[stat] += pokemon.stats[stat]);
+    });
+    Object.entries(stats).forEach(([key, value]) => updateStatWeak(key, value));
+}
+
+function updateStatWeak(id, value){
+    const bar = document.getElementById(id);
+    bar.style.width = value/10 + '%';
+    bar.style.backgroundColor = getGradientColor(value);
+    bar.textContent = value + '%';
+}

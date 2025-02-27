@@ -119,7 +119,6 @@ main {
 }
 
 .right-menu{
-
     height: auto;
     overflow-y: scroll;
     z-index: 0;
@@ -1460,7 +1459,7 @@ thead tr{
 #tab-buttons{
 
     margin: 0;
-    display: flex;
+    display: none;
     flex-direction: row;
 }
 

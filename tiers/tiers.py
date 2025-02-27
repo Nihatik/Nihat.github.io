@@ -149,7 +149,7 @@ except Exception as e:
 
 data = sorted(data, key=lambda x: x["name"])
 def generate_pokemon_cards_for_tier(tier):
-    defisNames = ['Chi-Yu','Chien-Pao', 'Ho-Oh','Kommo-o', 'Porygon-Z']
+    defisNames = ['Chi-Yu','Chien-Pao', 'Ting-Lu', 'Wo-Chien', 'Ho-Oh','Kommo-o', 'Porygon-Z']
     text = '<div id="pokemon-cards">'
     for pokemon in data:
         url = pokemon['name'].replace(' ','').lower()
