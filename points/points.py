@@ -160,7 +160,7 @@ def generate_pokemon_cards_for_tier(tier):
         'one': '1',
         'zero': '0'
     }
-    defisNames = ['Chi-Yu','Chien-Pao', 'Ho-Oh','Kommo-o', 'Porygon-Z']
+    defisNames = ['Chi-Yu','Wo-Chien', 'Ting-Lu' 'Chien-Pao', 'Ho-Oh','Kommo-o', 'Porygon-Z']
     text = '<div id="pokemon-cards">'
     for pokemon in data:
         url = pokemon['name'].replace(' ','').lower()
