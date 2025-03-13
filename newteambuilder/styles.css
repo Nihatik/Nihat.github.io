@@ -131,8 +131,8 @@ button{
 
     flex-direction: row;
     position: absolute; 
-    bottom: -2px;
-    right: 16px;
+    bottom: 0px;
+    right: 32px;
     font-weight: bold;
     font-size: 12px;
 }

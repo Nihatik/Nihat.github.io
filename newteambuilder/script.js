@@ -1077,7 +1077,7 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
     });
 
 
-    /* const myInput = document.querySelector('.current-pokemon .name');
+    const myInput = document.querySelector('#search-input');
  
     myInput.onfocus = function () {
         this.select();
@@ -1090,7 +1090,7 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
         else {
             createResults(pokemon => pokemon.name.toLowerCase().startsWith(this.value.toLowerCase()), num, object);
         }
-    }); */
+    });
 
     let itemInput = document.querySelector('#current-pokemon-info .item');
     itemInput.onfocus = function () {
