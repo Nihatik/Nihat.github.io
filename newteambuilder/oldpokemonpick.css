@@ -1,0 +1,59 @@
+
+#pokemon-pick-buttons{
+    width: 600px;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#pokemon-pick-buttons > * {
+    margin-right: 8px;
+}
+
+#pokemon-pick-buttons > *:last-child {
+    margin-bottom: 0;
+}
+.pokemon-pick-name{
+    width: 0;
+    opacity: 1;
+    text-align: left;
+    font-size: 0.8rem;
+    transition: 0.5s;
+}
+
+.pokemon-pick-btn{
+    
+    display: flex;
+    align-items: center;
+    background-image: "../";
+    background-color: #1d1d1d;
+    width: 40px;
+    height: 40px;
+    border-radius: 32px;
+    padding: 0;
+    border: 1px solid #4d4d4d;
+    transition: 0.4s;
+    overflow: hidden;
+    opacity: 0.5;
+}
+
+.pokemon-pick-btn:hover{
+    width: 40px;
+    
+    opacity: 1;
+}
+#pokemon-picked-btn:hover{
+    opacity: 1;
+}
+
+#pokemon-picked-btn .pokemon-pick-name, .pokemon-pick-btn:hover .pokemon-pick-name{
+    opacity: 1;
+}
+
+#pokemon-picked-btn{
+    opacity: 1;
+    width: 160px;
+    border-color: transparent;
+    background-color: #1d1d1d;
+}

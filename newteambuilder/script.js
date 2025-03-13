@@ -79,6 +79,7 @@ function openPokemonTab(tabIndex, tabButton){
     var findedPokemon = pokemonPointsData.find(function (item) {
         return item.name === pokemon.name && item.num === pokemon.num;
     });
+    createResults(null, tabIndex, tabButton)
     loadBuildResults(pokemon, tabIndex, tabButton)
     createMovesResults(null, tabIndex, null, 0);
 }
@@ -597,28 +598,47 @@ function updateVisualTeam(pokemon, num = null, object = null) {
 
     document.getElementById('team-points-value').textContent = 'Points: ' + teamPointsValue;
 
-    let sprite = object.querySelector('.pokemon-icon span')
+    let sprite = object.querySelector('.pokemon-sprite div')
 
 
-    sprite.style.width = '40px';
-    sprite.style.height = '30px';
-    sprite.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
-    sprite.style.backgroundRepeat = 'no-repeat';
-    let filters = []
-    let pokemonNameBase = pokemon.name
-    filters.push(pokemon => pokemon.name == pokemonNameBase);
-    let pokemonDataIconLoc = filterPokemon(pokemonPointsData, filters)
-    if (pokemonDataIconLoc[0].iconLoc) {
-        sprite.style.backgroundPosition = pokemonDataIconLoc[0].iconLoc;
+    sprite.style = `background-image:url(https://play.pokemonshowdown.com/sprites/gen5/${pokemon.name.toLowerCase()}.png);background-position:-2px -3px;background-repeat:no-repeat`;
+
+    console.log(object)
+
+    let boostedStat = natures[pokemon.nature].boosted;
+    let reducedStat = natures[pokemon.nature].reduced;
+
+    let container = object.querySelector('.pokemon-pick-evs'); // Контейнер, куда добавлять span
+    container.innerHTML = ''; // Очищаем, чтобы не дублировать элементы
+
+    let stats = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
+
+    stats.forEach(stat => {
+        let evValue = pokemon.evs[stat] || 0;
+        if (evValue > 0) {
+            let span = document.createElement('span');
+            span.classList.add(stat); // Добавляем класс по названию стата
+            let boostMark = boostedStat === stat ? '+' : reducedStat === stat ? '-' : '';
+            span.textContent = `${evValue}${boostMark}`;
+            container.appendChild(span); // Добавляем span в контейнер
+        }
+    });
+
+    setTypesImg(pokemon, object, '.pokemon-pick-types');
+
+    var item = object.querySelector('.pokemon-info-item')
+    if (pokemon.item.name) {
+
+        let firstCord = -(pokemon.item.spritenum % 16 * 24)
+        let secondCord = -(Math.floor(pokemon.item.spritenum / 16) * 24)
+
+        item.title = pokemon.item.name;
+        item.style = "background:transparent url(https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1) no-repeat scroll " + firstCord + 'px ' + secondCord + 'px';
     }
     else {
-        let dex_number = +pokemon.num;
-        let first = dex_number % 12 * 40;
-        let second = Math.floor(dex_number / 12) * 30;
-
-        sprite.style.backgroundPosition = '-' + first.toString() + 'px' + ' -' + second.toString() + 'px';
+        item.title = '';
+        item.style = "background:transparent url(https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1) no-repeat scroll " + 0 + 'px ' + 0 + 'px';
     }
-    sprite.style.backgroundColor = 'transparent';
 
     let objectLabel = object.querySelector('label')
     let pokemonName = objectLabel;
@@ -637,8 +657,6 @@ function onLoad() {
 
     $('#teamsbutton').on('click', function(e) {
         e.preventDefault();
-        $('#content').toggleClass('content-active');
-        $('#right-panel').toggleClass('right-panel-active');
       })
 
     Array.from(document.getElementsByClassName("tablinks")).forEach(function (tabLink) {
@@ -976,21 +994,8 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
 
     movesValuesUpdate(pokemon)
 
-    let types = infoPokemon.querySelectorAll('.team-pokemon-add-info .types img');
-    types[0].src = imgSource + pokemon.types[0].toLowerCase() + '_type.png';
-    if (pokemon.types.length == 2) {
-        if (!types[1]) {
-            var img = document.createElement('img');
-            infoPokemon.querySelector('.team-pokemon-add-info .types').appendChild(img);
-            types = infoPokemon.querySelectorAll('.team-pokemon-add-info .types img');
-        }
-        types[1].src = imgSource + pokemon.types[1].toLowerCase() + '_type.png';
-    }
-    else {
-        if (types[1]) {
-            types[1].remove();
-        }
-    }
+    
+    setTypesImg(pokemon, infoPokemon, '.team-pokemon-add-info .types');
 
     let abilitiesSelect = infoPokemon.querySelector('.ability');
     abilitiesSelect.onchange = function () {
@@ -1185,6 +1190,24 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
     };
     loadBuildResults(pokemon, num, object)
     returnCurrentPokemonPokepaste(pokemon)
+}
+
+function setTypesImg(pokemon, infoPokemon, typesContainerPath){
+    let types = infoPokemon.querySelectorAll(typesContainerPath + ' img');
+    types[0].src = imgSource + pokemon.types[0].toLowerCase() + '_type.png';
+    if (pokemon.types.length == 2) {
+        if (!types[1]) {
+            var img = document.createElement('img');
+            infoPokemon.querySelector(typesContainerPath).appendChild(img);
+            types = infoPokemon.querySelectorAll(typesContainerPath + ' img');
+        }
+        types[1].src = imgSource + pokemon.types[1].toLowerCase() + '_type.png';
+    }
+    else {
+        if (types[1]) {
+            types[1].remove();
+        }
+    }
 }
 
 function loadPokemonStats(pokemon, num, object){

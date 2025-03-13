@@ -121,12 +121,12 @@ function createResults(filter = null, num = null, object = null) {
             a.appendChild(divBST);
             a.setAttribute('data-name', pokemon.name)
             a.onclick = function () {
-
                 const pokemonName = this.getAttribute('data-name');
                 let basePokemon = allPokemons[pokemonName.replace(/\s/g, '').replace(/-/g, '').replace(/%/g, '').replace('.', '').replace("'", '').toLowerCase()]
                 pokemonLoad(num, basePokemon, object)
                 updateVisualTeam(playerPokemons[num], num, object)
                 teamPokemonUpdate(playerPokemons[num], num, object)
+                console.log("NUMBER: " + num)
             };
 
             li.appendChild(a);

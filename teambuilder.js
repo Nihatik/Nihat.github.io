@@ -39,7 +39,6 @@ const typeEffectiveness = {
 
 
 
-
 var natures = {
     "Adamant": { boosted: "atk", reduced: "spa" },
     "Bashful": {},

@@ -5,22 +5,21 @@
     border-top: none;
     border-radius: 0px 16px 16px 16px;
     background-color: #1d1d1d;
-    height: 670px;
+    height: 460px;
   }
   
 
   .active-tab {
     opacity: 1 !important;
-    background-color: #2e2e2e !important;
   }
   
   #current-pokemon-info {
-    border: 1px solid #4d4d4d;
-    height: 200px;;
+    margin-top: 16px;
+    height: 200px;
     overflow: hidden;
     position: relative;
     transition: 0.3s;
-    border-radius: 16px 16px 16px 16px;
+    border-radius: 32px;
     background-color: #1d1d1d;
   }
   

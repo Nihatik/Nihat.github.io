@@ -24,8 +24,152 @@
 
 <body>
     <div id="left-panel">
+        
+        <div class="team-buttons">
+            <h4 id="team-points-value" style="display: none;"></h4>
+            <button id="teamsbutton" easy-add="#teamsMenu" easy-class="teams--show">Teams</button>
+            <button id="saveteambutton" easy-add="#teamsMenu" easy-class="teams--show">Save Team</button>
+            <button id="pastebutton">PokePaste</button>
+        </div>
+        <div id="pokemon-pick-buttons">
+            <button num="0" class="pokemon-pick-btn fire-type" id="pokemon-picked-btn">
+                <div class="pokemon-pick-btn-top">
+                    <label class="pokemon-pick-name"></label>
+                </div>
+                <div class="pokemon-pick-btn-content">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url();background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    
+                    <span class="pokemon-info-item">
+                    </span>
+                    
+                    <div class="pokemon-pick-evs">
+                    </div>
+
+                    <div class="pokemon-pick-moves">
+
+                    </div>
+                    <div class="pokemon-pick-types types">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+            </button>
+            <button num="1" class="pokemon-pick-btn">
+                <div class="pokemon-pick-btn-top">
+                    <label class="pokemon-pick-name"></label>
+                </div>
+                <div class="pokemon-pick-btn-content">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url();background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span class="pokemon-info-item">
+                    </span>
+                    <div class="pokemon-pick-evs">
+                    </div>
+                    <div class="pokemon-pick-moves">
+
+                    </div>
+                    <div class="pokemon-pick-types types">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+            </button>
+            <button num="2" class="pokemon-pick-btn">
+                <div class="pokemon-pick-btn-top">
+                    <label class="pokemon-pick-name"></label>
+                </div>
+                <div class="pokemon-pick-btn-content">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url();background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span class="pokemon-info-item">
+                    </span>
+                    <div class="pokemon-pick-evs">
+                    </div>
+                    <div class="pokemon-pick-moves">
+
+                    </div>
+                    <div class="pokemon-pick-types types">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+            </button>
+            <button num="3" class="pokemon-pick-btn">
+                <div class="pokemon-pick-btn-top">
+                    <label class="pokemon-pick-name"></label>
+                </div>
+                <div class="pokemon-pick-btn-content">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url();background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span class="pokemon-info-item">
+                    </span>
+                    <div class="pokemon-pick-evs">
+                    </div>
+                    <div class="pokemon-pick-moves">
+
+                    </div>
+                    <div class="pokemon-pick-types types">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+            </button>
+            <button num="4" class="pokemon-pick-btn">
+                <div class="pokemon-pick-btn-top">
+                    <label class="pokemon-pick-name"></label>
+                </div>
+                <div class="pokemon-pick-btn-content">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url();background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span class="pokemon-info-item">
+                    </span>
+                    <div class="pokemon-pick-evs">
+                    </div>
+                    <div class="pokemon-pick-moves">
+
+                    </div>
+                    <div class="pokemon-pick-types types">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+            </button>
+            <button num="5" class="pokemon-pick-btn">
+                <div class="pokemon-pick-btn-top">
+                    <label class="pokemon-pick-name"></label>
+                </div>
+                <div class="pokemon-pick-btn-content">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url();background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span class="pokemon-info-item">
+                    </span>
+                    <div class="pokemon-pick-evs">
+                    </div>
+                    <div class="pokemon-pick-moves">
+
+                    </div>
+                    <div class="pokemon-pick-types types">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+            </button>
+        </div>
         <div class="horizontal-line"></div>
-        <div id="teamsMenu" class="teams">
+        <div style="display: none;" id="teamsMenu" class="teams">
             <h4>Teams</h4>
             <span id="new-team">
                 <button>Create random team</button>
@@ -55,7 +199,7 @@
         <div id="center-panel">
             <div id="team-pokemon-tabs">
                 <div class="top-buttons">
-                    <div id="pokemon-pick-buttons">
+                    <div id="pokemon-pick-buttons" style="display: none;">
                         <button num="0" class="pokemon-pick-btn" id="pokemon-picked-btn">
                             <div class="pokemon-icon">
                                 <span
@@ -98,12 +242,6 @@
                             </div>
                             <label class="pokemon-pick-name">Magcargo</label>
                         </button>
-                    </div>
-                    <div class="team-buttons">
-                        <h4 id="team-points-value" style="display: none;"></h4>
-                        <button id="saveteambutton" easy-add="#teamsMenu" easy-class="teams--show">Save Team</button>
-                        <button id="teamsbutton" easy-add="#teamsMenu" easy-class="teams--show">Teams</button>
-                        <button id="pastebutton">PokePaste</button>
                     </div>
                 </div>
                 <div id="current-pokemon-info">
@@ -963,10 +1101,7 @@
                         <input type="text" placeholder="Введите текст...">
                     </div>
                     <div class="tablinks-container">
-                        <button class="tablinks active-tab" num="0" id="Search">Search</button>
-                        <button class="tablinks" num="1" id="Pokemons">Pokemons</button>
-                        <button class="tablinks" num="2" id="Moves">Moves</button>
-                        <button class="tablinks" num="3" id="Items">Items</button>
+                        <button class="tablinks active-tab" num="3" id="Search">Search</button>
                         <button class="tablinks" num="4" id="Builds">Builds</button>
                         <button class="tablinks" num="5" id="Pokepaste">Ppaste</button>
                     </div>
@@ -974,6 +1109,15 @@
     
                 <div  class="tab-container" id="tabContainer">
                     <div class="tab-container-in"> 
+                        <div id="PokemonsTab" class="tabcontent tab-item">
+                            <h3>Pokemons</h3>
+                        </div>
+                        <div id="MovesTab" class="tabcontent tab-item">
+                            <h3></h3>
+                        </div>
+                        <div id="ItemsTab" class="tabcontent tab-item">
+                            <h3>Items</h3>
+                        </div>
                         <div id="SearchTab" class="teambuilder-results tabcontent tab-item">
                             <div class="result-filters" style="display: none;">
                                 <div class="result-pokemon-icon">
@@ -1060,15 +1204,6 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
-                        <div id="PokemonsTab" class="tabcontent tab-item">
-                            <h3>Pokemons</h3>
-                        </div>
-                        <div id="MovesTab" class="tabcontent tab-item">
-                            <h3></h3>
-                        </div>
-                        <div id="ItemsTab" class="tabcontent tab-item">
-                            <h3>Items</h3>
                         </div>
                         <div class="current-pokemon-builds tabcontent tab-item" id="BuildsTab">
                             <h3>Builds</h3>
