@@ -517,7 +517,7 @@ input[type="range"] {
     transition: 0.25s;
     border-color: black;
     font-size: 12px;
-    padding: 2px;
+    padding: 10px;
     border:1px solid transparent;
 }
 
@@ -533,11 +533,11 @@ input[type="range"] {
     align-items: center;
     justify-content: center;
     list-style-type: none;
-    padding: 0;
     clear: both;
     word-wrap: normal;
     margin-top: 2px;
     margin-bottom: 2px;
+    
 }
 
 .teambuilder-results li:has(h3) {

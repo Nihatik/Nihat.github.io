@@ -101,7 +101,9 @@ button{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 280px;
 }
+
 
 #pokemon-pick-buttons * {
     transition: 0.3s;
@@ -447,7 +449,8 @@ select{
 }
 
 .team-pokemon-add-info input {
-    width: 104px;
+    width: 120px;
+    padding-left: 8px;
 }
 .team-pokemon-add-info select {
     width: 150px;
@@ -629,3 +632,7 @@ input[type="range"] {
     resize: none;
 }
 
+
+.pokepaste-show {
+    width: 360px !important;
+}

@@ -9,8 +9,9 @@ import { filterPokemon, pokemonLoad, updateVisualTeam, playerPokemons, teamPokem
 
 
 function createResults(filter = null, num = null, object = null) {
-    let minPointValue = 2
-    var results = document.querySelectorAll('.teambuilder-results ul .result');
+    let minPointValue = 3
+    const container = document.querySelector("#PokemonsTab");
+    let results = container.querySelectorAll('.result');
     results.forEach(function (result) {
         if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
             result.remove();
@@ -19,6 +20,7 @@ function createResults(filter = null, num = null, object = null) {
     if (filter) {
         minPointValue = -1
     }
+
 
     for (let i = 6; i > minPointValue; i--) {
         const filters = [];
@@ -33,7 +35,7 @@ function createResults(filter = null, num = null, object = null) {
             let h3 = document.createElement('h3')
             h3.textContent = i;
             li.appendChild(h3)
-            document.querySelector('.teambuilder-results ul').appendChild(li);
+            container.appendChild(li);
         }
 
         for (let pokemon of pokemons) {
@@ -130,11 +132,40 @@ function createResults(filter = null, num = null, object = null) {
             };
 
             li.appendChild(a);
+            li.classList.add("result-show");
 
-            document.querySelector('.teambuilder-results ul').appendChild(li);
+            document.querySelector('#PokemonsTab').appendChild(li);
         }
     }
 }
+function filterResults(filter = null, num = null, object = null) {
+    const filters = [];
+    if (filter) {
+        filters.push(filter);
+    }
+
+    let pokemons = filterPokemon(pokemonPointsData, filters);
+
+    document.querySelectorAll('.result-show').forEach(el => el.classList.remove('result-show'));
+
+    for (let pokemon of pokemons) {
+        const pokemonName = pokemon.name
+            .replace(/\s|[-.%']/g, '')
+            .toLowerCase();
+        const pokemonInfo = allPokemons[pokemonName];
+        if (!pokemonInfo) continue;
+
+        console.log(pokemonInfo.name);
+        const element = document.querySelector(`[data-name="${pokemonInfo.name}"]`);
+        if (element) {
+            const parentLi = element.closest('li');
+            if (parentLi) {
+                parentLi.classList.add('result-show');
+            }
+        }
+    }
+}
+
 
 
 function createMovesResults(filter = null, num = null, object = null, moveNum) {
@@ -238,6 +269,89 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
     }
 }
 
+function createItemsResults(filter = null, num = null, object = null) {
+    return;
+    const container = document.querySelector("#ItemsTab");
+    var results = document.querySelectorAll('.teambuilder-results ul .result');
+    results.forEach(function (result) {
+        if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
+            result.remove();
+        }
+    });
+    const filters = [];
+    if (filter) {
+        filters.push(filter);
+    }
+    const filteredItems = Object.keys(allItems).reduce((acc, key) => {
+        if (filters.every(filter => allItems[key].name.toLowerCase().replace(' ', '').startsWith(filter.replace(' ', '').toLowerCase()) || allItems[key].name.toLowerCase().replace(' ', '').includes(filter.replace(' ', '').toLowerCase()))) {
+            acc[key] = allItems[key];
+        }
+        return acc;
+    }, {});
 
 
-export {createResults, createMovesResults}
+    var li = document.createElement('li');
+    li.classList.add('result');
+    let h3 = document.createElement('h3')
+    h3.textContent = 'Items';
+    li.appendChild(h3)
+    container.appendChild(li);
+
+    for (let item of Object.keys(filteredItems)) {
+        if(!item.startsWith("tr")){
+            item = allItems[item]
+            const li = document.createElement('li');
+            li.classList.add('result');
+    
+            const a = document.createElement('a');
+    
+            const divIcon = document.createElement('div');
+            divIcon.classList.add('result-pokemon-icon');
+    
+            const divPokemonIcon = document.createElement('div');
+            divPokemonIcon.classList.add('pokemon-icon');
+    
+            let firstCord = -(item.spritenum % 16 * 24)
+            let secondCord = -(Math.floor(item.spritenum / 16) * 24)
+    
+            divPokemonIcon.style.width = '24px';
+            divPokemonIcon.style.height = '24px';
+            divPokemonIcon.style.backgroundImage = 'url(' + imgSource + '/itemicons-sheet.png)';
+            divPokemonIcon.style.backgroundRepeat = 'no-repeat';
+    
+            divPokemonIcon.style.backgroundPosition = firstCord + 'px ' + secondCord + 'px';
+    
+            divPokemonIcon.style.backgroundColor = 'transparent';
+    
+            divIcon.appendChild(divPokemonIcon);
+    
+            const divName = document.createElement('div');
+            divName.classList.add('result-pokemon-name');
+            divName.textContent = item.name;
+    
+            const divDesc = document.createElement('div');
+            divDesc.classList.add('result-item-desc')
+            divDesc.textContent = item.desc
+    
+            a.appendChild(divIcon);
+            a.appendChild(divName);
+            a.appendChild(divDesc)
+    
+            a.setAttribute('data-name', item.name)
+            a.onclick = function () {
+                let itemName = this.getAttribute('data-name');
+                playerPokemons[num].item = allItems[itemName.replace(' ', '').replace('-', '').toLowerCase()];
+                updateVisualTeam(playerPokemons[num], num, object)
+                teamPokemonUpdate(playerPokemons[num], num, object)
+                document.querySelectorAll('.moves span')[0].querySelector('input').focus();
+            };
+    
+            li.appendChild(a);
+    
+            container.appendChild(li);
+        }
+    }
+}
+
+
+export {createResults, createMovesResults, createItemsResults, filterResults}

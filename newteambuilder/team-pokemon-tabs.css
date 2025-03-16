@@ -5,7 +5,7 @@
     border-top: none;
     border-radius: 0px 16px 16px 16px;
     background-color: #1d1d1d;
-    height: 460px;
+    height: 100%;
   }
   
 
@@ -58,7 +58,7 @@
     all: unset;
     padding: 0 8px;
     border-radius: 16px;
-    width: 150px;
+    width: 200px;
     border: none;
     background-color: #1d1d1d;
     border: 1px solid #4d4d4d;
@@ -68,11 +68,9 @@
   }
   
   .tab-search-container input:hover{
-    width: 240px;
   }
   
   .tab-search-container input:focus {
-    width: 240px;
   }
   
   .tablinks-container{

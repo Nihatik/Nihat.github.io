@@ -10,7 +10,7 @@ import {loadBuilds, loadBuildResults} from './builds.js';
 
 import {savedTeamsUpdate} from './teams.js';
 
-import {createResults, createMovesResults} from './results.js';
+import {createResults, createMovesResults, createItemsResults, filterResults} from './results.js';
 
 export {filterPokemon, pokemonLoad, teamPokemonUpdate, pokemonStatsLoad, movesForPoints, playerPokemons, updateVisualTeam, teamPokemonUpdate as teamCurPokemonChange};
 
@@ -153,9 +153,9 @@ var movesForPoints = ['Whirlwind', 'Roar', 'Baton Pass']
 
 function presentInfoUpdate(opponent = null) {
     var buttons = document.querySelectorAll('.pokemon-pick-btn');
-    /* if (document.getElementById("playerteam-input-text").value) {
+    if (document.getElementById("playerteam-input-text").value) {
         submitPokePaste(playerPokemons, document.getElementById("playerteam-input-text").value);
-    } */
+    }
     for (var i = 0; i < 6; i++) {
         if (playerPokemons[i].types) {
             console.log('ff')
@@ -596,12 +596,11 @@ function updateVisualTeam(pokemon, num = null, object = null) {
 
     var teamPointsValue = calculateTeamPointsValue(playerPokemons);
 
-    document.getElementById('team-points-value').textContent = 'Points: ' + teamPointsValue;
 
     let sprite = object.querySelector('.pokemon-sprite div')
 
 
-    sprite.style = `background-image:url(https://play.pokemonshowdown.com/sprites/gen5/${pokemon.name.toLowerCase()}.png);background-position:-2px -3px;background-repeat:no-repeat`;
+    sprite.style = `background-image:url(https://play.pokemonshowdown.com/sprites/gen5/${pokemon.name.toLowerCase()}.png);background-repeat:no-repeat`;
 
     console.log(object)
 
@@ -715,6 +714,8 @@ function onLoad() {
             teambuilderResults.style.overflowY = 'hidden';
             teambuilderResults.scrollTop = 0;
         }
+        console.log('zdarova')
+        $("#pokemon-pick-buttons").addClass("pokepaste-show");
     }
     document.getElementById('saveteambutton').onclick = function () {
         saveTeam();
@@ -730,6 +731,7 @@ function onLoad() {
         console.log('g')
         teamsMenu.style.transform = 'translateX(-320px)';
     }
+    $('#Pokemons').click();
 }
 
 function teamPokemonUpdate(pokemon, num = null, object = null) {
@@ -744,6 +746,7 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
     loadBuilds(findedPokemon);
     
     createMovesResults(null, num, object, 0);
+    createItemsResults(null, num, object, 0);
 
     /*       document.getElementById('current-pokemon-points').textContent = calculateTeamPointsValue(null, pokemon)
      */
@@ -932,6 +935,7 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
         moves[i].querySelector('input').onfocus = function () {
             this.select();
             createMovesResults(null, num, object, i);
+            $('#Moves').click();
             let curResult = document.querySelector('.current-result')
             /* if (curResult.getAttribute('data-name') != pokemon.moves[i].name) {
                 while (curResult.firstChild) {
@@ -1084,18 +1088,15 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
         createResults(null, num, object);
     }
     myInput.addEventListener('input', function () {
-        if (this.value == '') {
-            createResults(null, num, object);
-        }
-        else {
-            createResults(pokemon => pokemon.name.toLowerCase().startsWith(this.value.toLowerCase()), num, object);
-        }
+        filterResults(pokemon => pokemon.name.toLowerCase().startsWith(this.value.toLowerCase()), num, object);
     });
 
-    let itemInput = document.querySelector('#current-pokemon-info .item');
+    let itemInput = infoPokemon.querySelector('#current-pokemon-info .item');
     itemInput.onfocus = function () {
+        $('#Items').click();
         this.select();
         createItemsResults(null, num, object)
+
         let curResult = document.querySelector('.current-result')
         if (pokemon.item.name && curResult.getAttribute('data-name') != pokemon.item.name) {
             while (curResult.firstChild) {
@@ -1179,6 +1180,7 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
             curResult.setAttribute('data-name', item.name)
         }
     }
+    
 
     itemInput.oninput = function () {
         if (this.value == '') {
@@ -1187,6 +1189,10 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
         else {
             createItemsResults(this.value, num, object);
         }
+    }
+    
+    $(infoPokemon).find(".team-pokemon-sprite").onclick = function () {
+        $("#Pokemons").click();
     };
     loadBuildResults(pokemon, num, object)
     returnCurrentPokemonPokepaste(pokemon)
@@ -1329,86 +1335,6 @@ function pokemonLoad(pokemonNum, newPokemon, object) {
     pokemonStatsLoad(playerPokemons)
 }
 
-function createItemsResults(filter = null, num = null, object = null) {
-    var results = document.querySelectorAll('.teambuilder-results ul .result');
-    results.forEach(function (result) {
-        if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
-            result.remove();
-        }
-    });
-    const filters = [];
-    if (filter) {
-        filters.push(filter);
-    }
-    const filteredItems = Object.keys(allItems).reduce((acc, key) => {
-        if (filters.every(filter => allItems[key].name.toLowerCase().replace(' ', '').startsWith(filter.replace(' ', '').toLowerCase()) || allItems[key].name.toLowerCase().replace(' ', '').includes(filter.replace(' ', '').toLowerCase()))) {
-            acc[key] = allItems[key];
-        }
-        return acc;
-    }, {});
-
-
-    var li = document.createElement('li');
-    li.classList.add('result');
-    let h3 = document.createElement('h3')
-    h3.textContent = 'Items';
-    li.appendChild(h3)
-    document.querySelector('.teambuilder-results ul').appendChild(li);
-
-    for (let item of Object.keys(filteredItems)) {
-        item = allItems[item]
-        const li = document.createElement('li');
-        li.classList.add('result');
-
-        const a = document.createElement('a');
-
-        const divIcon = document.createElement('div');
-        divIcon.classList.add('result-pokemon-icon');
-
-        const divPokemonIcon = document.createElement('div');
-        divPokemonIcon.classList.add('pokemon-icon');
-
-        let firstCord = -(item.spritenum % 16 * 24)
-        let secondCord = -(Math.floor(item.spritenum / 16) * 24)
-
-        divPokemonIcon.style.width = '24px';
-        divPokemonIcon.style.height = '24px';
-        divPokemonIcon.style.backgroundImage = 'url(' + imgSource + '/itemicons-sheet.png)';
-        divPokemonIcon.style.backgroundRepeat = 'no-repeat';
-
-        divPokemonIcon.style.backgroundPosition = firstCord + 'px ' + secondCord + 'px';
-
-        divPokemonIcon.style.backgroundColor = 'transparent';
-
-        divIcon.appendChild(divPokemonIcon);
-
-        const divName = document.createElement('div');
-        divName.classList.add('result-pokemon-name');
-        divName.textContent = item.name;
-
-        const divDesc = document.createElement('div');
-        divDesc.classList.add('result-item-desc')
-        divDesc.textContent = item.desc
-
-        a.appendChild(divIcon);
-        a.appendChild(divName);
-        a.appendChild(divDesc)
-
-        a.setAttribute('data-name', item.name)
-        a.onclick = function () {
-            let itemName = this.getAttribute('data-name');
-            playerPokemons[num].item = allItems[itemName.replace(' ', '').replace('-', '').toLowerCase()];
-
-            updateVisualTeam(playerPokemons[num], num, object)
-            teamPokemonUpdate(playerPokemons[num], num, object)
-            document.querySelectorAll('.moves span')[0].querySelector('input').focus();
-        };
-
-        li.appendChild(a);
-
-        document.querySelector('.teambuilder-results ul').appendChild(li);
-    }
-}
 
 
 function megaXYUrl(pokemonName, num) {
