@@ -1,0 +1,253 @@
+
+
+.build-result {
+    height: 0px;
+    max-height: 0px;
+    min-height: 0px;
+    width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0;
+    display: none;
+    animation: build-show 0.5s ease-in-out forwards;
+    
+}
+
+@keyframes build-show {
+    0% {
+        display: flex;
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        height: 150px;
+        max-height: 150px;
+        min-height: 150px;
+        opacity: 1;
+        display: flex;
+    }
+}
+.build-result-left div p, .build-result-right div p {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+}
+
+.build-result-left div > span:not(.slash), .build-result-right div > span:not(.slash) {
+    height: 24px;
+    text-align: left;
+}
+.build-result-left > span > span:not(.slash), .build-result-right > span > span:not(.slash) {
+    height: 24px;
+    text-align: left;
+}
+
+
+.current-pokemon-builds{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    transition: 0.5s;
+}
+
+
+.slash {
+    margin: 0px 8px;
+}
+@media (max-height: 800px) and (orientation: landscape) {
+    .current-pokemon-builds {
+        bottom: 0;
+    }
+}
+
+.type-icon {
+    width: 24px;
+}
+
+.current-pokemon-builds .type-icon  {
+    scale: 0.7;
+    width: 24px;
+    margin-right: 8px;
+}
+
+
+
+.build-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.build-result .build-top{
+    height: 30%;
+}
+
+
+.build-result {
+    padding-bottom: 8px;
+    background-color: #2a2a2a;
+    width: 95%;
+    border: 0;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    transition: 0.5s;
+}
+
+.build-result:hover{
+    background-color: #2d2d2d;
+    width: 96%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+}
+
+
+
+.build-result-left, .build-result-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.build-result-left{
+    width: 45%;
+}
+
+.build-result-right {
+    width: 55%;
+}
+
+.build-result-left > div, .build-result-right > div {
+    display: flex;
+    flex-direction: column;
+}
+.build-result-right > div{
+    width: 75%;
+}
+
+.build-result-right div:first-child {
+    width: 25%;
+}
+
+.build-result-left div:not(:first-child) {
+    width: 100%;
+}
+
+
+.build-result-left > div:first-child p, .build-result-right div:first-child p {
+    text-align: right;
+    margin-right: 8px;
+    font-size: 90%;
+    opacity: 0.9;
+}
+
+.current-pokemon-builds li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.build-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 32px;
+    border: none;
+    transition: 0.3s;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.025); 
+}
+
+.build-name {
+    font-weight: bold;
+    width: 30%;
+}
+
+.choice-build-element{
+    border-radius: 10%;
+    box-shadow: rgb(117, 117, 117) 0px 2px 1px 0px;
+}
+
+.build-item{
+    display: flex;
+    align-items: center;
+}
+
+
+.build-select-item {
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+#NewBuild {
+    border-radius: 32px;
+    padding:8px 16px;
+    width: 14%;
+    background-color: #2a2a2a;
+    border: none;
+    transition: 0.3s;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 16px;
+}
+#NewBuild:hover{
+    width: 16%;
+    background-color: #2d2d2d;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+}
+
+#NewBuildTab{
+    display: flex;
+    padding: 8px;
+}
+
+#new-build-paste{
+    box-sizing: content-box;
+    all: unset;
+    width: 100%;
+    height: 80%;
+    font-size: 0.9rem;
+    background-color: inherit;
+    color: #ccc;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    padding: 16px 12px;
+}
+#new-build-name{
+    all: unset;
+    margin-left: 12px;
+    width: 320px;
+    border: none;
+    border-bottom: 1px solid #2d2d2d;
+    background-color: #1d1d1d;
+    height: 32px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+#new-build-save-btn{
+    border: none;
+    background-color: #2d2d2d;
+    font-size: 0.9rem;
+    border-radius: 16px;
+    padding:8px 32px;
+    transition: 0.3s;
+}

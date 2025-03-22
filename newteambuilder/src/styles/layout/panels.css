@@ -1,0 +1,85 @@
+#left-panel {
+  width: 300px;
+  height: 100vh;
+  background-color: var(--primary-bg);
+  border-right: 1px solid var(--border-color);
+  transition: width var(--transition-normal);
+  overflow-y: auto;
+}
+
+#right-panel {
+  width: 300px;
+  height: 100vh;
+  background-color: var(--primary-bg);
+  border-left: 1px solid var(--border-color);
+  transition: width var(--transition-normal);
+  overflow-y: auto;
+}
+
+#center-panel {
+  flex: 1;
+  height: 100vh;
+  background-color: var(--primary-bg);
+  overflow-y: auto;
+  padding: var(--spacing-md);
+}
+
+.left-panel-active {
+  width: 400px !important;
+}
+
+.right-panel-active {
+  width: 400px !important;
+}
+
+.center-panel-active {
+  padding: var(--spacing-xl) !important;
+}
+
+/* Panel content */
+#content {
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-md);
+}
+
+.content-active {
+  padding: var(--spacing-xl) !important;
+}
+
+/* Team info container */
+#TeamsInfo-container {
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-md);
+  transition: all var(--transition-normal);
+}
+
+#TeamsInfo-container-in {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+#TeamsInfo-container-in > div {
+  display: none;
+}
+
+#TeamsInfo-container-in .active-tab {
+  display: block;
+}
+
+/* Media queries */
+@media (max-height: 800px) and (orientation: landscape) {
+  #left-panel,
+  #right-panel {
+    width: 250px;
+  }
+  
+  .left-panel-active,
+  .right-panel-active {
+    width: 350px !important;
+  }
+} 

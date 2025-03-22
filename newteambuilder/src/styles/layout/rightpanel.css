@@ -1,0 +1,49 @@
+#team-weaknesses-menu {
+    border-radius: 16px;
+    background-color: #1d1d1d;
+    width: 400px;
+    height: 100%;
+}
+
+#right-panel {
+    position: fixed;
+    right: -360px;
+    top: 8px; 
+    height: 760px;
+    z-index: 11;
+    transition: right 0.5s ease;
+}
+#right-panel:hover {
+    right: 16px;
+}
+.right-panel-active{
+    opacity: 0;
+    animation: r-panel 1s ;
+    display: none;
+}
+
+.progress-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.progress-bar {
+    height: 20px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.progress-fill {
+    height: 100%;
+    width: 0;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    font-weight: bold;
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    border-radius: 8px;
+}

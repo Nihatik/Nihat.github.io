@@ -1,0 +1,52 @@
+.tabcontent {
+  transition: 0.3s;
+  border-top: none;
+  border-radius: 0px 16px 16px 16px;
+  background-color: #1d1d1d;
+  height: 100%;
+}
+
+
+.active-tab {
+  opacity: 1 !important;
+}
+
+#current-pokemon-info {
+  margin-top: 16px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.3s;
+  border-radius: 32px;
+  background-color: #1d1d1d;
+}
+
+#current-pokemon-info-in {
+  display: flex;
+  flex-direction: column;
+  width: 600%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  transition: top 0.5s ease-out;
+}
+
+
+.defaultOpen {
+  display: block;
+}
+
+
+
+.team-pokemon-tab {
+  display: flex;
+  border: none;
+  width: 1040px;
+  float: left;
+}
+
+.tablinks-container {
+  display: flex;
+  border-radius: 16px 16px 16px 16px;
+  width: 60%;
+}

@@ -1,0 +1,198 @@
+.teams {
+    border-radius: 16px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: 1000px 100%;
+    transition: 0.5s;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5); 
+}
+
+#teamsContent {
+    width: 100%;
+    overflow-y: scroll;
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams h4{
+    height: 30px;
+    line-height: 30px;
+}
+#clearteams{
+    position: relative;
+    bottom: 0;
+    padding: 0 8px;
+    border-radius: 16px;
+    background-color: #535353;
+    color: white;
+    height: 28px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    box-shadow: black 1px 1px 1px 0.5px;
+    align-items: center;
+}
+#clearteams:hover{
+    border: 1px solid gray;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.teams--show{
+    left: 0;
+}
+
+.data-team {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.3s;
+    border-color: black;
+    background-color: #1d1d1d;
+    padding: 4px;
+    margin-bottom: 2px;
+    opacity: 0.9;
+    height: 48px;
+    
+}
+.data-team:hover{
+    opacity: 1;
+    background-color: #2a2a2a;
+}
+
+.data-team > div .pokemon-info-item{
+    position: absolute;
+    right: -7%;
+    bottom: -17%;
+    z-index: 10;
+    scale: 1;
+    transform: scale(0.75);
+}
+.data-team > div{
+    position: relative;
+}
+
+#teamsContent {
+    overflow-y: auto; /* Прокрутка работает */
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+}
+
+#teamsContent::-webkit-scrollbar {
+    display: none; /* Скрывает скроллбар в Chrome, Safari и новых версиях Edge */
+}
+
+
+
+.data-team h5{
+    width: 28px;
+    text-align: center;
+}
+
+
+.team-delete-button {
+    display: none;
+    margin-left: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #535353;
+    background-image: url(img/x.png);
+    background-size: 20px;
+    transition: 0.3s;
+    opacity: 0.4;
+    box-shadow: black 1px 1px 1px .5px;
+}
+
+.team-delete-button:hover{
+    scale: 1.1;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.team-result {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+
+#new-team{
+    display: flex;
+    border-radius: 16px;
+    background-color: #535353;
+    color: white;
+    width: 60%;
+    height: 28px;
+    margin-top: 4px;
+    opacity: 0.8;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    box-shadow: black 1px 1px 1px .5px;
+    align-items: center;
+}
+
+#new-team input {
+    height: 100%;
+    padding: 0 0px 0px 4px;
+    width: 20%;
+    border-top: none;
+    border-bottom: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+#new-team button{
+    font-weight: bold;
+    padding-left: 6px;
+    text-align: left;
+    color: white;
+    width: 100%;
+}
+
+#new-team:hover{
+    border: 1px solid gray;
+    opacity: 1;
+    cursor: pointer;
+
+}
+
+
+#closeTeamsMenu {
+    bottom: 0;
+    padding: 0 8px;
+    border-radius: 16px;
+    color: white;
+    height: 28px;
+    left: 120px;
+    top: -40px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+    border: 1px solid transparent;
+    transition: 0.3s all;
+    box-shadow: black 1px 1px 1px 0.5px;
+    align-items: center;
+}
+.data-team .pokemon-icon{
+    scale: 1;
+}
+#closeTeamsMenu:hover{
+    border: 1px solid gray;
+    opacity: 1;
+    cursor: pointer;
+}

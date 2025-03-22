@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeamBuilder 2.0</title>
     <link rel="stylesheet" href="../scrollbar.css">
-    <link rel="stylesheet" href="rightpanel.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="search.css">
-    <link rel="stylesheet" href="builds.css">
-    <link rel="stylesheet" href="tooltips.css">
-    <link rel="stylesheet" href="teams.css">
-    <link rel="stylesheet" href="tabs.css">
-    <link rel="stylesheet" href="team-pokemon-tabs.css">
-    <script type="module" src="script.js"></script>
-    <script type="module" src="builds.js"></script>
-    <script type="module" src="tabs.js"></script>
-    <script type="module" src="../teambuilderBase.js"></script>
+    <link rel="stylesheet" href="src/styles/layout/rightpanel.css">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/components/search.css">
+    <link rel="stylesheet" href="src/styles/components/builds.css">
+    <link rel="stylesheet" href="src/styles/components/tooltips.css">
+    <link rel="stylesheet" href="src/styles/components/teams.css">
+    <link rel="stylesheet" href="src/styles/components/tabs.css">
+    <link rel="stylesheet" href="src/styles/components/team-pokemon-tabs.css">
+    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="src/js/components/Builds.js"></script>
+    <script type="module" src="src/js/components/Tabs.js"></script>
+    <script type="module" src="src/js/components/Teams.js"></script>
+    <script type="module" src="src/js/components/Search.js"></script>
+    <script type="module" src="src/js/components/Pokemon.js"></script>
+    <script type="module" src="src/js/utils/teamAnalyzer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -26,19 +29,26 @@
 <body>
     <div id="left-panel">
 
-        <div id="TeamsInfo-tab" class="team-buttons">
-            <button id="teamsbutton">Teams</button>
-            <button id="current-team-button">Current</button>
-            <button id="pastebutton">PokePaste</button>
+        <div id="TeamsInfo-tab">
+            <button id="teamsbutton" num="0">Teams</button>
+            <button id="current-team-button" num="1">Current</button>
+            <button id="pastebutton" num="2">PokePaste</button>
         </div>
 
         <div id="TeamsInfo-container">
-            <div class="boxes" id="boxes">
-                <div id="TeamsTab" class="tabcontent tab-item">
-                    <h3>Teams</h3>
-                </div>
-                <div id="TeamTab" class="tabcontent tab-item">
+            <div class="boxes" id="TeamsInfo-container-in">
+                <div id="TeamsTab" class="tab-item teams">
 
+                    <span id="new-team">
+                        <button>Create random team</button>
+                    </span>
+                    <div id="teamsContent">
+
+                    </div>
+                    <button id="clearteams">Clear all teams</button>
+                    <button id="closeTeamsMenu">close</button>
+                </div>
+                <div id="TeamTab" class="tab-item">
                     <div id="pokemon-pick-buttons">
                         <button num="0" class="pokemon-pick-btn fire-type" id="pokemon-picked-btn">
                             <div class="pokemon-pick-btn-top">
@@ -185,30 +195,16 @@
 
                     <button id="saveteambutton">Save Team</button>
                 </div>
-                <div id="TeamPasteTab" class="tabcontent tab-item">
-                    <h3>PokePaste</h3>
+                <div id="TeamPasteTab" class="tab-item">
+                    <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."></textarea>
+                    <button id="pokepaste-save">Save</button>
                 </div>
-                <div class="box box3" id="box3">3</div>
             </div>
         </div>
 
-        <div id="TeamPokePaste">
-            <div id="pokepaste">
-                <textarea id="playerteam-input-text" rows="4" placeholder="Введите текст..."></textarea>
-                <button id="pokepaste-save">Save</button>
-            </div>
-        </div>
         <div class="horizontal-line"></div>
         <div style="display: none;" id="teamsMenu" class="teams">
             <h4>Teams</h4>
-            <span id="new-team">
-                <button>Create random team</button>
-            </span>
-            <div id="teamsContent">
-
-            </div>
-            <button id="clearteams">Clear all teams</button>
-            <button id="closeTeamsMenu">close</button>
         </div>
         <div id="search-filters" style="display: none;">
             <label class="section-name">Search filters</label>
@@ -1083,19 +1079,21 @@
                 <div class="tab">
                     <div class="tab-search-container">
                         <input id="search-input" type="text" placeholder="Введите текст...">
-                        <button class="tablinks tablink-item-icon" num="0" id="Pokemons"><span class="pokemon-info-item"
+                    </div>
+                    <div class="grouplinks-container">
+                        <button class="grouplinks grouplink-item-icon" id="Pokemons"><span class="pokemon-info-item"
                                 style="width: 24px; background: url(&quot;https://play.pokemonshowdown.com/sprites/gen5/substitute.png&quot;) -19px -19px no-repeat scroll transparent; background-size: 64px 64px;">
                             </span></button>
-                        <button class="tablinks tablink-item-icon" num="1" id="Moves"><span class="pokemon-info-item"
+                        <button class="grouplinks grouplink-item-icon" id="Moves"><span class="pokemon-info-item"
                                 style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -240px -1032px no-repeat scroll transparent;">
                             </span></button>
-                        <button class="tablinks tablink-item-icon" num="2" id="Items"><span class="pokemon-info-item"
+                        <button class="grouplinks grouplink-item-icon" id="Items"><span class="pokemon-info-item"
                                 style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -24px -624px no-repeat scroll transparent;">
                             </span></button>
                     </div>
                     <div class="tablinks-container">
-                        <button class="tablinks" num="3" id="Search">Search</button>
-                        <button class="tablinks" num="4" id="Builds"><span class="pokemon-info-item"
+                        <button class="tablinks" num="0" id="Search">Search</button>
+                        <button class="tablinks" num="1" id="Builds"><span class="pokemon-info-item"
                                 style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -360px -1104px no-repeat scroll transparent;">
                             </span> Builds</button>
                         <button class="tablinks tablink-item-icon" num="5" id="Pokepaste">
@@ -1115,7 +1113,7 @@
 
                 <div class="tab-container" id="tabContainer">
                     <div class="tab-container-in">
-                        <div id="PokemonsTab" class="teambuilder-results tabcontent tab-item">
+                        <div id="SearchTab" class="teambuilder-results tabcontent tab-item">
                             <div class="result-filters" style="display: none;">
                                 <div class="result-pokemon-icon">
                                     <select>
@@ -1170,55 +1168,141 @@
                                 <button class="result-pokemon-stat">Spe</button>
                                 <button class="result-pokemon-bst">BST</button>
                             </div>
+                            <li class="result">
+                                <a class="current-result">
+                                    <div class="result-pokemon-icon">
+                                        <div class="pokemon-icon"
+                                            style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
+                                        </div>
+                                    </div>
+                                    <div class="result-pokemon-name"></div>
+                                    <div class="result-pokemon-types">
+                                        <img src="../img/normal_type.png">
+                                        <img src="../img/normal_type.png">
+                                    </div>
+                                    <div class="result-pokemon-abilities">
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                    <div class="result-pokemon-ha">
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                    <div class="result-pokemon-stat">0</div>
+                                    <div class="result-pokemon-stat">0</div>
+                                    <div class="result-pokemon-stat">0</div>
+                                    <div class="result-pokemon-stat">0</div>
+                                    <div class="result-pokemon-stat">0</div>
+                                    <div class="result-pokemon-stat">0</div>
+                                    <div class="result-pokemon-bst">0</div>
+                                </a>
+                            </li>
                             <ul>
-                                <li class="result">
-                                    <a class="current-result">
-                                        <div class="result-pokemon-icon">
-                                            <div class="pokemon-icon"
-                                                style="width: 40px; height: 30px; background-image: url(&quot;https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16&quot;); background-repeat: no-repeat; background-position: 0px 0px; background-color: transparent;">
-                                            </div>
-                                        </div>
-                                        <div class="result-pokemon-name"></div>
-                                        <div class="result-pokemon-types">
-                                            <img src="../img/normal_type.png">
-                                            <img src="../img/normal_type.png">
-                                        </div>
-                                        <div class="result-pokemon-abilities">
-                                            <p></p>
-                                            <p></p>
-                                        </div>
-                                        <div class="result-pokemon-ha">
-                                            <p></p>
-                                            <p></p>
-                                        </div>
-                                        <div class="result-pokemon-stat">0</div>
-                                        <div class="result-pokemon-stat">0</div>
-                                        <div class="result-pokemon-stat">0</div>
-                                        <div class="result-pokemon-stat">0</div>
-                                        <div class="result-pokemon-stat">0</div>
-                                        <div class="result-pokemon-stat">0</div>
-                                        <div class="result-pokemon-bst">0</div>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
-                        <div id="MovesTab" class="tabcontent tab-item">
-                            <h3></h3>
+                        <div id="BuildsTab" class="current-pokemon-builds tabcontent tab-item">
+                            <button class="tablinks" id="NewBuild" num="2">NEW BUILD</button>
                         </div>
-                        <div id="ItemsTab" class="tabcontent tab-item">
-                        </div>
-                        <div id="SearchTab" class="tabcontent tab-item">
-                        </div>
-                        <div class="current-pokemon-builds tabcontent tab-item" id="BuildsTab">
-                            <h3>Builds</h3>
-                        </div>
-                        <div id="PokepasteTab" class="tabcontent tab-item">
+                        <div id="NewBuildTab" class="tabcontent tab-item">
+                            <div>
+                                <input id="new-build-name" placeholder="Введите название сборки...">
+                                <textarea id="new-build-paste" placeholder="Введите текст..."></textarea>
+                            </div>
+                            <div>
+                                <button id="new-build-save-btn">Save Build</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div id="right-panel">
+            <div class="team-types-defense">
+                <h4>Team Type Defense</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Eff</th>
+                            <th>Immune</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img class="type-icon" src="../img/normal_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/fire_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/water_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/grass_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/electric_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/ice_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/fighting_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/poison_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/ground_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/flying_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/psychic_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/bug_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/rock_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/ghost_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/dragon_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/dark_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/steel_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><img class="type-icon" src="../img/fairy_type.png"></td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <div id="team-weaknesses-menu">
                 <div class="progress-container">
                     <label>HP</label>
