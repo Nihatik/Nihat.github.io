@@ -1,14 +1,16 @@
-import {playerPokemons } from '../main.js';
-import { filterPokemon } from './Utils.js';
+import { playerPokemons } from '../main.js';
+import { filterPokemon, capitalizeFirstLetter } from './Utils.js';
 import { pokemonPointsData } from '../pokemonPointsBase.js';
-import { allPokemons, allItems, allMoves } from '../teambuilderBase.js';
+import { allPokemons, allItems, allMoves, allTypes } from '../teambuilderBase.js';
 import { pokemonLoad } from './PokemonUtils.js';
-import { updateVisualTeam, teamPokemonUpdate} from './TeamUtils.js';
+import { updateVisualTeam, teamPokemonUpdate } from './TeamUtils.js';
 
 export { createResults, filterResults, createMovesResults, createItemsResults }
 
 var imgSource = '../img/';
 
+
+var searchFilters = {types: [], category: ""};
 // Cache for DOM elements
 const searchTab = document.querySelector("#SearchTab ul");
 
@@ -29,7 +31,7 @@ function createPokemonResultElement(pokemon, num, object) {
     li.classList.add('result');
 
     const a = document.createElement('a');
-    
+
     // Create icon
     const divIcon = document.createElement('div');
     divIcon.classList.add('result-pokemon-icon');
@@ -110,11 +112,11 @@ function createPokemonResultElement(pokemon, num, object) {
         const pokemonName = a.getAttribute('data-name');
         const basePokemon = getPokemonInfo(pokemon);
         const picked = $("#pokemon-picked-btn");
-        
+
         pokemonLoad(num, basePokemon, object);
         updateVisualTeam(playerPokemons[num], num, object);
         teamPokemonUpdate(playerPokemons[num], num, object);
-        
+
         picked.attr("id", "pokemon-picked-btn");
         picked.removeClass("new-pokemon-btn");
         $(".new-pokemon-btn").css("display", "none");
@@ -127,12 +129,11 @@ function createPokemonResultElement(pokemon, num, object) {
 }
 
 function createResults(filter = null, num = null, object = null) {
-  
+
     let buttons = document.querySelectorAll('.pokemon-pick-btn');
-    if(!object){
-      object = buttons[num];
+    if (!object) {
+        object = buttons[num];
     }
-    // Clear existing results
     const results = searchTab.querySelectorAll('.result');
     results.forEach(result => {
         if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
@@ -140,10 +141,8 @@ function createResults(filter = null, num = null, object = null) {
         }
     });
 
-    // Set minimum points value based on whether there's a filter
-    const minPointValue = filter ? -1 : 2;
+    const minPointValue = filter ? -1 : 1;
 
-    // Group Pokemon by points
     const pokemonByPoints = new Map();
     for (let i = 6; i > minPointValue; i--) {
         const filters = [pokemon => pokemon.points === i];
@@ -171,28 +170,39 @@ function createResults(filter = null, num = null, object = null) {
             searchTab.appendChild(resultElement);
         });
     });
+    createFilterResults();
 }
 
 function filterResults(filter = null) {
-  const filters = filter ? [filter] : [];
+    const filters = filter ? [filter] : [];
 
-  const allElements = document.querySelectorAll('#SearchTab ul .result');
+    const allElements = document.querySelectorAll('#SearchTab ul .result');
 
-  const searchText = document.querySelector("#search-input").value;
+    const searchText = document.querySelector("#search-input").value;
 
-  allElements.forEach(el => {
-      const aTag = el.querySelector('a');
-      if (!aTag) return;
+    allElements.forEach(el => {
+        const aTag = el.querySelector('a');
+        if (!aTag) return;
 
 
-      const resultName = aTag.getAttribute('data-name');
-      const normalizedName = resultName.replace(/\s|[-.%']/g, '').toLowerCase();
-
-      if (normalizedName.includes(searchText.replace(/\s|[-.%']/g, '').toLowerCase())) {
-          el.classList.toggle("result-show",true);
-      } else { el.classList.remove("result-show");
-      }
-  });
+        const resultName = aTag.getAttribute('data-name');
+        const normalizedName = resultName.replace(/\s|[-.%']/g, '').toLowerCase();
+        
+        if (normalizedName.includes(searchText.replace(/\s|[-.%']/g, '').toLowerCase())) {
+            el.classList.toggle("result-show", true);
+        } else {
+            el.classList.remove("result-show");
+        }
+        if (searchFilters.types.length > 0){
+            aTag.querySelectorAll('.result-pokemon-types img').forEach(img => {
+                console.log(img.src.split('/').pop().split('_')[0].toLowerCase());
+                if (!searchFilters.types.some(type => 
+                    type.toLowerCase() === img.src.split('/').pop().split('_')[0].toLowerCase())) {
+                    el.classList.remove("result-show");
+                }                
+            });
+        }
+    });
 }
 
 function createMovesResults(filter = null, num = null, object = null, moveNum) {
@@ -200,8 +210,8 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
 
     const filters = filter ? [filter] : [];
     const filteredMoves = Object.entries(allMoves).reduce((acc, [key, move]) => {
-        if (filters.every(f => 
-            key.startsWith(f.replace(' ', '').toLowerCase()) || 
+        if (filters.every(f =>
+            key.startsWith(f.replace(' ', '').toLowerCase()) ||
             key.includes(f.replace(' ', '').toLowerCase())
         )) {
             acc[key] = move;
@@ -222,7 +232,7 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
     const normalizedLearnset = new Set(
         foundPokemon.learnset.map(m => m.toLowerCase().replace(/\s+/g, '').replace('-', ''))
     );
-
+    createActiveFilters();
     // Create move elements
     Object.entries(filteredMoves).forEach(([key, move]) => {
         const normalizedMove = key.toLowerCase().replace(/\s+/g, '').replace('-', '');
@@ -282,6 +292,7 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
         li.classList.add("result-show");
         searchTab.appendChild(li);
     });
+    createFilterResults();
 }
 
 function createItemsResults(filter = null, num = null, object = null) {
@@ -290,8 +301,8 @@ function createItemsResults(filter = null, num = null, object = null) {
     const filters = filter ? [filter] : [];
     const filteredItems = Object.entries(allItems).reduce((acc, [key, item]) => {
         if (key.startsWith('tr')) return acc;
-        if (filters.every(f => 
-            key.startsWith(f.replace(' ', '').toLowerCase()) || 
+        if (filters.every(f =>
+            key.startsWith(f.replace(' ', '').toLowerCase()) ||
             key.includes(f.replace(' ', '').toLowerCase())
         )) {
             acc[key] = item;
@@ -341,7 +352,7 @@ function createItemsResults(filter = null, num = null, object = null) {
             playerPokemons[num].item = item;
             updateVisualTeam(playerPokemons[num], num, object);
             teamPokemonUpdate(playerPokemons[num], num, object);
-            document.querySelectorAll('.team-pokemon-moves span')[num+1].querySelector('input').focus();
+            document.querySelectorAll('.team-pokemon-moves span')[num + 1].querySelector('input').focus();
         };
 
         li.appendChild(a);
@@ -351,7 +362,69 @@ function createItemsResults(filter = null, num = null, object = null) {
     });
 }
 
+function createActiveFilters() {
+    const activeFilters = document.createElement('div');
+    activeFilters.classList.add('active-filters');
+
+    console.log( "SEARCH FILTERS: ", searchFilters);
+    searchFilters.types.forEach(type => {
+        const filterItem = document.createElement('div');
+        filterItem.classList.add('active-filter');
+        const text = document.createElement('span');
+        text.textContent = type;
+        const imgType = document.createElement('img');
+        imgType.src = imgSource + type.toLowerCase() + '_type.png';
+        filterItem.appendChild(imgType);
+        filterItem.appendChild(text);
+        filterItem.onclick = () =>{
+            searchFilters.types.pop(type);
+            $("#search-input").focus();
+            filterResults(null,num,object);
+        }
+        activeFilters.appendChild(filterItem);
+    });
+
+    searchTab.appendChild(activeFilters);
+}
+
+function createFilterResults() {
+
+    Object.entries(allTypes).forEach(([key, type]) => {
+        let typeName = capitalizeFirstLetter(key);
+        const li = document.createElement('li');
+        li.classList.add('result');
+        const a = document.createElement('a');
+    
+        const divName = document.createElement('div');
+        divName.classList.add('result-pokemon-name');
+        divName.textContent = typeName;
+    
+        const divDesc = document.createElement('div');
+        divDesc.classList.add('result-move-desc');
+        divDesc.textContent = 'Adds ' + typeName + ' type filter to search';
+    
+        const divTypes = document.createElement('div');
+        divTypes.classList.add('result-move-type');
+        const imgType = document.createElement('img');
+        imgType.src = imgSource + typeName.toLowerCase() + '_type.png';
+        divTypes.appendChild(imgType);
+    
+        a.appendChild(divTypes);
+        a.appendChild(divName);
+        a.appendChild(divDesc);
+        a.onclick = () => {
+            searchFilters.types.push(typeName);
+            $("#search-input").value = "";
+            $("#search-input").focus();
+        };
+    
+        a.setAttribute('data-name', typeName + 'type');
+        li.appendChild(a);
+        searchTab.appendChild(li);
+    });
+}
+
 function getPokemonIcon(pokemon) {
-  // Implement icon URL generation based on pokemon data
-  return `/images/pokemon/icons/${pokemon.num}.png`;
+    // Implement icon URL generation based on pokemon data
+    return `/images/pokemon/icons/${pokemon.num}.png`;
 } 

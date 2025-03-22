@@ -207,3 +207,30 @@
     font-size: 12pt;
     height: auto;
 }
+.active-filters {
+    display: flex;
+    padding: 4px 16px;
+    gap: 4px;
+}
+
+.active-filter {
+    padding: 6px 32px 6px 6px;
+    border-radius: 36px;
+    background-color: #2e2e2e;
+    width: fit-content;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    transition: 0.25s;
+}
+
+.active-filter img {
+    width: 24px;
+    margin-right: 8px;
+}
+
+.active-filter:hover{
+    cursor: pointer;
+    background-color: #3e3e3e;
+}

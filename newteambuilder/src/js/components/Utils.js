@@ -1,8 +1,11 @@
 
-export { checkToSpace, filterPokemon, setTypesImg, getGradientColor, imgSource }
+export { checkToSpace, filterPokemon, setTypesImg, getGradientColor, imgSource, capitalizeFirstLetter }
 
 var imgSource = '../img/';
 
+function capitalizeFirstLetter(val) {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
 
 function getGradientColor(value) {
     value = value / 40

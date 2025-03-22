@@ -303,7 +303,15 @@ button{
     image-rendering: pixelated;
     min-width: 150px;
     min-height: 150px;
+    transition: 0.3s;
 }
+
+.team-pokemon-sprite:hover{
+    background-color: #222222;
+    cursor: pointer;
+    border-radius: 32px;
+}
+
 
 .team-pokemon-sprite > div {
     flex: 1;
@@ -559,6 +567,14 @@ select{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    transition: 0.3s;
+}
+
+
+.team-pokemon-stats:hover{
+    background-color: #222222;
+    cursor: pointer;
+    border-radius: 32px;
 }
 input[type="range"] {
     -webkit-appearance: none;

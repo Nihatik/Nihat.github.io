@@ -374,6 +374,7 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
         else if(activeTabId == "Items"){
             createItemsResults(null , num, object);
         }
+        filterResults(null, num, object);
     }
     myInput.addEventListener('input', function () {
         filterResults(pokemon => pokemon.name.toLowerCase().startsWith(this.value.toLowerCase()), num, object);
