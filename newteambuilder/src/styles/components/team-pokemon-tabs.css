@@ -24,7 +24,6 @@
 #current-pokemon-info-in {
   display: flex;
   flex-direction: column;
-  width: 600%;
   height: 100%;
   position: absolute;
   left: 0;

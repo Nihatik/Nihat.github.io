@@ -25,7 +25,7 @@ function getPokemonInfo(pokemon) {
     return pokemonCache.get(key);
 }
 
-function createPokemonResultElement(pokemon, num, object) {
+function createPokemonResultElement(pokemon) {
     const pokemonInfo = getPokemonInfo(pokemon);
     const li = document.createElement('li');
     li.classList.add('result');
@@ -105,13 +105,16 @@ function createPokemonResultElement(pokemon, num, object) {
         a.appendChild(divStat);
     }
     a.appendChild(divBST);
-
     // Add click handler
+    let buttons = document.querySelectorAll('.pokemon-pick-btn');
     a.setAttribute('data-name', pokemon.name);
     a.onclick = () => {
-        const pokemonName = a.getAttribute('data-name');
-        const basePokemon = getPokemonInfo(pokemon);
         const picked = $("#pokemon-picked-btn");
+        let num = picked.attr("num");
+        let object = buttons[num];
+
+        console.log(num, "NUM");
+        const basePokemon = getPokemonInfo(pokemon);
 
         pokemonLoad(num, basePokemon, object);
         updateVisualTeam(playerPokemons[num], num, object);
@@ -128,12 +131,8 @@ function createPokemonResultElement(pokemon, num, object) {
     return li;
 }
 
-function createResults(filter = null, num = null, object = null) {
-
-    let buttons = document.querySelectorAll('.pokemon-pick-btn');
-    if (!object) {
-        object = buttons[num];
-    }
+function createResults(filter = null) {
+    console.log("NEWRESULTS!!")
     const results = searchTab.querySelectorAll('.result');
     results.forEach(result => {
         if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
@@ -141,7 +140,7 @@ function createResults(filter = null, num = null, object = null) {
         }
     });
 
-    const minPointValue = filter ? -1 : 1;
+    const minPointValue = filter ? -1 : 2;
 
     const pokemonByPoints = new Map();
     for (let i = 6; i > minPointValue; i--) {
@@ -166,7 +165,7 @@ function createResults(filter = null, num = null, object = null) {
         searchTab.appendChild(headerLi);
 
         pokemons.forEach(pokemon => {
-            const resultElement = createPokemonResultElement(pokemon, num, object);
+            const resultElement = createPokemonResultElement(pokemon);
             searchTab.appendChild(resultElement);
         });
     });
@@ -205,7 +204,7 @@ function filterResults(filter = null) {
     });
 }
 
-function createMovesResults(filter = null, num = null, object = null, moveNum) {
+function createMovesResults(filter = null, moveNum) {
     searchTab.innerHTML = '';
 
     const filters = filter ? [filter] : [];
@@ -227,8 +226,8 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
     headerLi.appendChild(h3);
     searchTab.appendChild(headerLi);
 
-    // Find current Pokemon's learnset
-    const foundPokemon = pokemonPointsData.find(pokemon => pokemon.name === playerPokemons[num].name);
+    console.log($("#pokemon-picked-btn").attr("num"));
+    const foundPokemon = pokemonPointsData.find(pokemon => pokemon.name === playerPokemons[$("#pokemon-picked-btn").attr("num")].name);
     const normalizedLearnset = new Set(
         foundPokemon.learnset.map(m => m.toLowerCase().replace(/\s+/g, '').replace('-', ''))
     );
@@ -282,9 +281,14 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
 
         // Add click handler
         a.onclick = () => {
+            const picked = $("#pokemon-picked-btn");
+            let num = picked.attr("num");
+            let object = document.querySelectorAll('.pokemon-pick-btn')[num];
             playerPokemons[num].moves[moveNum] = move;
             updateVisualTeam(playerPokemons[num], num, object);
             teamPokemonUpdate(playerPokemons[num], num, object);
+            let nextMoveNum = parseInt(moveNum) < 3 ? parseInt(moveNum) + 1 : 0;
+            document.querySelectorAll('.team-pokemon-moves')[num].querySelectorAll('span')[nextMoveNum].querySelector('input').focus();
         };
 
         a.setAttribute('data-name', move.name);
@@ -295,7 +299,7 @@ function createMovesResults(filter = null, num = null, object = null, moveNum) {
     createFilterResults();
 }
 
-function createItemsResults(filter = null, num = null, object = null) {
+function createItemsResults(filter = null) {
     searchTab.innerHTML = '';
 
     const filters = filter ? [filter] : [];
@@ -349,10 +353,14 @@ function createItemsResults(filter = null, num = null, object = null) {
 
         // Add click handler
         a.onclick = () => {
+            
+            const picked = $("#pokemon-picked-btn");
+            let num = picked.attr("num");
+            let object = document.querySelectorAll('.pokemon-pick-btn')[num];
             playerPokemons[num].item = item;
             updateVisualTeam(playerPokemons[num], num, object);
             teamPokemonUpdate(playerPokemons[num], num, object);
-            document.querySelectorAll('.team-pokemon-moves span')[num + 1].querySelector('input').focus();
+            document.querySelectorAll('.team-pokemon-moves')[num].querySelector('input').focus();
         };
 
         li.appendChild(a);
@@ -370,12 +378,10 @@ function createActiveFilters() {
     searchFilters.types.forEach(type => {
         const filterItem = document.createElement('div');
         filterItem.classList.add('active-filter');
-        const text = document.createElement('span');
-        text.textContent = type;
-        const imgType = document.createElement('img');
-        imgType.src = imgSource + type.toLowerCase() + '_type.png';
-        filterItem.appendChild(imgType);
-        filterItem.appendChild(text);
+        filterItem.innerHTML = 
+            "<img src='" + imgSource + type.toLowerCase() + "_type.png' />" +
+            "<span>" + type + "</span>";
+
         filterItem.onclick = () =>{
             searchFilters.types.pop(type);
             $("#search-input").focus();

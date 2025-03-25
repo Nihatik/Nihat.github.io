@@ -1,0 +1,46 @@
+.statform {
+    padding: 3px 13px 10px 13px;
+    font-size: 10pt;
+}
+
+.statform p.suggested {
+    margin: 5px 0;
+}
+
+.statform .col {
+    float: left;
+    width: 52px;
+    text-align: right;
+    font-size: 9pt;
+}
+
+.statform .col > div {
+    padding-top: 1px;
+    height: 28px;
+}
+
+.statform .basestatscol {
+    width: 38px;
+}
+
+.statform .graphcol {
+    width: 185px;
+}
+
+.statform .evcol, .statform .ivcol {
+    width: 48px;
+    text-align: center;
+}
+
+.statform .evslidercol {
+    width: 193px;
+    margin-right: 9px;
+    margin-left: 5px;
+    padding-top: 2px;
+    text-align: center;
+}
+
+.statform .statscol {
+    width: 36px;
+}
+

@@ -1,6 +1,9 @@
 import { movesParam, itemsParam, abilitiesParam } from './PokemonUtils.js';
 import { checkToSpace } from './Utils.js';
+import { pokemonsParam, pokemonStatsLoad } from './PokemonUtils.js';
+
 export { returnPokePaste, returnCurrentPokemonPokepaste, submitPokePaste, submitPokemonPaste }
+
 
 function returnPokePaste(team) {
     let pokePaste = ''

@@ -4,15 +4,15 @@ window.onload = onLoad;
 import { allPokemons, allItems, allAbilities, allMoves } from './teambuilderBase.js';
 import { pokemonPointsData } from './pokemonPointsBase.js'
 import { createResults, filterResults, createMovesResults, createItemsResults } from './components/Search.js';
-import {buildsOnLoad, submitBuildPokemonPaste, loadBuilds,loadBuildResults } from './components/Builds.js';
+import { buildsOnLoad, submitBuildPokemonPaste, loadBuilds, loadBuildResults } from './components/Builds.js';
 import { openTab, openTab2, openPokemonTab, loadFunctions } from './components/Tabs.js';
 import { savedTeamsUpdate, saveTeam, deleteTeam, loadTeam } from './components/Teams.js';
 import { teamTypesDefenseUpdate } from './utils/teamAnalyzer.js';
 import { submitPokePaste } from './components/Pokepaste.js';
-import { teamPokemonUpdate, updateVisualTeam} from './components/TeamUtils.js';
+import { teamPokemonUpdate, updateVisualTeam } from './components/TeamUtils.js';
 import { getGradientColor } from './components/Utils.js';
 
-export {updateTeamStatsWeak, presentInfoUpdate, playerPokemons,  teamPokemonUpdate as teamCurPokemonChange };
+export { updateTeamStatsWeak, presentInfoUpdate, playerPokemons, teamPokemonUpdate as teamCurPokemonChange };
 
 
 var playerPokemons = [
@@ -26,7 +26,7 @@ var playerPokemons = [
 
 
 function presentInfoUpdate(opponent = null) {
-    var buttons = document.querySelectorAll('.pokemon-pick-btn');
+    let buttons = document.querySelectorAll('.pokemon-pick-btn');
     if (document.getElementById("playerteam-input-text").value) {
         submitPokePaste(playerPokemons, document.getElementById("playerteam-input-text").value);
     }
@@ -45,6 +45,7 @@ function presentInfoUpdate(opponent = null) {
 
 
 function onLoad() {
+    let buttons = document.querySelectorAll('.pokemon-pick-btn');
     loadFunctions();
     $('#teamsbutton').on('click', function (e) {
         e.preventDefault();
@@ -56,17 +57,56 @@ function onLoad() {
         };
     });
 
+    Array.from(document.getElementsByClassName("team-pokemon-sprite")).forEach(function (spriteDiv) {
+        spriteDiv.onclick = function (event) {
+            $("#Pokemons").click();
+        };
+    });
+    Array.from(document.querySelectorAll(".team-pokemon-add-info .item")).forEach(function (infoDiv) {
+        infoDiv.onclick = function (event) {
+            $("#Items").click();
+        };
+    });
+
+    Array.from(document.querySelectorAll('.team-pokemon-moves span input')).forEach(function (infoDiv) {
+        infoDiv.onfocus = function () {
+            $('#Moves').click();
+            if(this.value == ""){
+                this.value = "Select move";
+            }
+            document.querySelectorAll('.team-pokemon-moves span input').forEach(el => el.removeAttribute("id"));
+
+            this.setAttribute("id", "active-move");
+            console.log("ATTR",this.getAttribute("num"))
+            createMovesResults(null, this.getAttribute("num"));
+        }
+    });
+
+
+
     Array.from(document.getElementsByClassName("grouplinks")).forEach(function (groupLink) {
         groupLink.onclick = function (event) {
             document.querySelectorAll(".grouplinks").forEach(el => el.classList.remove("active-group"));
-            
+
+            let activeTabId = $(".active-group").attr("id");
+            let thisID = groupLink.getAttribute("id");
+            if (activeTabId != "Pokemons" && thisID == "Pokemons") {
+                createResults(null);
+            }
+            else if (activeTabId != "Moves" && thisID == "Moves") {
+                createMovesResults(null, 0);
+            }
+            else if (activeTabId != "Items" && thisID == "Items") {
+                createItemsResults(null);
+            }
             this.classList.add("active-group");
+            $("#Search").click();
             $("#search-input").focus();
         };
     });
-    
 
-    Array.from(document.getElementsByClassName("pokemon-pick-btn")).forEach(function (tabLink) {
+
+    Array.from(buttons).forEach(function (tabLink) {
         tabLink.onclick = function (event) {
             openPokemonTab(tabLink.getAttribute("num"), tabLink);
         };
@@ -98,38 +138,86 @@ function onLoad() {
     document.getElementById('saveteambutton').onclick = function () {
         saveTeam();
     }
-    var buttons = document.querySelectorAll('.pokemon-pick-btn');
     createResults(null, 0, buttons[0])
     presentInfoUpdate();
     openPokemonTab(0, buttons[0])
 
     $('#Pokemons').click();
-    
-    const myInput = document.querySelector('#search-input');
 
-    myInput.onfocus = function () {
+    const searchInput = document.querySelector('#search-input');
+
+    searchInput.onfocus = function () {
         this.select();
-        let activeTabId = document.querySelector(".active-group").getAttribute("id");
-        if(activeTabId == "Pokemons"){
-            createResults(null, 0);
-        }
-        else if(activeTabId == "Moves"){
-            createMovesResults(null , 0, null, 0);
-        }
-        else if(activeTabId == "Items"){
-            createItemsResults(null , 0);
-        }
-        $("#Search").click();
-
     }
-    myInput.addEventListener('input', function () {
-        filterResults(pokemon => pokemon.name.toLowerCase().startsWith(this.value.toLowerCase()), null, 0);
+    let activeIndex = -1;
+    
+    searchInput.addEventListener('input', function () {
+        let activeTabId = document.querySelector(".active-group").getAttribute("id");
+        let filter = pokemon => pokemon.name.toLowerCase().startsWith(this.value.toLowerCase());
+        if (activeTabId == "Pokemons") {
+            if (this.value != "" && this.value.length == 1) {
+                createResults(filter, null, 0)
+            }
+            else if (this.value == "") {
+                createResults(null, null, 0);
+            }
+            else if (this.value.length > 1) {
+                filterResults(filter, null, 0);
+            }
+        }
+        else {
+            filterResults(filter, null, 0);
+        }
+        activeIndex = 0;
+        updateActiveResult()
     });
+
+
+    searchInput.addEventListener("keydown", function (event) {
+        let results = document.querySelectorAll(".result-show");
+        let tabs = $(".grouplinks");
+        let activeTab = $(".grouplinks.active-group");
+        let currentIndex = tabs.index(activeTab);
+        if (results.length === 0) return;
+
+        if (event.key === "ArrowDown") {
+            event.preventDefault();
+            activeIndex = (activeIndex + 1) % results.length;
+            updateActiveResult();
+        } else if (event.key === "ArrowUp") {
+            event.preventDefault();
+            activeIndex = (activeIndex - 1 + results.length) % results.length;
+            updateActiveResult();
+        } else if (event.key === "Enter") {
+            console.log("ZDAROVA")
+            event.preventDefault();
+            if (activeIndex >= 0) {
+                results[activeIndex].querySelector('a').click();
+            }
+            updateActiveResult();
+        }else if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            let prevIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+            tabs[prevIndex].click();
+        } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            let nextIndex = (currentIndex + 1) % tabs.length;
+            tabs[nextIndex].click();
+        }
+    });
+
+    function updateActiveResult() {
+        let results = document.querySelectorAll(".result-show");
+        results.forEach((item, index) => {
+            item.classList.toggle("active", index === activeIndex);
+        });
+    }
 
 
     $('#Search').click();
     $('#current-team-button').click();
     buildsOnLoad();
+
 }
 
 

@@ -1,3 +1,17 @@
+#search-input {
+    all: unset;
+    padding: 0 8px;
+    border-radius: 16px;
+    width: 240px;
+    border: none;
+    background-color: #1d1d1d;
+    border: 1px solid #4d4d4d;
+    height: 32px;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+
 .teambuilder-results {
     padding: 2px 0px 10px 0px;
 }
@@ -37,7 +51,7 @@
 @keyframes result-show {
     0% {
         display: flex;
-        height: 0px;
+        height: 32px;
         opacity: 0;
     }
     100% {
@@ -66,6 +80,10 @@
     display: flex;
     opacity: 1;
     animation: result-show 0.25s ease-in;
+}
+
+.result-show.active a {
+    border: 1px solid #535353;
 }
 
 .result a {

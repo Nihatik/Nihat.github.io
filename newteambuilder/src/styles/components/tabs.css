@@ -181,27 +181,6 @@
     width: 50%;
 }
 
-.tab-search-container input {
-    all: unset;
-    padding: 0 8px;
-    border-radius: 16px;
-    width: 150px;
-    border: none;
-    background-color: #1d1d1d;
-    border: 1px solid #4d4d4d;
-    height: 32px;
-    font-size: 0.8rem;
-    transition: 0.3s;
-}
-
-.tab-search-container input:hover {
-    width: 240px;
-}
-
-.tab-search-container input:focus {
-    width: 240px;
-}
-
 .tablinks-container {
     justify-content: end;
     display: flex;

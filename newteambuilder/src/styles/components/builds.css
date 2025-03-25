@@ -1,9 +1,9 @@
 
 
 .build-result {
-    height: 0px;
-    max-height: 0px;
-    min-height: 0px;
+    height: 120px;
+    max-height: 120px;
+    min-height: 120px;
     width: 0;
     overflow: hidden;
     text-overflow: ellipsis;

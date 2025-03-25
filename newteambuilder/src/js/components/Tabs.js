@@ -1,7 +1,7 @@
 
 import { playerPokemons } from '../main.js';
 import { pokemonPointsData } from '../pokemonPointsBase.js';
-import { createResults, filterResults, createMovesResults, createItemsResults } from './Search.js';
+import { loadBuildResults } from './TeamUtils.js';
 
 export { loadFunctions, openTab, openTab2, openPokemonTab };
 
@@ -99,9 +99,11 @@ function openPokemonTab(tabIndex, tabButton) {
         tablinks[i].className = tablinks[i].className.replace(" active-tab", "");
     }
     tabButton.classList.add("active-tab")
+    console.log(tabButton.num, tabIndex , "NUM AND TABINDEX");
     tablinks.forEach(function (button) {
-        if (button.id === "pokemon-picked-btn") {
+        if (button.num != tabIndex && button.id === "pokemon-picked-btn") {
             button.id = '';
+            console.log("ID CLEARED");
         }
     });
     tabButton.id = "pokemon-picked-btn";
@@ -109,14 +111,8 @@ function openPokemonTab(tabIndex, tabButton) {
     var findedPokemon = pokemonPointsData.find(function (item) {
         return item.name === pokemon.name && item.num === pokemon.num;
     });
-    createResults(null, tabIndex, tabButton)
-    document.querySelector('#search-input').onfocus = function () {
-        this.select();
-        createResults(null, tabIndex, tabButton)
-    }
     $("#search-input").focus();
     if (pokemon.name != "") {
         loadBuildResults(pokemon, tabIndex, tabButton)
-        createMovesResults(null, tabIndex, null, 0);
     }
 }

@@ -1,7 +1,6 @@
 import { playerPokemons, updateTeamStatsWeak} from '../main.js';
 import { teamTypesDefenseUpdate } from '../utils/teamAnalyzer.js';
 import { returnPokePaste, returnCurrentPokemonPokepaste } from './Pokepaste.js';
-import { createResults, createMovesResults, createItemsResults, filterResults } from './Search.js';
 import { pokemonPointsData } from '../pokemonPointsBase.js';
 import { allPokemons, allNatures } from '../teambuilderBase.js';
 import { setTypesImg, imgSource } from './Utils.js';
@@ -10,9 +9,10 @@ import { openPokemonTab } from './Tabs.js';
 
 var movesForPoints = ['Whirlwind', 'Roar', 'Baton Pass']
 
-export { teamPokemonUpdate, updateVisualTeam, calculateTeamPointsValue, movesForPoints }
+export { teamPokemonUpdate, loadBuildResults, updateVisualTeam, calculateTeamPointsValue, movesForPoints }
 
 function teamPokemonUpdate(pokemon, num = null, object = null) {
+    let buttons = document.querySelectorAll('.pokemon-pick-btn');
     updateTeamStatsWeak(playerPokemons);
     teamTypesDefenseUpdate(playerPokemons)
     if (document.getElementById('build-button')) {
@@ -23,22 +23,12 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
     });
     loadBuilds(findedPokemon);
 
-    createMovesResults(null, num, object, 0);
-    createItemsResults(null, num, object, 0);
-
     /*       document.getElementById('current-pokemon-points').textContent = calculateTeamPointsValue(null, pokemon)
      */
     returnPokePaste(playerPokemons)
     let activePokemon = playerPokemons[num]
 
     var results = document.querySelectorAll('.result')
-
-    var buttons = document.querySelectorAll('.pokemon-pick-btn');
-    buttons.forEach(function (button) {
-        if (button.id === "pokemon-picked-btn") {
-            button.id = '';
-        }
-    });
     if (!object) {
         if (num) {
             object = buttons[num];
@@ -83,16 +73,16 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
 
     function evsValuesUpdate(pokemon) {
         let evsKeys = Object.keys(pokemon.evs);
-        let evs = infoPokemon.querySelectorAll('.evs input');
-        let evsRanges = infoPokemon.querySelectorAll('.evs-range');
+        let evs = infoPokemon.querySelectorAll('.evs h3');
+        let evsRanges = infoPokemon.querySelectorAll('.stat-progress');
         let total = 0
         for (let i = 0; i < 6; i++) {
-            evs[i].value = pokemon.evs[evsKeys[i]];
-            evsRanges[i].value = pokemon.evs[evsKeys[i]]
+            evs[i].textContent = pokemon.evs[evsKeys[i]];
+            evsRanges[i].value = pokemon.stats[evsKeys[i]] * 100 / evsRanges[i].max;
         }
     }
-    let evs = infoPokemon.querySelectorAll('.evs input');
-    let evsRanges = infoPokemon.querySelectorAll('.evs-range');
+    let evs = infoPokemon.querySelectorAll('.evs h3');
+    let evsRanges = infoPokemon.querySelectorAll('.stat-progress');
     let evsKeys = Object.keys(pokemon.evs);
 
     evsValuesUpdate(pokemon)
@@ -137,23 +127,23 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
             ivs[i].value = pokemon.ivs[evsKeys[i]];
         }
     }
-    ivsValuesUpdate()
-    let ivs = infoPokemon.querySelectorAll('.ivs input');
-    for (let i = 0; i < 6; i++) {
-        ivs[i].value = pokemon.ivs[evsKeys[i]];
-        ivs[i].oninput = function () {
-            if (ivs[i].value > 31) {
-                ivs[i].value = 31;
-            }
-            else if (ivs[i].value < 0) {
-                ivs[i].value = 0;
-            }
-            playerPokemons[num].ivs[evsKeys[i]] = +this.value;
-            pokemonStatsLoad(playerPokemons)
-            ivsValuesUpdate(pokemon)
-            statValuesUpdate(playerPokemons[num])
-        }
-    }
+
+    // let ivs = infoPokemon.querySelectorAll('.ivs input');
+    // for (let i = 0; i < 6; i++) {
+    //     ivs[i].value = pokemon.ivs[evsKeys[i]];
+    //     ivs[i].oninput = function () {
+    //         if (ivs[i].value > 31) {
+    //             ivs[i].value = 31;
+    //         }
+    //         else if (ivs[i].value < 0) {
+    //             ivs[i].value = 0;
+    //         }
+    //         playerPokemons[num].ivs[evsKeys[i]] = +this.value;
+    //         pokemonStatsLoad(playerPokemons)
+    //         ivsValuesUpdate(pokemon)
+    //         statValuesUpdate(playerPokemons[num])
+    //     }
+    // }
 
 
     statValuesUpdate(pokemon)
@@ -190,87 +180,6 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
                 moves[i].querySelector('input').value = '';
                 moves[i].querySelector('img').src = imgSource + "normal_type.png";
             }
-        }
-    }
-
-    for (let i = 0; i < 4; i++) {
-        moves[i].querySelector('input').oninput = function () {
-            if (this.value == '') {
-                createMovesResults(null, num, object, i);
-            }
-            else if (allMoves[this.value.replace(' ', '').toLowerCase()]) {
-                playerPokemons[num].moves[i] = allMoves[this.value.replace(' ', '').toLowerCase()];
-                updateVisualTeam(playerPokemons[num], num, object)
-                teamPokemonUpdate(playerPokemons[num], num, object)
-                let moves = document.querySelectorAll('.moves span');
-                moves[i + 1].querySelector('input').focus();
-            }
-            else {
-                createMovesResults(this.value, num, object, i);
-            }
-
-        };
-        moves[i].querySelector('input').onfocus = function () {
-            this.select();
-            createMovesResults(null, num, object, i);
-            $('#Moves').click();
-            let curResult = document.querySelector('.current-result')
-            /* if (curResult.getAttribute('data-name') != pokemon.moves[i].name) {
-                while (curResult.firstChild) {
-                    curResult.removeChild(curResult.firstChild);
-                }
-                let move = pokemon.moves[i]
-                const li = document.createElement('li');
-                li.classList.add('result');
- 
-                const a = document.createElement('a');
- 
-                const divName = document.createElement('div');
-                divName.classList.add('result-pokemon-name');
-                divName.textContent = move.name;
- 
-                const divDesc = document.createElement('div');
-                divDesc.classList.add('result-move-desc')
-                divDesc.textContent = move.shortDesc
- 
-                const divTypes = document.createElement('div');
-                divTypes.classList.add('result-move-type');
- 
-                const imgType = document.createElement('img');
-                if (move.type) {
-                    imgType.src = imgSources + move.type.toLowerCase() + '_type.png';
-                }
-                divTypes.appendChild(imgType);
- 
-                let divPower = document.createElement('div');
-                divPower.classList.add('result-move-power');
-                divPower.textContent = move.basePower
- 
-                let divPP = document.createElement('div');
-                divPP.classList.add('result-move-pp');
-                divPP.textContent = move.pp
- 
-                let divAcc = document.createElement('div');
-                divAcc.classList.add('result-move-acc');
-                if (move.accuracy == true) {
-                    divAcc.textContent = '-'
-                }
-                else {
-                    divAcc.textContent = move.accuracy
-                }
- 
-                let divCat = document.createElement('div');
-                divCat.classList.add('result-move-cat');
-                divCat.textContent = move.category
- 
-                curResult.appendChild(divName);
-                curResult.appendChild(divTypes)
-                curResult.appendChild(divCat);
-                curResult.appendChild(divPower);
-                curResult.appendChild(divAcc);
-                curResult.appendChild(divPP);
-                curResult.appendChild(divDesc)
-            } */
         }
     }
 
@@ -359,45 +268,7 @@ function teamPokemonUpdate(pokemon, num = null, object = null) {
     });
 
 
-    const myInput = document.querySelector('#search-input');
-
-    myInput.onfocus = function () {
-        this.select();
-        $("#Search").click();
-        let activeTabId = document.querySelector(".active-group").getAttribute("id");
-        if(activeTabId == "Pokemons"){
-            createResults(null, num, object);
-        }
-        else if(activeTabId == "Moves"){
-            createMovesResults(null , num, object, 0);
-        }
-        else if(activeTabId == "Items"){
-            createItemsResults(null , num, object);
-        }
-        filterResults(null, num, object);
-    }
-    myInput.addEventListener('input', function () {
-        filterResults(pokemon => pokemon.name.toLowerCase().startsWith(this.value.toLowerCase()), num, object);
-    });
-
-    let itemInput = infoPokemon.querySelector('#current-pokemon-info .item');
-    itemInput.onfocus = function () {
-        $('#Items').click();
-    }
-
-
-    itemInput.oninput = function () {
-        if (this.value == '') {
-            createItemsResults(null, num, object);
-        }
-        else {
-            createItemsResults(this.value, num, object);
-        }
-    }
-
-    $(infoPokemon).find(".team-pokemon-sprite").onclick = function () {
-        $("#Pokemons").click();
-    };
+    
     loadBuildResults(pokemon, num, object)
     returnCurrentPokemonPokepaste(pokemon)
 }
@@ -527,12 +398,13 @@ function calculateTeamPointsValue(team, pokemon = null) {
 
 
 function updateVisualTeam(pokemon, num = null, object = null) {
+    object = document.querySelectorAll(".pokemon-pick-btn")[num];
     let thisPokemonTab = document.querySelectorAll(".team-pokemon-tab")[num]
 
     var teamPointsValue = calculateTeamPointsValue(playerPokemons);
 
-
-    let sprite = object.querySelector('.pokemon-sprite div')
+    console.log(object, "AGAGAGA")
+    let sprite = object.querySelector('.pokemon-sprite')
 
     let spriteName
     if (pokemon.forme != null) {
