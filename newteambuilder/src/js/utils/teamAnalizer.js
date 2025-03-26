@@ -1,13 +1,15 @@
 import { pokemonPointsData } from "../pokemonPointsBase.js";
 import {allTypes} from '../teambuilderBase.js'
+export {teamTypesDefenseUpdate}
 
 function teamTypesDefenseUpdate(playerPokemons) {
     let tds = document.querySelectorAll('table tr td')
     let trs = document.querySelectorAll('.team-types-defense table tbody tr')
-    let allTypes = Object.keys(allTypes)
+    let allTypesKeys = Object.keys(allTypes)
+   
     let teamTypesDefense = []
     for (let i = 0; i < 18; i++) {
-        teamTypesDefense[allTypes[i]] = 0;
+        teamTypesDefense[allTypesKeys[i]] = 0;
         if (trs[i].querySelectorAll('td')[2] && trs[i].querySelectorAll('td')[2].querySelector('div')) {
             trs[i].querySelectorAll('td')[2].remove()
         }
@@ -17,14 +19,14 @@ function teamTypesDefenseUpdate(playerPokemons) {
         if (pokemon.types && pokemon.name != '') {
             pokemon.types.forEach(function (checkType) {
                 checkType = checkType.toLowerCase()
-                allTypes.forEach(function (typeEff) {
+                allTypesKeys.forEach(function (typeEff) {
                     if (allTypes[typeEff][checkType] == 0.5) {
                         teamTypesDefense[typeEff] += 1
                     }
                     else if (allTypes[typeEff][checkType] == 2) {
                         teamTypesDefense[typeEff] -= 1
                     } else if (allTypes[typeEff][checkType] == 0) {
-                        allTypes.forEach(function (typ, i) {
+                        allTypesKeys.forEach(function (typ, i) {
                             if (typ == typeEff) {
                                 let td = null
                                 if (trs[i].querySelectorAll('td')[2]) {
@@ -65,15 +67,13 @@ function teamTypesDefenseUpdate(playerPokemons) {
     let j = 0
     for (let i = 0; i < trs.length; i++) {
         let effObj = trs[i].querySelectorAll('td')[1]
-        effObj.textContent = teamTypesDefense[allTypes[i]]
+        effObj.textContent = teamTypesDefense[allTypesKeys[i]]
         effObj.removeAttribute('class')
-        if (teamTypesDefense[allTypes[i]] > 0) {
+        if (teamTypesDefense[allTypesKeys[i]] > 0) {
             effObj.classList.add('boosted')
-        } else if (teamTypesDefense[allTypes[j]] < 0) {
+        } else if (teamTypesDefense[allTypesKeys[j]] < 0) {
             effObj.classList.add('decreased')
         }
         j++;
     }
 }
-
-export {teamTypesDefenseUpdate}

@@ -113,6 +113,9 @@ function openPokemonTab(tabIndex, tabButton) {
     });
     $("#search-input").focus();
     if (pokemon.name != "") {
+        $("#current-pokemon-info").removeClass("current-pokemon-info-hide");
         loadBuildResults(pokemon, tabIndex, tabButton)
+    }else{
+        $("#current-pokemon-info").addClass("current-pokemon-info-hide");
     }
 }

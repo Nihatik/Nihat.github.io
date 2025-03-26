@@ -32,6 +32,12 @@ function createPokemonResultElement(pokemon) {
 
     const a = document.createElement('a');
 
+
+    const divTier = document.createElement('div');
+    divTier.classList.add('result-pokemon-tier');
+    divTier.textContent = pokemonInfo.tier;
+
+    
     // Create icon
     const divIcon = document.createElement('div');
     divIcon.classList.add('result-pokemon-icon');
@@ -91,6 +97,7 @@ function createPokemonResultElement(pokemon) {
     divBST.textContent = Object.values(pokemonInfo.baseStats).reduce((total, stat) => total + stat, 0);
 
     // Append all elements
+    a.appendChild(divTier);
     a.appendChild(divIcon);
     a.appendChild(divName);
     a.appendChild(divTypes);
@@ -113,7 +120,6 @@ function createPokemonResultElement(pokemon) {
         let num = picked.attr("num");
         let object = buttons[num];
 
-        console.log(num, "NUM");
         const basePokemon = getPokemonInfo(pokemon);
 
         pokemonLoad(num, basePokemon, object);
@@ -122,8 +128,9 @@ function createPokemonResultElement(pokemon) {
 
         picked.attr("id", "pokemon-picked-btn");
         picked.removeClass("new-pokemon-btn");
-        $(".new-pokemon-btn").css("display", "none");
-        $(".new-pokemon-btn").first().css("display", "flex");
+        picked.removeClass("new-pokemon-btn-next");
+        $(".new-pokemon-btn").first().addClass("new-pokemon-btn-next")
+        $("#current-pokemon-info").removeClass("current-pokemon-info-hide");
     };
 
     li.appendChild(a);
@@ -132,7 +139,6 @@ function createPokemonResultElement(pokemon) {
 }
 
 function createResults(filter = null) {
-    console.log("NEWRESULTS!!")
     const results = searchTab.querySelectorAll('.result');
     results.forEach(result => {
         if ((result.querySelector('a') || result.querySelector('h3')) && !result.querySelector('.current-result')) {
@@ -194,7 +200,6 @@ function filterResults(filter = null) {
         }
         if (searchFilters.types.length > 0){
             aTag.querySelectorAll('.result-pokemon-types img').forEach(img => {
-                console.log(img.src.split('/').pop().split('_')[0].toLowerCase());
                 if (!searchFilters.types.some(type => 
                     type.toLowerCase() === img.src.split('/').pop().split('_')[0].toLowerCase())) {
                     el.classList.remove("result-show");
@@ -226,7 +231,6 @@ function createMovesResults(filter = null, moveNum) {
     headerLi.appendChild(h3);
     searchTab.appendChild(headerLi);
 
-    console.log($("#pokemon-picked-btn").attr("num"));
     const foundPokemon = pokemonPointsData.find(pokemon => pokemon.name === playerPokemons[$("#pokemon-picked-btn").attr("num")].name);
     const normalizedLearnset = new Set(
         foundPokemon.learnset.map(m => m.toLowerCase().replace(/\s+/g, '').replace('-', ''))
@@ -374,7 +378,6 @@ function createActiveFilters() {
     const activeFilters = document.createElement('div');
     activeFilters.classList.add('active-filters');
 
-    console.log( "SEARCH FILTERS: ", searchFilters);
     searchFilters.types.forEach(type => {
         const filterItem = document.createElement('div');
         filterItem.classList.add('active-filter');

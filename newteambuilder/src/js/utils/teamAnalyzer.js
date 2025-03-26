@@ -1,4 +1,5 @@
-export function calculateTeamPointsValue(team, pokemon = null) {
+
+function calculateTeamPointsValue(team, pokemon = null) {
   if (pokemon) {
     let pokemonOtherForm = null;
     let findedPokemon = null;
@@ -30,7 +31,7 @@ export function calculateTeamPointsValue(team, pokemon = null) {
   return totalPoints;
 }
 
-export function teamTypesDefenseUpdate(playerPokemons) {
+function teamTypesDefenseUpdate(playerPokemons) {
   const typeDefenses = {
     'Normal': 0, 'Fire': 0, 'Water': 0, 'Electric': 0, 'Grass': 0,
     'Ice': 0, 'Fighting': 0, 'Poison': 0, 'Ground': 0, 'Flying': 0,

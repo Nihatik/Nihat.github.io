@@ -110,7 +110,10 @@
 .teambuilder-results li:has(h3) {
     height: 24px;
 }
-
+.result-pokemon-tier{
+    width: 40px;
+    text-align: center;
+}
 .result-pokemon-icon{
     width: 50px;
     display: flex;

@@ -52,7 +52,7 @@
                 </div>
                 <div id="TeamTab" class="tab-item">
                     <div id="pokemon-pick-buttons">
-                        <button num="0" class="pokemon-pick-btn fire-type" id="pokemon-picked-btn">
+                        <button num="0" class="pokemon-pick-btn fire-type new-pokemon-btn-next" id="pokemon-picked-btn">
                             <div class="pokemon-pick-btn-top">
                                 <label class="pokemon-pick-name"></label>
                             </div>
@@ -226,7 +226,7 @@
 
         <div id="center-panel">
             <div id="team-pokemon-tabs">
-                <div id="current-pokemon-info">
+                <div id="current-pokemon-info" class="current-pokemon-info-hide">
                     <div id="team-pokemon-hint">
                         <span>Pokemon</span>
                         <span>Add info</span>
@@ -234,11 +234,22 @@
                         <span>Stats</span>
                         <span>Evs</span>
                     </div>
+                    <button class="tablink-item-icon"id="Pokepaste">
+                        <div id="current-pokemon-pokepaste">
+                            <h4>Click to copy</h4>
+                            <textarea id="current-pokemon-pokepaste-input" rows="4"
+                                placeholder="Введите текст..."></textarea>
+                            <div id="current-pokemon-pokepaste-save" role="button">Save</div>
+
+                        </div>
+                        <span class="pokemon-info-item"
+                            style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -72px -576px no-repeat scroll transparent;">
+                        </span>
+                    </button>
                     <div id="current-pokemon-info-in">
                         <div class="team-pokemon-tab team-pokemon-info">
                             <div class="team-pokemon-sprite">
-                                <div class="pokesprite"
-                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                <div class="pokesprite">
                                 </div>
                             </div>
                             <div class="vertical-line"></div>
@@ -246,8 +257,8 @@
                                 <div>
                                     <label for="types">Types: </label>
                                     <span class="types" id="types">
-                                        <img src="../img/grass_type.png">
-                                        <img src="../img/poison_type.png">
+                                        <img src="../img/normal_type.png">
+                                        <img src="../img/normal_type.png">
                                     </span>
                                 </div>
                                 <div>
@@ -358,8 +369,7 @@
                         </div>
                         <div class="team-pokemon-tab team-pokemon-info">
                             <div class="team-pokemon-sprite">
-                                <div class="pokesprite"
-                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                <div class="pokesprite">
                                 </div>
                             </div>
                             <div class="vertical-line"></div>
@@ -367,8 +377,8 @@
                                 <div>
                                     <label for="types">Types: </label>
                                     <span class="types" id="types">
-                                        <img src="../img/grass_type.png">
-                                        <img src="../img/poison_type.png">
+                                        <img src="../img/normal_type.png">
+                                        <img src="../img/normal_type.png">
                                     </span>
                                 </div>
                                 <div>
@@ -479,8 +489,7 @@
                         </div>
                         <div class="team-pokemon-tab team-pokemon-info">
                             <div class="team-pokemon-sprite">
-                                <div class="pokesprite"
-                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                <div class="pokesprite">
                                 </div>
                             </div>
                             <div class="vertical-line"></div>
@@ -488,8 +497,8 @@
                                 <div>
                                     <label for="types">Types: </label>
                                     <span class="types" id="types">
-                                        <img src="../img/grass_type.png">
-                                        <img src="../img/poison_type.png">
+                                        <img src="../img/normal_type.png">
+                                        <img src="../img/normal_type.png">
                                     </span>
                                 </div>
                                 <div>
@@ -600,8 +609,7 @@
                         </div>
                         <div class="team-pokemon-tab team-pokemon-info">
                             <div class="team-pokemon-sprite">
-                                <div class="pokesprite"
-                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                <div class="pokesprite">
                                 </div>
                             </div>
                             <div class="vertical-line"></div>
@@ -609,8 +617,8 @@
                                 <div>
                                     <label for="types">Types: </label>
                                     <span class="types" id="types">
-                                        <img src="../img/grass_type.png">
-                                        <img src="../img/poison_type.png">
+                                        <img src="../img/normal_type.png">
+                                        <img src="../img/normal_type.png">
                                     </span>
                                 </div>
                                 <div>
@@ -721,8 +729,7 @@
                         </div>
                         <div class="team-pokemon-tab team-pokemon-info">
                             <div class="team-pokemon-sprite">
-                                <div class="pokesprite"
-                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                <div class="pokesprite">
                                 </div>
                             </div>
                             <div class="vertical-line"></div>
@@ -730,8 +737,8 @@
                                 <div>
                                     <label for="types">Types: </label>
                                     <span class="types" id="types">
-                                        <img src="../img/grass_type.png">
-                                        <img src="../img/poison_type.png">
+                                        <img src="../img/normal_type.png">
+                                        <img src="../img/normal_type.png">
                                     </span>
                                 </div>
                                 <div>
@@ -842,8 +849,7 @@
                         </div>
                         <div class="team-pokemon-tab team-pokemon-info">
                             <div class="team-pokemon-sprite">
-                                <div class="pokesprite"
-                                    style="background-image: url(&quot;https://play.pokemonshowdown.com/sprites/ani/pineco.gif&quot;);">
+                                <div class="pokesprite">
                                 </div>
                             </div>
                             <div class="vertical-line"></div>
@@ -851,8 +857,8 @@
                                 <div>
                                     <label for="types">Types: </label>
                                     <span class="types" id="types">
-                                        <img src="../img/grass_type.png">
-                                        <img src="../img/poison_type.png">
+                                        <img src="../img/normal_type.png">
+                                        <img src="../img/normal_type.png">
                                     </span>
                                 </div>
                                 <div>
@@ -986,18 +992,6 @@
                         <button class="tablinks" num="2" id="Builds"><span class="pokemon-info-item"
                                 style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -360px -1104px no-repeat scroll transparent;">
                             </span> Builds</button>
-                        <button class="tablinks tablink-item-icon" num="5" id="Pokepaste">
-                            <div id="current-pokemon-pokepaste">
-                                <h4>Click to copy</h4>
-                                <textarea id="current-pokemon-pokepaste-input" rows="4"
-                                    placeholder="Введите текст..."></textarea>
-                                <div id="current-pokemon-pokepaste-save" role="button">Save</div>
-
-                            </div>
-                            <span class="pokemon-info-item"
-                                style="background: url(&quot;https://play.pokemonshowdown.com/sprites/itemicons-sheet.png?v1&quot;) -72px -576px no-repeat scroll transparent;">
-                            </span>
-                        </button>
                     </div>
                 </div>
 
@@ -1092,12 +1086,7 @@
                         </div>
                         <div id="StatsTab" class="team-pokemon-stats tabcontent tab-item">
                             <div class="statform">
-                                <p class="suggested">
-                                    <small>Guessed spread: </small><button name="setStatFormGuesses"
-                                        class="button">Bulky Special Sweeper: 252 HP / 252 SpA / 4 SpD / (+SpA,
-                                        -Atk)</button><small> (<a target="_blank"
-                                            href="http://smogon.com/dex/sv/pokemon/hatterene/national-dex-ag/">Smogon&nbsp;analysis</a>)</small>
-                                </p>
+                                
                                 <div class="col labelcol">
                                     <div></div>
                                     <div><label>HP</label></div>
@@ -1116,7 +1105,7 @@
                                     <div><b>103</b></div>
                                     <div><b>29</b></div>
                                 </div>
-                                <div class="col graphcol">
+                                <div class="col graphcol" style="display: none;">
                                     <div></div>
                                     <div><em><span
                                                 style="width:81px;background:hsl(79,85%,45%);border-color:hsl(79,85%,35%)"></span></em>
@@ -1136,7 +1125,6 @@
                                     <div><em><span
                                                 style="width:30px;background:hsl(21,85%,45%);border-color:hsl(21,85%,35%)"></span></em>
                                     </div>
-                                    <div><em>Remaining:</em></div>
                                 </div>
                                 <div class="col evcol">
                                     <div><strong>EVs</strong></div>
@@ -1152,7 +1140,9 @@
                                     </div>
                                     <div><input type="text" name="stat-spe" value="-" class="textbox inputform numform">
                                     </div>
-                                    <div class="totalev"><em>8</em></div>
+                                    <div><em>Remaining: </em>
+                                        <div class="totalev"><em> 8</em></div>
+                                    </div>
                                 </div>
                                 <div class="col evslidercol">
                                     <div></div>
@@ -1193,9 +1183,6 @@
                                     <div><b>242</b></div>
                                     <div><b>84</b></div>
                                 </div>
-                                <p><small><em>Protip:</em> You can also set natures by typing <kbd>+</kbd> and
-                                        <kbd>-</kbd> next to a stat.</small></p>
-                                <p id="statoptimizer" style="display: none;"></p>
                             </div>
                         </div>
 

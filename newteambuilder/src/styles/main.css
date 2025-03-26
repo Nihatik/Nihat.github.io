@@ -125,10 +125,10 @@ button{
     position: absolute; 
     bottom: 0px;
     right: 32px;
-    font-weight: bold;
-    font-size: 12px;
 }
 .pokemon-pick-evs > span{
+    font-size: 0.7rem;
+    font-weight: bold;
     margin-left: 16px;
     height: 15px;
 }
@@ -163,7 +163,7 @@ button{
     background-color: #1d1d1d;
     width: 280px;
     height: 100px;
-    border-radius: 32px;
+    border-radius: 50px;
     padding: 2px 8px 8px 8px;
     border: 0px;
     transition: 0.3s;
@@ -173,9 +173,14 @@ button{
     left: 0px;
     margin-bottom: 16px;
 }
+
 .new-pokemon-btn {
+    display: none;
     width: 120px;
     height: 24px;
+}
+.new-pokemon-btn-next{
+    display: flex;
 }
 .new-pokemon-btn:hover {
     width: 160px;
@@ -186,11 +191,6 @@ button{
     width: 180px;
     height: 24px;
 }
-
-.new-pokemon-btn:nth-of-type(n+2) {
-    display: none;
-}
-
 
 .pokemon-pick-btn .pokemon-info-item{
     position: absolute;
@@ -312,4 +312,27 @@ select{
 
 .pokepaste-show {
     width: 360px !important;
+}
+
+
+.current-pokemon-info-hide {
+        height: 0px !important; 
+    opacity: 0 !important;
+}
+
+#current-pokemon-info.current-pokemon-info-hide {
+    
+}
+
+.team-pokemon-tab{
+    position: relative;
+}
+
+.choose-text {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
 }

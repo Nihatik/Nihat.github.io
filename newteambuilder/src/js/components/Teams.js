@@ -48,7 +48,6 @@ function savedTeamsUpdate() {
             newTeam.classList.add('data-team');
             dataTeam.pokemonsTeam.forEach(function (pokemon) {
                 let findedPokemon
-                console.log(pokemon);
                 if (pokemon.name) {
                     findedPokemon = pokemonPointsData.find(function (item) {
                         return item.name === pokemon.name && item.num === pokemon.num;
@@ -62,7 +61,6 @@ function savedTeamsUpdate() {
 
                 div.style.backgroundImage = 'url("https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png?v16")';
                 div.style.backgroundRepeat = 'no-repeat';
-                console.log(findedPokemon)
                 if (findedPokemon.iconLoc) {
                     div.style.backgroundPosition = findedPokemon.iconLoc;
                 } else {
@@ -75,7 +73,6 @@ function savedTeamsUpdate() {
                 div.style.backgroundColor = 'transparent';
 
                 let item = document.createElement('div')
-                console.log(pokemon.item);
                 item.classList.add('pokemon-info-item')
                 if (pokemon.item.name) {
 
@@ -163,7 +160,6 @@ function savedTeamsUpdate() {
                         teamForPointsSum += randomNum;
                         sum -= randomNum;
                     }
-                    console.log(teamForPoints)
                     if (teamForPoints.length == 6) {
                         if (teamForPointsSum == +pointsInput.value) {
                             current = true;

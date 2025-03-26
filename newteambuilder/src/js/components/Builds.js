@@ -127,9 +127,7 @@ function buildsOnLoad() {
     let newBuildBtn = document.querySelector("#new-build-save-btn");
     newBuildBtn.onclick = function () {
         let buildPokemon = {};
-        console.log(document.querySelector("#new-build-paste").value);
         submitBuildPokemonPaste(buildPokemon, document.querySelector("#new-build-paste").value); 
-        console.log(buildPokemon);
         insertPokemon(document.querySelector("#new-build-name").value, buildPokemon);
     }
 }
@@ -161,7 +159,6 @@ function loadBuildResults(pokemon, num, object) {
             child.remove();
         }
     });
-    console.log(builds)
     var findedPokemon = pokemonPointsData.find(function (item) {
         return item.name === pokemon.name && item.num === pokemon.num;
     });
@@ -201,7 +198,6 @@ function loadBuildResults(pokemon, num, object) {
             let g = 0;
             build.moves[i].split('/').forEach(function (move) {
                 let p = document.createElement('span');
-                console.log("BUILD MOVE: " + move)
                 p.textContent = allMoves[move].name;
 
                 if (build.moves[i].split('/').length > 1) {

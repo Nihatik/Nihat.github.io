@@ -58,12 +58,6 @@
 
 
 
-.team-pokemon-stats{
-
-}
-
-
-
 .team-pokemon-moves{
     display: flex;
     align-items: center;
@@ -160,15 +154,6 @@
     flex-direction: row;
 }
 
-.team-pokemon-stats input:not(input[type="range"]), .team-pokemon-stats p, .team-pokemon-stats h3{
-    width: 50px;
-    height: 22px;
-    transition: 0.3s;
-
-}
-.team-pokemon-stats h3{
-    width: 40px;
-}
 
 .text-input-panel{
     display: flex;
@@ -176,74 +161,12 @@
 }
 
 
-.team-pokemon-stats p, .team-pokemon-stats h3{
-    text-align: right;
-    height: 24px;
-    line-height: 24px; /* Выравнивание по центру по вертикали */
-}
 .evs input{
     width: 42px !important;
 }
 
 .ivs input {
     width: 34px !important;
-}
-
-.team-pokemon-stats input:not(input[type="range"]) {
-    border: 1px solid #4d4d4d;
-    color: white;
-    background-color: #2e2e2e;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    border-radius: 32px;
-    height: 22px;
-}
-
-.team-pokemon-stat-values{
-    margin-right: 8px;
-}
-
-.team-pokemon-stats{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-    gap: 8px;
-}
-
-
-.team-pokemon-stats:hover{
-    background-color: #222222;
-    cursor: pointer;
-    border-radius: 32px;
-}
-input[type="range"] {
-    -webkit-appearance: none;
-    width: 150px;
-    height: 12px;
-    background: #d3d3d3;
-    outline: none;
-    border-radius: 10px;
-}
-  
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
-    background: #2e2e2e;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-.evs-ranges > div{
-    height: 24px;
-    display: flex;
-    align-items: center;
 }
 
 

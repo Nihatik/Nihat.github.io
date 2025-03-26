@@ -1,11 +1,12 @@
 import { playerPokemons, updateTeamStatsWeak} from '../main.js';
-import { teamTypesDefenseUpdate } from '../utils/teamAnalyzer.js';
+import { teamTypesDefenseUpdate } from '../utils/teamAnalizer.js';
 import { returnPokePaste, returnCurrentPokemonPokepaste } from './Pokepaste.js';
 import { pokemonPointsData } from '../pokemonPointsBase.js';
 import { allPokemons, allNatures } from '../teambuilderBase.js';
 import { setTypesImg, imgSource } from './Utils.js';
 import { loadBuilds, loadBuildResults } from './Builds.js';
 import { openPokemonTab } from './Tabs.js';
+import {pokemonStatsLoad} from './PokemonUtils.js'
 
 var movesForPoints = ['Whirlwind', 'Roar', 'Baton Pass']
 
@@ -403,7 +404,6 @@ function updateVisualTeam(pokemon, num = null, object = null) {
 
     var teamPointsValue = calculateTeamPointsValue(playerPokemons);
 
-    console.log(object, "AGAGAGA")
     let sprite = object.querySelector('.pokemon-sprite')
 
     let spriteName

@@ -7,7 +7,7 @@ import { createResults, filterResults, createMovesResults, createItemsResults } 
 import { buildsOnLoad, submitBuildPokemonPaste, loadBuilds, loadBuildResults } from './components/Builds.js';
 import { openTab, openTab2, openPokemonTab, loadFunctions } from './components/Tabs.js';
 import { savedTeamsUpdate, saveTeam, deleteTeam, loadTeam } from './components/Teams.js';
-import { teamTypesDefenseUpdate } from './utils/teamAnalyzer.js';
+import { teamTypesDefenseUpdate } from './utils/teamAnalizer.js';
 import { submitPokePaste } from './components/Pokepaste.js';
 import { teamPokemonUpdate, updateVisualTeam } from './components/TeamUtils.js';
 import { getGradientColor } from './components/Utils.js';
@@ -27,12 +27,8 @@ var playerPokemons = [
 
 function presentInfoUpdate(opponent = null) {
     let buttons = document.querySelectorAll('.pokemon-pick-btn');
-    if (document.getElementById("playerteam-input-text").value) {
-        submitPokePaste(playerPokemons, document.getElementById("playerteam-input-text").value);
-    }
     for (var i = 0; i < 6; i++) {
         if (playerPokemons[i].types) {
-            console.log('ff')
             updateVisualTeam(playerPokemons[i], i, buttons[i])
             if (playerPokemons[i].name == "") {
                 buttons[i].classList.toggle("new-pokemon-btn")
@@ -77,7 +73,6 @@ function onLoad() {
             document.querySelectorAll('.team-pokemon-moves span input').forEach(el => el.removeAttribute("id"));
 
             this.setAttribute("id", "active-move");
-            console.log("ATTR",this.getAttribute("num"))
             createMovesResults(null, this.getAttribute("num"));
         }
     });
@@ -189,7 +184,6 @@ function onLoad() {
             activeIndex = (activeIndex - 1 + results.length) % results.length;
             updateActiveResult();
         } else if (event.key === "Enter") {
-            console.log("ZDAROVA")
             event.preventDefault();
             if (activeIndex >= 0) {
                 results[activeIndex].querySelector('a').click();
