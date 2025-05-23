@@ -1,21 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Общие правила | Турниры по системе баллов</title>
-    <link rel="stylesheet" href="tiers.css">
+    <title>two | Турниры по системе тиров</title>
+    <link rel="stylesheet" href="../tiers/tiers.css">
     <link rel="stylesheet" href="../scrollbar.css">
     <link rel="stylesheet" href="../header.css">
     <link rel="stylesheet" href="../theme.css">
     <link rel="stylesheet" href="../index.css">
-    <script type="module" src="tiers.js"></script>
+    <script type="module" src="points.js"></script>
     <script src="../theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 </head>
-
 <body>
     <header>
         <a href="../index.html"><img id="logo" src="../img/snorlaxfavicon.png"></a>
@@ -31,8 +30,8 @@
         <div class="dropdown">
             <a href="#">Турниры</a>
             <div class="dropdown-content">
-                <a href="rules.html">Система тиров</a>
-                <a href="../points/rules.html">Система баллов</a>
+                <a href="../tiers/rules.html">Система тиров</a>
+                <a href="rules.html">Система баллов</a>
             </div>
         </div>
         <a href="../teambuilder.html">Тимбилдер</a>
@@ -45,12 +44,550 @@
                 </div>
             </label>
         </div>
+        <button id="close-menu" easy-add="#right-menu" easy-class="right-menu-show">
+            <span class="button-line"></span>
+            <span class="button-line"></span>
+            <span class="button-line"></span>
+        </button>
     </header>
-    <main style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
-        <a style="text-align: center; line-height: 60px; font-size: 24px; text-decoration: none; background-color: #222; height: 60px; width: 240px; border-radius: 50px;" href="../teambuilder.html">TeamBuilder</a>
-        
-        <h2 style="opacity: 0.7;">Здесь больше нет правил(</h2>
+    <main>
+        <div id="right-menu">
+            <a class="visiblea" href="rules.html">Общие правила</a>
+            <input class='search-input' type="search" placeholder="Найти...">
+            <a id='six' href="six.html">6 баллов</a> <a id='five' href="five.html">5 баллов</a> <a id='four' href="four.html">4 балла</a> <a id='three' href="three.html">3 балла</a> <a class='current-page' id='two' href="two.html">2 балла</a> <a id='one' href="one.html">1 балл</a> <a id='zero' href="zero.html">0 баллов</a> 
+        </div>
+        <div id="main">
+            <div id="tiername">
+                <h3>2 балла</h3>
+            </div>
+            <div>
+                <h4>Список покемонов за 2 балла:</h4>
+                <input id='two' class='search-input-tier' placeholder="Найти...">
+                <div id="pokemon-cards">
+                <div id='pokemon-Alakazam-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/alakazam-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Alakazam-Mega</span>
+                </div>
+                <div id='pokemon-Altaria-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/altaria-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Altaria-Mega</span>
+                </div>
+                <div id='pokemon-Baxcalibur' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/baxcalibur.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Baxcalibur</span>
+                </div>
+                <div id='pokemon-Beedrill-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/beedrill-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Beedrill-Mega</span>
+                </div>
+                <div id='pokemon-Blaziken' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/blaziken.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Blaziken(HA)</span>
+                </div>
+                <div id='pokemon-Blaziken-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/blaziken-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Blaziken-Mega</span>
+                </div>
+                <div id='pokemon-Blissey' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/blissey.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Blissey</span>
+                </div>
+                <div id='pokemon-Celesteela' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/celesteela.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Celesteela</span>
+                </div>
+                <div id='pokemon-Chansey' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/chansey.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Chansey</span>
+                </div>
+                <div id='pokemon-Cinderace' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/cinderace.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Cinderace(HA)</span>
+                </div>
+                <div id='pokemon-Crawdaunt' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/crawdaunt.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Crawdaunt</span>
+                </div>
+                <div id='pokemon-Deoxys-Speed' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/deoxys-speed.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Deoxys-Speed</span>
+                </div>
+                <div id='pokemon-Diancie-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/diancie-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Diancie-Mega</span>
+                </div>
+                <div id='pokemon-Ditto' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/ditto.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Ditto(HA)</span>
+                </div>
+                <div id='pokemon-Dondozo' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/dondozo.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Dondozo</span>
+                </div>
+                <div id='pokemon-Dragapult' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/dragapult.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Dragapult</span>
+                </div>
+                <div id='pokemon-Espathra' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/espathra.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Espathra</span>
+                </div>
+                <div id='pokemon-Ferrothorn' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/ferrothorn.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Ferrothorn</span>
+                </div>
+                <div id='pokemon-Gallade-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/gallade-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Gallade-Mega</span>
+                </div>
+                <div id='pokemon-Gardevoir-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/gardevoir-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Gardevoir-Mega</span>
+                </div>
+                <div id='pokemon-Genesect' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/genesect.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Genesect</span>
+                </div>
+                <div id='pokemon-Glalie' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/glalie.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Glalie(HA)</span>
+                </div>
+                <div id='pokemon-Glalie-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/glalie-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Glalie-Mega</span>
+                </div>
+                <div id='pokemon-Gliscor' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/gliscor.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Gliscor(HA)</span>
+                </div>
+                <div id='pokemon-Goodra-Hisui' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/goodra-hisui.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Goodra-Hisui</span>
+                </div>
+                <div id='pokemon-Gothitelle' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/gothitelle.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Gothitelle</span>
+                </div>
+                <div id='pokemon-Greninja' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/greninja.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Greninja(HA)</span>
+                </div>
+                <div id='pokemon-Greninja-Ash' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/greninja-ash.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Greninja-Ash</span>
+                </div>
+                <div id='pokemon-Gyarados-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/gyarados-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Gyarados-Mega</span>
+                </div>
+                <div id='pokemon-Heatran' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/heatran.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Heatran</span>
+                </div>
+                <div id='pokemon-Heracross-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/heracross-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Heracross-Mega</span>
+                </div>
+                <div id='pokemon-Ho-Oh' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/hooh.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Ho-Oh</span>
+                </div>
+                <div id='pokemon-Hoopa-Unbound' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/hoopa-unbound.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Hoopa-Unbound</span>
+                </div>
+                <div id='pokemon-Iron Valiant' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/ironvaliant.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Iron Valiant</span>
+                </div>
+                <div id='pokemon-Jirachi' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/jirachi.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Jirachi</span>
+                </div>
+                <div id='pokemon-Kartana' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kartana.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Kartana</span>
+                </div>
+                <div id='pokemon-Kyurem' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kyurem.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Kyurem</span>
+                </div>
+                <div id='pokemon-Landorus' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/landorus.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Landorus(HA)</span>
+                </div>
+                <div id='pokemon-Landorus-Therian' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/landorus-therian.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Landorus-Therian</span>
+                </div>
+                <div id='pokemon-Latias-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/latias-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Latias-Mega</span>
+                </div>
+                <div id='pokemon-Latios' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/latios.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Latios</span>
+                </div>
+                <div id='pokemon-Latios-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/latios-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Latios-Mega</span>
+                </div>
+                <div id='pokemon-Lopunny-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/lopunny-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Lopunny-Mega</span>
+                </div>
+                <div id='pokemon-Lugia' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/lugia.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Lugia</span>
+                </div>
+                <div id='pokemon-Magearna' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/magearna.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Magearna</span>
+                </div>
+                <div id='pokemon-Mawile-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/mawile-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Mawile-Mega</span>
+                </div>
+                <div id='pokemon-Medicham-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/medicham-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Medicham-Mega</span>
+                </div>
+                <div id='pokemon-Meowscarada' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/meowscarada.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Meowscarada(HA)</span>
+                </div>
+                <div id='pokemon-Naganadel' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/naganadel.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Naganadel</span>
+                </div>
+                <div id='pokemon-Nihilego' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/nihilego.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Nihilego</span>
+                </div>
+                <div id='pokemon-Ninjask' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/ninjask.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Ninjask</span>
+                </div>
+                <div id='pokemon-Reshiram' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/reshiram.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Reshiram</span>
+                </div>
+                <div id='pokemon-Reuniclus' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/reuniclus.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Reuniclus</span>
+                </div>
+                <div id='pokemon-Rillaboom' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/rillaboom.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Rillaboom</span>
+                </div>
+                <div id='pokemon-Sableye-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/sableye-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Sableye-Mega</span>
+                </div>
+                <div id='pokemon-Scizor-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/scizor-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Scizor-Mega</span>
+                </div>
+                <div id='pokemon-Serperior' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/serperior.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Serperior(HA)</span>
+                </div>
+                <div id='pokemon-Shedinja' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/shedinja.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Shedinja</span>
+                </div>
+                <div id='pokemon-Smeargle' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/smeargle.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Smeargle</span>
+                </div>
+                <div id='pokemon-Sneasler' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/sneasler.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Sneasler</span>
+                </div>
+                <div id='pokemon-Swampert-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/swampert-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Swampert-Mega</span>
+                </div>
+                <div id='pokemon-Tapu Fini' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/tapufini.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Tapu Fini</span>
+                </div>
+                <div id='pokemon-Tapu Koko' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/tapukoko.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Tapu Koko</span>
+                </div>
+                <div id='pokemon-Tapu Lele' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/tapulele.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Tapu Lele</span>
+                </div>
+                <div id='pokemon-Togekiss' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/togekiss.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Togekiss</span>
+                </div>
+                <div id='pokemon-Toxapex' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/toxapex.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Toxapex</span>
+                </div>
+                <div id='pokemon-Tyranitar-Mega' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/tyranitar-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Tyranitar-Mega</span>
+                </div>
+                <div id='pokemon-Ursaluna' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/ursaluna.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Ursaluna</span>
+                </div>
+                <div id='pokemon-Urshifu-Rapid-Strike' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/urshifu-rapidstrike.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Urshifu-Rapid-Strike</span>
+                </div>
+                <div id='pokemon-Venusaur' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/venusaur.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Venusaur</span>
+                </div>
+                <div id='pokemon-Walking Wake' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/walkingwake.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Walking Wake</span>
+                </div>
+                <div id='pokemon-Weavile' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/weavile.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Weavile</span>
+                </div>
+                <div id='pokemon-Xurkitree' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/xurkitree.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Xurkitree</span>
+                </div>
+                <div id='pokemon-Zygarde' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/zygarde.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Zygarde</span>
+                </div></div>
+            </div>
+            
+            
+            
+        </div>
     </main>
 </body>
-
 </html>
+    

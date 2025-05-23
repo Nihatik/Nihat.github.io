@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Team Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .upload-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #fileInput {
+            display: none;
+        }
+        .upload-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .upload-btn:hover {
+            background-color: #45a049;
+        }
+        .preview-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .pokemon-card {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .pokemon-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .pokemon-name {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .similarity {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .error {
+            color: #ff0000;
+            text-align: center;
+            margin: 10px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pokemon Team Analyzer</h1>
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept="image/*">
+            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">Upload Team Screenshot</button>
+        </div>
+        <div class="error" id="error"></div>
+        <div class="loading" id="loading">
+            Analyzing image...
+        </div>
+        <div class="preview-section" id="previewSection"></div>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        // Function to process the uploaded image
+        async function processImage(file) {
+            const loading = document.getElementById('loading');
+            const previewSection = document.getElementById('previewSection');
+            const results = document.getElementById('results');
+            const error = document.getElementById('error');
+
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            previewSection.innerHTML = '';
+            results.innerHTML = '';
+
+            // Create a preview of the uploaded image
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                previewSection.appendChild(img);
+
+                // Create form data for upload
+                const formData = new FormData();
+                formData.append('image', file);
+
+                try {
+                    // Upload and process the image
+                    const response = await fetch('/api/process-image', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.error || 'Failed to process image');
+                    }
+
+                    // Display results
+                    const resultsContainer = document.createElement('div');
+                    resultsContainer.className = 'preview-section';
+
+                    data.results.forEach((result, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'pokemon-card';
+
+                        const name = document.createElement('div');
+                        name.className = 'pokemon-name';
+                        name.textContent = result.name;
+
+                        const similarity = document.createElement('div');
+                        similarity.className = 'similarity';
+                        similarity.textContent = `Confidence: ${(result.similarity * 100).toFixed(1)}%`;
+
+                        card.appendChild(name);
+                        card.appendChild(similarity);
+                        resultsContainer.appendChild(card);
+                    });
+
+                    results.appendChild(resultsContainer);
+                } catch (err) {
+                    error.textContent = err.message;
+                    error.style.display = 'block';
+                } finally {
+                    loading.style.display = 'none';
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Event listener for file input
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                processImage(e.target.files[0]);
+            }
+        });
+    </script>
+</body>
+</html>

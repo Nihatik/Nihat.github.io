@@ -1,21 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Общие правила | Турниры по системе баллов</title>
-    <link rel="stylesheet" href="tiers.css">
+    <title>five | Турниры по системе тиров</title>
+    <link rel="stylesheet" href="../tiers/tiers.css">
     <link rel="stylesheet" href="../scrollbar.css">
     <link rel="stylesheet" href="../header.css">
     <link rel="stylesheet" href="../theme.css">
     <link rel="stylesheet" href="../index.css">
-    <script type="module" src="tiers.js"></script>
+    <script type="module" src="points.js"></script>
     <script src="../theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 </head>
-
 <body>
     <header>
         <a href="../index.html"><img id="logo" src="../img/snorlaxfavicon.png"></a>
@@ -31,8 +30,8 @@
         <div class="dropdown">
             <a href="#">Турниры</a>
             <div class="dropdown-content">
-                <a href="rules.html">Система тиров</a>
-                <a href="../points/rules.html">Система баллов</a>
+                <a href="../tiers/rules.html">Система тиров</a>
+                <a href="rules.html">Система баллов</a>
             </div>
         </div>
         <a href="../teambuilder.html">Тимбилдер</a>
@@ -45,12 +44,81 @@
                 </div>
             </label>
         </div>
+        <button id="close-menu" easy-add="#right-menu" easy-class="right-menu-show">
+            <span class="button-line"></span>
+            <span class="button-line"></span>
+            <span class="button-line"></span>
+        </button>
     </header>
-    <main style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
-        <a style="text-align: center; line-height: 60px; font-size: 24px; text-decoration: none; background-color: #222; height: 60px; width: 240px; border-radius: 50px;" href="../teambuilder.html">TeamBuilder</a>
-        
-        <h2 style="opacity: 0.7;">Здесь больше нет правил(</h2>
+    <main>
+        <div id="right-menu">
+            <a class="visiblea" href="rules.html">Общие правила</a>
+            <input class='search-input' type="search" placeholder="Найти...">
+            <a id='six' href="six.html">6 баллов</a> <a class='current-page' id='five' href="five.html">5 баллов</a> <a id='four' href="four.html">4 балла</a> <a id='three' href="three.html">3 балла</a> <a id='two' href="two.html">2 балла</a> <a id='one' href="one.html">1 балл</a> <a id='zero' href="zero.html">0 баллов</a> 
+        </div>
+        <div id="main">
+            <div id="tiername">
+                <h3>5 баллов</h3>
+            </div>
+            <div>
+                <h4>Список покемонов за 5 баллов:</h4>
+                <input id='five' class='search-input-tier' placeholder="Найти...">
+                <div id="pokemon-cards">
+                <div id='pokemon-Koraidon' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/koraidon.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Koraidon</span>
+                </div>
+                <div id='pokemon-Kyogre-Primal' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kyogre-primal.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Kyogre-Primal</span>
+                </div>
+                <div id='pokemon-Miraidon' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/miraidon.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Miraidon</span>
+                </div>
+                <div id='pokemon-Rayquaza' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/rayquaza.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Rayquaza</span>
+                </div>
+                <div id='pokemon-Xerneas' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/xerneas.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Xerneas</span>
+                </div>
+                <div id='pokemon-Yveltal' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/yveltal.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Yveltal</span>
+                </div>
+                <div id='pokemon-Zacian-Crowned' class="pokemon-card">
+                    <div class="pokemon-sprite">
+                        <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/zacian-crowned.png);background-position:-2px -3px;background-repeat:no-repeat">
+                        </div>
+                    </div>
+                    <span>Zacian-Crowned</span>
+                </div></div>
+            </div>
+            
+            
+            
+        </div>
     </main>
 </body>
-
 </html>
+    

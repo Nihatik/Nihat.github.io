@@ -38,7 +38,8 @@
     text-align: left;
     background-color: transparent;
     border: none;
-    left: 180px;
+    right: 0px;
+    bottom: 0px;
 }
 
 
@@ -52,7 +53,7 @@
 
 #Pokepaste .pokemon-info-item {
     position: absolute;
-    left: 8px;
+    left: 0px;
     top: 8px;
     transition: 0.3s;
 }
