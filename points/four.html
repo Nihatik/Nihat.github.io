@@ -63,251 +63,260 @@
             <div>
                 <h4>Список покемонов за 4 балла:</h4>
                 <input id='four' class='search-input-tier' placeholder="Найти...">
+                <select id="tierFilter">
+                    <option value="all">Все тиры</option>
+                    <option value="AG">AG</option>
+                    <option value="Ubers">Ubers</option>
+                    <option value="OU">OU</option>
+                    <option value="UU">UU</option>
+                    <option value="RU">RU</option>
+                </select>
+
                 <div id="pokemon-cards">
-                <div id='pokemon-Arceus' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Arceus' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus</span>
+                    <span>Arceus <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Arceus-Bug' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Bug' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-bug.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Bug</span>
+                    <span>Arceus-Bug <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Dark' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Dark' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-dark.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Dark</span>
+                    <span>Arceus-Dark <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Dragon' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Dragon' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-dragon.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Dragon</span>
+                    <span>Arceus-Dragon <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Electric' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Electric' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-electric.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Electric</span>
+                    <span>Arceus-Electric <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Fairy' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Fairy' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-fairy.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Fairy</span>
+                    <span>Arceus-Fairy <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Fighting' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Fighting' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-fighting.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Fighting</span>
+                    <span>Arceus-Fighting <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Fire' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Fire' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-fire.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Fire</span>
+                    <span>Arceus-Fire <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Flying' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Flying' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-flying.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Flying</span>
+                    <span>Arceus-Flying <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Ghost' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Ghost' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-ghost.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Ghost</span>
+                    <span>Arceus-Ghost <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Grass' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Grass' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-grass.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Grass</span>
+                    <span>Arceus-Grass <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Ground' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Ground' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-ground.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Ground</span>
+                    <span>Arceus-Ground <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Ice' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Ice' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-ice.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Ice</span>
+                    <span>Arceus-Ice <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Poison' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Poison' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-poison.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Poison</span>
+                    <span>Arceus-Poison <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Psychic' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Psychic' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-psychic.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Psychic</span>
+                    <span>Arceus-Psychic <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Rock' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Rock' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-rock.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Rock</span>
+                    <span>Arceus-Rock <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Steel' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Steel' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-steel.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Steel</span>
+                    <span>Arceus-Steel <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Arceus-Water' class="pokemon-card">
+                <div tierName="None" id='pokemon-Arceus-Water' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/arceus-water.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Arceus-Water</span>
+                    <span>Arceus-Water <span style="color: #999;"></span></span>
                 </div>
-                <div id='pokemon-Calyrex-Ice' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Calyrex-Ice' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/calyrex-ice.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Calyrex-Ice</span>
+                    <span>Calyrex-Ice <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Chi-Yu' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Chi-Yu' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/chiyu.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Chi-Yu</span>
+                    <span>Chi-Yu <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Chien-Pao' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Chien-Pao' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/chien-pao.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Chien-Pao</span>
+                    <span>Chien-Pao <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Darkrai' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Darkrai' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/darkrai.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Darkrai</span>
+                    <span>Darkrai <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Eternatus' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Eternatus' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/eternatus.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Eternatus</span>
+                    <span>Eternatus <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Groudon' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Groudon' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/groudon.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Groudon</span>
+                    <span>Groudon <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Kyogre' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Kyogre' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kyogre.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Kyogre</span>
+                    <span>Kyogre <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Kyurem-Black' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Kyurem-Black' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kyurem-black.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Kyurem-Black</span>
+                    <span>Kyurem-Black <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Marshadow' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Marshadow' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/marshadow.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Marshadow</span>
+                    <span>Marshadow <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Mewtwo-Mega-X' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Mewtwo-Mega-X' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/mewtwo-megax.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Mewtwo-Mega-X</span>
+                    <span>Mewtwo-Mega-X <span style="color: #999;">Il</span></span>
                 </div>
-                <div id='pokemon-Mewtwo-Mega-Y' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Mewtwo-Mega-Y' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/mewtwo-megay.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Mewtwo-Mega-Y</span>
+                    <span>Mewtwo-Mega-Y <span style="color: #999;">Il</span></span>
                 </div>
-                <div id='pokemon-Necrozma-Dawn-Wings' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Necrozma-Dawn-Wings' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/necrozma-dawnwings.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Necrozma-Dawn-Wings</span>
+                    <span>Necrozma-Dawn-Wings <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Necrozma-Dusk-Mane' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Necrozma-Dusk-Mane' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/necrozma-duskmane.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Necrozma-Dusk-Mane</span>
+                    <span>Necrozma-Dusk-Mane <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Necrozma-Ultra' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Necrozma-Ultra' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/necrozma-ultra.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Necrozma-Ultra</span>
+                    <span>Necrozma-Ultra <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Zacian' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Zacian' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/zacian.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Zacian</span>
+                    <span>Zacian <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Zamazenta-Crowned' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Zamazenta-Crowned' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/zamazenta-crowned.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Zamazenta-Crowned</span>
+                    <span>Zamazenta-Crowned <span style="color: #999;">Il</span></span>
                 </div>
-                <div id='pokemon-Zygarde-Complete' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Zygarde-Complete' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/zygarde-complete.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Zygarde-Complete</span>
+                    <span>Zygarde-Complete <span style="color: #999;">Il</span></span>
                 </div></div>
             </div>
             

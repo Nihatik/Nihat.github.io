@@ -191,6 +191,24 @@ main input:focus{
     border: none;
 }
 
+
+main select {
+    border: 1px rgb(48, 48, 48);
+    color: white;
+    font-size: 16px;
+    width: 240px;
+    max-width: 90%;
+    padding: 14px;
+    padding-left: 8px;
+    padding-right: 32px;
+    background-color: rgb(28, 28, 28);
+    border-radius: 6px;
+    transition: 0.3s;
+    margin-bottom: 16px;
+}
+main select:focus{
+    border: none;
+}
 .visiblea{
     
 }

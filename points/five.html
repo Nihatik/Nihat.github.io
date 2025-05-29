@@ -63,55 +63,64 @@
             <div>
                 <h4>Список покемонов за 5 баллов:</h4>
                 <input id='five' class='search-input-tier' placeholder="Найти...">
+                <select id="tierFilter">
+                    <option value="all">Все тиры</option>
+                    <option value="AG">AG</option>
+                    <option value="Ubers">Ubers</option>
+                    <option value="OU">OU</option>
+                    <option value="UU">UU</option>
+                    <option value="RU">RU</option>
+                </select>
+
                 <div id="pokemon-cards">
-                <div id='pokemon-Koraidon' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Koraidon' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/koraidon.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Koraidon</span>
+                    <span>Koraidon <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Kyogre-Primal' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Kyogre-Primal' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kyogre-primal.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Kyogre-Primal</span>
+                    <span>Kyogre-Primal <span style="color: #999;">Il</span></span>
                 </div>
-                <div id='pokemon-Miraidon' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Miraidon' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/miraidon.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Miraidon</span>
+                    <span>Miraidon <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Rayquaza' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Rayquaza' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/rayquaza.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Rayquaza</span>
+                    <span>Rayquaza <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Xerneas' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Xerneas' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/xerneas.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Xerneas</span>
+                    <span>Xerneas <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Yveltal' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Yveltal' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/yveltal.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Yveltal</span>
+                    <span>Yveltal <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Zacian-Crowned' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Zacian-Crowned' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/zacian-crowned.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Zacian-Crowned</span>
+                    <span>Zacian-Crowned <span style="color: #999;">Il</span></span>
                 </div></div>
             </div>
             

@@ -170,21 +170,21 @@ def generate_pokemon_cards_for_tier(tier):
             url = remove_second_dash(url)
         if(pokemon['points'] == tierValues[tier]):
             text += f'''
-                <div id='pokemon-{pokemon['name']}' class="pokemon-card">
+                <div tierName="{pokemon['tier']}" id='pokemon-{pokemon['name']}' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>{pokemon['name']}</span>
+                    <span>{pokemon['name']} <span style="color: #999;">{str(pokemon['tier'])[0:2] if pokemon['tier'] else ''}</span></span>
                 </div>'''
         elif(pokemon['pointsHa'] == tierValues[tier]):
             text += f'''
-                <div id='pokemon-{pokemon['name']}' class="pokemon-card">
+                <div tierName="{pokemon['tier']}" id='pokemon-{pokemon['name']}' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>{pokemon['name']}(HA)</span>
+                    <span>{pokemon['name']}(HA) <span style="color: #999;">{str(pokemon['tier'])[0:2] if pokemon['tier'] else ''}</span></span>
                 </div>'''
     text+= '</div>'
     return text
@@ -285,6 +285,15 @@ def generate_pokemon_page(tier):
             <div>
                 <h4>Список покемонов за {tiersFullNames[tier]}:</h4>
                 <input id='{tier}' class='search-input-tier' placeholder="Найти...">
+                <select id="tierFilter">
+                    <option value="all">Все тиры</option>
+                    <option value="AG">AG</option>
+                    <option value="Ubers">Ubers</option>
+                    <option value="OU">OU</option>
+                    <option value="UU">UU</option>
+                    <option value="RU">RU</option>
+                </select>
+
                 {cards_for_tier}
             </div>
             {f'''

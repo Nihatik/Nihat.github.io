@@ -63,258 +63,267 @@
             <div>
                 <h4>Список покемонов за 3 балла:</h4>
                 <input id='three' class='search-input-tier' placeholder="Найти...">
+                <select id="tierFilter">
+                    <option value="all">Все тиры</option>
+                    <option value="AG">AG</option>
+                    <option value="Ubers">Ubers</option>
+                    <option value="OU">OU</option>
+                    <option value="UU">UU</option>
+                    <option value="RU">RU</option>
+                </select>
+
                 <div id="pokemon-cards">
-                <div id='pokemon-Annihilape' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Annihilape' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/annihilape.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Annihilape</span>
+                    <span>Annihilape <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Blastoise-Mega' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Blastoise-Mega' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/blastoise-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Blastoise-Mega</span>
+                    <span>Blastoise-Mega <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Darmanitan-Galar' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Darmanitan-Galar' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/darmanitan-galar.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Darmanitan-Galar</span>
+                    <span>Darmanitan-Galar <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Deoxys' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Deoxys' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/deoxys.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Deoxys</span>
+                    <span>Deoxys <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Deoxys-Attack' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Deoxys-Attack' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/deoxys-attack.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Deoxys-Attack</span>
+                    <span>Deoxys-Attack <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Dialga' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Dialga' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/dialga.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Dialga</span>
+                    <span>Dialga <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Dialga-Origin' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Dialga-Origin' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/dialga-origin.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Dialga-Origin</span>
+                    <span>Dialga-Origin <span style="color: #999;">Il</span></span>
                 </div>
-                <div id='pokemon-Dracovish' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Dracovish' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/dracovish.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Dracovish</span>
+                    <span>Dracovish <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Flutter Mane' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Flutter Mane' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/fluttermane.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Flutter Mane</span>
+                    <span>Flutter Mane <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Gengar-Mega' class="pokemon-card">
+                <div tierName="AG" id='pokemon-Gengar-Mega' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/gengar-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Gengar-Mega</span>
+                    <span>Gengar-Mega <span style="color: #999;">AG</span></span>
                 </div>
-                <div id='pokemon-Giratina' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Giratina' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/giratina.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Giratina</span>
+                    <span>Giratina <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Giratina-Origin' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Giratina-Origin' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/giratina-origin.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Giratina-Origin</span>
+                    <span>Giratina-Origin <span style="color: #999;">Il</span></span>
                 </div>
-                <div id='pokemon-Ho-Oh' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Ho-Oh' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/hooh.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Ho-Oh(HA)</span>
+                    <span>Ho-Oh(HA) <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Iron Bundle' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Iron Bundle' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/ironbundle.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Iron Bundle</span>
+                    <span>Iron Bundle <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Kangaskhan-Mega' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Kangaskhan-Mega' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kangaskhan-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Kangaskhan-Mega</span>
+                    <span>Kangaskhan-Mega <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Kingambit' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Kingambit' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kingambit.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Kingambit</span>
+                    <span>Kingambit <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Kyurem-White' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Kyurem-White' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/kyurem-white.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Kyurem-White</span>
+                    <span>Kyurem-White <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Lucario-Mega' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Lucario-Mega' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/lucario-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Lucario-Mega</span>
+                    <span>Lucario-Mega <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Lugia' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Lugia' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/lugia.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Lugia(HA)</span>
+                    <span>Lugia(HA) <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Lunala' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Lunala' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/lunala.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Lunala</span>
+                    <span>Lunala <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Melmetal' class="pokemon-card">
+                <div tierName="OU" id='pokemon-Melmetal' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/melmetal.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Melmetal</span>
+                    <span>Melmetal <span style="color: #999;">OU</span></span>
                 </div>
-                <div id='pokemon-Metagross-Mega' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Metagross-Mega' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/metagross-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Metagross-Mega</span>
+                    <span>Metagross-Mega <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Mewtwo' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Mewtwo' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/mewtwo.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Mewtwo</span>
+                    <span>Mewtwo <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Palafin' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Palafin' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/palafin.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Palafin</span>
+                    <span>Palafin <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Palkia' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Palkia' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/palkia.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Palkia</span>
+                    <span>Palkia <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Palkia-Origin' class="pokemon-card">
+                <div tierName="Illegal" id='pokemon-Palkia-Origin' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/palkia-origin.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Palkia-Origin</span>
+                    <span>Palkia-Origin <span style="color: #999;">Il</span></span>
                 </div>
-                <div id='pokemon-Pheromosa' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Pheromosa' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/pheromosa.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Pheromosa</span>
+                    <span>Pheromosa <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Regieleki' class="pokemon-card">
+                <div tierName="UU" id='pokemon-Regieleki' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/regieleki.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Regieleki</span>
+                    <span>Regieleki <span style="color: #999;">UU</span></span>
                 </div>
-                <div id='pokemon-Roaring Moon' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Roaring Moon' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/roaringmoon.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Roaring Moon</span>
+                    <span>Roaring Moon <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Salamence-Mega' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Salamence-Mega' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/salamence-mega.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Salamence-Mega</span>
+                    <span>Salamence-Mega <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Shaymin-Sky' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Shaymin-Sky' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/shaymin-sky.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Shaymin-Sky</span>
+                    <span>Shaymin-Sky <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Solgaleo' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Solgaleo' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/solgaleo.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Solgaleo</span>
+                    <span>Solgaleo <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Spectrier' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Spectrier' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/spectrier.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Spectrier</span>
+                    <span>Spectrier <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Urshifu' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Urshifu' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/urshifu.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Urshifu</span>
+                    <span>Urshifu <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Zamazenta' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Zamazenta' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/zamazenta.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Zamazenta</span>
+                    <span>Zamazenta <span style="color: #999;">Ub</span></span>
                 </div>
-                <div id='pokemon-Zekrom' class="pokemon-card">
+                <div tierName="Ubers" id='pokemon-Zekrom' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/zekrom.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>Zekrom</span>
+                    <span>Zekrom <span style="color: #999;">Ub</span></span>
                 </div></div>
             </div>
             

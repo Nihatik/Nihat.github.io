@@ -163,21 +163,21 @@ def generate_pokemon_cards_for_tier(tier):
                 tierValue = 'monotype'
             if (pokemon[tierValue] == False):
                 text += f'''
-                <div id='pokemon-{pokemon['name']}' class="pokemon-card">
+                <div pointsValue="{pokemon['points']}" id='pokemon-{pokemon['name']}' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>{pokemon['name']}</span>
+                    <span>{pokemon['name']} <span style="color: #999;">{str(pokemon['points']) if pokemon['points'] else ''}</span></span>
                 </div>'''
         elif(pokemon['tier'] == tier):
             text += f'''
-                <div id='pokemon-{pokemon['name']}' class="pokemon-card">
+                <div pointsValue="{pokemon['points']}" id='pokemon-{pokemon['name']}' class="pokemon-card">
                     <div class="pokemon-sprite">
                         <div class="pokemon-sprite" style="background-image:url(https://play.pokemonshowdown.com/sprites/gen5/{url}.png);background-position:-2px -3px;background-repeat:no-repeat">
                         </div>
                     </div>
-                    <span>{pokemon['name']}</span>
+                    <span>{pokemon['name']}  <span style="color: #999;">{str(pokemon['points']) if pokemon['points'] else ''}</span></span>
                 </div>'''
     text+= '</div>'
     return text
@@ -366,6 +366,15 @@ def generate_pokemon_page(tier):
             <div>
                 {f'''<h4>Покемоны <label class="green-text">{tier}</label> тира:</h4>''' if tier != 'Mono/Dual Type' and tier != 'Ubers UU' and tier != 'Doubles OU' else f'''<h4>Покемоны <label class="red-text" >ЗАПРЕЩЕННЫЕ</label> в тире {tier}:</h4>'''}
                 <input id='{tier}' class='search-input-tier' placeholder="Найти...">
+                <select id="pointsFilter">
+                    <option value="6">6</option>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                    <option value="0">0</option>
+                </select>
                 {cards_for_tier}
             </div>
         </div>
