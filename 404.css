@@ -5,7 +5,7 @@
 }
 
 body {
-    background: rgb(34, 34, 34);
+    background: rgb(24, 24, 24);
     color: white;
     background-image: url(img/background2.png);
     background-size: cover;
@@ -15,17 +15,6 @@ body {
     align-items: center;
     flex-direction: column;
     overflow-x: hidden;
-    animation: animation 1s infinite ease-in-out forwards alternate;
-    clip-path: path("M 400,0 L 1520,0 L 1520,1080 L 400,1080 Z"); 
-}
-
-
-@keyframes animation {
-    0% {
-    }
-    100% {
-        clip-path: path("M 0,0 L 1920,0 L 1920,1080 L 0,1080 Z"); 
-    }
 }
 
 .panel{
@@ -34,12 +23,20 @@ body {
     justify-content: center;
     align-items: center;
     width: 50%;
-    background-color: rgb(37, 37, 37);
-    border: 1px solid #424242;
-    border-radius: 8px;
-    box-shadow: 3px 3px 3px #111;
+    height: 80vh;
     margin: 16px 16px;
     padding: 8px;
+}
+
+a {
+    color: #eeeeee;
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 button{
@@ -101,4 +98,3 @@ header {
     border: 1px solid #424242;
     box-shadow: 0 0 7px 1px #111;
 }
-
