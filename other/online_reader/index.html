@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Подсчет онлайна</title>
+  <style>
+    * {
+      font-family: Verdana;
+    }
+    body {
+      background-color: rgb(24, 24, 24);
+      color: #eeeeee;
+    }
+    input {
+      padding: 8px;
+      border: 1px solid rgb(48, 48, 48);
+      background-color: black;
+      border-radius: 32px;
+      width: 320px;
+      height: 20px;
+      padding-left: 16px;
+      transition: 0.3s;
+      color: #eeeeee;
+      font-size: 13px;
+    }
+    input:focus {
+      border: none;
+      outline: none;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #result.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 90vh;">
+    <input id="urlInput" placeholder="Вставь ссылку и нажми Enter">
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById("urlInput").addEventListener("keydown", async function (e) {
+      if (e.key === "Enter") {
+        const url = this.value;
+        const proxy = "https://corsproxy.io/?";
+        const resultDiv = document.getElementById("result");
+        
+        resultDiv.classList.remove("show"); // сбрасываем эффект перед новым выводом
+        resultDiv.innerText = "Загрузка...";
+
+        try {
+          const response = await fetch(proxy + encodeURIComponent(url));
+          const text = await response.text();
+
+          const now = new Date();
+          const currentMonth = now.getMonth() + 1;
+          const currentDay = now.getDate();
+          const dayOfWeek = now.getDay() === 0 ? 7 : now.getDay();
+          const monday = new Date(now);
+          monday.setDate(currentDay - dayOfWeek + 1);
+
+          const weekDates = new Set();
+          for (let i = 0; i < 7; i++) {
+            const d = new Date(monday);
+            d.setDate(monday.getDate() + i);
+            weekDates.add(`${d.getMonth() + 1}.${d.getDate()}`);
+          }
+
+          const regex = /(\d{1,2}\.\d{1,2})\s+часов в игре:\s*([\d.]+)/g;
+          let match;
+          let totalHours = 0;
+
+          while ((match = regex.exec(text)) !== null) {
+            const date = match[1];
+            const hours = parseFloat(match[2]);
+            if (weekDates.has(date)) {
+              totalHours += hours;
+            }
+          }
+
+          resultDiv.innerText = `Онлайн за неделю: ${totalHours.toFixed(2)} ч.`;
+          setTimeout(() => resultDiv.classList.add("show"), 50); // задержка, чтобы CSS успел примениться
+        } catch (err) {
+          resultDiv.innerText = "Ошибка загрузки или парсинга данных.";
+          console.error(err);
+          resultDiv.classList.add("show");
+        }
+      }
+    });
+  </script>
+</body>
+</html>
