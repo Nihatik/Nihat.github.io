@@ -54,10 +54,10 @@
     document.getElementById("urlInput").addEventListener("keydown", async function (e) {
       if (e.key === "Enter") {
         const url = this.value;
-        const proxy = "https://corsproxy.io/?";
+        const proxy = "https://api.allorigins.win/raw?url=";
         const resultDiv = document.getElementById("result");
         
-        resultDiv.classList.remove("show"); // сбрасываем эффект перед новым выводом
+        resultDiv.classList.remove("show");
         resultDiv.innerText = "Загрузка...";
 
         try {
@@ -91,7 +91,7 @@
           }
 
           resultDiv.innerText = `Онлайн за неделю: ${totalHours.toFixed(2)} ч.`;
-          setTimeout(() => resultDiv.classList.add("show"), 50); // задержка, чтобы CSS успел примениться
+          setTimeout(() => resultDiv.classList.add("show"), 50);
         } catch (err) {
           resultDiv.innerText = "Ошибка загрузки или парсинга данных.";
           console.error(err);
