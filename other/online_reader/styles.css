@@ -28,7 +28,6 @@ body {
     height: 100vh;
     padding: 20px;
     gap: 20px;
-    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -115,17 +114,25 @@ input:focus {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.stats-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .username {
     font-size: 28px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .summary {
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 15px;
+    margin-top: 12px;
     color: var(--accent-color);
 }
 
@@ -141,7 +148,7 @@ input:focus {
 .stats-table th,
 .stats-table td {
     font-size: 14px;
-    padding: 12px 16px;
+    padding: 8px 16px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
 }
@@ -161,9 +168,6 @@ input:focus {
 .monthly-stats {
     font-size: 20px;
     font-weight: 600;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
     color: var(--text-primary);
 }
 
@@ -202,10 +206,6 @@ input:focus {
     align-items: center;
 }
 
-#weekSelector {
-    min-width: 160px;
-}
-
 #weekDropdown {
     background-color: var(--bg-secondary);
     color: var(--text-primary);
@@ -213,7 +213,6 @@ input:focus {
     border: 1px solid var(--border-color);
     padding: 8px 4px;
     font-size: 14px;
-    width: 100%;
     cursor: pointer;
     transition: var(--transition-speed);
 }
@@ -228,6 +227,7 @@ input:focus {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+    
     .container {
         padding: 15px;
     }
@@ -238,6 +238,9 @@ input:focus {
 }
 
 @media (max-width: 768px) {
+    #weekDropdown{
+        width: 100%;
+    }
     .container {
         flex-direction: column;
         height: auto;

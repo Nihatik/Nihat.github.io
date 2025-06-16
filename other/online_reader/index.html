@@ -134,6 +134,7 @@
 
             resultDiv.classList.remove("show");
             resultDiv.innerText = "Загрузка...";
+            resultDiv.classList.add("show");
 
             fetch(proxy + encodeURIComponent(url))
                 .then(response => response.text())
@@ -202,7 +203,10 @@
 
                     resultDiv.innerHTML = `
                         <div class="stats">
-                            <div class="username">${username}</div>
+                            <div class="stats-top">
+                                <div class="username">${username}</div>
+                                <div class="monthly-stats">Онлайн за месяц: ${monthlyHours.toFixed(2)} ч.</div>
+                            </div>
                             <div class="summary">Онлайн за выбранную неделю: ${totalHours.toFixed(2)} ч.</div>
                             <table class="stats-table">
                                 <thead>
@@ -216,7 +220,6 @@
                                     ${tableRows}
                                 </tbody>
                             </table>
-                            <div class="monthly-stats">Онлайн за месяц: ${monthlyHours.toFixed(2)} ч.</div>
                         </div>`;
                     setTimeout(() => resultDiv.classList.add("show"), 50);
                 })
