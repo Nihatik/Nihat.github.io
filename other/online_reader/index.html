@@ -5,190 +5,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../scrollbar.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Подсчет онлайна</title>
-    <style>
-        * {
-            font-family: Verdana;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: rgb(24, 24, 24);
-            color: #eeeeee;
-            min-height: 100vh;
-        }
-
-        .container {
-            display: flex;
-            height: 100vh;
-            padding: 20px;
-            gap: 20px;
-        }
-
-        .left-panel {
-            width: 360px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .right-panel {
-            flex: 1;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        input {
-            padding: 8px;
-            border: 1px solid rgb(48, 48, 48);
-            background-color: rgb(32, 32, 32);
-            border-radius: 32px;
-            width: 100%;
-            height: 48px;
-            padding-left: 16px;
-            transition: 0.3s;
-            color: #eeeeee;
-            font-size: 15px;
-        }
-
-        input:focus {
-            border: none;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
-        }
-
-        .history {
-            background-color: rgb(32, 32, 32);
-            border-radius: 32px;
-            padding: 20px;
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .history-title {
-            color: #888;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .history-item {
-            padding: 10px;
-            border-radius: 16px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .history-item:hover {
-            background-color: rgba(76, 175, 80, 0.1);
-        }
-
-        .history-url {
-            color: #4CAF50;
-            font-size: 13px;
-            word-break: break-all;
-        }
-
-        .history-username {
-            color: #999;
-            font-size: 12px;
-        }
-
-        .stats {
-            background-color: rgb(32, 32, 32);
-            padding: 20px;
-            border-radius: 32px;
-        }
-
-        .username {
-            font-size: 24px;
-            font-weight: bold;
-            color: #dddddd;
-            margin-bottom: 15px;
-        }
-
-        .summary {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #4CAF50;
-        }
-
-        .stats-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-
-        .stats-table th,
-        .stats-table td {
-            font-size: 14px;
-            padding: 4px 6px;
-            text-align: left;
-            border-bottom: 1px solid rgb(48, 48, 48);
-        }
-
-
-        .stats-table th {
-            color: #888;
-            font-weight: normal;
-            font-size: 14px;
-        }
-
-        .current-week {
-            color: #4CAF50;
-        }
-
-        .monthly-stats {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgb(48, 48, 48);
-            color: #cccccc;
-        }
-
-        #result {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        #result.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .clear-history {
-            background: none;
-            border: none;
-            color: #888;
-            cursor: pointer;
-            font-size: 12px;
-            text-align: right;
-            width: 100%;
-            padding: 5px;
-            transition: 0.2s;
-        }
-
-        .clear-history:hover {
-            color: #4CAF50;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="left-panel">
-            <input id="urlInput" placeholder="Вставь ссылку и нажми Enter">
+            <div class="left-panel-top">
+                <input id="urlInput" placeholder="Вставь ссылку и нажми Enter" aria-label="URL input">
+                <div id="weekSelector">
+                    <select id="weekDropdown" onchange="changeWeek(this.value)" aria-label="Week selector">
+                    </select>
+                </div>
+            </div>
+
             <div class="history">
                 <div class="history-title">История поиска</div>
-                <button class="clear-history" onclick="clearHistory()">Очистить историю</button>
+                <button class="clear-history" onclick="clearHistory()" aria-label="Clear history">Очистить историю</button>
                 <div id="historyList"></div>
             </div>
         </div>
@@ -200,31 +34,33 @@
     <script>
         const MAX_HISTORY_ITEMS = 10;
         let history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+        let selectedWeekIndex;
+        let weekDatesMap = [];
 
         function updateHistoryList() {
-        const historyList = document.getElementById('historyList');
-        historyList.innerHTML = history.map(item => {
-            const displayUrl = formatUrl(item.url);
-            const displayDate = item.checkedAt
-                ? new Date(item.checkedAt).toLocaleString('ru-RU', {
-                    day: '2-digit',
-                    month: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                })
-                : '';
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = history.map(item => {
+                const displayUrl = formatUrl(item.url);
+                const displayDate = item.checkedAt
+                    ? new Date(item.checkedAt).toLocaleString('ru-RU', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    })
+                    : '';
 
-            return `
-                <div class="history-item" onclick="useHistoryItem('${item.url}')">
-                    <div style="display: flex; justify-content: space-between;">
-                        <div class="history-username">${item.username}</div>
-                        <div class="history-url">${displayUrl}</div>
+                return `
+                    <div class="history-item" onclick="useHistoryItem('${item.url}')">
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="history-username">${item.username}</div>
+                            <div class="history-url">${displayUrl}</div>
+                        </div>
+                        <div style="color: #666; font-size: 11px;">${displayDate}</div>
                     </div>
-                    <div style="color: #666; font-size: 11px;">${displayDate}</div>
-                </div>
-            `;
-        }).join('');
-    }
+                `;
+            }).join('');
+        }
 
         function clearHistory() {
             history = [];
@@ -239,10 +75,10 @@
 
         function addToHistory(url, username) {
             history = [
-                { url, username },
+                { url, username, checkedAt: new Date().toISOString() },
                 ...history.filter(item => item.url !== url)
             ].slice(0, MAX_HISTORY_ITEMS);
-            
+
             localStorage.setItem('searchHistory', JSON.stringify(history));
             updateHistoryList();
         }
@@ -251,7 +87,7 @@
             try {
                 const u = new URL(url);
                 if (u.hostname === "haste.streamcraft.net" && u.pathname.startsWith("/raw/")) {
-                    return "..." + u.pathname.slice(-10); 
+                    return "..." + u.pathname.slice(-10);
                 }
                 return u.hostname + u.pathname;
             } catch {
@@ -259,10 +95,43 @@
             }
         }
 
+        function generateWeekRanges() {
+            const weeks = [];
+            const today = new Date();
+            const latestMonday = new Date(today);
+            latestMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7));
+
+            for (let i = 0; i < 8; i++) {
+                const end = new Date(latestMonday);
+                end.setDate(end.getDate() - i * 7 + 6);
+
+                const start = new Date(latestMonday);
+                start.setDate(start.getDate() - i * 7);
+
+                weeks.push({ start, end });
+            }
+
+            weekDatesMap = weeks;
+            const dropdown = document.getElementById("weekDropdown");
+            dropdown.innerHTML = weeks.map((w, i) => {
+                const startStr = `${String(w.start.getDate()).padStart(2, '0')}.${String(w.start.getMonth() + 1).padStart(2, '0')}`;
+                const endStr = `${String(w.end.getDate()).padStart(2, '0')}.${String(w.end.getMonth() + 1).padStart(2, '0')}`;
+                return `<option value="${i}">${startStr} – ${endStr}</option>`;
+            }).join('');
+        }
+
+        function changeWeek(index) {
+            selectedWeekIndex = parseInt(index);
+            const url = document.getElementById("urlInput").value;
+            if (url) {
+                processUrl(url);
+            }
+        }
+
         function processUrl(url) {
             const proxy = "https://api.allorigins.win/raw?url=";
             const resultDiv = document.getElementById("result");
-            
+
             resultDiv.classList.remove("show");
             resultDiv.innerText = "Загрузка...";
 
@@ -271,15 +140,15 @@
                 .then(text => {
                     const usernameMatch = text.match(/^([^\n]+)/);
                     const username = usernameMatch ? usernameMatch[1] : "Неизвестный игрок";
-                    
+
                     addToHistory(url, username);
 
-                    const now = new Date();
-                    const currentDay = now.getDate();
-                    const dayOfWeek = now.getDay() === 0 ? 7 : now.getDay();
-                    const monday = new Date(now);
-                    monday.setDate(currentDay - dayOfWeek + 1);
+                    if (typeof selectedWeekIndex === 'undefined' || !weekDatesMap[selectedWeekIndex]) {
+                        selectedWeekIndex = 0;
+                    }
 
+                    const weekRange = weekDatesMap[selectedWeekIndex];
+                    const monday = new Date(weekRange.start);
                     const weekDates = new Map();
                     const daysOfWeek = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
 
@@ -320,7 +189,6 @@
                         const isCurrentWeek = weekDates.has(date);
                         const [month, day] = date.split('.').map(Number);
                         const prettyDate = `${String(day).padStart(2, '0')}.${String(month).padStart(2, '0')}`;
-
                         const jsDayIndex = new Date(2024, month - 1, day).getDay();
                         const dayName = daysOfWeek[(jsDayIndex + 7) % 7];
 
@@ -335,7 +203,7 @@
                     resultDiv.innerHTML = `
                         <div class="stats">
                             <div class="username">${username}</div>
-                            <div class="summary">Онлайн за текущую неделю: ${totalHours.toFixed(2)} ч.</div>
+                            <div class="summary">Онлайн за выбранную неделю: ${totalHours.toFixed(2)} ч.</div>
                             <table class="stats-table">
                                 <thead>
                                     <tr>
@@ -359,12 +227,13 @@
                 });
         }
 
-        document.getElementById("urlInput").addEventListener("keydown", function(e) {
+        document.getElementById("urlInput").addEventListener("keydown", function (e) {
             if (e.key === "Enter") {
                 processUrl(this.value);
             }
         });
 
+        generateWeekRanges();
         updateHistoryList();
     </script>
 </body>
